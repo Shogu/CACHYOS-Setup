@@ -7,7 +7,7 @@ Setup, tips &amp; tweaks pour CachyOS
       <img src="https://github.com/Shogu/Fedora41-setup-config/blob/main/Images%20USER/.user-astronaut.png" alt="logo_user" width="150">
     </td>
     <td style="vertical-align: middle; padding-left: 10px;">
-      <h2 style="margin: 0;">Fedora 41 setup & config</h2>
+      <h2 style="margin: 0;">CachyOS Setup</h2>
     </td>
   </tr>
 </table>
