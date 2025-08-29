@@ -61,15 +61,19 @@ sudo btrfs filesystem show /
   
 * **8** - Compléter en supprimant les `logiciels inutiles` suivants avec pacman :
 ```
-sudo pacman -Rns apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds  gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca
-
+sudo pacman -Rns apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds  gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp
 
 ```
     
 * **9** - Supprimer et masquer les services `SYSTEM` & `USER` inutiles :
 **SYSTEM**
 ```
-sudo systemctl mask serial-getty@ttyS2.service NetworkManager-wait-online.service auditd.service ModemManager.service avahi-daemon.service avahi-daemon.socket plymouth-quit-wait.service switcheroo-control.service sys-kernel-tracing.mount sys-kernel-debug.mount httpd.service mdmonitor.service raid-check.timer sssd-kcm.service pcscd pcscd.socket fwupd sssd-kcm.socket sssd.service iio-sensor-proxy
+sudo systemctl mask plymouth-quit-wait.service
+sudo systemctl mask avahi-daemon.service
+sudo systemctl mask sys-kernel-debug.mount
+sudo systemctl mask sys-kernel-tracing.mount
+sudo systemctl mask avahi-daemon.socket
+
 ```
 Enfin, reboot puis controle de l'état des services avec :
 ```
