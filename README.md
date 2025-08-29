@@ -248,34 +248,9 @@ nmcli dev show |grep DNS
 
 ## 📦 **D - Remplacement et installation de logiciels et codecs**
 
-* **27** - Ajouter les sources `RPMFusion` :
-  
-**RPMFusion Free**
-```
-sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E%fedora).noarch.rpm 
-```
-
-**RMPFusion Non free**
-```
-sudo dnf install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-```
-    
-* **28** - Ajouter les codecs `FFMPEG`, multimedia, `AV1`, & le `pilote Intel` d'accélération matérielle :
-```
-sudo dnf swap ffmpeg-free ffmpeg --allowerasing
-sudo dnf install intel-media-driver
-sudo dnf swap libva-intel-media-driver intel-media-driver --allowerasing
-sudo dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
-```
-
-* **29** - Réglages de `gnome-software`
-
 * **30** - Installer les logiciels `Flatpak` suivants : nota : utiliser prioritairement les flatpaks Fedora OU Flathub car les runtimes ne sont pas partagés entre les 2.
 ```
 flatpak install flathub com.mattjakeman.ExtensionManager -y
-flatpak install flathub io.github.flattool.Warehouse -y
-NE PAS INSTALLER FLATSWEEP : il utilise la version obsolète 46 de Gnome, soit 1 Go de contenu pour pas grand chose...flatpak install flathub io.github.giantpinkrobots.flatsweep -y
-flatpak install flathub net.nokyan.Resources -y
 flatpak install flathub org.jdownloader.JDownloader -y
 flatpak install flathub org.onlyoffice.desktopeditors -y
 flatpak install flathub de.haeckerfelix.Fragments -y
@@ -285,53 +260,27 @@ flatpak install flathub io.github.celluloid_player.Celluloid -y
 flatpak install flathub org.nicotine_plus.Nicotine -y
 flatpak install flathub de.schmidhuberj.tubefeeder -y
 flatpak install flathub app.ytmdesktop.ytmdesktop -y
-flatpak install flathub org.gnome.Epiphany -y
 ```
-Nota : penser à décocher "Exécuter en arrière plan" dans les réglages de Gnome (rubrique `applications`) pour le navigateur secondaire `Web`, sans quoi il semble se lancer au boot.
 
 * **31** - Installer les `logiciels` suivants avec dnf :
 ```
-sudo dnf install dconf-editor -y
-sudo dnf install evince-thumbnailer -y
-sudo dnf install gnome-tweaks -y
-sudo dnf install powertop -y
-sudo dnf install zstd -y
-sudo dnf install ffmpegthumbnailer.x86_64 -y
-sudo dnf install profile-cleaner -y
-sudo dnf install seahorse -y
-sudo dnf install dnfdragora -y
-sudo dnf install ImageMagick -y
+sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse pamac
 ```
 
-* **32** - Installer `Dropbox` avec **Maestral** :
+* **32** - Installer `Dropbox` :
 ```
-sudo dnf install gcc
-sudo dnf install python3-devel
-sudo dnf install python3-pip  
-python3 -m venv maestral-venv
-mv maestral-venv .maestral-venv
-source .maestral-venv/bin/activate
-python3 -m pip install --upgrade 'maestral[gui]' ou python3 -m pip install --user maestral[gui]
-maestral gui
-sudo dnf remove gcc python3-devel python3-pip
-```
+sudo pacman -S libappindicator-gtk3
+yay -S dropbox
+dropbox start -i
+yay -S nautilus-dropbox
 
-* **33** - Désinstaller `gnome-software` et `packagekit` (ainsi que le cache) pour éviter leur lancement au boot, et les remplacer par `DNFdragora` :
-  
-```
-sudo dnf remove PackageKit-gstreamer-plugin PackageKit PackageKit-command-not-found gnome-software
-sudo rm -rf /var/cache/PackageKit
-```
+si erreur 8 :
 
-OU désactiver l'autostart : copier le fichier `/etc/xdg/autostart/gnome-software-service.desktop` vers `~/.config/autostart/`, puis désactiver l'autostart et la recherche de logiciels à partir de l'overview (qui réactive automatiquement gnome-software) en rajoutant le code suivant en fin de fichier :
+cd ~/.cache/yay/nautilus-dropbox
+rm -rf pkg src
+makepkg -si
 ```
-X-GNOME-Autostart-enabled=false
-```
-Puis saisir dans un terminal : 
-```
-dconf write /org/gnome/desktop/search-providers/disabled "['org.gnome.Software.desktop']"
-```
-----------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------
 
 
 ## 🐾 **E - Réglages de l'UI Gnome Shell** 
