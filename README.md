@@ -53,7 +53,8 @@ G - [Maintenance et mises à jour](https://github.com/Shogu/Fedora41-setup-confi
   
 * **8** - Compléter en supprimant les `logiciels inutiles` suivants avec pacman :
 ```
-sudo pacman -Rns apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds  gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp
+sudo pacman -Rns apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds  gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane
+gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns
 
 ```
     
@@ -220,8 +221,6 @@ sudo ufw allow out 443/tcp
 sudo ufw --force enable
 sudo ufw status numbered
 ```
-
-
 
 
 * **24** - Passer à 1 le nombre de `ttys` au boot  :  
@@ -396,9 +395,6 @@ inscrire `vo=gpu-next` dans Paramètres --> Divers --> Options supplémentaires,
 * **46** - Script de `transfert des vidéos` intitulé `.transfert_videos` pour déplacer automatiquement les vidéos vers Vidéos en supprimant le sous-dossier d'origine.
 Le télécharger depuis le dossier `SCRIPTS`, en faire un raccourci avec l'éditeur de menu, passer le chemin `sh /home/ogu/.transfert_videos.sh` et lui mettre l'icone `/usr/share/icons/Adwaita/scalable/devices/drive-multidisk.svg`
 
-* **47** - Script de `bascule Bluetooth` `.bluetooth_toggle` pour activer/désactiver le service bluetooth à la volée.
-Le télécharger depuis le dossier `SCRIPTS`, en faire un raccourci avec l'éditeur de menu, raccourci d'exécution `bash /home/ogu/.bluetooth_toggle.sh` & mettre l'icone `/usr/share/icons/Adwaita/scalable/devices/phone.svg`.
-
 * **48** - Accélérer les `animations` :  saisir
 ```
 GNOME_SHELL_SLOWDOWN_FACTOR=0.5
@@ -409,8 +405,8 @@ sudo gnome-text-editor /etc/environment
 ```
 
 * **49** - `Scripts` Nautilus :
-a - `Dropbox.py` pour imiter l'extension nautilus-dropbox avec Maestral (édition et lecture du fichier sur le site Dropbox & copie de l'url de partage)
-b - `Hide.py` et `Unhide.py` pour masquer/rendre visibles les fichiers
+
+`Hide.py` et `Unhide.py` pour masquer/rendre visibles les fichiers
 A télécharger depuis le dossier `SCRIPTS` puis à coller dans le dossier `/home/ogu/.local/share/nautilus/scripts/.
 Penser à les rendre exécutables!
 
