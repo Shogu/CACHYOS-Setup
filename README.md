@@ -170,7 +170,7 @@ sudo gnome-text-editor /etc/sdboot-manage.conf
 ```
 Puis saisir :
 ```
-LINUX_OPTIONS="zswap.enabled=0 nowatchdog mitigations=off loglevel=0 noresume console=tty0 systemd.show_status=false ipv6.disable=1 cgroupdisable=rdma quiet splash"
+LINUX_OPTIONS="zswap.enabled=0 nowatchdog mitigations=off loglevel=0 noresume console=tty0 systemd.show_status=false ipv6.disable=1 cgroupdisable=rdma 8250.nr_uarts=0 quiet splash"
 ```
 Relancer systemd-boot conformément à la méthode CachyOS :
 ```
