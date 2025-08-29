@@ -1,5 +1,5 @@
 # CACHYOS-Setup
-Setup, tips &amp; tweaks pour CachyOS
+Setup, tips &amp; tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 
 <table>
   <tr>
@@ -248,7 +248,7 @@ nmcli dev show |grep DNS
 
 ## 📦 **D - Remplacement et installation de logiciels et codecs**
 
-* **30** - Installer les logiciels `Flatpak` suivants : nota : utiliser prioritairement les flatpaks Fedora OU Flathub car les runtimes ne sont pas partagés entre les 2.
+* **30** - Installer les logiciels `Flatpak` suivants : 
 ```
 flatpak install flathub com.mattjakeman.ExtensionManager -y
 flatpak install flathub org.jdownloader.JDownloader -y
@@ -298,7 +298,7 @@ makepkg -si
 ```
 org/gnome/desktop/interface/cursor-size
 ```
-* **38** - Régler `HiDPI` sur 175, cacher les dossiers Modèles, Bureau, ainsi que le wallaper et l'image user, augmenter la taille des icones dossiers.
+* **38** - Régler `HiDPI` sur 125, cacher les dossiers Modèles, Bureau, ainsi que le wallaper et l'image user, augmenter la taille des icones dossiers.
   
 * **39** Renommer les `logiciels dans l'overview`, cacher ceux qui sont inutiles de faàon à n'avoir qu'une seule et unique page, en utilisant le logiciel `Menu Principal`.
 En profiter pour changer avec Menu Principal l'icone de `Ptyxis`, en la remplaçant par celle de [gnome-terminal](https://upload.wikimedia.org/wikipedia/commons/d/da/GNOME_Terminal_icon_2019.svg)
