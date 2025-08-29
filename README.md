@@ -171,12 +171,18 @@ sudo gnome-text-editor /etc/sdboot-manage.conf
 ```
 Puis saisir :
 ```
-LINUX_OPTIONS="zswap.enabled=0 nowatchdog mitigations=off loglevel=0 noresume console=tty0 systemd.show_status=false ipv6.disable=1 cgroupdisable=rdma 8250.nr_uarts=0 fsck.mode=skip quiet splash"
+LINUX_OPTIONS="zswap.enabled=0 nowatchdog mitigations=off loglevel=0 noresume console=tty0 systemd.show_status=false ipv6.disable=1 cgroupdisable=rdma 8250.nr_uarts=0 fsck.mode=skip rcu_nocbs=0-(nproc-1) rcutree.enable_rcu_lazy=1 quiet splash"
 ```
 Relancer systemd-boot conformément à la méthode CachyOS :
 ```
 sudo sdboot-manage gen
 ```
+Penser à créer un timer (1/semaine) pour lancer fsck vu qu'il est désactivé au niveau kernel :
+```
+sudo tune2fs -c 0 -i 7d /dev/nvme0n1p2
+```
+Vérifier avec  `sudo tune2fs -l /dev/nvme0n1p2 | grep -i 'check'
+
 
 * **18** - Réduire le `temps d'affichage du menu systemd-boot` à 0 seconde  (appuyer sur MAJ pour le faire apparaitre au boot):
 ```
