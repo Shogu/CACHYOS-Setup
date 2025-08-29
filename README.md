@@ -40,16 +40,8 @@ G - [Maintenance et mises à jour](https://github.com/Shogu/Fedora41-setup-confi
 
 * **2** - Désactiver la caméra et le lecteur de carte dans le bios
 
-* **3** - Utiliser `systemd-boot` puis décocher les paquets inutiles (Attention : la plupart s'installeront quand même)
+* **3** - Utiliser `systemd-boot` puis décocher les paquets inutiles (Attention : la plupart s'installeront quand même), et EXT4.
 
-* **4** - Au démarrage, renommer le label BTRFS :
-```
-sudo btrfs filesystem label / CachyOS
-```
-Contrôler avec :
-```
-sudo btrfs filesystem show /
-```
 ----------------------------------------------------------------------------------------------
 
 
@@ -84,9 +76,18 @@ et :
 systemctl list-unit-files --type=service --state=enabled
 ```
 
-**USER**org.gnome.SettingsDaemon.UsbProtection.service 
+**USER**
 ```
-systemctl --user mask evolution-addressbook-factory.service org.gnome.SettingsDaemon.Wacom.service org.gnome.SettingsDaemon.Keyboard.service org.freedesktop.IBus.session.GNOME.service org.gnome.SettingsDaemon.PrintNotifications.service org.gnome.SettingsDaemon.A11ySettings.service at-spi-dbus-bus.service org.gnome.SettingsDaemon.Smartcard.service gvfs-gphoto2-volume-monitor.service org.gnome.SettingsDaemon.UsbProtection.service
+systemctl --user mask evolution-addressbook-factory.service
+systemctl --user mask org.gnome.SettingsDaemon.Sharing.service
+systemctl --user mask org.gnome.SettingsDaemon.UsbProtection.service
+systemctl --user mask org.gnome.SettingsDaemon.Wacom.service
+systemctl --user mask org.gnome.SettingsDaemon.Keyboard.service
+systemctl --user mask org.gnome.SettingsDaemon.PrintNotifications.service
+systemctl --user mask org.gnome.SettingsDaemon.A11ySettings.service
+systemctl --user mask org.gnome.SettingsDaemon.Smartcard.service
+systemctl --user mask org.gnome.SettingsDaemon.Datetime.service
+
 ```
 Puis contrôler avec :
 ```
@@ -107,15 +108,11 @@ sudo systemctl restart systemd-journald
 ``` 
 sudo systemctl disable --now systemd-coredump.socket
 sudo systemctl mask systemd-coredump
+sudo systemctl mask systemd-coredump.socket
 ```
-puis empêcher ulimit ne fasse de dumps : 
+puis empêcher qu'ulimit ne fasse des dumps : 
 ```
 echo '* hard core 0' | sudo tee -a /etc/security/limits.conf
-```
-Enfin supprimer systemd-coredump : 
-```
-sudo pacman -Rns systemd-coredump
-
 ```
 
 
@@ -159,43 +156,8 @@ blacklist 8250_pci
 Puis lancer `sudo mkinicpio -P`
 Au reboot, vérifier avec la commande `lsmod | grep hid_sensor`
 
-* **13** - Autosuspendre le `capteur de luminosité et l'accéléromètre` (en complément de son maskage)
-```
-echo 'ACTION=="add", SUBSYSTEM=="pci", KERNEL=="0000:00:12.0", ATTR{power/control}="auto"' | sudo tee /etc/udev/rules.d/99-pci-autosuspend.rules > /dev/null
-```
-Puis
-```
-sudo udevadm control --reload-rules
-```
-Et contrôler avec :
-```
-cat /etc/udev/rules.d/99-pci-autosuspend.rules
-```
-
-
-
-
-
-
 
 ## 🚀 **C - Optimisation du système**
-
-* **15** - Désactiver `SElinux` :
-```
-sudo gnome-text-editor /etc/selinux/config
-```
-et saisir ```SELINUX=disabled```
-  
-Vérifier la désactivation après reboot avec la commande ```sestatus```
-
-Enfin supprimer les labels SElinux avec :
-```
-sudo find / -print0 | xargs -r0 setfattr -x security.selinux 2>/dev/null
-```
-et masker le service :
-```
-systemctl mask selinux-autorelabel-mark.service
-```
 
 * **16** - Passer `xwayland` en autoclose : sur dconf-editor, modifier la clé suivante.
 ```
@@ -204,123 +166,64 @@ org.gnome.mutter experimental-features
 
 * **17** - Optimiser le `kernel` :
 ```
-sudo gnome-text-editor /etc/kernel/cmdline
+sudo gnome-text-editor /etc/sdboot-manage.conf
 ```
-
 Puis saisir :
 ```
-mitigations=off selinux=0 cgroup_disable=rdma nmi_watchdog=0 loglevel=0 noresume console=tty1 8250.nr_uarts=1
+LINUX_OPTIONS="zswap.enabled=0 nowatchdog mitigations=off loglevel=0 noresume console=tty0 systemd.show_status=false ipv6.disable=1 quiet splash"
 ```
-Nota : si le boot est bavard, envisager l'argument `systemd.show_status=false`
-
-Relancer systemd conformément au conseil dans les commentaires de fstab :
+Relancer systemd-boot conformément à la méthode CachyOS :
 ```
-systemctl daemon-reload
-```
-Actualiser le kernel et l'initramfs avec les commandes suivantes :
-```
-sudo kernel-install add $(uname -r) /lib/modules/$(uname -r)/vmlinuz
-```
-```
-sudo dracut --force
-```
-  
-Au reboot, contrôler le fichier de boot de `systemd-boot` avec la commande :
-```
-cat /proc/cmdline
+sudo sdboot-manage gen
 ```
 
 * **18** - Réduire le `temps d'affichage du menu systemd-boot` à 0 seconde  (appuyer sur MAJ pour le faire apparaitre au boot):
 ```
-sudo bootctl set-timeout 0
+sudo nano /boot/loader/loader.conf
 ```
 Reboot, puis vérifier que le fichier loader.conf soit à 0 :
 ```
-sudo cat /boot/efi/loader/loader.conf
-timeout 5
+sudo cat /boot/loader/loader.conf
+timeout 1
 #console-mode keep
 ```
-Si non, l'éditer et passer le timeout à 0 :
-```
-sudo gnome-text-editor /boot/efi/loader/loader.conf
-```
-Puis reconstruire le kernel avec :
-```
-sudo kernel-install add $(uname -r) /lib/modules/$(uname -r)/vmlinuz && sudo dracut --force
-```
-
-* **19** - Editer le mount des `partitions BTRFS` **/** et **/home** avec la commande :
-```
-sudo gnome-text-editor /etc/fstab
-```
-puis saisir les flags suivants :
-
-Pour les volumes BTRFS :
-```
-noatime,commit=120,discard=async,space_cache=v2
-```
-Pour les volumes EXT4 :
-```
-noatime
-```
-Contrôler avec `cat /etc/fstab` après un reboot.
-
-* **20** - Mettre les `fichiers temporaires en RAM` :
-```
-sudo gnome-text-editor /etc/fstab
-```
-puis saisir :
-  
-```
-tmpfs /tmp tmpfs defaults,noatime,mode=1777,nosuid,size=1024M 0 0
-```
-Contrôler avec `cat /etc/fstab` après un reboot, et `df -h /tmp`
 
 * **21** - Régler le `pare-feu` :
-  
-Connaitre la zone par défaut du système (en général FedoraWorkstation) avec :
+
 ```
-sudo firewall-cmd --get-default-zone
-```
-Puis bloquer toutes les connexions entrantes par défaut
-```
-sudo firewall-cmd --permanent --zone=FedoraWorkstation --set-target=DROP
-```
-Redémarrer firewalld :
-```
-sudo firewall-cmd --reload
-```
-Enfin, vérifier les réglages :
-```
-sudo firewall-cmd --zone=FedoraWorkstation --list-all
-sudo firewall-cmd --get-active-zones
+sudo ufw --force reset
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw logging off
+
+# Autoriser WebDAV (HTTP/HTTPS)
+sudo ufw allow in 80/tcp
+sudo ufw allow in 443/tcp
+
+# Autoriser FTP (standard + passif 50000-51000)
+sudo ufw allow in 21/tcp
+sudo ufw allow in 50000:51000/tcp
+
+# Autoriser torrents (TCP/UDP 6881-6999)
+sudo ufw allow out 6881:6999/tcp
+sudo ufw allow out 6881:6999/udp
+
+# Autoriser Nicotine+ (TCP/UDP 2234-2235)
+sudo ufw allow out 2234:2235/tcp
+sudo ufw allow out 2234:2235/udp
+
+# Autoriser JDownloader HTTP/HTTPS
+sudo ufw allow out 80/tcp
+sudo ufw allow out 443/tcp
+
+# Activer UFW
+sudo ufw --force enable
+sudo ufw status numbered
 ```
 
-* **22** - Modifier les réglages d'accès au `swap`, le `dirty_writeback` etc (conformément aux réglages de Powertop, et partiellement de CachyOS):
-```
-echo vm.swappiness=5 | sudo tee -a /etc/sysctl.d/99-sysctl.conf
-echo vm.vfs_cache_pressure=50 | sudo tee -a /etc/sysctl.d/99-sysctl.conf
-echo vm.watermark_boost_factor=0 | sudo tee -a /etc/sysctl.d/99-sysctl.conf
-echo vm.watermark_scale_factor=50 | sudo tee -a /etc/sysctl.d/99-sysctl.conf
-echo vm.page-cluster=0| sudo tee -a /etc/sysctl.d/99-sysctl.conf
-echo vm.dirty_bytes = 268435456 | sudo tee -a /etc/sysctl.d/99-sysctl.conf
-echo "vm.dirty_writeback_centisecs=1500" | sudo tee -a /etc/sysctl.d/99-sysctl.conf
-sudo sysctl -p /etc/sysctl.d/99-sysctl.conf
-sudo sysctl --system
-```
 
-Reboot et vérifier avec :
-```
-cat /proc/sys/vm/swappiness
-cat /proc/sys/vm/vfs_cache_pressure
-cat /proc/sys/vm/dirty_writeback_centisecs
-```
-  
-* **23** - Accélérer `DNF` : 
-```
-echo 'max_parallel_downloads=10' | sudo tee -a /etc/dnf/dnf.conf
-```
-  
+
+
 * **24** - Passer à 1 le nombre de `ttys` au boot  :  
 ```
 sudo gnome-text-editor /etc/systemd/logind.conf
@@ -330,36 +233,6 @@ puis saisir : `NautoVTS=1`
 * **25** - Vérifier que le système utilise bien les DNS du `routeur Xiaomi` (192.168.31.1) :
 ```
 nmcli dev show |grep DNS
-```
-
-* **26** - Amélioration du réseau : après plusieurs test comparatifs, améliorer le ping, la latence, et un peu le débit
-  
-Commencer par désactiver `ipv6` dans les Paramètres wifi de Gnome.
-
-Puis modifier les réglages `sysctl`
-```
-sudo gnome-text-editor /etc/sysctl.d/99-sysctl.conf
-```
-Puis saisir :
-```
-# Optimisation TCP pour minimiser ping et latence tout en conservant un bon débit
-net.ipv4.tcp_congestion_control = cubic
-net.ipv4.tcp_rmem = 4096 87380 8388608
-net.ipv4.tcp_wmem = 4096 87380 8388608
-net.core.rmem_default = 8388608
-net.core.rmem_max = 8388608
-net.core.wmem_default = 8388608
-net.core.wmem_max = 8388608
-net.ipv4.tcp_mtu_probing = 0
-net.ipv4.tcp_low_latency = 1
-net.ipv4.tcp_ecn = 1
-net.ipv4.tcp_slow_start_after_idle = 0
-net.ipv4.tcp_rfc1337 = 1
-net.core.netdev_max_backlog = 4096
-```
-Relancer avec :
-```
-sudo sysctl -p
 ```
 
 **Boot time : avant optimisation : 23.7 secondes**
@@ -425,7 +298,6 @@ sudo dnf install powertop -y
 sudo dnf install zstd -y
 sudo dnf install ffmpegthumbnailer.x86_64 -y
 sudo dnf install profile-cleaner -y
-sudo dnf install btrfs-assistant -y
 sudo dnf install seahorse -y
 sudo dnf install dnfdragora -y
 sudo dnf install ImageMagick -y
@@ -550,6 +422,20 @@ end
 ```
 Puis recharger la configuration de fish avec `source /usr/share/cachyos-fish-config/cachyos-config.fish
 `
+
+Créer un alias pour sudo -E afin d'éviter les polices floues en root : 
+
+```
+function sudo
+      command sudo -E $argv
+  end
+```
+puis enregistrer avec :
+
+```
+funcsave sudo
+```
+
   
 * **44** - `Celluloid` :
 inscrire `vo=gpu-next` dans Paramètres --> Divers --> Options supplémentaires, activer l'option `focus` et `toujours afficher les boutons de titre`, enfin installer les deux scripts lua suivants pour la musique :
