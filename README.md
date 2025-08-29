@@ -61,7 +61,8 @@ sudo btrfs filesystem show /
   
 * **8** - Compléter en supprimant les `logiciels inutiles` suivants avec pacman :
 ```
-sudo pacman -Rns apache gnome-classic-session speech-dispatcher ModemManager gnome-remote-desktop gnome-browser-connector gnome-backgrounds evince-djvu gnome-user-share vim ibus-libzhuyin ibus-libpinyin ibus-typing-booster ibus-m17n ibus-hangul ibus-anthy yelp abrt brltty openvpn gnome-weather rygel totem avahi-tools virtualbox-guest-additions gnome-boxes gnome-user-docs hplip baobab sane avahi cups f2fs-tools mod_dnssd gnome-user-share
+sudo pacman -Rns apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds  gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca
+
 
 ```
     
