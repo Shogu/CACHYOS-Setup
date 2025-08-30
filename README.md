@@ -181,6 +181,8 @@ COMPRESSION="cat"
 ```
 Recharger l'initrd avec `sudo mkinitcpio -P`
 
+----------------------------------------------------------------------------------------------
+
 ## 🚀 **C - Optimisation du système**
 
 * **16** - Passer `xwayland` en autoclose : sur dconf-editor, modifier la clé suivante.
@@ -278,7 +280,6 @@ nmcli dev show |grep DNS
 
 ----------------------------------------------------------------------------------------------
 
-
 ## 📦 **D - Remplacement et installation de logiciels et codecs**
 
 * **30** - Installer les logiciels `Flatpak` suivants : 
@@ -313,8 +314,7 @@ cd ~/.cache/yay/nautilus-dropbox
 rm -rf pkg src
 makepkg -si
 ```
----------------------------------------------------------------------------------------------
-
+----------------------------------------------------------------------------------------------
 
 ## 🐾 **E - Réglages de l'UI Gnome Shell** 
 
