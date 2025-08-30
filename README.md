@@ -435,7 +435,6 @@ sudo gnome-text-editor /etc/environment
 A télécharger depuis le dossier `SCRIPTS` puis à coller dans le dossier `/home/ogu/.local/share/nautilus/scripts/.
 Penser à les rendre exécutables!
 
-* **50** - `LibreOffice` : régler l'UI et les paramètres, désactiver Java, rajouter `-nologo` au raccourci avec l'éditeur de menu pour supprimer le splash screen, passer à `600000000` la valeur de `Graphic Manager` + `UseOpenGL` = true + `UseSkia` = true dans la Configuration Avancée + désactiver l'enregistrement des données personnelles dans les fichiers (Menu Sécurité). 
 
 * **51** - Faire le tri dans `~/.local/share/`, `/home/ogu/.config/`, `/usr/share/` et `/etc/`
 ----------------------------------------------------------------------------------------------
@@ -611,74 +610,12 @@ Regarder script de F39
 
 
 
-****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
-
-
 💡 A TESTER :
 
-* - Remplacement de wpa_supplicant par `iwd` pour le **wifi**
- 
-ATTENTION : a ureboot la connection auto ne se fait pas, voir les reglages de config de iwd
-ATTENTION2 : le service démarre plus lentement que wpa_supplicant, à voir le temps de boot pour network-manager avec iwd plutot que wpa
 
-Installer iwd :
-```
-sudo dnf install iwd -y
-```
-Lancer le service iwd et désactiver temporairement wpa_supplicant
-```
-sudo systemctl start iwd
-sudo systemctl stop wpa_supplicant
-sudo systemctl disable wpa_supplicant
-```
-Puis créer le fichier de configuration de NetworkManager : 
-```
-sudo gnome-text-editor /etc/NetworkManager/conf.d/00-iwd.conf
-```
-Ajouter les lignes suivantes :
-```
-[device]
-wifi.backend=iwd
 
-[main]
-dns=systemd-resolved
-```
-Redémarrer NetworkManager pour appliquer la configuration :
-```
-sudo systemctl restart NetworkManager
-```
-Se reconnecter & vérifier l'état des connexions Wi-Fi avec `nmcli` :
-```
-nmcli device status
-```
-Si la connection est fonctionnelle, activer le service iwd au boot :
-```
-sudo systemctl enable iwd
-```
-Reboot, puis suppression de wpa_supplicant :
-```
-sudo dnf remove wpa_supplicant
-```
     
-* Créer un toggle `Powertop` qui va lancer powertop en `auto-tune` pour économiser encore plus de batterie, et baisser la luminosité sur 5% : rentrer cette commande pour le toggle activé :
-```
-pkexec powertop --auto-tune && gdbus call --session --dest org.gnome.SettingsDaemon.Power --object-path /org/gnome/SettingsDaemon/Power --method org.freedesktop.DBus.Properties.Set org.gnome.SettingsDaemon.Power.Screen Brightness " <int32 5>"()
-```
-  
-Et cette commande pour le toggle désactivé :
-```
-gdbus call --session --dest org.gnome.SettingsDaemon.Power --object-path /org/gnome/SettingsDaemon/Power --method org.freedesktop.DBus.Properties.Set org.gnome.SettingsDaemon.Power.Screen Brightness " <int32 2O>"()
-```
-Enfin rentrer le nom de l'icone : `thunderbolt-symbolic` 
 
-* Créer un toggle "No Touchscreen" et le rendre permanent au boot :
-    
-```
-echo 'i2c-ELAN9008:00' | pkexec tee /sys/bus/i2c/drivers/i2c_hid_acpi/unbind > /dev/null
-```
-```
-echo 'i2c-ELAN9008:00' | pkexec tee /sys/bus/i2c/drivers/i2c_hid_acpi/bind > /dev/null                         
-```
 
 
 
