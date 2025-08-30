@@ -219,8 +219,7 @@ timeout 1
 ```
 
 * **19** - Editer le mount des `partitions EXT4` avec la commande :
-```
-sudo gnome-text-editor /etc/fstab
+`sudo gnome-text-editor /etc/fstab`
 
 Désactiver le fsck en mettant les partitions sur 0 0
 
