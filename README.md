@@ -14,7 +14,7 @@ Setup, tips &amp; tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 
 
 
-🐧 Mémo pour le setup complet de **CachyOS** sur laptop **ASUS ZENBOOK S13 FLIP OLED UP5302Z** 
+🐧 Mémo pour le setup complet de **CachyOS** sur laptop **ASUS ZENBOOK 14 OLED UM3406KA
 
 ***Table des matières:***
 
