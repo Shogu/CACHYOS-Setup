@@ -157,6 +157,29 @@ blacklist 8250_pci
 Puis lancer `sudo mkinicpio -P`
 Au reboot, vérifier avec la commande `lsmod | grep hid_sensor`
 
+* **14 !! EXPERIMENTAL !!** : réduire l`initramfs` en désactivant des modules inutiles : attention prévoir un backup du fichier pour le restaurer en live cd si besoin!
+```
+sudo gnome-text-editor /etc/mkinitcpio.conf
+
+```
+et copier-coller ces options de configuration :
+```
+HOOKS=(base udev autodetect kms modconf block filesystems plymouth)
+
+# COMPRESSION
+# Use this to compress the initramfs image. By default, zstd compression
+# is used for Linux ≥ 5.9 and gzip compression is used for Linux < 5.9.
+# Use 'cat' to create an uncompressed image.
+#COMPRESSION="zstd"
+#COMPRESSION="gzip"
+#COMPRESSION="bzip2"
+#COMPRESSION="lzma"
+#COMPRESSION="xz"
+#COMPRESSION="lzop"
+#COMPRESSION="lz4"
+COMPRESSION="cat"
+```
+Recharger l'initrd avec `sudo mkinitcpio -P`
 
 ## 🚀 **C - Optimisation du système**
 
@@ -194,6 +217,12 @@ sudo cat /boot/loader/loader.conf
 timeout 1
 #console-mode keep
 ```
+
+* **19** - Editer le mount des `partitions EXT4` avec la commande :
+```
+sudo gnome-text-editor /etc/fstab
+
+Désactiver le fsck en mettant les partitions sur 0 0
 
 * **21** - Régler le `pare-feu` :
 
@@ -297,7 +326,7 @@ makepkg -si
 192.168.31.68:2121
 ```
 
-* **36** - Modifier le mot de passe au démarrage avec le logiciel `Mots de Passe`, puis laisser les champs vides. Penser à reconnecter le compte Google dans Gnome!
+* **36** - Modifier le mot de passe au démarrage avec le logiciel `Mots de Passe`, puis laisser les champs vides. Penser à reconnecter le compte Google dans Gnome.
 
 * **37** - Installer le [wallpaper F34](https://fedoraproject.org/w/uploads/d/de/F34_default_wallpaper_night.jpg) OU celui disponible dans le dossier `Images USER`, et le thème de curseurs [Phinger NO LEFT Light](https://github.com/phisch/phinger-cursors/releases); utiliser `dconf-editor` pour les passer en taille 32 :
 ```
@@ -354,28 +383,19 @@ q - désactiver l'extension native `Background logo`
 
 * **41** - Installer [Nautilus-admin](https://download.copr.fedorainfracloud.org/results/tomaszgasior/mushrooms/fedora-41-x86_64/07341996-nautilus-admin/nautilus-admin-1.1.9-5.fc41.noarch.rpm) puis lancer la commande ```nautilus -q``` pour relancer Fichiers
 
-* **42** - Raccourcis à éditer dans Gnome : mettre `ptyxis` à la place de la touche Exposant, et la commande ```flatpak run net.nokyan.Resources``` pour la combinaison `ctrl-alt-supp`.
+* **42** - Activer le [numpad Asus](https://github.com/asus-linux-drivers/asus-numberpad-driver)
 
-* **43** - Régler `fish`, en saisissant dans `sudo gnome-text-editor` le code suivant :
+* **43** - Régler `fish`, en saisissant dans `sudo gnome-text-editor /home/ogu/.config/fish/` le code suivant :
 ```
-## Set values
-## Run fastfetch as welcome message only one time per session
-if status --is-login
-    fastfetch
-end
+source /usr/share/cachyos-fish-config/cachyos-config.fish
 
-## pseudo type Fedora
-function fish_prompt
-    set_color green
-    echo -n (whoami) '@' (hostname|cut -d . -f 1) ' '
-    set_color blue
-    echo -n (prompt_pwd) ' '
-    set_color normal
-    echo -n '> '
+# overwrite greeting
+# potentially disabling fastfetch
+function fish_greeting
+#    # smth smth
 end
 ```
-Puis recharger la configuration de fish avec `source /usr/share/cachyos-fish-config/cachyos-config.fish
-`
+Et recharger la configuration de fish avec `source /usr/share/cachyos-fish-config/cachyos-config.fish`
 
 Créer un alias pour sudo -E afin d'éviter les polices floues en root : 
 
