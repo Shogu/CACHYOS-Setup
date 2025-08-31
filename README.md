@@ -54,7 +54,7 @@ G - [Maintenance et mises à jour](https://github.com/Shogu/Fedora41-setup-confi
 * **8** - Compléter en supprimant les `logiciels inutiles` suivants avec pacman :
 ```
 sudo pacman -Rns apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds  gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane
-gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds
+gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds paru
 
 ```
     
@@ -196,7 +196,7 @@ sudo gnome-text-editor /etc/sdboot-manage.conf
 ```
 Puis saisir :
 ```
-LINUX_OPTIONS="zswap.enabled=0 nowatchdog mitigations=off loglevel=0 noresume console=tty0 systemd.show_status=false ipv6.disable=1 cgroupdisable=rdma 8250.nr_uarts=0 fsck.mode=skip rcu_nocbs=0-(nproc-1) rcutree.enable_rcu_lazy=1 quiet splash"
+LINUX_OPTIONS="zswap.enabled=0 nowatchdog mitigations=off loglevel=0 noresume console=tty0 systemd.show_status=false cgroupdisable=rdma 8250.nr_uarts=0 fsck.mode=skip rcu_nocbs=0-(nproc-1) rcutree.enable_rcu_lazy=1 quiet splash"
 ```
 Relancer systemd-boot conformément à la méthode CachyOS :
 ```
