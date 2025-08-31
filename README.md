@@ -376,9 +376,6 @@ o - [Auto Power Profile](https://extensions.gnome.org/extension/6583/auto-power-
   
 p - [Frequency Boost Switch](https://extensions.gnome.org/extension/4792/frequency-boost-switch/)
     
-Extension à désactiver :
-
-q - désactiver l'extension native `Background logo`
 
 * **41** - Installer [Open with Ptyxis](https://aur.archlinux.org/rpc?arg%5B%5D=dropbox&arg%5B%5D=nautilus-dropbox&arg%5B%5D=nautilus-open-any-terminal&type=info&v=5) et penser à éditer sa clé dconf pour isncrire "ptyxis".
 
