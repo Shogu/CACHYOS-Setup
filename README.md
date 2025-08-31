@@ -306,9 +306,22 @@ et `Nicotine +` avec Pamac
 
 ## 🐾 **E - Réglages de l'UI Gnome Shell** 
 
-* **34** - Régler le système avec `Paramètres` puis `Ajustements` (Changer les polices d'écriture pour `Noto Sans` en 11)
+* **34** - Installer `nautilus-admin` :
 
-* **35** - Régler Nautilus & créer un marque-page pour `Dropbox` & pour l'accès `ftp` au disque SSD sur la TV Android :
+```
+#Créer un dossier pour les builds AUR si nécessaire :
+mkdir -p ~/aur-build cd ~/aur-build 
+#Cloner le dépôt AUR :
+git clone https://aur.archlinux.org/nautilus-admin-gtk4.git
+#Entrer dans le dossier cloné :
+cd nautilus-admin-gtk4 
+#Construire et installer le paquet :
+makepkg -si
+nautilus -q
+nautilus
+```
+
+* **35** - Régler Nautilus & créer un marque-page pour `Dropbox` p,our l'accès `ftp` au disque SSD sur la TV Android, et pour lancer Nautilus en root depuis le panneau latéral :
 ```
 192.168.31.68:2121
 ```
