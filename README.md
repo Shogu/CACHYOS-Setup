@@ -284,35 +284,23 @@ nmcli dev show |grep DNS
 
 * **30** - Installer les logiciels `Flatpak` suivants : 
 ```
-flatpak install flathub com.mattjakeman.ExtensionManager -y
 flatpak install flathub org.jdownloader.JDownloader -y
-flatpak install flathub org.onlyoffice.desktopeditors -y
-flatpak install flathub de.haeckerfelix.Fragments -y
-flatpak install flathub org.gnome.Papers -y
 flatpak install flathub page.codeberg.libre_menu_editor.LibreMenuEditor -y
-flatpak install flathub io.github.celluloid_player.Celluloid -y
-flatpak install flathub org.nicotine_plus.Nicotine -y
+flatpak install flathub org.onlyoffice.desktopeditors -y
 flatpak install flathub de.schmidhuberj.tubefeeder -y
 flatpak install flathub app.ytmdesktop.ytmdesktop -y
 ```
 
-* **31** - Installer les `logiciels` suivants avec dnf :
+* **31** - Installer les `logiciels` suivants avec pacman :
 ```
-sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse pamac
+sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse pamac celluloid extension-manager fragments papers
 ```
 
-* **32** - Installer `Dropbox` :
-```
-sudo pacman -S libappindicator-gtk3
-yay -S dropbox
-dropbox start -i
-yay -S nautilus-dropbox
+et `Nicotine +` avec Pamac
 
-si erreur 8 :
+* **32** - Installer `Dropbox` avec Maestral : lancer le script maestral_install 
+  
 
-cd ~/.cache/yay/nautilus-dropbox
-rm -rf pkg src
-makepkg -si
 ```
 ----------------------------------------------------------------------------------------------
 
