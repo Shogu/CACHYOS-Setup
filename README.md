@@ -385,6 +385,9 @@ p - [Frequency Boost Switch](https://extensions.gnome.org/extension/4792/frequen
 
 q - [Custom Command Toggle](https://extensions.gnome.org/extension/7012/custom-command-toggle/)  
 
+r - Pop Shell Tiling : `yay -S gnome-shell-extension-pop-shell`
+puis supprimer le theme icone Pop dans /usr/share/icons
+
 * **41** - Installer [Open with Ptyxis](https://aur.archlinux.org/rpc?arg%5B%5D=dropbox&arg%5B%5D=nautilus-dropbox&arg%5B%5D=nautilus-open-any-terminal&type=info&v=5) et penser à éditer sa clé dconf pour inscrire "ptyxis".
 
 * **42** - Activer le [numpad Asus](https://github.com/asus-linux-drivers/asus-numberpad-driver), disable le service --user, puis créer un toggle button avec icone `accessories-calculator-symbolic` :
