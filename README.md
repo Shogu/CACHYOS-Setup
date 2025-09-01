@@ -42,6 +42,7 @@ G - [Maintenance et mises à jour](https://github.com/Shogu/Fedora41-setup-confi
 
 * **3** - Utiliser `systemd-boot` puis décocher les paquets inutiles (Attention : la plupart s'installeront quand même), et EXT4.
 
+* **4** - Faire un ghost du systemùe tout neuf avec Rescuezilla 
 ----------------------------------------------------------------------------------------------
 
 
