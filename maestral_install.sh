@@ -1,28 +1,52 @@
-#!/usr/bin/env bash
-set -e
+#!/usr/bin/env fish
 
-# Installation des dépendances système
-sudo pacman -S --needed --noconfirm \
-    python \
-    python-pip \
-    python-virtualenv \
-    python-setuptools \
-    python-wheel
+# --- Création de l'environnement virtuel ---
 
-# Nettoyage d'un éventuel ancien environnement
-rm -rf ~/.maestral-venv
+set venv_dir ~/.venvs/maestral
 
-# Création de l'environnement virtuel
-python3 -m venv ~/.maestral-venv
+echo "--- Préparation de l'environnement virtuel ---"
 
-# Activation (bash/zsh, fish aura activate.fish)
-source ~/.maestral-venv/bin/activate
+if not test -d ~/.venvs
+    echo "Création du dossier caché ~/.venvs..."
+    mkdir ~/.venvs
+end
 
-# Mise à jour de pip et installation de Maestral avec l'interface graphique
+if test -d $venv_dir
+    echo "L'environnement Maestral existe déjà."
+else
+    echo "Création de l'environnement Maestral dans ~/.venvs/maestral..."
+    python -m venv $venv_dir
+end
+
+echo "--- Activation de l'environnement ---"
+# Utilise un subshell pour activer l'environnement et lancer l'installation
+# Cela évite de modifier l'environnement de votre shell actuel
+# et garantit que pip est bien le pip de l'environnement virtuel
+source $venv_dir/bin/activate.fish
+echo "Environnement activé avec succès."
+
+# --- Installation de Maestral ---
+
+echo "--- Installation de Maestral avec l'interface graphique ---"
 pip install --upgrade pip
 pip install "maestral[gui]"
 
+echo "--- Installation terminée ! ---"
 echo ""
-echo "✅ Installation terminée !"
-echo "Pour lancer Maestral avec Fish :"
-echo "   source ~/.maestral-venv/bin/activate.fish && maestral gui"
+echo "Pour lancer Maestral la prochaine fois, suivez ces étapes :"
+echo "1. Activez l'environnement :"
+echo "   source ~/.venvs/maestral/bin/activate.fish"
+echo "2. Lancez l'application :"
+echo "   maestral gui"
+echo ""
+
+# --- Instructions pour le démarrage automatique ---
+
+echo "---"
+echo "Étape finale pour le démarrage automatique :"
+echo "Une fois l'application lancée, cliquez sur l'icône de Maestral"
+echo "dans la zone de notification (systray), allez dans ses paramètres"
+echo "et cochez l'option de démarrage automatique."
+echo ""
+echo "Vous devrez ensuite redémarrer votre ordinateur pour que les modifications prennent effet."
+echo ""
