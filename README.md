@@ -174,14 +174,7 @@ et copier-coller ces options de configuration :
 HOOKS=(base udev autodetect kms modconf block filesystems plymouth)
 ```
 Puis décommenter `#COMPRESSION="zstd"` & passer `-3` à COMPRESSION_OPTION
-#COMPRESSION="gzip"
-#COMPRESSION="bzip2"
-#COMPRESSION="lzma"
-#COMPRESSION="xz"
-#COMPRESSION="lzop"
-#COMPRESSION="lz4"
-COMPRESSION="cat"
-```
+
 Recharger l'initrd avec `sudo mkinitcpio -P`
 
 ----------------------------------------------------------------------------------------------
