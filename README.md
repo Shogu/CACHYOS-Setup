@@ -197,6 +197,8 @@ Recharger l'initrd avec `sudo mkinitcpio -P`
 org.gnome.mutter experimental-features
 ```
 
+En profiter pour activer `scale-monitor-framebuffer` & `xwayland-native-scaling`
+
 * **17** - Optimiser le `kernel` :
 ```
 sudo gnome-text-editor /etc/sdboot-manage.conf
