@@ -300,9 +300,7 @@ sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner 
 et `Nicotine +` et `Ressources` avec Pamac
 
 * **32** - Installer `Dropbox` avec Maestral : lancer le script maestral_install 
-  
 
-```
 ----------------------------------------------------------------------------------------------
 
 ## 🐾 **E - Réglages de l'UI Gnome Shell** 
@@ -379,14 +377,15 @@ o - [Auto Power Profile](https://extensions.gnome.org/extension/6583/auto-power-
 p - [Frequency Boost Switch](https://extensions.gnome.org/extension/4792/frequency-boost-switch/)
     
 
-* **41** - Installer [Open with Ptyxis](https://aur.archlinux.org/rpc?arg%5B%5D=dropbox&arg%5B%5D=nautilus-dropbox&arg%5B%5D=nautilus-open-any-terminal&type=info&v=5) et penser à éditer sa clé dconf pour isncrire "ptyxis".
+* **41** - Installer [Open with Ptyxis](https://aur.archlinux.org/rpc?arg%5B%5D=dropbox&arg%5B%5D=nautilus-dropbox&arg%5B%5D=nautilus-open-any-terminal&type=info&v=5) et penser à éditer sa clé dconf pour inscrire "ptyxis".
 
-* **42** - Activer le [numpad Asus](https://github.com/asus-linux-drivers/asus-numberpad-driver) puis désactiver le service :
+* **42** - Activer le [numpad Asus](https://github.com/asus-linux-drivers/asus-numberpad-driver) puis désactiver le service.
 
-* **43** - Régler `fish`, en saisissant dans `sudo gnome-text-editor /home/ogu/.config/fish/` le code suivant :
+* **43** - Régler `fish`, en saisissant dans :
+`sudo gnome-text-editor /home/ogu/.config/fish/` le code suivant :
+
 ```
 source /usr/share/cachyos-fish-config/cachyos-config.fish
-
 # overwrite greeting
 # potentially disabling fastfetch
 function fish_greeting
@@ -402,11 +401,8 @@ function sudo
       command sudo -E $argv
   end
 ```
-puis enregistrer avec :
+puis enregistrer avec `funcsave sudo`
 
-```
-funcsave sudo
-```
 
   
 * **44** - `Celluloid` :
