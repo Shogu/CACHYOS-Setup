@@ -382,27 +382,16 @@ systemctl enable --user asus_numberpad_driver@ogu.service && systemctl start --u
 systemctl stop --user asus_numberpad_driver@ogu.service && systemctl disable --user asus_numberpad_driver@ogu.service &&  notify-send "Numpad désactivé"
 ```
 
-* **43** - Régler `fish`, en saisissant dans :
-`sudo gnome-text-editor /home/ogu/.config/fish/` le code suivant :
-
+* **43** - Régler `Gnome-text-editor`et `Ptyxis`, configurer `fish` avec `sudo gnome-text-editor /usr/share/cachyos-fish-config/cachyos-config.fish` et saisir :
+  
 ```
-source /usr/share/cachyos-fish-config/cachyos-config.fish
-# overwrite greeting
-# potentially disabling fastfetch
-function fish_greeting
-#    # smth smth
-end
+# Désactive fastfetch en tant que message de bienvenue
+# function fish_greeting
+#     fastfetch
+# end
 ```
 Et recharger la configuration de fish avec `source /usr/share/cachyos-fish-config/cachyos-config.fish`
 
-Créer un alias pour sudo -E afin d'éviter les polices floues en root : 
-
-```
-function sudo
-      command sudo -E $argv
-  end
-```
-puis enregistrer avec `funcsave sudo`
 
 * **44** - Changer l'icone Pamac:
 ```
