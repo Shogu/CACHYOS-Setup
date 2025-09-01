@@ -292,7 +292,7 @@ flatpak install flathub app.ytmdesktop.ytmdesktop -y
 ```
 sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse pamac celluloid extension-manager fragments papers yay nicotine+ resources
 ```
-+
+et
 
 ```
 yay yay -S libre-menu-editor
