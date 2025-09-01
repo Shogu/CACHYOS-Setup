@@ -66,6 +66,9 @@ sudo systemctl mask avahi-daemon.service
 sudo systemctl mask sys-kernel-debug.mount
 sudo systemctl mask sys-kernel-tracing.mount
 sudo systemctl mask avahi-daemon.socket
+sudo systemctl mask NetworkManager-wait-online.service
+
+
 
 ```
 Enfin, reboot puis controle de l'état des services avec :
