@@ -341,8 +341,6 @@ Extensions esthétiques :
 
 a - [Panel Corners](https://extensions.gnome.org/extension/4805/panel-corners/)
 
-b - [Rounded Windows Corners](https://extensions.gnome.org/extension/7048/rounded-window-corners-reborn/)
-
 c - [Hide Activities Button](https://extensions.gnome.org/extension/744/hide-activities-button/)
 
 d - [Remove World Clock](https://extensions.gnome.org/extension/6973/remove-world-clocks/)
@@ -351,8 +349,6 @@ Extensions apportant des fonctions de productivité :
 
 e - [Appindicator](https://extensions.gnome.org/extension/615/appindicator-support/)
 
-f - [Alphabetical Grid](https://extensions.gnome.org/extension/4269/alphabetical-app-grid/)
-
 g - [Caffeine](https://extensions.gnome.org/extension/517/caffeine/)
 
 h - [Clipboard History](https://extensions.gnome.org/extension/4839/clipboard-history/)
@@ -360,19 +356,13 @@ h - [Clipboard History](https://extensions.gnome.org/extension/4839/clipboard-hi
 Extensions apportant des fonctions UI :  
 
 i - [Battery Time Percentage Compact](https://extensions.gnome.org/extension/2929/battery-time-percentage-compact/) ou [Battery Time](https://extensions.gnome.org/extension/5425/battery-time/)
-
-j - [Privacy Quick Settings](https://extensions.gnome.org/extension/4491/privacy-settings-menu/) puis la supprimer une fois les réglages réalisés.
- 
-k - [Grand Theft Focus](https://extensions.gnome.org/extension/5410/grand-theft-focus/)
-    
+     
 l - [AutoActivities](https://extensions.gnome.org/extension/5500/auto-activities/)
 
 m - [Auto Screen Brightness](https://extensions.gnome.org/extension/7311/auto-screen-brightness/) & supprimer la luminosité automatique dans Settings de Gnome
 
 n - [Hot Edge](https://extensions.gnome.org/extension/4222/hot-edge/)
-  
-o - [Auto Power Profile](https://extensions.gnome.org/extension/6583/auto-power-profile/)
-  
+    
 p - [Frequency Boost Switch](https://extensions.gnome.org/extension/4792/frequency-boost-switch/)
 
 q - [Custom Command Toggle](https://extensions.gnome.org/extension/7012/custom-command-toggle/)  
