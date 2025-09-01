@@ -172,12 +172,8 @@ sudo gnome-text-editor /etc/mkinitcpio.conf
 et copier-coller ces options de configuration :
 ```
 HOOKS=(base udev autodetect kms modconf block filesystems plymouth)
-
-# COMPRESSION
-# Use this to compress the initramfs image. By default, zstd compression
-# is used for Linux ≥ 5.9 and gzip compression is used for Linux < 5.9.
-# Use 'cat' to create an uncompressed image.
-#COMPRESSION="zstd"
+```
+Puis décommenter `#COMPRESSION="zstd"` & passer `-3` à COMPRESSION_OPTION
 #COMPRESSION="gzip"
 #COMPRESSION="bzip2"
 #COMPRESSION="lzma"
