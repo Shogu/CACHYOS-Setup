@@ -54,7 +54,7 @@ G - [Maintenance et mises à jour](https://github.com/Shogu/Fedora41-setup-confi
   
 * **8** - Compléter en supprimant les `logiciels inutiles` suivants avec pacman :
 ```
-sudo pacman -Rns apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds  gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds paru gnome-usage
+sudo pacman -Rns apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds  gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds paru gnome-usage octopi
 
 ```
     
@@ -97,6 +97,12 @@ Puis contrôler avec :
 systemd-analyze --user blame
 ```
 
+* **10** - Désactiver l'autostart gnome-wellbeing :
+```
+cp /usr/share/applications/gnome-wellbeing-panel.desktop ~/.config/autostart/ && sed -i 's/^Hidden=.*/Hidden=true/' ~/.config/autostart/gnome-wellbeing-panel.desktop || echo "Hidden=true" >> ~/.config/autostart/gnome-wellbeing-panel.desktop
+
+```
+Et contrôler avec `grep Hidden ~/.config/autostart/gnome-wellbeing-panel.desktop`
 
 * **10** - Alléger les `journaux système` et les mettre en RAM :
 ```
