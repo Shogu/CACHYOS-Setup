@@ -1,19 +1,28 @@
-#!/usr/bin/env fish
-echo "=== Suppression de l'ancien environnement virtuel ==="
+#!/usr/bin/env bash
+set -e
+
+# Installation des dépendances système
+sudo pacman -S --needed --noconfirm \
+    python \
+    python-pip \
+    python-virtualenv \
+    python-setuptools \
+    python-wheel
+
+# Nettoyage d'un éventuel ancien environnement
 rm -rf ~/.maestral-venv
 
-echo "=== Création d'un nouvel environnement virtuel ==="
+# Création de l'environnement virtuel
 python3 -m venv ~/.maestral-venv
 
-echo "=== Activation de l'environnement virtuel ==="
-source ~/.maestral-venv/bin/activate.fish
+# Activation (bash/zsh, fish aura activate.fish)
+source ~/.maestral-venv/bin/activate
 
-echo "=== Mise à jour de pip ==="
+# Mise à jour de pip et installation de Maestral avec l'interface graphique
 pip install --upgrade pip
-
-echo "=== Installation de Maestral avec GUI ==="
 pip install "maestral[gui]"
 
-echo "=== Installation terminée ==="
-echo "Pour lancer Maestral GUI :"
-echo "source ~/.maestral-venv/bin/activate.fish && maestral gui"
+echo ""
+echo "✅ Installation terminée !"
+echo "Pour lancer Maestral avec Fish :"
+echo "   source ~/.maestral-venv/bin/activate.fish && maestral gui"
