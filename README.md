@@ -87,6 +87,8 @@ systemctl --user mask org.gnome.SettingsDaemon.PrintNotifications.service
 systemctl --user mask org.gnome.SettingsDaemon.A11ySettings.service
 systemctl --user mask org.gnome.SettingsDaemon.Smartcard.service
 systemctl --user mask org.gnome.SettingsDaemon.Datetime.service
+systemctl --user mask arch-update.service
+systemctl --user mask arch-update.timer
 
 ```
 Puis contrôler avec :
@@ -379,7 +381,8 @@ p - [Frequency Boost Switch](https://extensions.gnome.org/extension/4792/frequen
 
 * **41** - Installer [Open with Ptyxis](https://aur.archlinux.org/rpc?arg%5B%5D=dropbox&arg%5B%5D=nautilus-dropbox&arg%5B%5D=nautilus-open-any-terminal&type=info&v=5) et penser à éditer sa clé dconf pour isncrire "ptyxis".
 
-* **42** - Activer le [numpad Asus](https://github.com/asus-linux-drivers/asus-numberpad-driver)
+* **42** - Activer le [numpad Asus](https://github.com/asus-linux-drivers/asus-numberpad-driver) puis désactiver le service :
+`systemctl disable --user asus_numberpad_driver@ogu.service`
 
 * **43** - Régler `fish`, en saisissant dans `sudo gnome-text-editor /home/ogu/.config/fish/` le code suivant :
 ```
