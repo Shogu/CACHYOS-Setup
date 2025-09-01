@@ -102,10 +102,10 @@ systemd-analyze --user blame
 
 * **10** - Désactiver l'autostart gnome-wellbeing :
 ```
-cp /usr/share/applications/gnome-wellbeing-panel.desktop ~/.config/autostart/ && sed -i 's/^Hidden=.*/Hidden=true/' ~/.config/autostart/gnome-wellbeing-panel.desktop || echo "Hidden=true" >> ~/.config/autostart/gnome-wellbeing-panel.desktop
+cp /usr/share/applications/gnome-wellbeing-panel.desktop ~/.config/autostart/ && sudo gnome-text-editor ~/.config/autostart/gnome-wellbeing-panel.desktop 
 
 ```
-Et contrôler avec `grep Hidden ~/.config/autostart/gnome-wellbeing-panel.desktop`
+Saisir `Hidden=true` puis contrôler avec `grep Hidden ~/.config/autostart/gnome-wellbeing-panel.desktop`
 
 * **10** - Alléger les `journaux système` et les mettre en RAM :
 ```
