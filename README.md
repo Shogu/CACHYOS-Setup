@@ -306,7 +306,7 @@ sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner 
 
 et `Nicotine +` et `Ressources` avec Pamac
 
-* **32** - Installer `Dropbox` avec Maestral : lancer le script maestral_install 
+* **32** - Installer `Dropbox` avec Maestral : créer le répertoire Dropbox dans /home puis lancer le script *maestral_install* 
 
 ----------------------------------------------------------------------------------------------
 
