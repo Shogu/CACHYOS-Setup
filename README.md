@@ -157,10 +157,6 @@ blacklist industrialio_triggered_buffer
 blacklist nf_conntrack_netbios_ns
 blacklist nf_conntrack_broadcast
 
-#drivers son realtek
-blacklist snd_hda_codec_realtek
-blacklist snd_hda_codec_generic
-
 #tty
 blacklist serial8250
 blacklist 8250_pci
