@@ -418,6 +418,13 @@ function sudo
 ```
 puis enregistrer avec `funcsave sudo`
 
+* **44** - Changer l'icone Pamac:
+```
+mkdir -p ~/.local/share/icons && \
+wget -O ~/.local/share/icons/pamac.svg https://raw.githubusercontent.com/somepaulo/MoreWaita/b439fe8e2df83abc6cf02a0544a101426611e8ea/scalable/apps/pamac.svg && \
+sed -i 's|^Icon=.*|Icon=/home/'"$USER"'/.local/share/icons/pamac.svg|' ~/.local/share/applications/org.manjaro.pamac.manager.desktop
+```
+
 
   
 * **44** - `Celluloid` :
