@@ -319,7 +319,7 @@ nautilus -q
 nautilus
 ```
 
-* **35** - Régler Nautilus & créer un marque-page pour `Dropbox` p,our l'accès `ftp` au disque SSD sur la TV Android, et pour lancer Nautilus en root depuis le panneau latéral :
+* **35** - Régler Nautilus & créer un marque-page pour `Dropbox`, pour l'accès `ftp` au disque SSD sur la TV Android, et pour lancer Nautilus en root depuis le panneau latéral :
 ```
 192.168.31.68:2121
 ```
