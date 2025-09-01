@@ -283,7 +283,6 @@ nmcli dev show |grep DNS
 * **30** - Installer les logiciels `Flatpak` suivants : 
 ```
 flatpak install flathub org.jdownloader.JDownloader -y
-flatpak install flathub page.codeberg.libre_menu_editor.LibreMenuEditor -y
 flatpak install flathub org.onlyoffice.desktopeditors -y
 flatpak install flathub de.schmidhuberj.tubefeeder -y
 flatpak install flathub app.ytmdesktop.ytmdesktop -y
@@ -291,10 +290,13 @@ flatpak install flathub app.ytmdesktop.ytmdesktop -y
 
 * **31** - Installer les `logiciels` suivants avec pacman :
 ```
-sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse pamac celluloid extension-manager fragments papers
+sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse pamac celluloid extension-manager fragments papers yay nicotine+ resources
 ```
++
 
-et `Nicotine +` et `Ressources` avec Pamac
+```
+yay yay -S libre-menu-editor
+```
 
 * **32** - Installer `Dropbox` avec Maestral : créer le répertoire Dropbox dans /home puis lancer le script *maestral_install* 
 
