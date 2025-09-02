@@ -1,27 +1,39 @@
 #!/usr/bin/env fish
-set -l SOURCE_DIR ~/Téléchargements
-set -l DEST_DIR ~/Vidéos
-set -l VIDEO_EXTENSIONS [ "*.mp4", "*.mkv", "*.avi", "*.mov", "*.flv", "*.wmv", "*.mpeg", "*.mpg", "*.webm" ]
 
-function move_and_cleanup(file, dest)
+set SOURCE_DIR ~/Téléchargements
+set DEST_DIR ~/Vidéos
+set VIDEO_EXTENSIONS .mp4 .mkv .avi .mov .flv .wmv .mpeg .mpg .webm
+
+function move_and_cleanup
+    set file $argv[1]
+    set dest $argv[2]
     echo "File found: $file"
-    read -p "Do you want to move this file to $dest? (y/n)" choice
-    if [ $choice = "y" ] or [ $choice = "Y" ]
-        mkdir -p $dest
-        mv $file $dest
-    end
-end
 
-for ext in ${VIDEO_EXTENSIONS}
-    find $SOURCE_DIR -type f -iname $ext
-    if test $status -eq 0
-        find $SOURCE_DIR -name "$ext"
-        echo "trouvé: $file"
-        read -p "Do you want to move this file to $DEST_DIR? (y/n)" choice
-        if [ $choice = "y" ] or [ $choice = "Y" ]
-            move_and_cleanup $SOURCE_DIR/$file $DEST_DIR
+    read -P "Do you want to move this file to $dest ? (o/n) " choice
+    if test "$choice" = o -o "$choice" = O
+        mkdir -p "$dest"
+        mv "$file" "$dest"
+        echo "File moved to $dest"
+
+        set dir (dirname "$file")
+        while test "$dir" != "$SOURCE_DIR"
+            if test ! -d "$dir"
+                rmdir "$dir"
+                echo "Folder removed: $dir"
+            else
+                break
+            end
+            set dir (dirname "$dir")
         end
+    else
+        echo "File ignored."
     end
 end
 
+for ext in $VIDEO_EXTENSIONS
+    for file in (find $SOURCE_DIR -type f -name "*$ext")
+        move_and_cleanup "$file" "$DEST_DIR"
+    end
+end
 
+echo "Processing completed."
