@@ -286,6 +286,7 @@ flatpak install flathub org.jdownloader.JDownloader -y
 flatpak install flathub org.onlyoffice.desktopeditors -y
 flatpak install flathub de.schmidhuberj.tubefeeder -y
 flatpak install flathub app.ytmdesktop.ytmdesktop -y
+flatpak install flathub io.github.kolunmi.Bazaar -y
 ```
 
 * **31** - Installer les `logiciels` suivants avec pacman :
