@@ -413,11 +413,11 @@ inscrire `vo=gpu-next` dans Paramètres --> Divers --> Options supplémentaires,
 * **45** - `Jdownloader`: réglages de base, font Noto Sans Regular, désactivatioin du dpi et font sur 175; puis désactiver les éléments suivants : tooltip, help, Update Button Flashing, banner, Premium Alert, Donate, speed meter visible.
 
 * **46** - Script de `transfert des vidéos` intitulé `.transfert_videos` pour déplacer automatiquement les vidéos vers Vidéos en supprimant le sous-dossier d'origine.
-Le télécharger depuis le dossier `SCRIPTS`, en faire un raccourci avec l'éditeur de menu, passer le chemin `sh /home/ogu/.transfert_videos.sh` et lui mettre l'icone `/usr/share/icons/Adwaita/scalable/devices/drive-multidisk.svg`
+Le télécharger depuis le dossier `SCRIPTS`, en faire un raccourci avec l'éditeur de menu, passer le chemin `fish /home/ogu/.transfert_videos.sh` et lui mettre l'icone `/usr/share/icons/Adwaita/scalable/devices/drive-multidisk.svg`
 
 * **48** - Accélérer les `animations` :  saisir
 ```
-GNOME_SHELL_SLOWDOWN_FACTOR=0.5
+GNOME_SHELL_SLOWDOWN_FACTOR=0.75
 ```
 dans le fichier 
 ```
