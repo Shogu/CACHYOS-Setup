@@ -287,7 +287,9 @@ flatpak install flathub org.onlyoffice.desktopeditors -y
 flatpak install flathub de.schmidhuberj.tubefeeder -y
 flatpak install flathub app.ytmdesktop.ytmdesktop -y
 flatpak install flathub io.github.kolunmi.Bazaar -y
+flatpak install flathub com.github.tchx84.Flatseal -y
 ```
+Utiliser Flatseal pour désactiver le maintien en arrière-plan de Bazaar puis le supprimer avec flatpak remove flathub com.github.tchx84.Flatseal
 
 * **31** - Installer les `logiciels` suivants avec pacman :
 ```
