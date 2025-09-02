@@ -3,86 +3,67 @@
 import sys
 import os
 import subprocess
-import webbrowser
+import re
+
+MAESTRAL_BIN = "/home/ogu/.local/bin/maestral"
+DROPBOX_ROOT = os.path.expanduser("~/Dropbox")
+
+def extract_url(output):
+    match = re.search(r"https?://\S+", output)
+    return match.group(0) if match else None
+
+def open_url(url):
+    subprocess.run(["xdg-open", url])
+
+def copy_to_clipboard(url):
+    subprocess.run(["xclip", "-selection", "clipboard"], input=url.encode())
 
 def main():
-    # Définir le chemin de base autorisé
-    allowed_base_path = os.path.expanduser("~/Dropbox")
-
     if len(sys.argv) < 2:
         print("Aucun fichier sélectionné.")
         sys.exit(1)
 
     for file_path in sys.argv[1:]:
-        # Obtenir le chemin absolu
         file_path = os.path.abspath(file_path)
 
-        # Vérifiez si le fichier existe
+        # Vérifie que le fichier est dans Dropbox
+        if not file_path.startswith(DROPBOX_ROOT):
+            print(f"Le fichier {file_path} n'est pas dans Dropbox ({DROPBOX_ROOT}).")
+            continue
+
         if not os.path.exists(file_path):
             print(f"Le fichier {file_path} n'existe pas.")
             continue
 
-        # Vérifier si le fichier est dans le dossier autorisé
-        if not file_path.startswith(allowed_base_path):
-            print(f"Le fichier {file_path} n'est pas dans le dossier autorisé ({allowed_base_path}).")
-            continue
+        # Calcul du chemin relatif depuis Dropbox root
+        relative_path = os.path.relpath(file_path, DROPBOX_ROOT)
 
-        print(f"Fichier trouvé : {file_path}")
+        # Vérifier lien existant
+        result = subprocess.run(
+            [MAESTRAL_BIN, "sharelink", "list", relative_path],
+            capture_output=True, text=True, cwd=DROPBOX_ROOT
+        )
 
-        # Extraire le répertoire contenant le fichier
-        file_dir = os.path.dirname(file_path)
-        file_name = os.path.basename(file_path)
+        dropbox_url = extract_url(result.stdout)
 
-        print(f"Répertoire du fichier : {file_dir}")
-        print(f"Nom du fichier : {file_name}")
-
-        # Utiliser Maestral CLI pour vérifier s'il existe déjà un lien partagé
-        try:
-            # Se déplacer dans le répertoire du fichier
-            os.chdir(file_dir)
-            print(f"Répertoire de travail changé vers : {file_dir}")
-
-            # Vérifier s'il existe déjà un lien partagé
-            result = subprocess.run(
-                ["/home/ogu/.local/bin/maestral", "sharelink", "list", file_name],
-                capture_output=True,
-                text=True
+        if dropbox_url:
+            print(f"Lien existant : {dropbox_url}")
+        else:
+            # Créer un nouveau lien
+            create_result = subprocess.run(
+                [MAESTRAL_BIN, "sharelink", "create", relative_path],
+                capture_output=True, text=True, cwd=DROPBOX_ROOT
             )
+            dropbox_url = extract_url(create_result.stdout)
 
-            # Affichage du résultat pour débogage
-            print("Code de retour : ", result.returncode)
-            print("Sortie standard : ", result.stdout)
-            print("Erreur : ", result.stderr)
+            if not dropbox_url:
+                print(f"Impossible de générer un lien pour {relative_path}. Vérifiez que le fichier est synchronisé.")
+                continue
 
-            if result.returncode == 0 and result.stdout.strip():
-                # Si un lien existe déjà, ouvrir ce lien
-                dropbox_url = result.stdout.strip().splitlines()[0]  # Récupérer le premier lien
-                print(f"Lien existant trouvé : {dropbox_url}")
-                webbrowser.open(dropbox_url)
-            else:
-                # Si aucun lien n'existe, créer un nouveau lien
-                print("Aucun lien existant, création d'un nouveau lien...")
-                create_result = subprocess.run(
-                    ["/home/ogu/.local/bin/maestral", "sharelink", "create", file_name],
-                    capture_output=True,
-                    text=True
-                )
-
-                # Affichage du résultat pour débogage
-                print("Code de retour (création) : ", create_result.returncode)
-                print("Sortie standard (création) : ", create_result.stdout)
-                print("Erreur (création) : ", create_result.stderr)
-
-                if create_result.returncode == 0:
-                    dropbox_url = create_result.stdout.strip()
-                    print(f"Nouveau lien généré : {dropbox_url}")
-                    webbrowser.open(dropbox_url)
-                else:
-                    print(f"Erreur lors de la génération du lien : {create_result.stderr}")
-
-        except FileNotFoundError:
-            print("Maestral CLI n'est pas installé ou configuré.")
-            sys.exit(1)
+        # Ouvrir et copier le lien
+        open_url(dropbox_url)
+        copy_to_clipboard(dropbox_url)
+        print(f"Lien copié et ouvert : {dropbox_url}")
 
 if __name__ == "__main__":
     main()
