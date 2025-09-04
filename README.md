@@ -67,9 +67,8 @@ sudo systemctl mask sys-kernel-debug.mount
 sudo systemctl mask sys-kernel-tracing.mount
 sudo systemctl mask avahi-daemon.socket
 sudo systemctl mask NetworkManager-wait-online.service
-
-
-
+sudo systemctl mask dev-tpmrm0.device
+sudo systemctl mask tpm2.target
 ```
 Enfin, reboot puis controle de l'état des services avec :
 ```
