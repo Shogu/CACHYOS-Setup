@@ -488,6 +488,8 @@ toolkit.telemetry.updatePing.enabled
 ```
 s - `media.ffmpeg.vaapi.enabled` sur true
 
+u - pour activer userChrome : toolkit.legacyUserProfileCustomizations.stylesheets sur true
+
 * **55** - **Extensions**
   
 a - [uBlock Origin](https://addons.mozilla.org/fr/firefox/addon/ublock-origin/) : réglages à faire + import des deux listes sauvegardées
@@ -508,7 +510,7 @@ h - [Scroll To Top Lite](https://addons.mozilla.org/fr/firefox/addon/scroll-to-t
 
 * **56** - Activer `openh264` & `widevine` dans les plugins firefox.
   
-* **57** - Désactiver les `recherches populaires` : dans la barre d'adresse, cliquer en bas sur la roue dentée correspondant à Recherches populaires et les désactiver.
+* **57** - Télécharger le *userChrome et le coller dans le répertoire par défaut de Firefox dans un dossier chrome. Le profil se trouve dans about:support
 
 * **58** - Mettre le profil de Firefox en RAM avec `profile-sync-daemon` :
 * ATTENTION : suivre ces consignes avec **Firefox fermé** - utiliser le browser secondaire WEB
