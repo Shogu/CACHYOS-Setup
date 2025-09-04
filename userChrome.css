@@ -1,86 +1,46 @@
-/* ================================
-   Menu clic droit Firefox allégé
-   userChrome.css
-   ================================ */
+#context-savepage { display: none !important; }           /* Masque "Enregistrer la page sous…" */
+#context-sendpage { display: none !important; }           /* Masque "Envoyer la page par e-mail" */
+#context-back, #context-forward { display: none !important; } /* Masque "Précédent" et "Suivant" */
+#context-reload { display: none !important; }            /* Masque "Recharger" */
+#context-bookmarkpage { display: none !important; }       /* Masque "Marquer cette page" */
+#context-bookmarklink { display: none !important; }       /* Masque "Marquer le lien" */
 
-/* Enregistrer la page sous… */
-#context-savepage { display: none !important; }
+#context-selectall,
+menuitem[id="context-selectall"],
+menuitem[label*="Tout sélectionner"],
+menuitem[label*="Tout s\u00E9lectionner"] {
+  display: none !important;                                /* Masque "Tout sélectionner" */
+}
 
-/* Envoyer la page par e-mail */
-#context-sendpage { display: none !important; }
+#context-printselection,
+menuitem[id="context-printselection"],
+menuitem[label*="Imprimer la sélection"],
+menuitem[label*="Imprimer la s\u00E9lection"] {
+  display: none !important;                                /* Masque "Imprimer la sélection" */
+}
 
-/* Précédent / Suivant */
-#context-back,
-#context-forward { display: none !important; }
+#context-translate-selection,
+menuitem[id^="context-translate"],
+menuitem[label*="Traduire la sélection"],
+menuitem[label*="Traduire la s\u00E9lection"],
+menuitem[label*="Traduire"] {
+  display: none !important;                                /* Masque "Traduire la sélection" */
+}
 
-/* Recharger */
-#context-reload { display: none !important; }
+menuitem[id*="selection"],
+menuitem[id*="viewselection"],
+menuitem[label*="source"],
+menuitem[label*="Code source"],
+menuitem[label*="Voir le code"] {
+  display: none !important;                                /* Masque "Voir le code source de la sélection" */
+}
 
-/* Marquer cette page */
-#context-bookmarkpage { display: none !important; }
+#navigator-toolbox { outline: 2px dashed hotpink !important; } /* Bordure rose pour vérifier que userChrome.css est chargé */
 
-/* Marquer le lien */
-#context-bookmarklink { display: none !important; }
+menuseparator { display: none !important; }               /* Masque tous les séparateurs de menu */
 
-/* Séparateurs inutiles */
-menuseparator { display: none !important; }
-
-/* Partager l’image, envoyer l’image par mail */
-#context-sendimage,
-#context-setDesktopBackground { display: none !important; }
-
-/* Enregistrer l’image sous… */
-#context-saveimage { display: none !important; }
-
-/* Inspecter l’élément */
-#context-inspect { display: none !important; }
-
-/* Ouvrir le lien dans une nouvelle fenêtre */
-#context-openlink { display: none !important; }
-
-/* Ouvrir le lien dans une fenêtre de navigation privée */
-#context-openlinkprivate { display: none !important; }
-
-
-
-/* ================================
-   Menu clic droit sur texte sélectionné
-   userChrome.css
-   ================================ */
-
-/* Copier / Couper / Coller : gardé */
-
-/* Rechercher "..." avec le moteur par défaut */
-#context-searchselect { display: none !important; }
-
-/* Traduire le texte */
-#context-translate { display: none !important; }
-
-/* Partager le texte sélectionné */
-#context-sendtext { display: none !important; }
-
-/* Ajouter aux marque-pages */
-#context-bookmarklink { display: none !important; }
-
-/* Ouvrir dans une nouvelle fenêtre / fenêtre privée */
-#context-openlink { display: none !important; }
-#context-openlinkprivate { display: none !important; }
-
-/* Inspecter l’élément */
-#context-inspect { display: none !important; }
-
-/* Séparateurs inutiles */
-menuseparator { display: none !important; }
-
-/* Rechercher dans le dictionnaire */
-#context-dictionary { display: none !important; }
-
-/* Vérification orthographique */
-#spell-check { display: none !important; }
-
-/* Imprimer */
-#context-print { display: none !important; }
-
-/* Code source */
-#context-viewsource { display: none !important; }
+#context-sendimage, #context-setDesktopBackground { display: none !important; } /* Masque "Partager l’image" et "Définir comme fond d’écran" */
+#context-inspect { display: none !important; }            /* Masque "Inspecter l’élément" */
+#context-openlink { display: none !important; }           /* Masque "Ouvrir le lien dans une nouvelle fenêtre" */
+#context-openlinkprivate { display: none !important; }    /* Masque "Ouvrir le lien dans une fenêtre privée" */
 
