@@ -447,8 +447,6 @@ a - `ui.key.menuAccessKey` = 0 pour désactiver la touche Alt qui ouvre les menu
   
 b - `browser.sessionstore.interval` à `600000` pour réduire l'intervalle de sauvegarde des sessions
 
-c - `extensions.pocket.enabled` = false, `browser.newtabpage.activity-stream.discoverystream.sendToPocket.enable` = false, et supprimer Pocket de la barre d'outils si besoin
-
 d - `devtools.f12_enabled` = false
 
 e - `accessibility.force_disabled` = 1 pour supprimer l'accessibilité
@@ -463,13 +461,9 @@ i - `network.http.max-persistent-connections-per-server` = 10
 
 j - `image.mem.decode_bytes_at_a_time` = 131072
 
-k - `browser.translations.enable` = false
-
 l - `dom.battery.enabled` = false 
 
 m - `extensions.htmlaboutaddons.recommendations.enabled` = false pour désactiver l'affichage des "extensions recommandées" dans le menu de Firefox
-
-n - `sidebar.revamp` = true, puis régler la barre latérale
 
 o - `apz.overscroll.enabled` = false pour supprimer le rebonb lors d uscroll jusqu'en fin de page
 
@@ -524,7 +518,7 @@ Installer psd (avec dnf `sudo dnf install profile-sync-daemon`, ou avec make en 
 psd
 systemctl --user daemon-reload
 sytemctl --user enable psd
-reboot
+reboots
 ```
 Puis vérifier que psd fonctionne en contrôlant d'abord les profils Firefox :
 ```
