@@ -508,6 +508,7 @@ g - [Side View](https://addons.mozilla.org/fr/firefox/addon/side-view/)
 
 h - [Scroll To Top](https://addons.mozilla.org/fr/firefox/addon/scroll-to-top-button-extension/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 
+
 * **56** - Activer `openh264` & `widevine` dans les plugins firefox.
   
 * **57** - Télécharger le *userChrome et le coller dans le répertoire par défaut de Firefox dans un dossier chrome. Le profil se trouve dans about:support
