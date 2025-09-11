@@ -129,34 +129,73 @@ echo '* hard core 0' | sudo tee -a /etc/security/limits.conf
 
 * **12** - Blacklister les pilotes inutiles : créer un fichier `blacklist` ```sudo gnome-text-editor /etc/modprobe.d/blacklist.conf``` et l'éditer :
 ```
-#watchdogs
+# ==============================
+# Intel et watchdog
+# ==============================
 blacklist iTCO_vendor_support
 blacklist iTCO_wdt
 blacklist wdat_wdt
 blacklist intel_pmc_bxtvidia
 
-#driver pour nvidia
-blacklist nouveaudrivers
+# ==============================
+# Nvidia
+# ==============================
+blacklist nouveau 
 
-#drivers inutiles
-blacklist ELAN:Fingerprint
+# ==============================
+# Drivers inutiles
+# ==============================
 blacklist btusb
 blacklist joydev
 
-#drivers accéléromètre et capteur luminosité
-blacklist hid_sensor_accel_3d
-blacklist hid_sensor_als
-blacklist hid_sensor_trigger
-blacklist hid_sensor_iio_common
-blacklist hid_sensor_hub
-blacklist industrialio
-blacklist industrialio_triggered_buffer
-
-#drivers netbios
+# ==============================
+# Netbios
+# ==============================
 blacklist nf_conntrack_netbios_ns
 blacklist nf_conntrack_broadcast
 
-#tty
+# ==============================
+# Audio inutilisé
+# ==============================
+blacklist snd_seq_dummy
+blacklist snd_sof_amd_acp70
+blacklist snd_sof_amd_acp63
+blacklist snd_sof_amd_vangogh
+blacklist snd_sof_amd_rembrandt
+blacklist snd_sof_amd_renoir
+
+# ==============================
+# PS/2 et périphériques anciens
+# ==============================
+blacklist pcspkr          # bip interne
+blacklist mousedev        # souris PS/2
+
+# ==============================
+# Crypto inutile si pas de chiffrement (LUKS, WireGuard, etc.)
+# ==============================
+blacklist aesni_intel
+blacklist polyval_clmulni
+blacklist ghash_clmulni_intel
+blacklist sha1_ssse3
+blacklist sha512_ssse3
+
+# ==============================
+# modules Asus (facultatif)
+# ==============================
+#blacklist asus_wmi
+#blacklist asus_nb_wmi
+#blacklist asus_armoury
+
+# ==============================
+# capteurs
+# ==============================
+blacklist hid_sensor_als
+blacklist industrialio
+blacklist industrialio_triggered_buffer
+
+# ==============================
+# tty
+# ==============================
 blacklist serial8250
 blacklist 8250_pci
 ```
