@@ -50,7 +50,7 @@ G - [Maintenance et mises à jour](https://github.com/Shogu/Fedora41-setup-confi
 
 * **6** - Faire les réglages proposés par `CachyOS-Hello` : désactiver le bluetooth, activer bpftune, classer les miroirs, NE PAS installer ananicy ni psd (l'installation échoue)
 
-* **7** - Supprimer les `logiciels inutiles` avec Gnome-software & Octopi
+* **7** - Supprimer les `logiciels inutiles` avec Pamac & Octopi
   
 * **8** - Compléter en supprimant les `logiciels inutiles` suivants avec pacman :
 ```
@@ -439,7 +439,7 @@ Penser à les rendre exécutables!
 
 * **52** - Réglages internes de `Firefox` (penser à activer CTRL-TAB pour faire défiler dans l'ordre d'utilisation & à passer sur `Sombre` plutot qu'`auto` le paramètre `Apparence des sites web`)
 
-* **53** - Changer le `thème` pour [Materia Dark](https://addons.mozilla.org/fr/firefox/addon/materia-dark-theme/) ou [Gnome Dark ](https://addons.mozilla.org/fr/firefox/addon/adwaita-gnome-dark/?utm_content=addons-manager-reviews-link&utm_medium=firefox-browser&utm_source=firefox-browser)
+* **53** - Changer le `thème` pour [Gnome Dark ](https://addons.mozilla.org/fr/firefox/addon/adwaita-gnome-dark/?utm_content=addons-manager-reviews-link&utm_medium=firefox-browser&utm_source=firefox-browser)
 
 * **54** - Dans `about:config` :
   
