@@ -227,12 +227,39 @@ org.gnome.mutter experimental-features
 En profiter pour activer `scale-monitor-framebuffer` & `xwayland-native-scaling`
 
 * **17** - Optimiser le `kernel` :
+Passer les arguments suivants :
+| Thème                               | Argument                                   | Description détaillée                                                                                                          |
+| ----------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| **Performance / CPU / Scheduler**   | `rcu_nocbs=0-(nproc-1)`                    | Désactive le traitement RCU sur tous les cœurs pour éviter les interruptions et améliorer la latence.                          |
+|                                     | `rcutree.enable_rcu_lazy=1`                | Active le mode « lazy » du RCU pour réduire l’overhead du scheduler et améliorer le temps de boot.                             |
+|                                     | `noreplace-smp`                            | Empêche le remplacement des CPUs détectés à chaud, peut stabiliser certaines configurations multi-socket.                      |
+|                                     | `tsc=reliable`                             | Indique au kernel que le compteur TSC (Time Stamp Counter) est fiable pour le calcul du temps système.                         |
+| **Sécurité / Cryptographie**        | `cryptomgr.notests`                        | Désactive les tests de cryptographie lors du boot, réduit légèrement le temps de démarrage si on utilise des modules crypto.   |
+|                                     | `random.trust_cpu=on`                      | Permet de faire confiance à l’instruction RDRAND/RDSEED du CPU pour initialiser l’entropy pool du kernel.                      |
+| **ACPI / Matériel / PCI / GPU**     | `acpi_enforce_resources=lax`               | Assouplit la gestion des ressources ACPI pour permettre à certains drivers de fonctionner malgré des conflits d’adresses.      |
+|                                     | `amdgpu.ppfeaturemask=0xffffffff`          | Active toutes les fonctionnalités du GPU AMD (PowerPlay, OverDrive, etc.).                                                     |
+|                                     | `efi=disable_early_pci_dma`                | Désactive le DMA PCI précoce en early boot sur EFI, peut aider sur certains chipsets à éviter des conflits mémoire.            |
+|                                     | `nomce`                                    | Désactive le Machine Check Exception (MCE), évite que le kernel s’arrête pour certaines erreurs CPU matérielles non critiques. |
+| **Debug / Logs / Timer / Watchdog** | `nowatchdog`                               | Désactive le watchdog matériel et logiciel pour éviter des reset intempestifs en cas de freeze momentané.                      |
+|                                     | `loglevel=0`                               | Limite l’affichage des messages kernel au boot pour réduire le bruit et accélérer le démarrage.                                |
+|                                     | `no_timer_check`                           | Désactive certaines vérifications du timer, réduit le boot time et l’overhead de la vérification du timer HPET.                |
+| **Swap / Resume / FS**              | `noresume`                                 | Désactive la reprise sur hibernation pour éviter les delays si une partition swap est détectée mais non utilisée.              |
+|                                     | `fsck.mode=skip`                           | Ignore le contrôle du système de fichiers au boot, accélère le démarrage.                                                      |
+|                                     | `zswap.enabled=0`                          | Désactive zswap, la compression en RAM du swap, pour réduire l’overhead CPU si tu n’utilises pas beaucoup le swap.             |
+| **Console / Boot**                  | `console=tty0`                             | Définit la console principale sur tty0 (écran principal), permet de réduire les sorties inutiles.                              |
+|                                     | `systemd.show_status=false`                | Masque les messages systemd au boot pour un affichage plus propre.                                                             |
+|                                     | `quiet splash`                             | Masque les messages du kernel et affiche un splash screen.                                                                     |
+| **Divers / UART**                   | `8250.nr_uarts=0`                          | Désactive tous les ports série 8250, utile si tu n’utilises pas de UART pour libérer des ressources.                           |
+| **Cgroup / RDMA**                   | `cgroupdisable=rdma`                       | Désactive les cgroups RDMA, réduit l’overhead si tu n’utilises pas RDMA.                                                       |
+| **NVMe**                            | `nvme_core.default_ps_max_latency_us=5500` | Définit la latence maximale du NVMe pour le mode power-saving, améliore la réactivité en choisissant un mode équilibré.        |
+
+
 ```
 sudo gnome-text-editor /etc/sdboot-manage.conf
 ```
 Puis saisir :
 ```
-LINUX_OPTIONS="zswap.enabled=0 nowatchdog loglevel=0 noresume console=tty0 systemd.show_status=false cgroupdisable=rdma 8250.nr_uarts=0 fsck.mode=skip rcu_nocbs=0-(nproc-1) rcutree.enable_rcu_lazy=1 quiet splash"
+LINUX_OPTIONS="rcu_nocbs=0-(nproc-1) rcutree.enable_rcu_lazy=1 noreplace-smp tsc=reliable cryptomgr.notests random.trust_cpu=on acpi_enforce_resources=lax amdgpu.ppfeaturemask=0xffffffff efi=disable_early_pci_dma nomce nowatchdog loglevel=0 no_timer_check noresume fsck.mode=skip zswap.enabled=0 console=tty0 systemd.show_status=false quiet splash 8250.nr_uarts=0 cgroupdisable=rdma nvme_core.default_ps_max_latency_us=5500"
 ```
 Relancer systemd-boot conformément à la méthode CachyOS :
 ```
