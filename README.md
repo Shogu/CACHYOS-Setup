@@ -506,7 +506,7 @@ f - [LocalCDN](https://addons.mozilla.org/fr/firefox/addon/localcdn-fork-of-dece
 
 g - [Side View](https://addons.mozilla.org/fr/firefox/addon/side-view/)
 
-h - [Scroll To Top Lite](https://addons.mozilla.org/fr/firefox/addon/scroll-to-top-lite/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
+h - [Scroll To Top](https://addons.mozilla.org/fr/firefox/addon/scroll-to-top-button-extension/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 
 * **56** - Activer `openh264` & `widevine` dans les plugins firefox.
   
