@@ -265,7 +265,6 @@ Passer les arguments suivants :
 | **Sécurité / Cryptographie**        | `cryptomgr.notests`                        | Désactive les tests de cryptographie lors du boot, réduit légèrement le temps de démarrage si on utilise des modules crypto.   |
 |                                     | `random.trust_cpu=on`                      | Permet de faire confiance à l’instruction RDRAND/RDSEED du CPU pour initialiser l’entropy pool du kernel.                      |
 | **ACPI / Matériel / PCI / GPU**     | `acpi_enforce_resources=lax`               | Assouplit la gestion des ressources ACPI pour permettre à certains drivers de fonctionner malgré des conflits d’adresses.      |
-|                                     | `amdgpu.ppfeaturemask=0xffffffff`          | Active toutes les fonctionnalités du GPU AMD (PowerPlay, OverDrive, etc.).                                                     |
 |                                     | `efi=disable_early_pci_dma`                | Désactive le DMA PCI précoce en early boot sur EFI, peut aider sur certains chipsets à éviter des conflits mémoire.            |
 |                                     | `nomce`                                    | Désactive le Machine Check Exception (MCE), évite que le kernel s’arrête pour certaines erreurs CPU matérielles non critiques. |
 | **Debug / Logs / Timer / Watchdog** | `nowatchdog`                               | Désactive le watchdog matériel et logiciel pour éviter des reset intempestifs en cas de freeze momentané.                      |
