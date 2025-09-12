@@ -284,9 +284,18 @@ timeout 1
 ```
 
 * **19** - Editer le mount des `partitions EXT4` avec la commande :
-`sudo gnome-text-editor /etc/fstab`
+`sudo gnome-text-editor /etc/fstab` et rajouter après 'noatime' : 
+```
+data=writeback,commit=60,barrier=0 0 0
+```
+| Option                   | Rôle                                                                 | Avantage                                       | Inconvénient / Risque                                      |
+|---------------------------|----------------------------------------------------------------------|------------------------------------------------|--------------------------------------------------------                |
+| `noatime`                | Désactive la mise à jour de la date         |
+| `data=writeback`         | Journalise seulement les **métadonnées**, pas le contenu des fichiers. | Écritures plus rapides, moins de charge disque. 
+| `commit=60`              | Force l’écriture du journal toutes les 60 secondes.                  | Moins d’écritures → plus de perf + moins d’usure SSD.          |
+| `barrier=0`              | Désactive les barrières d’écriture (cache flush).                    | Réduit la latence et accélère les commits.   
+| `0 0`                    | Désactive `dump` et `fsck` automatiques au boot.                                     | Pas de vérification 
 
-Désactiver le fsck en mettant les partitions sur 0 0
 
 * **21** - Régler le `pare-feu` :
 
