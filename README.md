@@ -219,6 +219,32 @@ Recharger l'initrd avec `sudo mkinitcpio -P`
 
 ## 🚀 **C - Optimisation du système**
 
+
+* **15** Activer le scheduler ADIOS sur AMD CPU, plutot qu'un schedulere type bpfland ou rusty :
+```
+sudo nano /etc/udev/rules.d/60-ioschedulers.rules
+```
+Puis saisir :
+```
+# HDD
+ACTION=="add|change", KERNEL=="sd[a-z]*", ATTR{queue/rotational}=="1", \
+    ATTR{queue/scheduler}="bfq"
+
+# SSD
+ACTION=="add|change", KERNEL=="sd[a-z]*|mmcblk[0-9]*", ATTR{queue/rotational}=="0", \
+    ATTR{queue/scheduler}="adios"
+
+# NVMe SSD
+ACTION=="add|change", KERNEL=="nvme[0-9]*", ATTR{queue/rotational}=="0", \
+    ATTR{queue/scheduler}="adios"
+```
+Relancer udev : 
+```
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+```
+Vérifier avec `cat /sys/block/nvme0n1/queue/scheduler`
+
 * **16** - Passer `xwayland` en autoclose : sur dconf-editor, modifier la clé suivante.
 ```
 org.gnome.mutter experimental-features
