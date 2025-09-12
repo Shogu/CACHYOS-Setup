@@ -382,6 +382,13 @@ puis saisir : `NautoVTS=1`
 nmcli dev show |grep DNS
 ```
 
+* **26** Régler wifi sur FR :
+```
+sudo micro /etc/conf.d/wireless-regdom
+```
+et décommenter la ligne *WIRELESS_REGDOM="FR"*
+
+
 **Boot time : avant optimisation : 23.7 secondes**
 
 `Startup finished in 5.8s (firmware) + 508ms (loader) + 1.896s (kernel) + 4s (initrd) + 11.5s (userspace) = 23.7s`
