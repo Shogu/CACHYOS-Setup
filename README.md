@@ -414,12 +414,12 @@ Utiliser Flatseal pour désactiver le maintien en arrière-plan de Bazaar puis l
 
 * **31** - Installer les `logiciels` suivants avec pacman :
 ```
-sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse pamac celluloid extension-manager fragments papers yay nicotine+ resources
+sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse pamac celluloid extension-manager fragments papers paru nicotine+ resources
 ```
 et
 
 ```
-yay -S libre-menu-editor
+paru -S libre-menu-editor
 ```
 
 * **32** - Installer `Dropbox` avec Maestral : créer le répertoire Dropbox dans /home puis lancer le script *maestral_install* 
@@ -489,12 +489,12 @@ n - [Hot Edge](https://extensions.gnome.org/extension/4222/hot-edge/)
 
 q - [Custom Command Toggle](https://extensions.gnome.org/extension/7012/custom-command-toggle/)  
 
-r - Pop Shell Tiling : `yay -S gnome-shell-extension-pop-shell`
+r - Pop Shell Tiling : `paru -S gnome-shell-extension-pop-shell`
 puis supprimer le theme icone Pop dans /usr/share/icons
 
 * **41** - Installer Open with Ptyxis :
 ```
-yay -S nautilus-open-any-terminal
+paru -S nautilus-open-any-terminal
 ```
 et penser à éditer sa clé dconf com.github.stunkymonkey.nautilus-open-any-terminal pour inscrire "ptyxis".
 
