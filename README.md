@@ -416,6 +416,17 @@ paru -S libre-menu-editor
 
 ## 🐾 **E - Réglages de l'UI Gnome Shell** 
 
+* **33** Extinction en fermant le caport du laptop :
+Editer le service logind :
+```
+gnome-text-editor admin:///etc/systemd/logind.conf
+```
+puis remplacer les lignes HandleLid par 
+```
+HandleLidSwitch=poweroff
+HandleLidSwitchExternalPower=poweroff
+```
+
 * **34** - Installer `nautilus-admin` :
 
 ```
