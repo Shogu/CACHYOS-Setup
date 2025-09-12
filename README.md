@@ -69,6 +69,8 @@ sudo systemctl mask avahi-daemon.socket
 sudo systemctl mask NetworkManager-wait-online.service
 sudo systemctl mask dev-tpmrm0.device
 sudo systemctl mask tpm2.target
+sudo systemctl mask lvm2-lvmpolld.service lvm2-monitor.service lvm2-lvmpolld.socket
+
 ```
 Enfin, reboot puis controle de l'état des services avec :
 ```
@@ -253,41 +255,27 @@ org.gnome.mutter experimental-features
 En profiter pour activer `scale-monitor-framebuffer` & `xwayland-native-scaling`
 
 * **17** - Optimiser le `kernel` :
-Passer les arguments suivants :
 
+| Thème                     | Arguments / Options                                                                 | Description                                                                                   |
+|----------------------------|------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| **Perf / CPU / Scheduler** | `rcu_nocbs=0-(nproc-1)`, `rcutree.enable_rcu_lazy=1`, `noreplace-smp`, `tsc=reliable` | Optimisations RCU, scheduler et compteur TSC pour réduire latence et améliorer le boot.      |
+| **Sécurité / Crypto**      | `cryptomgr.notests`, `random.trust_cpu=on`                                         | Désactive tests crypto au boot et fait confiance aux instructions RDRAND/RDSEED.             |
+| **ACPI / Matériel / GPU**  | `efi=disable_early_pci_dma`, `nomce`                                              | Désactive DMA PCI précoce, MCE non critiques pour éviter conflits et arrêts intempestifs.    |
+| **Debug / Logs / Timer**   | `nowatchdog`, `loglevel=0`, `no_timer_check`                                       | Désactive watchdog, limite logs et vérifications timer HPET pour accélérer le boot.          |
+| **Swap / FS**              | `noresume`, `fsck.mode=skip`, `zswap.enabled=0`                                    | Désactive reprise hibernation, fsck et zswap pour réduire overhead CPU et boot time.         |
+| **Console / Boot**         | `console=tty0`, `systemd.show_status=false`, `quiet splash`                        | Définit la console principale et masque la majorité des messages kernel/systemd.             |
+| **Divers / UART**          | `8250.nr_uarts=0`                                                                  | Désactive tous les ports série 8250 si non utilisés.                                          |
+| **Cgroup / RDMA**          | `cgroupdisable=rdma`                                                               | Désactive les cgroups RDMA si non utilisés.                                                  |
+| **NVMe**                   | `nvme_core.default_ps_max_latency_us=5500`                                         | Limite latence NVMe pour un mode power-saving équilibré.                                      |
+| **Wifi / Réseau**          | `disable_ipv6=1`                                                                   | Désactive IPv6.                                                                               |
+| **Virtualisation**         | `amd_iommu=off`                                                                    | Désactive l’IOMMU AMD si pas de virtualisation/VFIO.                                         |
 
-| Thème                               | Argument                                   | Description détaillée                                                                                                          |
-| ----------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| **Performance / CPU / Scheduler**   | `rcu_nocbs=0-(nproc-1)`                    | Désactive le traitement RCU sur tous les cœurs pour éviter les interruptions et améliorer la latence.                          |
-|                                     | `rcutree.enable_rcu_lazy=1`                | Active le mode « lazy » du RCU pour réduire l’overhead du scheduler et améliorer le temps de boot.                             |
-|                                     | `noreplace-smp`                            | Empêche le remplacement des CPUs détectés à chaud, peut stabiliser certaines configurations multi-socket.                      |
-|                                     | `tsc=reliable`                             | Indique au kernel que le compteur TSC (Time Stamp Counter) est fiable pour le calcul du temps système.                         |
-| **Sécurité / Cryptographie**        | `cryptomgr.notests`                        | Désactive les tests de cryptographie lors du boot, réduit légèrement le temps de démarrage si on utilise des modules crypto.   |
-|                                     | `random.trust_cpu=on`                      | Permet de faire confiance à l’instruction RDRAND/RDSEED du CPU pour initialiser l’entropy pool du kernel.                      |
-| **ACPI / Matériel / PCI / GPU**     | `efi=disable_early_pci_dma`                | Désactive le DMA PCI précoce en early boot sur EFI, peut aider sur certains chipsets à éviter des conflits mémoire.            |
-|                                     | `nomce`                                    | Désactive le Machine Check Exception (MCE), évite que le kernel s’arrête pour certaines erreurs CPU matérielles non critiques. |
-| **Debug / Logs / Timer / Watchdog** | `nowatchdog`                               | Désactive le watchdog matériel et logiciel pour éviter des reset intempestifs en cas de freeze momentané.                      |
-|                                     | `loglevel=0`                               | Limite l’affichage des messages kernel au boot pour réduire le bruit et accélérer le démarrage.                                |
-|                                     | `no_timer_check`                           | Désactive certaines vérifications du timer, réduit le boot time et l’overhead de la vérification du timer HPET.                |
-| **Swap / Resume / FS**              | `noresume`                                 | Désactive la reprise sur hibernation pour éviter les delays si une partition swap est détectée mais non utilisée.              |
-|                                     | `fsck.mode=skip`                           | Ignore le contrôle du système de fichiers au boot, accélère le démarrage.                                                      |
-|                                     | `zswap.enabled=0`                          | Désactive zswap, la compression en RAM du swap, pour réduire l’overhead CPU si tu n’utilises pas beaucoup le swap.             |
-| **Console / Boot**                  | `console=tty0`                             | Définit la console principale sur tty0 (écran principal), permet de réduire les sorties inutiles.                              |
-|                                     | `systemd.show_status=false`                | Masque les messages systemd au boot pour un affichage plus propre.                                                             |
-|                                     | `quiet splash`                             | Masque les messages du kernel et affiche un splash screen.                                                                     |
-| **Divers / UART**                   | `8250.nr_uarts=0`                          | Désactive tous les ports série 8250, utile si tu n’utilises pas de UART pour libérer des ressources.                           |
-| **Cgroup / RDMA**                   | `cgroupdisable=rdma`                       | Désactive les cgroups RDMA, réduit l’overhead si tu n’utilises pas RDMA.                                                       |
-| **NVMe**                            | `nvme_core.default_ps_max_latency_us=5500` | Définit la latence maximale du NVMe pour le mode power-saving, améliore la réactivité en choisissant un mode équilibré.        |
-                                          |
-| **Wifi**                            | `disable_ipv6=1` | Désactive ipv6        |
-                                          |
-| **virtualisation**                            | `amd_iommu=off` | Désactive la virtualisation   |
 ```
 sudo gnome-text-editor /etc/sdboot-manage.conf
 ```
 Puis saisir :
 ```
-LINUX_OPTIONS="rcu_nocbs=0-(nproc-1) rcutree.enable_rcu_lazy=1 noreplace-smp tsc=reliable cryptomgr.notests random.trust_cpu=on acpi_enforce_resources=lax amdgpu.ppfeaturemask=0xffffffff efi=disable_early_pci_dma nomce nowatchdog loglevel=0 no_timer_check noresume fsck.mode=skip zswap.enabled=0 console=tty0 systemd.show_status=false quiet splash 8250.nr_uarts=0 cgroupdisable=rdma nvme_core.default_ps_max_latency_us=5500 disable_ipv6=1 amd_iommu=off"
+LINUX_OPTIONS="rcu_nocbs=0-(nproc-1) rcutree.enable_rcu_lazy=1 noreplace-smp tsc=reliable cryptomgr.notests random.trust_cpu=on efi=disable_early_pci_dma nomce nowatchdog loglevel=0 no_timer_check noresume fsck.mode=skip zswap.enabled=0 console=tty0 systemd.show_status=false quiet splash 8250.nr_uarts=0 cgroupdisable=rdma nvme_core.default_ps_max_latency_us=5500 disable_ipv6=1 amd_iommu=off"
 ```
 Relancer systemd-boot conformément à la méthode CachyOS :
 ```
