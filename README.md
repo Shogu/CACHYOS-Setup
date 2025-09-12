@@ -512,6 +512,20 @@ A télécharger depuis le dossier `SCRIPTS` puis à coller dans le dossier `/hom
 Penser à les rendre exécutables!
 
 
+* **50** Enlever le powersave de la souris Inphic :  créer une règle udev pour que Linux applique power/control=on automatiquement à chaque démarrage :
+```
+sudo nano /etc/udev/rules.d/50-inphic.rules
+```
+et saisir 
+```
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="1ea7", ATTR{idProduct}=="0064", TEST=="power/control", ATTR{power/control}="on"
+```
+Puis recharger udev avec  
+```
+sudo udevadm control --reload
+sudo udevadm trigger
+
+```
 * **51** - Faire le tri dans `~/.local/share/`, `/home/ogu/.config/`, `/usr/share/` et `/etc/`
 ----------------------------------------------------------------------------------------------
 
