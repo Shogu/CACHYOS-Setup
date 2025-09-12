@@ -515,7 +515,7 @@ alias vi='nano'
 alias gedit='gnome-text-editor'
 alias micro='gnome-text-editor'
 ```
-Et recharger la configuration de fish avec `source /usr/share/cachyos-fish-config/cachyos-config.fish`
+Et recharger la configuration de fish avec `source ~/.config/fish/config.fish`
 
 
 * **44** - Changer l'icone Pamac:
