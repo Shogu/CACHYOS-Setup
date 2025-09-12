@@ -297,10 +297,16 @@ data=writeback,commit=60,barrier=0 0 0
 | `0 0`                    | Désactive `dump` et `fsck` automatiques au boot.                                     | Pas de vérification 
 
 
-Pour la aprtiton `vfat` : 
+Pour la partiton `vfat` : 
 ```
 defaults,noatime,umask=0077 0 0
 ```
+* **20** - Désactiver mitigate split lock : éditer `sudo nano /etc/sysctl.d/99-splitlock.conf` et saisir :
+  
+```
+kernel.split_lock_mitigate=0
+```
+Puis recharegr avec `sudo sysctl --system`
 
 
 * **21** - Régler le `pare-feu` :
