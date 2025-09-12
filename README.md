@@ -278,14 +278,16 @@ Passer les arguments suivants :
 | **Divers / UART**                   | `8250.nr_uarts=0`                          | Désactive tous les ports série 8250, utile si tu n’utilises pas de UART pour libérer des ressources.                           |
 | **Cgroup / RDMA**                   | `cgroupdisable=rdma`                       | Désactive les cgroups RDMA, réduit l’overhead si tu n’utilises pas RDMA.                                                       |
 | **NVMe**                            | `nvme_core.default_ps_max_latency_us=5500` | Définit la latence maximale du NVMe pour le mode power-saving, améliore la réactivité en choisissant un mode équilibré.        |
-
-
+                                          |
+| **Wifi**                            | `disable_ipv6=1` | Désactive ipv6        |
+                                          |
+| **virtualisation**                            | `amd_iommu=off` | Désactive la virtualisation   |
 ```
 sudo gnome-text-editor /etc/sdboot-manage.conf
 ```
 Puis saisir :
 ```
-LINUX_OPTIONS="rcu_nocbs=0-(nproc-1) rcutree.enable_rcu_lazy=1 noreplace-smp tsc=reliable cryptomgr.notests random.trust_cpu=on acpi_enforce_resources=lax amdgpu.ppfeaturemask=0xffffffff efi=disable_early_pci_dma nomce nowatchdog loglevel=0 no_timer_check noresume fsck.mode=skip zswap.enabled=0 console=tty0 systemd.show_status=false quiet splash 8250.nr_uarts=0 cgroupdisable=rdma nvme_core.default_ps_max_latency_us=5500"
+LINUX_OPTIONS="rcu_nocbs=0-(nproc-1) rcutree.enable_rcu_lazy=1 noreplace-smp tsc=reliable cryptomgr.notests random.trust_cpu=on acpi_enforce_resources=lax amdgpu.ppfeaturemask=0xffffffff efi=disable_early_pci_dma nomce nowatchdog loglevel=0 no_timer_check noresume fsck.mode=skip zswap.enabled=0 console=tty0 systemd.show_status=false quiet splash 8250.nr_uarts=0 cgroupdisable=rdma nvme_core.default_ps_max_latency_us=5500 disable_ipv6=1 amd_iommu=off"
 ```
 Relancer systemd-boot conformément à la méthode CachyOS :
 ```
