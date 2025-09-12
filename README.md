@@ -445,8 +445,6 @@ l - [AutoActivities](https://extensions.gnome.org/extension/5500/auto-activities
 m - [Auto Screen Brightness](https://extensions.gnome.org/extension/7311/auto-screen-brightness/) & supprimer la luminosité automatique dans Settings de Gnome
 
 n - [Hot Edge](https://extensions.gnome.org/extension/4222/hot-edge/)
-    
-p - [Frequency Boost Switch](https://extensions.gnome.org/extension/4792/frequency-boost-switch/)
 
 q - [Custom Command Toggle](https://extensions.gnome.org/extension/7012/custom-command-toggle/)  
 
