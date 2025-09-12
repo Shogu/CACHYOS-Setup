@@ -503,13 +503,17 @@ systemctl enable --user asus_numberpad_driver@ogu.service && systemctl start --u
 systemctl stop --user asus_numberpad_driver@ogu.service && systemctl disable --user asus_numberpad_driver@ogu.service &&  notify-send "Numpad désactivé"
 ```
 
-* **43** - Régler `Gnome-text-editor`et `Ptyxis`, configurer `fish` avec `sudo gnome-text-editor /usr/share/cachyos-fish-config/cachyos-config.fish` et saisir :
+* **43** - Régler `Gnome-text-editor`et `Ptyxis`, configurer `fish` avec `gnome-text-editor ~/.config/fish/config.fish` et coller :
   
 ```
-# Désactive fastfetch en tant que message de bienvenue
-# function fish_greeting
-#     fastfetch
-# end
+# Désactive le message d'accueil de Fish.
+set -g fish_greeting ""
+
+alias yay='paru'
+alias vim='nano'
+alias vi='nano'
+alias gedit='gnome-text-editor'
+alias micro='gnome-text-editor'
 ```
 Et recharger la configuration de fish avec `source /usr/share/cachyos-fish-config/cachyos-config.fish`
 
