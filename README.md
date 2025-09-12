@@ -211,7 +211,7 @@ et copier-coller ces options de configuration :
 ```
 HOOKS=(base udev autodetect kms modconf block filesystems plymouth)
 ```
-Puis chosiir entre : lzop (plus rapide, mais à installer) ou zstd et passer `-3` à COMPRESSION_OPTION
+Puis choisir entre : lzop (plus rapide, mais à installer) ou zstd et passer `-3` à COMPRESSION_OPTION
 
 Recharger l'initrd avec `sudo mkinitcpio -P`
 
@@ -228,6 +228,8 @@ En profiter pour activer `scale-monitor-framebuffer` & `xwayland-native-scaling`
 
 * **17** - Optimiser le `kernel` :
 Passer les arguments suivants :
+
+
 | Thème                               | Argument                                   | Description détaillée                                                                                                          |
 | ----------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
 | **Performance / CPU / Scheduler**   | `rcu_nocbs=0-(nproc-1)`                    | Désactive le traitement RCU sur tous les cœurs pour éviter les interruptions et améliorer la latence.                          |
