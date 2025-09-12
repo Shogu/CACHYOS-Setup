@@ -204,7 +204,7 @@ blacklist 8250_pci
 Puis lancer `sudo mkinicpio -P`
 Au reboot, vérifier avec la commande `lsmod | grep hid_sensor`
 
-* **14 !! EXPERIMENTAL !!** : réduire l`initramfs` en désactivant des modules inutiles : attention prévoir un backup du fichier pour le restaurer en live cd si besoin!
+* **14 ** : réduire l`initramfs` en désactivant des modules inutiles : attention prévoir un backup du fichier pour le restaurer en live cd si besoin!
 ```
 sudo gnome-text-editor /etc/mkinitcpio.conf
 
@@ -216,6 +216,12 @@ HOOKS=(base udev autodetect kms modconf block filesystems plymouth)
 Puis choisir entre : lz4 ou zstd et passer `-3` à COMPRESSION_OPTION
 
 Recharger l'initrd avec `sudo mkinitcpio -P`
+
+* **15** - Désactiver le capteur de luminosité de Gnome :
+
+```
+gsettings set org.gnome.settings-daemon.plugins.power ambient-enabled false
+```
 
 ----------------------------------------------------------------------------------------------
 
