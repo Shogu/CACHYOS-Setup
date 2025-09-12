@@ -297,6 +297,12 @@ data=writeback,commit=60,barrier=0 0 0
 | `0 0`                    | Désactive `dump` et `fsck` automatiques au boot.                                     | Pas de vérification 
 
 
+Pour la aprtiton `vfat` : 
+```
+defaults,noatime,umask=0077 0 0
+```
+
+
 * **21** - Régler le `pare-feu` :
 
 ```
