@@ -497,6 +497,8 @@ q - [Custom Command Toggle](https://extensions.gnome.org/extension/7012/custom-c
 r - Pop Shell Tiling : `paru -S gnome-shell-extension-pop-shell`
 puis supprimer le theme icone Pop dans /usr/share/icons
 
+s - [Quick Close Overview](https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/)
+
 * **41** - Installer Open with Ptyxis :
 ```
 paru -S nautilus-open-any-terminal
