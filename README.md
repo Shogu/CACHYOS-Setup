@@ -54,7 +54,7 @@ G - [Maintenance et mises à jour](https://github.com/Shogu/Fedora41-setup-confi
   
 * **8** - Compléter en supprimant les `logiciels inutiles` suivants avec pacman :
 ```
-sudo pacman -Rns apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds  gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds paru gnome-usage octopi gedit xfsprogs btrfs-progs
+sudo pacman -Rns apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds paru gnome-usage octopi gedit xfsprogs btrfs-progs yay
 
 ```
     
@@ -382,15 +382,6 @@ sudo micro /etc/conf.d/wireless-regdom
 ```
 et décommenter la ligne *WIRELESS_REGDOM="FR"*
 
-
-**Boot time : avant optimisation : 23.7 secondes**
-
-`Startup finished in 5.8s (firmware) + 508ms (loader) + 1.896s (kernel) + 4s (initrd) + 11.5s (userspace) = 23.7s`
-
-**Boot time : après optimisation : 11.5 secondes**
-
-`Startup finished in 2.315s (firmware) + 486ms (loader) + 1.742s (kernel) + 3.863s (initrd) + 3.174s (userspace) = 11.583s`
-
 ----------------------------------------------------------------------------------------------
 
 ## 📦 **D - Remplacement et installation de logiciels et codecs**
@@ -413,7 +404,7 @@ sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner 
 et
 
 ```
-paru -S libre-menu-editor
+paru -S libre-menu-editor gradia
 ```
 
 * **32** - Installer `Dropbox` avec Maestral : créer le répertoire Dropbox dans /home puis lancer le script *maestral_install* 
