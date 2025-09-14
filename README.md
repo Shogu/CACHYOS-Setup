@@ -568,9 +568,26 @@ Puis recharger udev avec
 ```
 sudo udevadm control --reload
 sudo udevadm trigger
-
 ```
-* **51** - Faire le tri dans `~/.local/share/`, `/home/ogu/.config/`, `/usr/share/` et `/etc/`
+
+* **51** - Modifier le nom du toggle de changement de profil énergétique dans l'applet Gnome : sans quoi le nopm es ttellement lmong qu'il es tcoupé dans le bouton...Installer l'outil de traduction :
+```
+sudo pacman -S gettext
+```
+Récupérer le po français de gnome-shell :
+```
+wget https://gitlab.gnome.org/GNOME/gnome-shell/-/raw/main/po/fr.po -O fr.po
+```
+Éditer fr.po et modifier le nom du bouton. Puis compiler :
+```
+msgfmt fr.po -o gnome-shell.mo
+```
+Sauvegarder l’original avec `sudo cp /usr/share/locale/fr/LC_MESSAGES/gnome-shell.mo{,.bak}` puis remplacer par le nouveau fichier : 
+```
+cp gnome-shell.mo /usr/share/locale/fr/LC_MESSAGES/gnome-shell.mo
+```
+
+* **52** - Faire le tri dans `~/.local/share/`, `/home/ogu/.config/`, `/usr/share/` et `/etc/`
 ----------------------------------------------------------------------------------------------
 
  
