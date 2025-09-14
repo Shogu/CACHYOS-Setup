@@ -54,7 +54,7 @@ G - [Maintenance et mises à jour](https://github.com/Shogu/Fedora41-setup-confi
   
 * **8** - Compléter en supprimant les `logiciels inutiles` suivants avec pacman :
 ```
-sudo pacman -Rns apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds gnome-usage octopi gedit xfsprogs btrfs-progs yay
+sudo pacman -Rns apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds gnome-usage octopi gedit xfsprogs btrfs-progs yay cpupower
 
 ```
     
@@ -363,58 +363,6 @@ sudo ufw allow out 443/tcp
 sudo ufw --force enable
 sudo ufw status numbered
 ```
-
-* **22** # Passer de balance_power à *balance_performance* pour le profil Gnome *"Balanced"*.
-Les [benchmarks](https://lore.kernel.org/lkml/20221219064042.661122-1-perry.yuan@amd.com/) montrent que ce compromis est mieux adapté à un laptop avec une si grosse batterie : 
-
-Installer cpupower :
-```
-sudo pacman -S cpupower
-```
-Télécharger le script de monitoring *ppd-epp-monitor* dans les fichiers de ce dépôt et le déplacer :
-```
-sudo mv ~/Téléchargements/ppd-epp-monitor /usr/local/bin/
-```
-Le rendre exécutable :
-```
-sudo chmod +x /usr/local/bin/ppd-epp-monitor
-```
-Créer le service systemd qui lance le script :
-```
-sudo nano /etc/systemd/system/ppd-epp-monitor.service
-```
-[Unit]
-Description=Monitor power-profiles-daemon and apply EPP
-
-[Service]
-Type=simple
-ExecStart=/usr/local/bin/ppd-epp-monitor.sh
-
-[Install]
-WantedBy=multi-user.target
-```
-Activer le service :
-```
-sudo systemctl daemon-reload
-sudo systemctl enable --now ppd-epp-monitor.service
-
-```
-Tester en changeant de profil dans l'applet, et en passant
- powerprofilesctl set performance
-  powerprofilesctl get
-  cat /sys/devices/system/cpu/cpu0/cpufreq/energy_performance_preference
-
-performance
-performance
-
-~
-❯ powerprofilesctl set balanced
-  powerprofilesctl get
-  cat /sys/devices/system/cpu/cpu0/cpufreq/energy_performance_preference
-
-balanced
-balance_power
-
 
 * **24** - Passer à 1 le nombre de `ttys` au boot  :  
 ```
