@@ -490,6 +490,8 @@ puis supprimer le theme icone Pop dans /usr/share/icons
 
 s - [Quick Close Overview](https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/)
 
+t - [Topbar Organizer](https://extensions.gnome.org/extension/4356/top-bar-organizer/)]
+
 * **41** - Installer Open with Ptyxis :
 ```
 paru -S nautilus-open-any-terminal
