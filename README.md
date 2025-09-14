@@ -399,12 +399,13 @@ Utiliser Flatseal pour désactiver le maintien en arrière-plan de Bazaar puis l
 
 * **31** - Installer les `logiciels` suivants avec pacman :
 ```
-sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse pamac celluloid extension-manager fragments papers paru nicotine+ resources
+sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse pamac celluloid extension-manager fragments papers paru nicotine+ resources 
 ```
 et
 
 ```
-paru -S libre-menu-editor gradia
+paru -S libre-menu-editor gradia nautilus-admin
+
 ```
 
 * **32** - Installer `Dropbox` avec Maestral : créer le répertoire Dropbox dans /home puis lancer le script *maestral_install* 
@@ -422,21 +423,6 @@ puis remplacer les lignes HandleLid par
 ```
 HandleLidSwitch=poweroff
 HandleLidSwitchExternalPower=poweroff
-```
-
-* **34** - Installer `nautilus-admin` :
-
-```
-#Créer un dossier pour les builds AUR si nécessaire :
-mkdir -p ~/aur-build cd ~/aur-build 
-#Cloner le dépôt AUR :
-git clone https://aur.archlinux.org/nautilus-admin-gtk4.git
-#Entrer dans le dossier cloné :
-cd nautilus-admin-gtk4 
-#Construire et installer le paquet :
-makepkg -si
-nautilus -q
-nautilus
 ```
 
 * **35** - Régler Nautilus & créer un marque-page pour `Dropbox`, pour l'accès `ftp` au disque SSD sur la TV Android, et pour lancer Nautilus en root depuis le panneau latéral :
