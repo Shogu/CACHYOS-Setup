@@ -560,7 +560,8 @@ sudo udevadm control --reload
 sudo udevadm trigger
 ```
 
-* **51** - Modifier le nom du toggle de changement de profil énergétique dans l'applet Gnome : sans quoi le nopm es ttellement lmong qu'il es tcoupé dans le bouton...Installer l'outil de traduction :
+* **51** - Modifier le nom du *toggle de changement de profil énergétique* dans l'applet Gnome : sans quoi le nom est tellement long qu'il est coupé dans le bouton...
+Installer l'outil de traduction :
 ```
 sudo pacman -S gettext
 ```
