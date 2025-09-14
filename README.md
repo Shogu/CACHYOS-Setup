@@ -716,6 +716,9 @@ du -sh /run/user/1000/psd/nom du profil/
 
 ## 🪛 **G - Maintenance de la distribution**
  en cours de rédaction
+
+sudo bootctl cleanup
+
 ```
 sudo dnf autoremove
 sudo dnf -y upgrade --refresh
