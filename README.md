@@ -54,7 +54,7 @@ G - [Maintenance et mises à jour](https://github.com/Shogu/Fedora41-setup-confi
   
 * **8** - Compléter en supprimant les `logiciels inutiles` suivants avec pacman :
 ```
-sudo pacman -Rns apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds paru gnome-usage octopi gedit xfsprogs btrfs-progs yay
+sudo pacman -Rns apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds gnome-usage octopi gedit xfsprogs btrfs-progs yay
 
 ```
     
@@ -404,7 +404,7 @@ sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner 
 et
 
 ```
-paru -S libre-menu-editor gradia nautilus-admin
+paru -S libre-menu-editor gradia nautilus-admin pacseek
 
 ```
 
@@ -497,11 +497,15 @@ systemctl stop --user asus_numberpad_driver@ogu.service && systemctl disable --u
 # Désactive le message d'accueil de Fish.
 set -g fish_greeting ""
 
+# Désactiver le pager pour paru et autres programmes
+set -Ux PAGER cat
+
 alias yay='paru'
 alias vim='nano'
 alias vi='nano'
 alias gedit='gnome-text-editor'
 alias micro='gnome-text-editor'
+alias paru='paru'
 ```
 Et recharger la configuration de fish avec `source ~/.config/fish/config.fish`
 
