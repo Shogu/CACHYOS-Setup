@@ -50,7 +50,7 @@ G - [Maintenance et mises à jour](https://github.com/Shogu/Fedora41-setup-confi
 
 ## ✨ **B - Allégement du système**
 
-* **6** - Faire les réglages proposés par `CachyOS-Hello` : désactiver le bluetooth, activer bpftune, cachy-update tray et ananicy-cpp, classer les miroirs, NE PAS installer psd (l'installation échoue)
+* **6** - Faire les réglages proposés par `CachyOS-Hello` : désactiver le bluetooth, cachy-update tray et ananicy-cpp, classer les miroirs, NE PAS installer psd (l'installation échoue)
 
 * **7** - Supprimer les `logiciels inutiles` avec Pamac & Octopi
   
