@@ -120,6 +120,7 @@ Faire les réglages proposés par `CachyOS-Hello` : désactiver le bluetooth, ac
 
 <a id="id-7"></a>
 ## 7 - Supprimer logiciels inutiles avec Pamac & Octopi
+Voir la liste des applis inutilisées type Maps, Fonts...
 
 
 <a id="id-8"></a>
