@@ -331,6 +331,24 @@ Pour la partiton `vfat` :
 ```
 defaults,noatime,umask=0077 0 0
 ```
+
+* **21** - Activer fast_commit pour les journaux EXT4 :
+
+Démarrer sur un live-cd Fedora, puis identifier la partition root (en général dev/nvme0n1p2) et s'assurer qu'elle est bien en EXT4 :
+```
+lsblk -f
+sudo file -s /dev/nvme0n1p2
+```
+Passer *fast_commit* avec tune2fs
+```
+sudo tune2fs -O fast_commit /dev/nvme0n1p2
+```
+Puis vérifier/réparer le Fs : ATTENTION ETAPE INDISPENSABLE!
+```
+sudo e2fsck -f /dev/nvme0n1p2
+
+```
+
 * **20** - Désactiver mitigate split lock : éditer `sudo nano /etc/sysctl.d/99-splitlock.conf` et saisir :
   
 ```
