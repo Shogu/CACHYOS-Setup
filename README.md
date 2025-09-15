@@ -19,19 +19,74 @@ Setup, tips &amp; tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 
 ***Table des matières:***
 
-A - [Installation](https://github.com/Shogu/Fedora41-setup-config/blob/main/README.md#-a---installation)
+## Table des matières
 
-B - [Allégement du système](https://github.com/Shogu/Fedora41-setup-config/blob/main/README.md#-b---all%C3%A9gement-du-syst%C3%A8me)
+### 💾 A - Installation
+- [1 - Désactiver Secure Boot dans le BIOS](#1---desactiver-secure-boot-dans-le-bios)
+- [2 - Désactiver caméra et lecteur de carte](#2---desactiver-camera-et-lecteur-de-carte)
+- [3 - Utiliser systemd-boot et EXT4](#3---utiliser-systemd-boot-et-ext4)
+- [4 - Désactiver la mise en veille automatique](#4---desactiver-la-mise-en-veille-automatique)
+- [5 - Faire un ghost du système](#5---faire-un-ghost-du-systeme)
 
-C - [Optimisation du système](https://github.com/Shogu/Fedora41-setup-config/blob/main/README.md#-c---optimisation-du-syst%C3%A8me)
+### ✨ B - Allégement du système
+- [6 - Réglages CachyOS-Hello](#6---reglages-cachyos-hello)
+- [7 - Supprimer logiciels inutiles avec Pamac & Octopi](#7---supprimer-logiciels-inutiles-avec-pamac--octopi)
+- [8 - Supprimer logiciels inutiles avec pacman](#8---supprimer-logiciels-inutiles-avec-pacman)
+- [9 - Supprimer et masquer services SYSTEM & USER](#9---supprimer-et-masquer-services-system--user)
+- [10 - Désactiver autostart gnome-wellbeing](#10---desactiver-autostart-gnome-wellbeing)
+- [11 - Alléger journaux système et mettre en RAM](#11---alleger-journaux-systeme-et-mettre-en-ram)
+- [12 - Supprimer coredump](#12---supprimer-coredump)
+- [13 - Blacklister pilotes inutiles](#13---blacklister-pilotes-inutiles)
+- [14 - Réduire l'initramfs](#14---reduire-linitramfs)
+- [15 - Désactiver capteur de luminosité Gnome](#15---desactiver-capteur-de-luminosite-gnome)
 
-D - [Remplacement et installation de logiciels](https://github.com/Shogu/Fedora41-setup-config/blob/main/README.md#-d---remplacement-et-installation-de-logiciels-et-codecs)
+### 🚀 C - Optimisation du système
+- [16 - Activer scheduler ADIOS](#16---activer-scheduler-adios)
+- [17 - Passer xwayland en autoclose et activer scale-monitor](#17---passer-xwayland-en-autoclose-et-activer-scale-monitor)
+- [18 - Réduire le temps d'affichage du menu systemd-boot](#18---reduire-le-temps-daffichage-du-menu-systemd-boot)
+- [19 - Editer mount des partitions EXT4](#19---editer-mount-des-partitions-ext4)
+- [20 - Activer fast_commit pour EXT4](#20---activer-fast_commit-pour-ext4)
+- [21 - Désactiver mitigate split lock](#21---desactiver-mitigate-split-lock)
+- [22 - Régler le pare-feu](#22---regler-le-pare-feu)
+- [23 - Passer à 1 le nombre de ttys au boot](#23---passer-a-1-le-nombre-de-ttys-au-boot)
+- [24 - Vérifier DNS](#24---verifier-dns)
+- [25 - Régler wifi sur FR](#25---regler-wifi-sur-fr)
 
-E - [Réglages de l'UI Gnome Shell](https://github.com/Shogu/Fedora41-setup-config/blob/main/README.md#-e---r%C3%A9glages-de-lui-gnome-shell)
+### 📦 D - Remplacement et installation de logiciels et codecs
+- [26 - Installer logiciels avec pacman et paru](#26---installer-logiciels-avec-pacman-et-paru)
+- [27 - Installer Dropbox avec Maestral](#27---installer-dropbox-avec-maestral)
 
-F - [Réglages de Firefox](https://github.com/Shogu/Fedora41-setup-config/blob/main/README.md#-f---r%C3%A9glages-du-navigateur-firefox)
+### 🐾 E - Réglages de l'UI Gnome Shell
+- [28 - Extinction en fermant le capot](#28---extinction-en-fermante-le-capot)
+- [29 - Régler Nautilus et marque-pages](#29---regler-nautilus-et-marque-pages)
+- [30 - Modifier mot de passe au démarrage](#30---modifier-mot-de-passe-au-demarrage)
+- [31 - Installer wallpaper et thème curseurs](#31---installer-wallpaper-et-theme-curseurs)
+- [32 - Régler HiDPI et cacher dossiers](#32---regler-hidpi-et-cacher-dossiers)
+- [33 - Renommer logiciels dans overview](#33---renommer-logiciels-dans-overview)
+- [34 - Installer extensions Gnome](#34---installer-extensions-gnome)
+- [35 - Installer Open with Ptyxis](#35---installer-open-with-ptyxis)
+- [36 - Activer numpad Asus](#36---activer-numpad-asus)
+- [37 - Configurer fish et gnome-text-editor](#37---configurer-fish-et-gnome-text-editor)
+- [38 - Changer icône Pamac](#38---changer-icone-pamac)
+- [39 - Configurer Celluloid](#39---configurer-celluloid)
+- [40 - Configurer JDownloader](#40---configurer-jdownloader)
+- [41 - Script transfert vidéos](#41---script-transfert-videos)
+- [42 - Accélérer animations](#42---accelerer-animations)
+- [43 - Scripts Nautilus Hide/Unhide](#43---scripts-nautilus-hideunhide)
+- [44 - Enlever powersave souris Inphic](#44---enlever-powersave-souris-inphic)
+- [45 - Modifier nom toggle profil énergétique](#45---modifier-nom-toggle-profil-energetique)
+- [46 - Créer raccourci boot to BIOS](#46---creer-raccourci-boot-to-bios)
+- [47 - Faire le tri dans ~/.local/share, ~/.config et /etc](#47---faire-le-tri-dans-localshare-config-et-etc)
 
-G - [Maintenance et mises à jour](https://github.com/Shogu/Fedora41-setup-config/blob/main/README.md#-g---maintenance-de-la-distribution)
+### 🌐 F - Réglages du navigateur Firefox
+- [48 - Réglages internes Firefox](#48---reglages-internes-firefox)
+- [49 - Changer thème Firefox](#49---changer-theme-firefox)
+- [50 - Réglages about:config](#50---reglages-aboutconfig)
+- [51 - Extensions Firefox](#51---extensions-firefox)
+- [52 - Activer openh264 & widevine](#52---activer-openh264--widevine)
+- [53 - Télécharger userChrome](#53---telecharger-userchrome)
+- [54 - Mettre profil Firefox en RAM avec psd](#54---mettre-profil-firefox-en-ram-avec-psd)
+
 
 ----------------------------------------------------------------------------------------------
 
