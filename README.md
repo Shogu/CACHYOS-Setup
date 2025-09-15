@@ -42,7 +42,9 @@ G - [Maintenance et mises à jour](https://github.com/Shogu/Fedora41-setup-confi
 
 * **3** - Utiliser `systemd-boot` puis décocher les paquets inutiles (Attention : la plupart s'installeront quand même), et EXT4.
 
-* **4** - Faire un ghost du systemùe tout neuf avec Rescuezilla 
+* **4** - Désactiver la `Mise en veille automatique` dans les paramètres de Gnome, du fait d'un bug avec le Zenbook et le noyau < 6.16.7
+
+* **5** - Faire un ghost du systeme tout neuf avec Rescuezilla
 ----------------------------------------------------------------------------------------------
 
 
@@ -70,6 +72,7 @@ sudo systemctl mask NetworkManager-wait-online.service
 sudo systemctl mask dev-tpmrm0.device
 sudo systemctl mask tpm2.target
 sudo systemctl mask lvm2-lvmpolld.service lvm2-monitor.service lvm2-lvmpolld.socket
+sudo systemctl mask scx_loader
 
 ```
 Enfin, reboot puis controle de l'état des services avec :
