@@ -50,7 +50,7 @@ G - [Maintenance et mises à jour](https://github.com/Shogu/Fedora41-setup-confi
 
 ## ✨ **B - Allégement du système**
 
-* **6** - Faire les réglages proposés par `CachyOS-Hello` : désactiver le bluetooth, cachy-update tray et ananicy-cpp, classer les miroirs, NE PAS installer psd (l'installation échoue)
+* **6** - Faire les réglages proposés par `CachyOS-Hello` : désactiver le bluetooth, activer cachy-update tray et bpftune, classer les miroirs, NE PAS installer psd (il faut l'installer en --user) ni ananicy-cpp (le boot du service échoue - lui préférer ADIOS pour AMD).
 
 * **7** - Supprimer les `logiciels inutiles` avec Pamac & Octopi
   
@@ -231,7 +231,7 @@ gsettings set org.gnome.settings-daemon.plugins.power ambient-enabled false
 ## 🚀 **C - Optimisation du système**
 
 
-* **15** Activer le scheduler ADIOS sur AMD CPU, plutot qu'un schedulere type bpfland ou rusty :
+* **15** Activer le scheduler ADIOS sur AMD CPU, plutot qu'un scheduler type bpfland ou rusty :
 ```
 sudo nano /etc/udev/rules.d/60-ioschedulers.rules
 ```
@@ -581,7 +581,12 @@ cp gnome-shell.mo /usr/share/locale/fr/LC_MESSAGES/gnome-shell.mo
 ```
 Enfin supprimer les fichiers créés à la racine de Home.
 
-* **52** - Faire le tri dans `~/.local/share/`, `/home/ogu/.config/`, `/usr/share/` et `/etc/`
+* **52** Créer un raccourci "boot to bios" avec confirmation : télécharger le script, le déposer dans /home/ogu/.local/bin, le rendre exécutable, puis créer un raccourci avec l'icone jockey et la commande :
+```
+ptyxis -- /home/ogu/.local/bin/reboot_bios.sh
+```
+
+* **53** - Faire le tri dans `~/.local/share/`, `/home/ogu/.config/`, `/usr/share/` et `/etc/`
 ----------------------------------------------------------------------------------------------
 
  
