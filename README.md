@@ -346,7 +346,10 @@ sudo tune2fs -O fast_commit /dev/nvme0n1p2
 Puis vérifier/réparer le Fs : ATTENTION ETAPE INDISPENSABLE!
 ```
 sudo e2fsck -f /dev/nvme0n1p2
-
+```
+Sortir du live Fedora & contrôler la présence de fast_commit avec :
+```
+sudo tune2fs -l /dev/nvme0n1p2 | grep 'Filesystem features'
 ```
 
 * **20** - Désactiver mitigate split lock : éditer `sudo nano /etc/sysctl.d/99-splitlock.conf` et saisir :
