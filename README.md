@@ -72,8 +72,12 @@ sudo systemctl mask NetworkManager-wait-online.service
 sudo systemctl mask dev-tpmrm0.device
 sudo systemctl mask tpm2.target
 sudo systemctl mask lvm2-lvmpolld.service lvm2-monitor.service lvm2-lvmpolld.socket
-sudo systemctl mask scx_loader
-
+sudo systemctl mask  pamac-cleancache.service
+sudo systemctl mask  pamac-cleancache.timer
+```
+```
+Vérifier si `scx_loader` & `ananicy-cpp` sont lancés par défaut : si oui :
+sudo systemctl mask scx_loader ananicy-cpp
 ```
 Enfin, reboot puis controle de l'état des services avec :
 ```
