@@ -1,6 +1,5 @@
-
 # CACHYOS-Setup
-Setup, tips &amp; tweaks pour CachyOS sur ZENBOOK 14 OLED KA
+Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 
 <table>
   <tr>
@@ -13,110 +12,126 @@ Setup, tips &amp; tweaks pour CachyOS sur ZENBOOK 14 OLED KA
   </tr>
 </table>
 
-
-
 🐧 Mémo pour le setup complet de **CachyOS** sur laptop **ASUS ZENBOOK 14 OLED UM3406KA**
 
-***Table des matières:***
+---
 
-## Table des matières
+# Table des matières
 
 ### 💾 A - Installation
-- [1 - Désactiver Secure Boot dans le BIOS](#1---desactiver-secure-boot-dans-le-bios)
-- [2 - Désactiver caméra et lecteur de carte](#2---desactiver-camera-et-lecteur-de-carte)
-- [3 - Utiliser systemd-boot et EXT4](#3---utiliser-systemd-boot-et-ext4)
-- [4 - Désactiver la mise en veille automatique](#4---desactiver-la-mise-en-veille-automatique)
-- [5 - Faire un ghost du système](#5---faire-un-ghost-du-systeme)
+- [1 - Désactiver Secure Boot dans le BIOS](#id-1)
+- [2 - Désactiver caméra et lecteur de carte](#id-2)
+- [3 - Utiliser systemd-boot et EXT4](#id-3)
+- [4 - Désactiver la mise en veille automatique](#id-4)
+- [5 - Faire un ghost du système](#id-5)
 
 ### ✨ B - Allégement du système
-- [6 - Réglages CachyOS-Hello](#6---reglages-cachyos-hello)
-- [7 - Supprimer logiciels inutiles avec Pamac & Octopi](#7---supprimer-logiciels-inutiles-avec-pamac--octopi)
-- [8 - Supprimer logiciels inutiles avec pacman](#8---supprimer-logiciels-inutiles-avec-pacman)
-- [9 - Supprimer et masquer services SYSTEM & USER](#9---supprimer-et-masquer-services-system--user)
-- [10 - Désactiver autostart gnome-wellbeing](#10---desactiver-autostart-gnome-wellbeing)
-- [11 - Alléger journaux système et mettre en RAM](#11---alleger-journaux-systeme-et-mettre-en-ram)
-- [12 - Supprimer coredump](#12---supprimer-coredump)
-- [13 - Blacklister pilotes inutiles](#13---blacklister-pilotes-inutiles)
-- [14 - Réduire l'initramfs](#14---reduire-linitramfs)
-- [15 - Désactiver capteur de luminosité Gnome](#15---desactiver-capteur-de-luminosite-gnome)
+- [6 - Réglages CachyOS-Hello](#id-6)
+- [7 - Supprimer logiciels inutiles avec Pamac & Octopi](#id-7)
+- [8 - Supprimer logiciels inutiles avec pacman](#id-8)
+- [9 - Supprimer et masquer services SYSTEM & USER](#id-9)
+- [10 - Désactiver autostart gnome-wellbeing](#id-10)
+- [11 - Alléger journaux système et mettre en RAM](#id-11)
+- [12 - Supprimer coredump](#id-12)
+- [13 - Blacklister pilotes inutiles](#id-13)
+- [14 - Réduire l'initramfs](#id-14)
+- [15 - Désactiver capteur de luminosité Gnome](#id-15)
 
 ### 🚀 C - Optimisation du système
-- [16 - Activer scheduler ADIOS](#16---activer-scheduler-adios)
-- [17 - Passer xwayland en autoclose et activer scale-monitor](#17---passer-xwayland-en-autoclose-et-activer-scale-monitor)
-- [18 - Réduire le temps d'affichage du menu systemd-boot](#18---reduire-le-temps-daffichage-du-menu-systemd-boot)
-- [19 - Editer mount des partitions EXT4](#19---editer-mount-des-partitions-ext4)
-- [20 - Activer fast_commit pour EXT4](#20---activer-fast_commit-pour-ext4)
-- [21 - Désactiver mitigate split lock](#21---desactiver-mitigate-split-lock)
-- [22 - Régler le pare-feu](#22---regler-le-pare-feu)
-- [23 - Passer à 1 le nombre de ttys au boot](#23---passer-a-1-le-nombre-de-ttys-au-boot)
-- [24 - Vérifier DNS](#24---verifier-dns)
-- [25 - Régler wifi sur FR](#25---regler-wifi-sur-fr)
+- [16 - Activer scheduler ADIOS](#id-16)
+- [17 - Passer xwayland en autoclose et activer scale-monitor](#id-17)
+- [18 - Réduire le temps d'affichage du menu systemd-boot](#id-18)
+- [19 - Editer mount des partitions EXT4](#id-19)
+- [20 - Activer fast_commit pour EXT4](#id-20)
+- [21 - Désactiver mitigate split lock](#id-21)
+- [22 - Régler le pare-feu](#id-22)
+- [23 - Passer à 0 le nombre de ttys au boot](#id-23)
+- [24 - Optimiser le kernel](#id-24)
+- [25 - Régler wifi sur FR](#id-25)
 
 ### 📦 D - Remplacement et installation de logiciels et codecs
-- [26 - Installer logiciels avec pacman et paru](#26---installer-logiciels-avec-pacman-et-paru)
-- [27 - Installer Dropbox avec Maestral](#27---installer-dropbox-avec-maestral)
+- [26 - Installer logiciels avec pacman et paru](#id-26)
+- [27 - Installer Dropbox avec Maestral](#id-27)
 
 ### 🐾 E - Réglages de l'UI Gnome Shell
-- [28 - Extinction en fermant le capot](#28---extinction-en-fermante-le-capot)
-- [29 - Régler Nautilus et marque-pages](#29---regler-nautilus-et-marque-pages)
-- [30 - Modifier mot de passe au démarrage](#30---modifier-mot-de-passe-au-demarrage)
-- [31 - Installer wallpaper et thème curseurs](#31---installer-wallpaper-et-theme-curseurs)
-- [32 - Régler HiDPI et cacher dossiers](#32---regler-hidpi-et-cacher-dossiers)
-- [33 - Renommer logiciels dans overview](#33---renommer-logiciels-dans-overview)
-- [34 - Installer extensions Gnome](#34---installer-extensions-gnome)
-- [35 - Installer Open with Ptyxis](#35---installer-open-with-ptyxis)
-- [36 - Activer numpad Asus](#36---activer-numpad-asus)
-- [37 - Configurer fish et gnome-text-editor](#37---configurer-fish-et-gnome-text-editor)
-- [38 - Changer icône Pamac](#38---changer-icone-pamac)
-- [39 - Configurer Celluloid](#39---configurer-celluloid)
-- [40 - Configurer JDownloader](#40---configurer-jdownloader)
-- [41 - Script transfert vidéos](#41---script-transfert-videos)
-- [42 - Accélérer animations](#42---accelerer-animations)
-- [43 - Scripts Nautilus Hide/Unhide](#43---scripts-nautilus-hideunhide)
-- [44 - Enlever powersave souris Inphic](#44---enlever-powersave-souris-inphic)
-- [45 - Modifier nom toggle profil énergétique](#45---modifier-nom-toggle-profil-energetique)
-- [46 - Créer raccourci boot to BIOS](#46---creer-raccourci-boot-to-bios)
-- [47 - Faire le tri dans ~/.local/share, ~/.config et /etc](#47---faire-le-tri-dans-localshare-config-et-etc)
+- [28 - Extinction en fermant le capot](#id-28)
+- [29 - Régler Nautilus et marque-pages](#id-29)
+- [30 - Modifier mot de passe au démarrage](#id-30)
+- [31 - Installer wallpaper et thème curseurs](#id-31)
+- [32 - Régler HiDPI et cacher dossiers](#id-32)
+- [33 - Renommer logiciels dans overview](#id-33)
+- [34 - Installer extensions Gnome](#id-34)
+- [35 - Installer Open with Ptyxis](#id-35)
+- [36 - Activer numpad Asus](#id-36)
+- [37 - Configurer fish et gnome-text-editor](#id-37)
+- [38 - Changer icône Pamac](#id-38)
+- [39 - Configurer Celluloid](#id-39)
+- [40 - Configurer JDownloader](#id-40)
+- [41 - Script transfert vidéos](#id-41)
+- [42 - Accélérer animations](#id-42)
+- [43 - Scripts Nautilus Hide/Unhide](#id-43)
+- [44 - Enlever powersave souris Inphic](#id-44)
+- [45 - Modifier nom toggle profil énergétique](#id-45)
+- [46 - Créer raccourci boot to BIOS](#id-46)
+- [47 - Faire le tri dans ~/.local/share, ~/.config et /etc](#id-47)
 
 ### 🌐 F - Réglages du navigateur Firefox
-- [48 - Réglages internes Firefox](#48---reglages-internes-firefox)
-- [49 - Changer thème Firefox](#49---changer-theme-firefox)
-- [50 - Réglages about:config](#50---reglages-aboutconfig)
-- [51 - Extensions Firefox](#51---extensions-firefox)
-- [52 - Activer openh264 & widevine](#52---activer-openh264--widevine)
-- [53 - Télécharger userChrome](#53---telecharger-userchrome)
-- [54 - Mettre profil Firefox en RAM avec psd](#54---mettre-profil-firefox-en-ram-avec-psd)
+- [48 - Réglages internes Firefox](#id-48)
+- [49 - Changer thème Firefox](#id-49)
+- [50 - Réglages about:config](#id-50)
+- [51 - Extensions Firefox](#id-51)
+- [52 - Activer openh264 & widevine](#id-52)
+- [53 - Télécharger userChrome](#id-53)
+- [54 - Mettre profil Firefox en RAM avec psd](#id-54)
+
+---
+
+# 💾 A - Installation
+
+<a id="id-1"></a>
+## 1 - Désactiver Secure Boot dans le BIOS
+
+
+<a id="id-2"></a>
+## 2 - Désactiver caméra et lecteur de carte
+
+
+<a id="id-3"></a>
+## 3 - Utiliser systemd-boot puis décocher les paquets inutiles (Attention : la plupart s'installeront quand même), et EXT4
+
+
+<a id="id-4"></a>
+## 4 - Désactiver la mise en veille automatique dans les paramètres de Gnome, du fait d'un bug avec le Zenbook et le noyau < 6.16.7
+
+
+<a id="id-5"></a>
+## 5 - Faire un ghost du système avec Rescuezilla
+
 
 
 ----------------------------------------------------------------------------------------------
 
-## 💾 **A - Installation**
+# ✨ B - Allégement du système
 
-* **1** - Désactiver `Secure Boot` dans le Bios (F2)
-
-* **2** - Désactiver la caméra et le lecteur de carte dans le bios
-
-* **3** - Utiliser `systemd-boot` puis décocher les paquets inutiles (Attention : la plupart s'installeront quand même), et EXT4.
-
-* **4** - Désactiver la `Mise en veille automatique` dans les paramètres de Gnome, du fait d'un bug avec le Zenbook et le noyau < 6.16.7
-
-* **5** - Faire un ghost du système tout neuf avec Rescuezilla
-----------------------------------------------------------------------------------------------
+<a id="id-6"></a>
+## 6 - Réglages CachyOS-Hello
+Faire les réglages proposés par `CachyOS-Hello` : désactiver le bluetooth, activer cachy-update tray et bpftune, classer les miroirs, NE PAS installer psd (il faut l'installer en --user) ni ananicy-cpp (le boot du service échoue - lui préférer ADIOS pour AMD).
 
 
-## ✨ **B - Allégement du système**
+<a id="id-7"></a>
+## 7 - Supprimer logiciels inutiles avec Pamac & Octopi
 
-* **6** - Faire les réglages proposés par `CachyOS-Hello` : désactiver le bluetooth, activer cachy-update tray et bpftune, classer les miroirs, NE PAS installer psd (il faut l'installer en --user) ni ananicy-cpp (le boot du service échoue - lui préférer ADIOS pour AMD).
 
-* **7** - Supprimer les `logiciels inutiles` avec Pamac & Octopi
-  
-* **8** - Compléter en supprimant les `logiciels inutiles` suivants avec pacman :
+<a id="id-8"></a>
+## 8 - Supprimer logiciels inutiles avec pacman
 ```
 sudo pacman -Rns apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds gnome-usage octopi gedit xfsprogs btrfs-progs yay cpupower
 
 ```
-    
-* **9** - Supprimer et masquer les services `SYSTEM` & `USER` inutiles :
+
+
+<a id="id-9"></a>
+## 9 - Supprimer et masquer services SYSTEM & USER
 **SYSTEM**
 ```
 sudo systemctl mask plymouth-quit-wait.service
@@ -164,14 +179,18 @@ Puis contrôler avec :
 systemd-analyze --user blame
 ```
 
-* **10** - Désactiver l'autostart gnome-wellbeing :
+
+<a id="id-10"></a>
+## 10 - Désactiver autostart gnome-wellbeing
 ```
 cp /usr/share/applications/gnome-wellbeing-panel.desktop ~/.config/autostart/ && sudo gnome-text-editor ~/.config/autostart/gnome-wellbeing-panel.desktop 
 
 ```
 Saisir `Hidden=true` puis contrôler avec `grep Hidden ~/.config/autostart/gnome-wellbeing-panel.desktop`
 
-* **11** - Alléger les `journaux système` et les mettre en RAM :
+
+<a id="id-11"></a>
+## 11 - Alléger journaux système et les mettre en RAM
 ```
 sudo gnome-text-editor /etc/systemd/journald.conf
 ```
@@ -180,7 +199,9 @@ puis remplacer le contenu du fichier par celui du fichier `journald.conf.txt` & 
 sudo systemctl restart systemd-journald
 ```
 
-* **12** - Supprimer les `coredump` : 
+
+<a id="id-12"></a>
+## 12 - Supprimer les coredump
 ``` 
 sudo systemctl disable --now systemd-coredump.socket
 sudo systemctl mask systemd-coredump
@@ -192,7 +213,10 @@ echo '* hard core 0' | sudo tee -a /etc/security/limits.conf
 ```
 
 
-* **13** - Blacklister les pilotes inutiles : créer un fichier `blacklist` ```sudo gnome-text-editor /etc/modprobe.d/blacklist.conf``` et l'éditer :
+
+<a id="id-13"></a>
+## 13 - Blacklister pilotes inutiles
+créer un fichier `blacklist` ```sudo gnome-text-editor /etc/modprobe.d/blacklist.conf``` et l'éditer :
 ```
 # ==============================
 # Intel et watchdog
@@ -245,13 +269,6 @@ blacklist sha1_ssse3
 blacklist sha512_ssse3
 
 # ==============================
-# modules Asus (facultatif)
-# ==============================
-#blacklist asus_wmi
-#blacklist asus_nb_wmi
-#blacklist asus_armoury
-
-# ==============================
 # capteurs
 # ==============================
 blacklist hid_sensor_als
@@ -265,9 +282,12 @@ blacklist serial8250
 blacklist 8250_pci
 ```
 Puis lancer `sudo mkinicpio -P`
-Au reboot, vérifier avec la commande `lsmod | grep hid_sensor`
+Au reboot, vérifier avec la commande `lsmod | grep serial8250`
 
-* **14 ** : réduire l`initramfs` en désactivant des modules inutiles : attention prévoir un backup du fichier pour le restaurer en live cd si besoin!
+
+<a id="id-14"></a>
+## 14 - Réduire l'initramfs
+En désactivant des modules inutiles : attention prévoir un backup du fichier pour le restaurer en live cd si besoin!
 ```
 sudo gnome-text-editor /etc/mkinitcpio.conf
 
@@ -276,22 +296,26 @@ et copier-coller ces options de configuration :
 ```
 HOOKS=(base udev autodetect kms modconf block filesystems plymouth)
 ```
-Puis choisir entre : lz4 ou zstd et passer `-3` à COMPRESSION_OPTION
+Puis choisir entre : lz4 (ou zstd) et passer `` à COMPRESSION_OPTION
 
 Recharger l'initrd avec `sudo mkinitcpio -P`
 
-* **15** - Désactiver le capteur de luminosité de Gnome :
+
+<a id="id-15"></a>
+## 15 - Désactiver capteur de luminosité Gnome
 
 ```
 gsettings set org.gnome.settings-daemon.plugins.power ambient-enabled false
 ```
 
+
 ----------------------------------------------------------------------------------------------
 
-## 🚀 **C - Optimisation du système**
+# 🚀 C - Optimisation du système
 
-
-* **16** Activer le scheduler ADIOS sur AMD CPU, plutôt qu'un scheduler type bpfland ou rusty :
+<a id="id-16"></a>
+## 16 - Activer scheduler ADIOS
+Activer le scheduler ADIOS sur AMD CPU, plutôt qu'un scheduler type bpfland ou rusty :
 ```
 sudo nano /etc/udev/rules.d/60-ioschedulers.rules
 ```
@@ -316,15 +340,130 @@ sudo udevadm trigger
 ```
 Vérifier avec `cat /sys/block/nvme0n1/queue/scheduler`
 
-* **17** - Passer `xwayland` en autoclose : sur dconf-editor, modifier la clé suivante.
+
+<a id="id-17"></a>
+## 17 - Passer xwayland en autoclose et activer scale-monitor
+Sur dconf-editor, modifier la clé suivante.
 ```
 org.gnome.mutter experimental-features
 ```
 
 En profiter pour activer `scale-monitor-framebuffer` & `xwayland-native-scaling`
 
-* **18** - Optimiser le `kernel` :
 
+<a id="id-18"></a>
+## 18 - Réduire le temps d'affichage du menu systemd-boot
+Réduire le `temps d'affichage du menu systemd-boot` à 0 seconde  (appuyer sur MAJ pour le faire apparaitre au boot):
+```
+sudo nano /boot/loader/loader.conf
+```
+Reboot, puis vérifier que le fichier loader.conf soit à 0 :
+```
+sudo cat /boot/loader/loader.conf
+timeout 1
+#console-mode keep
+```
+
+
+<a id="id-19"></a>
+## 19 - Editer mount des partitions EXT4
+Editer le mount des `partitions EXT4` avec la commande :
+`sudo gnome-text-editor /etc/fstab` et rajouter après 'noatime' : 
+```
+data=writeback,commit=60,barrier=0 0 0
+```
+| Option                   | Rôle                                                                 | Avantage                                       | Inconvénient / Risque                                      |
+|---------------------------|----------------------------------------------------------------------|------------------------------------------------|--------------------------------------------------------                |
+| `noatime`                | Désactive la mise à jour de la date         |
+| `data=writeback`         | Journalise seulement les **métadonnées**, pas le contenu des fichiers. | Écritures plus rapides, moins de charge disque. 
+| `commit=60`              | Force l’écriture du journal toutes les 60 secondes.                  | Moins d’écritures → plus de perf + moins d’usure SSD.          |
+| `barrier=0`              | Désactive les barrières d’écriture (cache flush).                    | Réduit la latence et accélère les commits.   
+| `0 0`                    | Désactive `dump` et `fsck` automatiques au boot.                                     | Pas de vérification 
+
+
+Pour la partiton `vfat` : 
+```
+defaults,noatime,umask=0077 0 0
+```
+
+
+<a id="id-20"></a>
+## 20 - Activer fast_commit pour EXT4
+
+Démarrer sur un live-cd Fedora, puis identifier la partition root (en général dev/nvme0n1p2) et s'assurer qu'elle est bien en EXT4 :
+```
+lsblk -f
+sudo file -s /dev/nvme0n1p2
+```
+Passer *fast_commit* avec tune2fs
+```
+sudo tune2fs -O fast_commit /dev/nvme0n1p2
+```
+Puis vérifier/réparer le Fs : ATTENTION ETAPE INDISPENSABLE!
+```
+sudo e2fsck -f /dev/nvme0n1p2
+```
+Sortir du live Fedora & contrôler la présence de fast_commit avec :
+```
+sudo tune2fs -l /dev/nvme0n1p2 | grep 'Filesystem features'
+```
+
+
+<a id="id-21"></a>
+## 21 - Désactiver mitigate split lock
+Editer `sudo nano /etc/sysctl.d/99-splitlock.conf` et saisir :
+  
+```
+kernel.split_lock_mitigate=0
+```
+Puis recharger avec `sudo sysctl --system`
+
+
+<a id="id-22"></a>
+## 22 - Régler le pare-feu ufw
+```
+sudo ufw --force reset
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw logging off
+
+# Autoriser WebDAV (HTTP/HTTPS)
+sudo ufw allow in 80/tcp
+sudo ufw allow in 443/tcp
+
+# Autoriser FTP (standard + passif 50000-51000)
+sudo ufw allow in 21/tcp
+sudo ufw allow in 50000:51000/tcp
+
+# Autoriser torrents (TCP/UDP 6881-6999)
+sudo ufw allow out 6881:6999/tcp
+sudo ufw allow out 6881:6999/udp
+
+# Autoriser Nicotine+ (TCP/UDP 2234-2235)
+sudo ufw allow out 2234:2235/tcp
+sudo ufw allow out 2234:2235/udp
+
+# Autoriser JDownloader HTTP/HTTPS
+sudo ufw allow out 80/tcp
+sudo ufw allow out 443/tcp
+
+# Activer UFW
+sudo ufw --force enable
+sudo ufw status numbered
+```
+
+
+<a id="id-23"></a>
+## 23 - Passer à 0 le nombre de ttys au boot
+```
+sudo gnome-text-editor /etc/systemd/logind.conf
+```
+puis saisir : `NautoVTS=1`
+
+
+<a id="id-24"></a>
+## 24 - Optimiser le `kernel` :
+Appliquer les arguments suivants :
 | Thème                     | Arguments / Options                                                                 | Description                                                                                   |
 |----------------------------|------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | **Perf / CPU / Scheduler** | `rcu_nocbs=0-(nproc-1)`, `rcutree.enable_rcu_lazy=1`, `noreplace-smp`, `tsc=reliable` | Optimisations RCU, scheduler et compteur TSC pour réduire latence et améliorer le boot.      |
@@ -357,116 +496,22 @@ sudo tune2fs -c 0 -i 7d /dev/nvme0n1p2
 Vérifier avec  `sudo tune2fs -l /dev/nvme0n1p2 | grep -i 'check'
 
 
-* **19** - Réduire le `temps d'affichage du menu systemd-boot` à 0 seconde  (appuyer sur MAJ pour le faire apparaitre au boot):
-```
-sudo nano /boot/loader/loader.conf
-```
-Reboot, puis vérifier que le fichier loader.conf soit à 0 :
-```
-sudo cat /boot/loader/loader.conf
-timeout 1
-#console-mode keep
-```
 
-* **20** - Editer le mount des `partitions EXT4` avec la commande :
-`sudo gnome-text-editor /etc/fstab` et rajouter après 'noatime' : 
-```
-data=writeback,commit=60,barrier=0 0 0
-```
-| Option                   | Rôle                                                                 | Avantage                                       | Inconvénient / Risque                                      |
-|---------------------------|----------------------------------------------------------------------|------------------------------------------------|--------------------------------------------------------                |
-| `noatime`                | Désactive la mise à jour de la date         |
-| `data=writeback`         | Journalise seulement les **métadonnées**, pas le contenu des fichiers. | Écritures plus rapides, moins de charge disque. 
-| `commit=60`              | Force l’écriture du journal toutes les 60 secondes.                  | Moins d’écritures → plus de perf + moins d’usure SSD.          |
-| `barrier=0`              | Désactive les barrières d’écriture (cache flush).                    | Réduit la latence et accélère les commits.   
-| `0 0`                    | Désactive `dump` et `fsck` automatiques au boot.                                     | Pas de vérification 
-
-
-Pour la partiton `vfat` : 
-```
-defaults,noatime,umask=0077 0 0
-```
-
-* **21** - Activer fast_commit pour les journaux EXT4 :
-
-Démarrer sur un live-cd Fedora, puis identifier la partition root (en général dev/nvme0n1p2) et s'assurer qu'elle est bien en EXT4 :
-```
-lsblk -f
-sudo file -s /dev/nvme0n1p2
-```
-Passer *fast_commit* avec tune2fs
-```
-sudo tune2fs -O fast_commit /dev/nvme0n1p2
-```
-Puis vérifier/réparer le Fs : ATTENTION ETAPE INDISPENSABLE!
-```
-sudo e2fsck -f /dev/nvme0n1p2
-```
-Sortir du live Fedora & contrôler la présence de fast_commit avec :
-```
-sudo tune2fs -l /dev/nvme0n1p2 | grep 'Filesystem features'
-```
-
-* **22** - Désactiver mitigate split lock : éditer `sudo nano /etc/sysctl.d/99-splitlock.conf` et saisir :
-  
-```
-kernel.split_lock_mitigate=0
-```
-Puis recharger avec `sudo sysctl --system`
-
-
-* **23** - Régler le `pare-feu` :
-
-```
-sudo ufw --force reset
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
-sudo ufw logging off
-
-# Autoriser WebDAV (HTTP/HTTPS)
-sudo ufw allow in 80/tcp
-sudo ufw allow in 443/tcp
-
-# Autoriser FTP (standard + passif 50000-51000)
-sudo ufw allow in 21/tcp
-sudo ufw allow in 50000:51000/tcp
-
-# Autoriser torrents (TCP/UDP 6881-6999)
-sudo ufw allow out 6881:6999/tcp
-sudo ufw allow out 6881:6999/udp
-
-# Autoriser Nicotine+ (TCP/UDP 2234-2235)
-sudo ufw allow out 2234:2235/tcp
-sudo ufw allow out 2234:2235/udp
-
-# Autoriser JDownloader HTTP/HTTPS
-sudo ufw allow out 80/tcp
-sudo ufw allow out 443/tcp
-
-# Activer UFW
-sudo ufw --force enable
-sudo ufw status numbered
-```
-
-* **24** - Passer à 1 le nombre de `ttys` au boot  :  
-```
-sudo gnome-text-editor /etc/systemd/logind.conf
-```
-puis saisir : `NautoVTS=1`
-
-
-* **25** Régler wifi sur FR :
+<a id="id-25"></a>
+## 25 - Régler wifi sur FR
 ```
 sudo nano /etc/conf.d/wireless-regdom
 ```
 et décommenter la ligne *WIRELESS_REGDOM="FR"*
 
+
 ----------------------------------------------------------------------------------------------
 
-## 📦 **D - Remplacement et installation de logiciels et codecs**
+# 📦 D - Remplacement et installation de logiciels et codecs
 
-
-* **26** - Installer les `logiciels` suivants avec pacman :
+<a id="id-26"></a>
+## 26 - Installer logiciels avec pacman et paru
+Installer les `logiciels` suivants :
 ```
 sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse pamac celluloid extension-manager fragments papers paru nicotine+ resources onlyoffice
 ```
@@ -477,13 +522,18 @@ paru -S libre-menu-editor gradia nautilus-admin pacseek jdownloader2
 
 ```
 
-* **27** - Installer `Dropbox` avec Maestral : créer le répertoire Dropbox dans /home puis lancer le script *maestral_install* 
+
+<a id="id-27"></a>
+## 27 - Installer Dropbox avec Maestral
+créer le répertoire Dropbox dans /home puis lancer le script *maestral_install* 
+
 
 ----------------------------------------------------------------------------------------------
 
-## 🐾 **E - Réglages de l'UI Gnome Shell** 
+# 🐾 E - Réglages de l'UI Gnome Shell
 
-* **28** Extinction en fermant le caport du laptop :
+<a id="id-28"></a>
+## 28 - Extinction en fermant le capot
 Editer le service logind :
 ```
 gnome-text-editor admin:///etc/systemd/logind.conf
@@ -494,23 +544,44 @@ HandleLidSwitch=poweroff
 HandleLidSwitchExternalPower=poweroff
 ```
 
-* **29** - Régler Nautilus & créer un marque-page pour `Dropbox`, pour l'accès `ftp` au disque SSD sur la TV Android, et pour lancer Nautilus en root depuis le panneau latéral :
+
+<a id="id-29"></a>
+## 29 - Régler Nautilus et marque-pages
+Régler Nautilus & créer un marque-page pour `Dropbox`, pour l'accès `ftp` au disque SSD sur la TV Android, et pour lancer Nautilus en root depuis le panneau latéral :
 ```
 192.168.31.68:2121
 ```
 
-* **30** - Modifier le mot de passe au démarrage avec le logiciel `Mots de Passe`, puis laisser les champs vides. Penser à reconnecter le compte Google dans Gnome.
 
-* **31** - Installer le [wallpaper F34](https://fedoraproject.org/w/uploads/d/de/F34_default_wallpaper_night.jpg) OU celui disponible dans le dossier `Images USER`, et le thème de curseurs [Phinger NO LEFT Light](https://github.com/phisch/phinger-cursors/releases) : créer le répertoire de destination avec `mkdir -p ~/.local/share/icons/apps`, y déplacer le dossier *phingers-cursor-light*  puis utiliser `dconf-editor` pour les passer en taille 32 :
+<a id="id-30"></a>
+## 30 - Modifier mot de passe au démarrage
+avec le logiciel `Seahorse`, puis laisser les champs vides. Penser à reconnecter le compte Google dans Gnome.
+
+
+
+<a id="id-31"></a>
+## 31 - Installer wallpaper et thème curseurs
+Installer le [wallpaper F34](https://fedoraproject.org/w/uploads/d/de/F34_default_wallpaper_night.jpg) OU celui disponible dans le dossier `Images USER`, et le thème de curseurs [Phinger NO LEFT Light](https://github.com/phisch/phinger-cursors/releases) : créer le répertoire de destination avec `mkdir -p ~/.local/share/icons/apps`, y déplacer le dossier *phingers-cursor-light*  puis utiliser `dconf-editor` pour les passer en taille 32 :
 ```
 org/gnome/desktop/interface/cursor-size
 ```
-* **32** - Régler `HiDPI` sur 125, cacher les dossiers Modèles, Bureau, ainsi que le wallpaper et l'image user, augmenter la taille des icones dossiers.
+
+
+<a id="id-32"></a>
+## 32 - Régler HiDPI et cacher dossiers
+Régler `HiDPI` sur 125, cacher les dossiers Modèles, Bureau, ainsi que le wallpaper et l'image user, augmenter la taille des icones dossiers, mettre un dossier avec icone pour Dropbox.
   
-* **33** Renommer les `logiciels dans l'overview`, cacher ceux qui sont inutiles de façon à n'avoir qu'une seule et unique page, en utilisant le logiciel `Menu Principal`.
+
+
+<a id="id-33"></a>
+## 33 - Renommer logiciels dans overview
+Renommer les `logiciels dans l'overview`, cacher ceux qui sont inutiles de façon à n'avoir qu'une seule et unique page, en utilisant le logiciel `Menu Principal`.
 En profiter pour changer avec Menu Principal l'icone de `Ptyxis`, en la remplaçant par celle de [gnome-terminal](https://upload.wikimedia.org/wikipedia/commons/d/da/GNOME_Terminal_icon_2019.svg)
 
-* **34** - Installer diverses `extensions` :
+
+<a id="id-34"></a>
+## 34 - Extensions Gnome
+
 
 **Extensions esthétiques :**
 
@@ -549,20 +620,28 @@ n - [Quick Close Overview](https://extensions.gnome.org/extension/352/middle-cli
 
 
 
-* **35** - Installer Open with Ptyxis :
+
+<a id="id-35"></a>
+## 35 - Installer Open with Ptyxis
 ```
 paru -S nautilus-open-any-terminal
 ```
 et penser à éditer sa clé dconf com.github.stunkymonkey.nautilus-open-any-terminal pour inscrire "ptyxis".
 
-* **36** - Activer le [numpad Asus](https://github.com/asus-linux-drivers/asus-numberpad-driver), disable le service --user, puis créer un toggle button et importer le fichier de configuration hosté dans le répertoire github Fichiers de configuration.
+
+<a id="id-36"></a>
+## 36 - Activer numpad Asus
+Activer le [numpad Asus](https://github.com/asus-linux-drivers/asus-numberpad-driver), disable le service --user, puis créer un toggle button et importer le fichier de configuration hosté dans le répertoire github Fichiers de configuration.
 Sinon, lui passer l'icone `accessories-calculator-symbolic` et les commandes suivantes :
 ```
 systemctl enable --user asus_numberpad_driver@ogu.service && systemctl start --user asus_numberpad_driver@ogu.service &&  notify-send "Numpad activé"
 systemctl stop --user asus_numberpad_driver@ogu.service && systemctl disable --user asus_numberpad_driver@ogu.service &&  notify-send "Numpad désactivé"
 ```
 
-* **37** - Régler `Gnome-text-editor`et `Ptyxis`, configurer `fish` avec `gnome-text-editor ~/.config/fish/config.fish` et coller :
+
+<a id="id-37"></a>
+## 37 - Configurer fish et gnome-text-editor
+Régler `Gnome-text-editor`et `Ptyxis`, configurer `fish` avec `gnome-text-editor ~/.config/fish/config.fish` et coller :
   
 ```
 # Désactive le message d'accueil de Fish.
@@ -580,7 +659,9 @@ alias micro='gnome-text-editor'
 Et recharger la configuration de fish avec `source ~/.config/fish/config.fish`
 
 
-* **38** - Changer l'icone Pamac:
+<a id="id-38"></a>
+## 38 - Changer icône Pamac
+Changer l'icone Pamac:
 ```
 mkdir -p ~/.local/share/icons && \
 wget -O ~/.local/share/icons/pamac.svg https://raw.githubusercontent.com/somepaulo/MoreWaita/b439fe8e2df83abc6cf02a0544a101426611e8ea/scalable/apps/pamac.svg 
@@ -589,18 +670,26 @@ wget -O ~/.local/share/icons/pamac.svg https://raw.githubusercontent.com/somepau
 puis éditer le raccourci avec Menu Libre.
 
 
-  
-* **39** - `Celluloid` :
-inscrire `vo=gpu-next` dans Paramètres --> Divers --> Options supplémentaires, activer l'option `focus` et `toujours afficher les boutons de titre`, enfin installer les deux scripts lua suivants pour la musique :
-[Visualizer](https://www.dropbox.com/scl/fi/bbwlvfhtjnu8sgr4yoai9/visualizer.lua?rlkey=gr3bmjnrlexj7onqrxzjqxafl&dl=0)
-[Delete File avec traduction française](https://www.dropbox.com/scl/fi/c2cacmw2a815husriuvc1/delete_file.lua?rlkey=6b9d352xtvybu685ujx5mpv7v&dl=0)
+<a id="id-39"></a>
+## 39 - Configurer Celluloid
 
-* **40** - `Jdownloader`: réglages de base, font Noto Sans Regular, désactivation du dpi et font sur 175; puis désactiver les éléments suivants : tooltip, help, Update Button Flashing, banner, Premium Alert, Donate, speed meter visible.
+inscrire `vo=gpu-next` dans Paramètres --> Divers --> Options supplémentaires, activer l'option `focus` et `toujours afficher les boutons de titre`, enfin télécharger et installer les deux scripts lua suivants pour la musique : Visualizer & Delete File
 
-* **41** - Script de `transfert des vidéos` intitulé `transfert_videos` pour déplacer automatiquement les vidéos vers Vidéos en supprimant le sous-dossier d'origine.
+
+<a id="id-40"></a>
+## 40 - Configurer JDownloader
+Réglages de base, font Noto Sans Regular, désactivation du dpi et font sur 175; puis désactiver les éléments suivants : tooltip, help, Update Button Flashing, banner, Premium Alert, Donate, speed meter visible.
+
+
+<a id="id-41"></a>
+## 41 - Script transfert vidéos
+Script de `transfert des vidéos` intitulé `transfert_videos` pour déplacer automatiquement les vidéos vers Vidéos en supprimant le sous-dossier d'origine.
 Le télécharger depuis le dossier `SCRIPTS`, le coller dans /home/ogu/.local/bin/, en faire un raccourci avec l'éditeur de menu, passer le chemin `/home/ogu/.local/bin/` et lui mettre l'icone `/usr/share/icons/Adwaita/scalable/devices/drive-multidisk.svg`
 
-* **42** - Accélérer les `animations` :  saisir
+
+<a id="id-42"></a>
+## 42 - Accélérer animations Gnome Shell
+saisir
 ```
 GNOME_SHELL_SLOWDOWN_FACTOR=0.75
 ```
@@ -609,14 +698,17 @@ dans le fichier
 sudo gnome-text-editor /etc/environment
 ```
 
-* **43** - `Scripts` Nautilus :
 
-`Hide.py` et `Unhide.py` pour masquer/rendre visibles les fichiers
+<a id="id-43"></a>
+## 43 - Scripts Nautilus Hide/Unhide, & Dropbox
+Scripts Nautilus `Hide.py` `Unhide.py` pour masquer/rendre visibles les fichiers à la volée, et `Dropbox` pour ouvrir un fichier dans l'interface web Dropbox afin de copier-coller son iurl de partage et ainsi mimer le copmportmeent de Dropbox Nautilus.
 A télécharger depuis le dossier `SCRIPTS` puis à coller dans le dossier `/home/ogu/.local/share/nautilus/scripts/.
 Penser à les rendre exécutables!
 
 
-* **44** Enlever le powersave de la souris Inphic :  créer une règle udev pour que Linux applique power/control=on automatiquement à chaque démarrage :
+<a id="id-44"></a>
+## 44 - Enlever powersave souris Inphic
+Créer une règle udev pour que Linux applique power/control=on automatiquement à chaque démarrage :
 ```
 sudo nano /etc/udev/rules.d/50-inphic.rules
 ```
@@ -630,7 +722,10 @@ sudo udevadm control --reload
 sudo udevadm trigger
 ```
 
-* **45** - Modifier le nom du *toggle de changement de profil énergétique* dans l'applet Gnome : sans quoi le nom est tellement long qu'il est coupé dans le bouton...
+
+<a id="id-45"></a>
+## 45 - Modifier nom toggle profil énergétique dans le menu Gnome
+Modifier le nom du *toggle de changement de profil énergétique* dans l'applet Gnome : sans quoi le nom est tellement long qu'il est coupé dans le bouton
 Installer l'outil de traduction :
 ```
 sudo pacman -S gettext
@@ -649,22 +744,36 @@ cp gnome-shell.mo /usr/share/locale/fr/LC_MESSAGES/gnome-shell.mo
 ```
 Enfin supprimer les fichiers créés à la racine de Home.
 
-* **46** Créer un raccourci "boot to bios" avec confirmation : télécharger le script, le déposer dans /home/ogu/.local/bin, le rendre exécutable, puis créer un raccourci avec l'icone jockey et la commande :
+
+<a id="id-46"></a>
+## 46 - Créer raccourci boot to BIOS
+Créer un raccourci "boot to bios" avec confirmation : télécharger le script, le déposer dans /home/ogu/.local/bin, le rendre exécutable, puis créer un raccourci avec l'icone jockey et la commande :
 ```
 ptyxis -- /home/ogu/.local/bin/reboot_bios.sh
 ```
 
-* **47** - Faire le tri dans `~/.local/share/`, `/home/ogu/.config/`, `/usr/share/` et `/etc/`
+
+<a id="id-47"></a>
+## 47 - Faire le tri dans ~/.local/share, ~/.config et /etc
+
+
 ----------------------------------------------------------------------------------------------
 
- 
-## 🌐 **F - Réglages du navigateur Firefox**
+# 🌐 F - Réglages du navigateur Firefox
 
-* **48** - Réglages internes de `Firefox` (penser à activer CTRL-TAB pour faire défiler dans l'ordre d'utilisation & à passer sur `Sombre` plutôt qu'`auto` le paramètre `Apparence des sites web`)
+<a id="id-48"></a>
+## 48 - Réglages internes Firefox
+Réglages internes de `Firefox` (penser à activer CTRL-TAB pour faire défiler dans l'ordre d'utilisation & à passer sur `Sombre` plutôt qu'`auto` le paramètre `Apparence des sites web`)
 
-* **49** - Changer le `thème` pour [Gnome Dark ](https://addons.mozilla.org/fr/firefox/addon/adwaita-gnome-dark/?utm_content=addons-manager-reviews-link&utm_medium=firefox-browser&utm_source=firefox-browser)
 
-* **50** - Dans `about:config` :
+<a id="id-49"></a>
+## 49 - Thème Firefox Gnome Dark
+Changer le `thème` pour [Gnome Dark ](https://addons.mozilla.org/fr/firefox/addon/adwaita-gnome-dark/?utm_content=addons-manager-reviews-link&utm_medium=firefox-browser&utm_source=firefox-browser)
+
+
+<a id="id-50"></a>
+## 50 - Réglages about:config
+Dans `about:config` :
   
 a - `ui.key.menuAccessKey` = 0 pour désactiver la touche Alt qui ouvre les menus
   
@@ -711,10 +820,11 @@ toolkit.telemetry.updatePing.enabled
 ```
 r - `media.ffmpeg.vaapi.enabled` sur true
 
-s - pour activer userChrome : toolkit.legacyUserProfileCustomizations.stylesheets sur true
+s - pour activer userChrome : `toolkit.legacyUserProfileCustomizations.stylesheets` sur true
 
-* **51** - **Extensions**
-  
+
+<a id="id-51"></a>
+## 51 - Extensions Firefox
 a - [uBlock Origin](https://addons.mozilla.org/fr/firefox/addon/ublock-origin/) : réglages à faire + import des deux listes sauvegardées
   
 b - [Auto Tab Discard](https://addons.mozilla.org/fr/firefox/addon/auto-tab-discard/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=featured) : importer les réglages avec le fichier de backup et bien activer les 2 options de dégel des onglets à droite et à gauche de l'onglet courant.
@@ -732,14 +842,23 @@ h - [Scroll To Top](https://addons.mozilla.org/fr/firefox/addon/scroll-to-top-bu
 i - [Workspaces](https://addons.mozilla.org/fr/firefox/addon/workspacesplus/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 
 
-* **52** - Activer `openh264` & `widevine` dans les plugins firefox.
-  
-* **53** - Télécharger le *userChrome et le coller dans le répertoire par défaut de Firefox dans un dossier chrome. Le profil se trouve dans about:support
 
-* **54** - Mettre le profil de Firefox en RAM avec `profile-sync-daemon` :
-* ATTENTION : suivre ces consignes avec **Firefox fermé** - utiliser le browser secondaire WEB
+<a id="id-52"></a>
+## 52 - Activer openh264
+ Activer `openh264` dans les plugins firefox.
+
+
+<a id="id-53"></a>
+## 53 - Télécharger userChrome qui allège le clic droit
+Télécharger le *userChrome et le coller dans le répertoire par défaut de Firefox dans un dossier chrome. Le profil se trouve dans `about:support`
+
+
+<a id="id-54"></a>
+## 54 - Mettre profil Firefox en RAM avec psd
+Mettre le profil de Firefox en RAM avec `profile-sync-daemon` :
+* ATTENTION : suivre ces consignes avec **Firefox fermé** - utiliser un browser secondaire
   
-Installer psd (avec dnf `sudo dnf install profile-sync-daemon`, ou avec make en cas d'échec - voir le fichier INSTALL sur le Github), puis l'activer avec les commandes suivantes (sans quoi le service échoue à démarrer) :
+Installer psd (avec dnf `sudo pacman -S profile-sync-daemon`, ou avec make en cas d'échec - voir le fichier INSTALL sur le Github), puis l'activer avec les commandes suivantes (sans quoi le service échoue à démarrer) :
 ```
 psd
 systemctl --user daemon-reload
@@ -776,3 +895,5 @@ cd firefox
 ls
 du -sh /run/user/1000/psd/nom du profil/
 ```
+
+
