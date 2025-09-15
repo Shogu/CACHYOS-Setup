@@ -1,3 +1,4 @@
+
 # CACHYOS-Setup
 Setup, tips &amp; tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 
@@ -392,25 +393,16 @@ et décommenter la ligne *WIRELESS_REGDOM="FR"*
 
 ## 📦 **D - Remplacement et installation de logiciels et codecs**
 
-* **30** - Installer les logiciels `Flatpak` suivants : 
-```
-flatpak install flathub org.jdownloader.JDownloader -y
-flatpak install flathub org.onlyoffice.desktopeditors -y
-flatpak install flathub de.schmidhuberj.tubefeeder -y
-flatpak install flathub app.ytmdesktop.ytmdesktop -y
-flatpak install flathub io.github.kolunmi.Bazaar -y
-flatpak install flathub com.github.tchx84.Flatseal -y
-```
-Utiliser Flatseal pour désactiver le maintien en arrière-plan de Bazaar puis le supprimer avec flatpak remove flathub com.github.tchx84.Flatseal
+* **30** - 
 
 * **31** - Installer les `logiciels` suivants avec pacman :
 ```
-sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse pamac celluloid extension-manager fragments papers paru nicotine+ resources 
+sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse pamac celluloid extension-manager fragments papers paru nicotine+ resources onlyoffice
 ```
 et
 
 ```
-paru -S libre-menu-editor gradia nautilus-admin pacseek
+paru -S libre-menu-editor gradia nautilus-admin pacseek jdownloader2
 
 ```
 
@@ -506,7 +498,7 @@ set -g fish_greeting ""
 # Désactiver le pager pour paru et autres programmes
 set -Ux PAGER cat
 
-alias yay='paru'
+alias yay='paru'f
 alias vim='nano'
 alias vi='nano'
 alias gedit='gnome-text-editor'
