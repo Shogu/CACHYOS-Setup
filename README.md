@@ -413,7 +413,9 @@ sudo tune2fs -l /dev/nvme0n1p2 | grep 'Filesystem features'
 
 <a id="id-21"></a>
 ## 21 - Désactiver mitigate split lock
-Editer `sudo nano /etc/sysctl.d/99-splitlock.conf` et saisir :
+MAJ : utiliser plutot le parametre kernel `split_lock_detect=off`
+
+Ou bien éditer `sudo nano /etc/sysctl.d/99-splitlock.conf` et saisir :
   
 ```
 kernel.split_lock_mitigate=0
@@ -485,7 +487,7 @@ Appliquer les arguments suivants :
 |----------------------------|------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | **Perf / CPU / Scheduler** | `rcu_nocbs=0-(nproc-1)`, `rcutree.enable_rcu_lazy=1`, `noreplace-smp`, `tsc=reliable` | Optimisations RCU, scheduler et compteur TSC pour réduire latence et améliorer le boot.      |
 | **Sécurité / Crypto**      | `cryptomgr.notests`, `random.trust_cpu=on`, `tpm.disable=1`                        | Désactive PUCE TPM & tests crypto au boot et fait confiance aux instructions RDRAND/RDSEED.             |
-| **ACPI / Matériel / GPU**  | `efi=disable_early_pci_dma`, `nomce`                                               | Désactive DMA PCI précoce, MCE non critiques pour éviter conflits et arrêts intempestifs.    |
+| **ACPI / Matériel / GPU**  | `efi=disable_early_pci_dma`, `nomce`, `split_lock_detect=off`                                             | Désactive DMA PCI précoce, MCE non critiques pour éviter conflits et arrêts intempestifs, et désactive le split lock   |
 | **Debug / Logs / Timer**   | `nowatchdog`, `loglevel=0`, `no_timer_check`                                       | Désactive watchdog, limite logs et vérifications timer HPET pour accélérer le boot.          |
 | **Swap / FS**              | `noresume`, `fsck.mode=skip`, `zswap.enabled=0`                                    | Désactive reprise hibernation, fsck et zswap pour réduire overhead CPU et boot time.         |
 | **Console / Boot**         | `console=tty0`, `systemd.show_status=false`, `quiet splash`                        | Définit la console principale et masque la majorité des messages kernel/systemd.             |
@@ -500,7 +502,7 @@ sudo gnome-text-editor /etc/sdboot-manage.conf
 ```
 Puis saisir :
 ```
-LINUX_OPTIONS="rcu_nocbs=0-(nproc-1) rcutree.enable_rcu_lazy=1 noreplace-smp tsc=reliable cryptomgr.notests random.trust_cpu=on efi=disable_early_pci_dma nomce nowatchdog loglevel=0 no_timer_check noresume fsck.mode=skip zswap.enabled=0 console=tty0 systemd.show_status=false quiet splash 8250.nr_uarts=0 cgroupdisable=rdma nvme_core.default_ps_max_latency_us=5500 disable_ipv6=1 amd_iommu=off"
+LINUX_OPTIONS="rcu_nocbs=0-(nproc-1) rcutree.enable_rcu_lazy=1 noreplace-smp tsc=reliable cryptomgr.notests random.trust_cpu=on efi=disable_early_pci_dma nomce nowatchdog loglevel=0 no_timer_check noresume fsck.mode=skip zswap.enabled=0 console=tty0 systemd.show_status=false quiet splash 8250.nr_uarts=0 cgroupdisable=rdma nvme_core.default_ps_max_latency_us=5500 disable_ipv6=1 amd_iommu=off split_lock_detect=off"
 ```
 Relancer systemd-boot conformément à la méthode CachyOS :
 ```
@@ -602,36 +604,25 @@ En profiter pour changer avec Menu Principal l'icone de `Ptyxis`, en la remplaç
 **Extensions esthétiques :**
 
 a - [Panel Corners](https://extensions.gnome.org/extension/4805/panel-corners/)
-
 b - [Hide Activities Button](https://extensions.gnome.org/extension/744/hide-activities-button/)
-
 c - [Remove World Clock](https://extensions.gnome.org/extension/6973/remove-world-clocks/)
-
-d - [Topbar Organizer](https://extensions.gnome.org/extension/4356/top-bar-organizer/)]
+d - [Lilypad Topbar Organizer](https://extensions.gnome.org/extension/7266/lilypad/)
 
 **Extensions apportant des fonctions de productivité :**
 
 e - [Appindicator](https://extensions.gnome.org/extension/615/appindicator-support/)
-
 f - [Caffeine](https://extensions.gnome.org/extension/517/caffeine/)
-
 g - [Clipboard History](https://extensions.gnome.org/extension/4839/clipboard-history/)
 
 **Extensions apportant des fonctions UI :  **
 
-h - [Battery Time Percentage Compact](https://extensions.gnome.org/extension/2929/battery-time-percentage-compact/) ou [Battery Time](https://extensions.gnome.org/extension/5425/battery-time/)
-     
+h - [Battery Time Percentage Compact](https://extensions.gnome.org/extension/2929/battery-time-percentage-compact/) ou [Battery Time](https://extensions.gnome.org/extension/5425/battery-time/)  
 i - [AutoActivities](https://extensions.gnome.org/extension/5500/auto-activities/)
-
 j - [Auto Screen Brightness](https://extensions.gnome.org/extension/7311/auto-screen-brightness/) & supprimer la luminosité automatique dans Settings de Gnome
-
 k - [Hot Edge](https://extensions.gnome.org/extension/4222/hot-edge/)
-
 l - [Custom Command Toggle](https://extensions.gnome.org/extension/7012/custom-command-toggle/)  
-
-m - Pop Shell Tiling : `paru -S gnome-shell-extension-pop-shell`
+m - Pop Shell Tiling : `sudo pacman -S gnome-shell-extension-pop-shell-git`
 puis supprimer le theme icone Pop dans /usr/share/icons
-
 n - [Quick Close Overview](https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/)
 
 
