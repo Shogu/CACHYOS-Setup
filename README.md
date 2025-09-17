@@ -614,7 +614,7 @@ e - [Appindicator](https://extensions.gnome.org/extension/615/appindicator-suppo
 f - [Caffeine](https://extensions.gnome.org/extension/517/caffeine/)
 g - [Clipboard History](https://extensions.gnome.org/extension/4839/clipboard-history/)
 
-**Extensions apportant des fonctions UI :  **
+**Extensions apportant des fonctions UI :**
 
 h - [Battery Time Percentage Compact](https://extensions.gnome.org/extension/2929/battery-time-percentage-compact/) ou [Battery Time](https://extensions.gnome.org/extension/5425/battery-time/)  
 i - [AutoActivities](https://extensions.gnome.org/extension/5500/auto-activities/)
@@ -780,39 +780,38 @@ Changer le `thème` pour [Gnome Dark ](https://addons.mozilla.org/fr/firefox/add
 
 <a id="id-51"></a>
 ## 51 - Réglages about:config
-Dans `about:config` :
-  
+En complément des [réglages Firefox CachyOS](https://github.com/CachyOS/CachyOS-PKGBUILDS/blob/master/cachyos-firefox-settings/cachyos.js), dans `about:config` :
+
+Interface / UI
 a - `ui.key.menuAccessKey` = 0 pour désactiver la touche Alt qui ouvre les menus
-b - `browser.sessionstore.interval` à `600000` pour réduire l'intervalle de sauvegarde des sessions
-c - `devtools.f12_enabled` = false
-d - `accessibility.force_disabled` = 1 pour supprimer l'accessibilité
-e - `extensions.screenshots.disabled` = true pour désactiver le screenshot
-f - `privacy.userContext.enabled` = false pour désactiver les containers
-g - `browser.tabs.crashReporting.sendReport` = false
-h - `network.http.max-persistent-connections-per-server` = 10  
+b - `apz.overscroll.enabled` = false pour supprimer le rebond lors du scroll jusqu'en fin de page
+c - pour activer userChrome : `toolkit.legacyUserProfileCustomizations.stylesheets` sur true
+
+Session
+d - `browser.sessionstore.interval` à `600000` pour réduire l'intervalle de sauvegarde des sessions
+
+Développement / Accessibilité
+e - `devtools.f12_enabled` = false
+f - `accessibility.force_disabled` = 1 pour supprimer l'accessibilité
+
+Extensions / Contenus
+g - `extensions.screenshots.disabled` = true pour désactiver le screenshot
+h - `privacy.userContext.enabled` = false pour désactiver les containers
+
+Réseau / HTTP / Cache
 i - `image.mem.decode_bytes_at_a_time` = 131072
-j - `dom.battery.enabled` = false 
-k - `extensions.htmlaboutaddons.recommendations.enabled` = false pour désactiver l'affichage des "extensions recommandées" dans le menu de Firefox
-l - `apz.overscroll.enabled` = false pour supprimer le rebonb lors d uscroll jusqu'en fin de page
-m - `browser.cache.disk.parent_directory` à créer sour forme de `chaîne`, et lui passer l'argument /run/user/1000/firefox, afin de déplacer le cache en RAM. Saisir `
-about:cache` pour contrôle. 
+j - `browser.cache.disk.parent_directory` à créer sous forme de chaîne, et lui passer l'argument /run/user/1000/firefox, afin de déplacer le cache en RAM. 
+Saisir `about:cache` pour contrôle. 
+k - `network.http.speculative-parallel-limit` sur 6
+l - `browser.frames-lazy-load.enabled` à créer en booléen, valeur false
+m - `nglayout.initialpaint.delay` sur 0
+
+Téléchargements / Médias 
 n - `media.autoplay.default` sur 2 (les vidéos ne se lancent que si on clique dessus)
-o - `telemetry` : passer en false
-```
-browser.newtabpage.activity-stream.telemetry
-browser.newtabpage.activity-stream.feeds.telemetry
-toolkit.telemetry.bhrPing.enabled
-toolkit.telemetry.archive.enabled
-toolkit.telemetry.firstShutdownPing.enabled
-toolkit.telemetry.reportingpolicy.firstRun
-toolkit.telemetry.hybridContent.enabled
-toolkit.telemetry.newProfilePing.enabled
-toolkit.telemetry.unified
-toolkit.telemetry.shutdownPingSender.enabled
-toolkit.telemetry.updatePing.enabled
-```
-p - `media.ffmpeg.vaapi.enabled` sur true
-q - pour activer userChrome : `toolkit.legacyUserProfileCustomizations.stylesheets` sur true
+o - `media.ffmpeg.vaapi.enabled` sur true
+
+Batterie
+p -`dom.battery.enabled` = false 
 
 
 <a id="id-52"></a>
