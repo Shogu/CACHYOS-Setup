@@ -730,7 +730,7 @@ sudo udevadm trigger
 ```
 
 
-<a id="id-426"></a>
+<a id="id-46"></a>
 ## 46 - Modifier nom toggle profil énergétique dans le menu Gnome
 Modifier le nom du *toggle de changement de profil énergétique* dans l'applet Gnome : sans quoi le nom est tellement long qu'il est coupé dans le bouton
 Installer l'outil de traduction :
