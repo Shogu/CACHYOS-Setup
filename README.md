@@ -44,45 +44,46 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [19 - Editer mount des partitions EXT4](#id-19)
 - [20 - Activer fast_commit pour EXT4](#id-20)
 - [21 - Désactiver mitigate split lock](#id-21)
-- [22 - Régler le pare-feu](#id-22)
-- [23 - Passer à 0 le nombre de ttys au boot](#id-23)
-- [24 - Optimiser le kernel](#id-24)
-- [25 - Régler wifi sur FR](#id-25)
+- [22 - Activer le mode EPP `power_performance` pour le profil Gnome `Balanced` quand le PC est sur batterie](#id-22) 
+- [23 - Régler le pare-feu](#id-23)
+- [24 - Passer à 0 le nombre de ttys au boot](#id-24)
+- [25 - Optimiser le kernel](#id-25)
+- [26 - Régler wifi sur FR](#id-26)
 
 ### 📦 D - Remplacement et installation de logiciels et codecs
-- [26 - Installer logiciels avec pacman et paru](#id-26)
-- [27 - Installer Dropbox avec Maestral](#id-27)
+- [27 - Installer logiciels avec pacman et paru](#id-27)
+- [28 - Installer Dropbox avec Maestral](#id-28)
 
 ### 🐾 E - Réglages de l'UI Gnome Shell
-- [28 - Extinction en fermant le capot](#id-28)
-- [29 - Régler Nautilus et marque-pages](#id-29)
-- [30 - Modifier mot de passe au démarrage](#id-30)
-- [31 - Installer wallpaper et thème curseurs](#id-31)
-- [32 - Régler HiDPI et cacher dossiers](#id-32)
-- [33 - Renommer logiciels dans overview](#id-33)
-- [34 - Installer extensions Gnome](#id-34)
-- [35 - Installer Open with Ptyxis](#id-35)
-- [36 - Activer numpad Asus](#id-36)
-- [37 - Configurer fish et gnome-text-editor](#id-37)
-- [38 - Changer icône Pamac](#id-38)
-- [39 - Configurer Celluloid](#id-39)
-- [40 - Configurer JDownloader](#id-40)
-- [41 - Script transfert vidéos](#id-41)
-- [42 - Accélérer animations](#id-42)
-- [43 - Scripts Nautilus Hide/Unhide](#id-43)
-- [44 - Enlever powersave souris Inphic](#id-44)
-- [45 - Modifier nom toggle profil énergétique](#id-45)
-- [46 - Créer raccourci boot to BIOS](#id-46)
-- [47 - Faire le tri dans ~/.local/share, ~/.config et /etc](#id-47)
+- [29 - Extinction en fermant le capot](#id-29)
+- [30 - Régler Nautilus et marque-pages](#id-30)
+- [31 - Modifier mot de passe au démarrage](#id-31)
+- [32 - Installer wallpaper et thème curseurs](#id-32)
+- [33 - Régler HiDPI et cacher dossiers](#id-33)
+- [34 - Renommer logiciels dans overview](#id-34)
+- [35 - Installer extensions Gnome](#id-35)
+- [36 - Installer Open with Ptyxis](#id-36)
+- [37 - Activer numpad Asus](#id-37)
+- [38 - Configurer fish et gnome-text-editor](#id-38)
+- [39 - Changer icône Pamac](#id-39)
+- [40 - Configurer Celluloid](#id-40)
+- [41 - Configurer JDownloader](#id-41)
+- [42 - Script transfert vidéos](#id-42)
+- [43 - Accélérer animations](#id-43)
+- [44 - Scripts Nautilus Hide/Unhide](#id-44)
+- [45 - Enlever powersave souris Inphic](#id-45)
+- [46 - Modifier nom toggle profil énergétique](#id-46)
+- [47 - Créer raccourci boot to BIOS](#id-47)
+- [48 - Faire le tri dans ~/.local/share, ~/.config et /etc](#id-48)
 
 ### 🌐 F - Réglages du navigateur Firefox
-- [48 - Réglages internes Firefox](#id-48)
-- [49 - Changer thème Firefox](#id-49)
-- [50 - Réglages about:config](#id-50)
-- [51 - Extensions Firefox](#id-51)
-- [52 - Activer openh264 & widevine](#id-52)
-- [53 - Télécharger userChrome](#id-53)
-- [54 - Mettre profil Firefox en RAM avec psd](#id-54)
+- [49 - Réglages internes Firefox](#id-49)
+- [50 - Changer thème Firefox](#id-50)
+- [51 - Réglages about:config](#id-51)
+- [52 - Extensions Firefox](#id-52)
+- [53 - Activer openh264 & widevine](#id-53)
+- [54 - Télécharger userChrome](#id-54)
+- [55 - Mettre profil Firefox en RAM avec psd](#id-55)
 
 ---
 
@@ -419,9 +420,24 @@ kernel.split_lock_mitigate=0
 ```
 Puis recharger avec `sudo sysctl --system`
 
-
 <a id="id-22"></a>
-## 22 - Régler le pare-feu ufw
+## 22 - Activer le mode EPP `power_performance` pour le profil Gnome `Balanced` quand le PC est sur batterie
+Vérifier le profil EPP correspondant au profil Balanced/Batterie 
+```
+powerprofilesctl query-battery-aware 
+```
+Le passer en *disable* :
+```
+powerprofilesctl configure-battery-aware --disable
+```
+Contrôler le nouveau profil après avoir sélectionné Balanced dans le panel Gnome :
+```
+cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+cat /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference
+```
+
+<a id="id-23"></a>
+## 23 - Régler le pare-feu ufw
 ```
 sudo ufw --force reset
 sudo ufw default deny incoming
@@ -454,16 +470,16 @@ sudo ufw status numbered
 ```
 
 
-<a id="id-23"></a>
-## 23 - Passer à 0 le nombre de ttys au boot
+<a id="id-24"></a>
+## 24 - Passer à 0 le nombre de ttys au boot
 ```
 sudo gnome-text-editor /etc/systemd/logind.conf
 ```
 puis saisir : `NautoVTS=1`
 
 
-<a id="id-24"></a>
-## 24 - Optimiser le `kernel` :
+<a id="id-25"></a>
+## 25 - Optimiser le `kernel` :
 Appliquer les arguments suivants :
 | Thème                     | Arguments / Options                                                                 | Description                                                                                   |
 |----------------------------|------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
@@ -498,8 +514,8 @@ Vérifier avec  `sudo tune2fs -l /dev/nvme0n1p2 | grep -i 'check'
 
 
 
-<a id="id-25"></a>
-## 25 - Régler wifi sur FR
+<a id="id-26"></a>
+## 26 - Régler wifi sur FR
 ```
 sudo nano /etc/conf.d/wireless-regdom
 ```
@@ -510,8 +526,8 @@ et décommenter la ligne *WIRELESS_REGDOM="FR"*
 
 # 📦 D - Remplacement et installation de logiciels et codecs
 
-<a id="id-26"></a>
-## 26 - Installer logiciels avec pacman et paru
+<a id="id-27"></a>
+## 27 - Installer logiciels avec pacman et paru
 Installer les `logiciels` suivants :
 ```
 sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse pamac celluloid extension-manager fragments papers paru nicotine+ resources onlyoffice
@@ -520,12 +536,11 @@ et
 
 ```
 paru -S libre-menu-editor gradia nautilus-admin pacseek jdownloader2
-
 ```
 
 
-<a id="id-27"></a>
-## 27 - Installer Dropbox avec Maestral
+<a id="id-28"></a>
+## 28 - Installer Dropbox avec Maestral
 créer le répertoire Dropbox dans /home puis lancer le script *maestral_install* 
 
 
@@ -533,8 +548,8 @@ créer le répertoire Dropbox dans /home puis lancer le script *maestral_install
 
 # 🐾 E - Réglages de l'UI Gnome Shell
 
-<a id="id-28"></a>
-## 28 - Extinction en fermant le capot
+<a id="id-29"></a>
+## 29 - Extinction en fermant le capot
 Editer le service logind :
 ```
 gnome-text-editor admin:///etc/systemd/logind.conf
@@ -546,42 +561,42 @@ HandleLidSwitchExternalPower=poweroff
 ```
 
 
-<a id="id-29"></a>
-## 29 - Régler Nautilus et marque-pages
+<a id="id-30"></a>
+## 30 - Régler Nautilus et marque-pages
 Régler Nautilus & créer un marque-page pour `Dropbox`, pour l'accès `ftp` au disque SSD sur la TV Android, et pour lancer Nautilus en root depuis le panneau latéral :
 ```
 192.168.31.68:2121
 ```
 
 
-<a id="id-30"></a>
-## 30 - Modifier mot de passe au démarrage
+<a id="id-31"></a>
+## 31 - Modifier mot de passe au démarrage
 avec le logiciel `Seahorse`, puis laisser les champs vides. Penser à reconnecter le compte Google dans Gnome.
 
 
 
-<a id="id-31"></a>
-## 31 - Installer wallpaper et thème curseurs
+<a id="id-32"></a>
+## 32 - Installer wallpaper et thème curseurs
 Installer le [wallpaper F34](https://fedoraproject.org/w/uploads/d/de/F34_default_wallpaper_night.jpg) OU celui disponible dans le dossier `Images USER`, et le thème de curseurs [Phinger NO LEFT Light](https://github.com/phisch/phinger-cursors/releases) : créer le répertoire de destination avec `mkdir -p ~/.local/share/icons/apps`, y déplacer le dossier *phingers-cursor-light*  puis utiliser `dconf-editor` pour les passer en taille 32 :
 ```
 org/gnome/desktop/interface/cursor-size
 ```
 
 
-<a id="id-32"></a>
-## 32 - Régler HiDPI et cacher dossiers
+<a id="id-33"></a>
+## 33 - Régler HiDPI et cacher dossiers
 Régler `HiDPI` sur 125, cacher les dossiers Modèles, Bureau, ainsi que le wallpaper et l'image user, augmenter la taille des icones dossiers, mettre un dossier avec icone pour Dropbox.
   
 
 
-<a id="id-33"></a>
-## 33 - Renommer logiciels dans overview
+<a id="id-34"></a>
+## 34 - Renommer logiciels dans overview
 Renommer les `logiciels dans l'overview`, cacher ceux qui sont inutiles de façon à n'avoir qu'une seule et unique page, en utilisant le logiciel `Menu Principal`.
 En profiter pour changer avec Menu Principal l'icone de `Ptyxis`, en la remplaçant par celle de [gnome-terminal](https://upload.wikimedia.org/wikipedia/commons/d/da/GNOME_Terminal_icon_2019.svg)
 
 
-<a id="id-34"></a>
-## 34 - Extensions Gnome
+<a id="id-35"></a>
+## 35 - Extensions Gnome
 
 
 **Extensions esthétiques :**
@@ -622,16 +637,16 @@ n - [Quick Close Overview](https://extensions.gnome.org/extension/352/middle-cli
 
 
 
-<a id="id-35"></a>
-## 35 - Installer Open with Ptyxis
+<a id="id-36"></a>
+## 36 - Installer Open with Ptyxis
 ```
 paru -S nautilus-open-any-terminal
 ```
 et penser à éditer sa clé dconf com.github.stunkymonkey.nautilus-open-any-terminal pour inscrire "ptyxis".
 
 
-<a id="id-36"></a>
-## 36 - Activer numpad Asus
+<a id="id-37"></a>
+## 37 - Activer numpad Asus
 Activer le [numpad Asus](https://github.com/asus-linux-drivers/asus-numberpad-driver), disable le service --user, puis créer un toggle button et importer le fichier de configuration hosté dans le répertoire github Fichiers de configuration.
 Sinon, lui passer l'icone `accessories-calculator-symbolic` et les commandes suivantes :
 ```
@@ -640,8 +655,8 @@ systemctl stop --user asus_numberpad_driver@ogu.service && systemctl disable --u
 ```
 
 
-<a id="id-37"></a>
-## 37 - Configurer fish et gnome-text-editor
+<a id="id-38"></a>
+## 38 - Configurer fish et gnome-text-editor
 Régler `Gnome-text-editor`et `Ptyxis`, configurer `fish` avec `gnome-text-editor ~/.config/fish/config.fish` et coller :
   
 ```
@@ -660,8 +675,8 @@ alias micro='gnome-text-editor'
 Et recharger la configuration de fish avec `source ~/.config/fish/config.fish`
 
 
-<a id="id-38"></a>
-## 38 - Changer icône Pamac
+<a id="id-39"></a>
+## 39 - Changer icône Pamac
 Changer l'icone Pamac:
 ```
 mkdir -p ~/.local/share/icons && \
@@ -671,25 +686,25 @@ wget -O ~/.local/share/icons/pamac.svg https://raw.githubusercontent.com/somepau
 puis éditer le raccourci avec Menu Libre.
 
 
-<a id="id-39"></a>
-## 39 - Configurer Celluloid
+<a id="id-40"></a>
+## 40 - Configurer Celluloid
 
 inscrire `vo=gpu-next` dans Paramètres --> Divers --> Options supplémentaires, activer l'option `focus` et `toujours afficher les boutons de titre`, enfin télécharger et installer les deux scripts lua suivants pour la musique : Visualizer & Delete File
 
 
-<a id="id-40"></a>
-## 40 - Configurer JDownloader
+<a id="id-41"></a>
+## 41 - Configurer JDownloader
 Réglages de base, font Noto Sans Regular, désactivation du dpi et font sur 175; puis désactiver les éléments suivants : tooltip, help, Update Button Flashing, banner, Premium Alert, Donate, speed meter visible.
 
 
-<a id="id-41"></a>
-## 41 - Script transfert vidéos
+<a id="id-42"></a>
+## 42 - Script transfert vidéos
 Script de `transfert des vidéos` intitulé `transfert_videos` pour déplacer automatiquement les vidéos vers Vidéos en supprimant le sous-dossier d'origine.
 Le télécharger depuis le dossier `SCRIPTS`, le coller dans /home/ogu/.local/bin/, en faire un raccourci avec l'éditeur de menu, passer le chemin `/home/ogu/.local/bin/` et lui mettre l'icone `/usr/share/icons/Adwaita/scalable/devices/drive-multidisk.svg`
 
 
-<a id="id-42"></a>
-## 42 - Accélérer animations Gnome Shell
+<a id="id-43"></a>
+## 43 - Accélérer animations Gnome Shell
 saisir
 ```
 GNOME_SHELL_SLOWDOWN_FACTOR=0.75
@@ -700,15 +715,15 @@ sudo gnome-text-editor /etc/environment
 ```
 
 
-<a id="id-43"></a>
-## 43 - Scripts Nautilus Hide/Unhide, & Dropbox
+<a id="id-44"></a>
+## 44 - Scripts Nautilus Hide/Unhide, & Dropbox
 Scripts Nautilus `Hide.py` `Unhide.py` pour masquer/rendre visibles les fichiers à la volée, et `Dropbox` pour ouvrir un fichier dans l'interface web Dropbox afin de copier-coller son iurl de partage et ainsi mimer le copmportmeent de Dropbox Nautilus.
 A télécharger depuis le dossier `SCRIPTS` puis à coller dans le dossier `/home/ogu/.local/share/nautilus/scripts/.
 Penser à les rendre exécutables!
 
 
-<a id="id-44"></a>
-## 44 - Enlever powersave souris Inphic
+<a id="id-45"></a>
+## 45 - Enlever powersave souris Inphic
 Créer une règle udev pour que Linux applique power/control=on automatiquement à chaque démarrage :
 ```
 sudo nano /etc/udev/rules.d/50-inphic.rules
@@ -724,8 +739,8 @@ sudo udevadm trigger
 ```
 
 
-<a id="id-45"></a>
-## 45 - Modifier nom toggle profil énergétique dans le menu Gnome
+<a id="id-426"></a>
+## 46 - Modifier nom toggle profil énergétique dans le menu Gnome
 Modifier le nom du *toggle de changement de profil énergétique* dans l'applet Gnome : sans quoi le nom est tellement long qu'il est coupé dans le bouton
 Installer l'outil de traduction :
 ```
@@ -746,66 +761,52 @@ cp gnome-shell.mo /usr/share/locale/fr/LC_MESSAGES/gnome-shell.mo
 Enfin supprimer les fichiers créés à la racine de Home.
 
 
-<a id="id-46"></a>
-## 46 - Créer raccourci boot to BIOS
+<a id="id-47"></a>
+## 47 - Créer raccourci boot to BIOS
 Créer un raccourci "boot to bios" avec confirmation : télécharger le script, le déposer dans /home/ogu/.local/bin, le rendre exécutable, puis créer un raccourci avec l'icone jockey et la commande :
 ```
 ptyxis -- /home/ogu/.local/bin/reboot_bios.sh
 ```
 
 
-<a id="id-47"></a>
-## 47 - Faire le tri dans ~/.local/share, ~/.config et /etc
+<a id="id-48"></a>
+## 48 - Faire le tri dans ~/.local/share, ~/.config et /etc
 
 
 ----------------------------------------------------------------------------------------------
 
 # 🌐 F - Réglages du navigateur Firefox
 
-<a id="id-48"></a>
-## 48 - Réglages internes Firefox
+<a id="id-49"></a>
+## 49 - Réglages internes Firefox
 Réglages internes de `Firefox` (penser à activer CTRL-TAB pour faire défiler dans l'ordre d'utilisation & à passer sur `Sombre` plutôt qu'`auto` le paramètre `Apparence des sites web`)
 
 
-<a id="id-49"></a>
-## 49 - Thème Firefox Gnome Dark
+<a id="id-50"></a>
+## 50 - Thème Firefox Gnome Dark
 Changer le `thème` pour [Gnome Dark ](https://addons.mozilla.org/fr/firefox/addon/adwaita-gnome-dark/?utm_content=addons-manager-reviews-link&utm_medium=firefox-browser&utm_source=firefox-browser)
 
 
-<a id="id-50"></a>
-## 50 - Réglages about:config
+<a id="id-51"></a>
+## 51 - Réglages about:config
 Dans `about:config` :
   
 a - `ui.key.menuAccessKey` = 0 pour désactiver la touche Alt qui ouvre les menus
-  
 b - `browser.sessionstore.interval` à `600000` pour réduire l'intervalle de sauvegarde des sessions
-
 c - `devtools.f12_enabled` = false
-
 d - `accessibility.force_disabled` = 1 pour supprimer l'accessibilité
-
-ge - `extensions.screenshots.disabled` = true pour désactiver le screenshot
-
-h - `privacy.userContext.enabled` = false pour désactiver les containers
-
-i - `browser.tabs.crashReporting.sendReport` = false
-
-j - `network.http.max-persistent-connections-per-server` = 10  
-
-k - `image.mem.decode_bytes_at_a_time` = 131072
-
-l - `dom.battery.enabled` = false 
-
-m - `extensions.htmlaboutaddons.recommendations.enabled` = false pour désactiver l'affichage des "extensions recommandées" dans le menu de Firefox
-
-n - `apz.overscroll.enabled` = false pour supprimer le rebonb lors d uscroll jusqu'en fin de page
-
-o - `browser.cache.disk.parent_directory` à créer sour forme de `chaîne`, et lui passer l'argument /run/user/1000/firefox, afin de déplacer le cache en RAM. Saisir `
+e - `extensions.screenshots.disabled` = true pour désactiver le screenshot
+f - `privacy.userContext.enabled` = false pour désactiver les containers
+g - `browser.tabs.crashReporting.sendReport` = false
+h - `network.http.max-persistent-connections-per-server` = 10  
+i - `image.mem.decode_bytes_at_a_time` = 131072
+j - `dom.battery.enabled` = false 
+k - `extensions.htmlaboutaddons.recommendations.enabled` = false pour désactiver l'affichage des "extensions recommandées" dans le menu de Firefox
+l - `apz.overscroll.enabled` = false pour supprimer le rebonb lors d uscroll jusqu'en fin de page
+m - `browser.cache.disk.parent_directory` à créer sour forme de `chaîne`, et lui passer l'argument /run/user/1000/firefox, afin de déplacer le cache en RAM. Saisir `
 about:cache` pour contrôle. 
-
-p - `media.autoplay.default` sur 2 (les vidéos ne se lancent que si on clique dessus)
-
-q - `telemetry` : passer en false
+n - `media.autoplay.default` sur 2 (les vidéos ne se lancent que si on clique dessus)
+o - `telemetry` : passer en false
 ```
 browser.newtabpage.activity-stream.telemetry
 browser.newtabpage.activity-stream.feeds.telemetry
@@ -819,43 +820,34 @@ toolkit.telemetry.unified
 toolkit.telemetry.shutdownPingSender.enabled
 toolkit.telemetry.updatePing.enabled
 ```
-r - `media.ffmpeg.vaapi.enabled` sur true
-
-s - pour activer userChrome : `toolkit.legacyUserProfileCustomizations.stylesheets` sur true
-
-
-<a id="id-51"></a>
-## 51 - Extensions Firefox
-a - [uBlock Origin](https://addons.mozilla.org/fr/firefox/addon/ublock-origin/) : réglages à faire + import des deux listes sauvegardées
-  
-b - [Auto Tab Discard](https://addons.mozilla.org/fr/firefox/addon/auto-tab-discard/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=featured) : importer les réglages avec le fichier de backup et bien activer les 2 options de dégel des onglets à droite et à gauche de l'onglet courant.
-
-c - [Raindrop](https://raindrop.io/r/extension/firefox) 
-  
-e - [Undo Close Tab Button](https://addons.mozilla.org/firefox/addon/undoclosetabbutton) et mettre ALT-Z comme raccourci à partir du menu général des extensions (roue dentée)
-
-f - [LocalCDN](https://addons.mozilla.org/fr/firefox/addon/localcdn-fork-of-decentraleyes/), puis faire le [test](https://decentraleyes.org/test/).
-
-g - [Side View](https://addons.mozilla.org/fr/firefox/addon/side-view/)
-
-h - [Scroll To Top](https://addons.mozilla.org/fr/firefox/addon/scroll-to-top-button-extension/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
-
-i - [Workspaces](https://addons.mozilla.org/fr/firefox/addon/workspacesplus/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
-
+p - `media.ffmpeg.vaapi.enabled` sur true
+q - pour activer userChrome : `toolkit.legacyUserProfileCustomizations.stylesheets` sur true
 
 
 <a id="id-52"></a>
-## 52 - Activer openh264
- Activer `openh264` dans les plugins firefox.
+## 52 - Extensions Firefox
+a - [uBlock Origin](https://addons.mozilla.org/fr/firefox/addon/ublock-origin/) : réglages à faire + import des deux listes sauvegardées
+b - [Auto Tab Discard](https://addons.mozilla.org/fr/firefox/addon/auto-tab-discard/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=featured) : importer les réglages avec le fichier de backup et bien activer les 2 options de dégel des onglets à droite et à gauche de l'onglet courant.
+c - [Raindrop](https://raindrop.io/r/extension/firefox) 
+d - [Undo Close Tab Button](https://addons.mozilla.org/firefox/addon/undoclosetabbutton) et mettre ALT-Z comme raccourci à partir du menu général des extensions (roue dentée)
+e - [LocalCDN](https://addons.mozilla.org/fr/firefox/addon/localcdn-fork-of-decentraleyes/), puis faire le [test](https://decentraleyes.org/test/).
+f - [Side View](https://addons.mozilla.org/fr/firefox/addon/side-view/)
+g - [Scroll To Top](https://addons.mozilla.org/fr/firefox/addon/scroll-to-top-button-extension/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
+h - [Workspaces](https://addons.mozilla.org/fr/firefox/addon/workspacesplus/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 
 
 <a id="id-53"></a>
-## 53 - Télécharger userChrome qui allège le clic droit
-Télécharger le *userChrome et le coller dans le répertoire par défaut de Firefox dans un dossier chrome. Le profil se trouve dans `about:support`
+## 53 - Activer openh264
+ Activer `openh264` dans les plugins firefox.
 
 
 <a id="id-54"></a>
-## 54 - Mettre profil Firefox en RAM avec psd
+## 54 - Télécharger userChrome qui allège le clic droit
+Télécharger le *userChrome et le coller dans le répertoire par défaut de Firefox dans un dossier chrome. Le profil se trouve dans `about:support`
+
+
+<a id="id-55"></a>
+## 55 - Mettre profil Firefox en RAM avec psd
 Mettre le profil de Firefox en RAM avec `profile-sync-daemon` :
 * ATTENTION : suivre ces consignes avec **Firefox fermé** - utiliser un browser secondaire
   
