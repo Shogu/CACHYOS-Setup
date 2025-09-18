@@ -816,8 +816,7 @@ l - `browser.frames-lazy-load.enabled` à créer en booléen, valeur false
 m - `nglayout.initialpaint.delay` sur 0
 
 Téléchargements / Médias 
-n - `media.autoplay.default` sur 2 (les vidéos ne se lancent que si on clique dessus)
-o - `media.ffmpeg.vaapi.enabled` sur true
+n - `media.ffmpeg.vaapi.enabled` sur true
 
 Batterie
 p -`dom.battery.enabled` = false 
@@ -826,12 +825,19 @@ p -`dom.battery.enabled` = false
 <a id="id-52"></a>
 ## 52 - Extensions Firefox
 a - [uBlock Origin](https://addons.mozilla.org/fr/firefox/addon/ublock-origin/) : réglages à faire + import des deux listes sauvegardées
+
 b - [Auto Tab Discard](https://addons.mozilla.org/fr/firefox/addon/auto-tab-discard/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=featured) : importer les réglages avec le fichier de backup et bien activer les 2 options de dégel des onglets à droite et à gauche de l'onglet courant.
+
 c - [Raindrop](https://raindrop.io/r/extension/firefox) 
+
 d - [Undo Close Tab Button](https://addons.mozilla.org/firefox/addon/undoclosetabbutton) et mettre ALT-Z comme raccourci à partir du menu général des extensions (roue dentée)
+
 e - [LocalCDN](https://addons.mozilla.org/fr/firefox/addon/localcdn-fork-of-decentraleyes/), puis faire le [test](https://decentraleyes.org/test/).
+
 f - [Side View](https://addons.mozilla.org/fr/firefox/addon/side-view/)
+
 g - [Scroll To Top](https://addons.mozilla.org/fr/firefox/addon/scroll-to-top-button-extension/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
+
 h - [Workspaces](https://addons.mozilla.org/fr/firefox/addon/workspacesplus/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 
 
