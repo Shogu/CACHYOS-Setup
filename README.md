@@ -27,8 +27,8 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 
 ### ✨ B - Allégement du système
 - [6 - Réglages CachyOS-Hello](#id-6)
-- [7 - Supprimer logiciels inutiles avec Pamac & Octopi](#id-7)
-- [8 - Supprimer logiciels inutiles avec pacman](#id-8)
+- [7 - Supprimer logiciels inutiles avec pacman](#id-7)
+- [8 - Supprimer logiciels inutiles avec Pamac & Octopi](#id-8)
 - [9 - Supprimer et masquer services SYSTEM & USER](#id-9)
 - [10 - Désactiver autostart gnome-wellbeing](#id-10)
 - [11 - Alléger journaux système et mettre en RAM](#id-11)
@@ -122,16 +122,16 @@ Faire les réglages proposés par `CachyOS-Hello` : désactiver le bluetooth, ac
 
 
 <a id="id-7"></a>
-## 7 - Supprimer logiciels inutiles avec Pamac & Octopi
-Voir la liste des applis inutilisées type Maps, Fonts...
+## 7 - Supprimer logiciels inutiles avec pacman
+```
+sudo pacman -Rns apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds gnome-usage octopi gedit xfsprogs btrfs-progs yay cpupower
+```
 
 
 <a id="id-8"></a>
-## 8 - Supprimer logiciels inutiles avec pacman
-```
-sudo pacman -Rns apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds gnome-usage octopi gedit xfsprogs btrfs-progs yay cpupower
+## 8 - Supprimer logiciels inutiles avec Pamac & Octopi
+Voir la liste des applis inutilisées type Maps, Fonts...
 
-```
 
 <a id="id-9"></a>
 ## 9 - Supprimer et masquer services SYSTEM & USER
