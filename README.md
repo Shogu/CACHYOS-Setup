@@ -53,7 +53,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [26 - Régler wifi sur FR](#id-26)
 
 ### 📦 D - Remplacement et installation de logiciels et codecs
-- [27 - Installer logiciels avec pacman et paru](#id-27)
+- [27 - Installer logiciels avec pacman et yay](#id-27)
 - [28 - Installer Dropbox avec Maestral](#id-28)
 
 ### 🐾 E - Réglages de l'UI Gnome Shell
@@ -124,7 +124,7 @@ Faire les réglages proposés par `CachyOS-Hello` : désactiver le bluetooth, ac
 <a id="id-7"></a>
 ## 7 - Supprimer logiciels inutiles avec pacman
 ```
-sudo pacman -Rns apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds gnome-usage octopi gedit xfsprogs btrfs-progs yay cpupower
+sudo pacman -Rns apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds gnome-usage octopi gedit xfsprogs btrfs-progs cpupower
 ```
 
 
@@ -538,15 +538,15 @@ et décommenter la ligne *WIRELESS_REGDOM="FR"*
 # 📦 D - Remplacement et installation de logiciels et codecs
 
 <a id="id-27"></a>
-## 27 - Installer logiciels avec pacman et paru
+## 27 - Installer logiciels avec pacman et yay
 Installer les `logiciels` suivants :
 ```
-sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse pamac celluloid extension-manager fragments papers paru nicotine+ resources onlyoffice
+sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse pamac celluloid extension-manager fragments papers yay nicotine+ resources onlyoffice
 ```
 et
 
 ```
-paru -S libre-menu-editor gradia nautilus-admin pacseek jdownloader2
+yay -S libre-menu-editor gradia nautilus-admin pacseek jdownloader2
 ```
 
 
@@ -647,7 +647,7 @@ n - [Quick Close Overview](https://extensions.gnome.org/extension/352/middle-cli
 <a id="id-36"></a>
 ## 36 - Installer Open with Ptyxis
 ```
-paru -S nautilus-open-any-terminal
+yay -S nautilus-open-any-terminal
 ```
 et penser à éditer sa clé dconf com.github.stunkymonkey.nautilus-open-any-terminal pour inscrire "ptyxis".
 
@@ -670,10 +670,10 @@ Régler `Gnome-text-editor`et `Ptyxis`, configurer `fish` avec `gnome-text-edito
 # Désactive le message d'accueil de Fish.
 set -g fish_greeting ""
 
-# Désactiver le pager pour paru et autres programmes
+# Désactiver le pager pour paru et autres programmes : à voir si possible sur yay
 set -Ux PAGER cat
 
-alias yay='paru'
+alias paru='yay'
 alias vim='nano'
 alias vi='nano'
 alias gedit='gnome-text-editor'
