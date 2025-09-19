@@ -283,7 +283,7 @@ blacklist industrialio_triggered_buffer
 blacklist serial8250
 blacklist 8250_pci
 ```
-Puis lancer `sudo mkinicpio -P`
+Puis lancer `sudo mkinitcpio -P`
 Au reboot, vérifier avec la commande `lsmod | grep serial8250`
 
 
