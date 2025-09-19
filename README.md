@@ -298,7 +298,7 @@ et copier-coller ces options de configuration :
 ```
 HOOKS=(base udev autodetect kms modconf block filesystems plymouth)
 ```
-Puis choisir entre : lz4 (ou zstd) et passer `` à COMPRESSION_OPTION
+Puis choisir entre : lz4 (ou zstd) et passer () à COMPRESSION_OPTION
 
 Recharger l'initrd avec `sudo mkinitcpio -P`
 
