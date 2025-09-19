@@ -48,6 +48,8 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [23 - Régler le pare-feu](#id-23)
 - [24 - Passer à 0 le nombre de ttys au boot](#id-24)
 - [25 - Optimiser le kernel](#id-25)
+  a - arguments kernel
+  b - sched-ext Rusty
 - [26 - Régler wifi sur FR](#id-26)
 
 ### 📦 D - Remplacement et installation de logiciels et codecs
@@ -131,7 +133,6 @@ sudo pacman -Rns apache  speech-dispatcher gnome-remote-desktop gnome-background
 
 ```
 
-
 <a id="id-9"></a>
 ## 9 - Supprimer et masquer services SYSTEM & USER
 **SYSTEM**
@@ -149,8 +150,8 @@ sudo systemctl mask  pamac-cleancache.service
 sudo systemctl mask  pamac-cleancache.timer
 ```
 ```
-Vérifier si `scx_loader` & `ananicy-cpp` sont lancés par défaut : si oui :
-sudo systemctl mask scx_loader ananicy-cpp
+Vérifier si `ananicy-cpp` est lancé par défaut : si oui :
+sudo systemctl mask ananicy-cpp
 ```
 Enfin, reboot puis controle de l'état des services avec :
 ```
@@ -213,7 +214,6 @@ puis empêcher qu'ulimit ne fasse des dumps :
 ```
 echo '* hard core 0' | sudo tee -a /etc/security/limits.conf
 ```
-
 
 
 <a id="id-13"></a>
@@ -438,6 +438,7 @@ cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
 cat /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference
 ```
 
+
 <a id="id-23"></a>
 ## 23 - Régler le pare-feu ufw
 ```
@@ -482,7 +483,19 @@ puis saisir : `NautoVTS=1`
 
 <a id="id-25"></a>
 ## 25 - Optimiser le `kernel` :
-Appliquer les arguments suivants :
+**a - Appliquer les arguments suivants :**
+```
+sudo gnome-text-editor /etc/sdboot-manage.conf
+```
+Puis saisir :
+```
+LINUX_OPTIONS="rcu_nocbs=0-(nproc-1) rcutree.enable_rcu_lazy=1 noreplace-smp tsc=reliable cryptomgr.notests random.trust_cpu=on efi=disable_early_pci_dma nomce nowatchdog loglevel=0 no_timer_check noresume fsck.mode=skip zswap.enabled=0 console=tty0 systemd.show_status=false quiet splash 8250.nr_uarts=0 cgroupdisable=rdma nvme_core.default_ps_max_latency_us=5500 disable_ipv6=1 amd_iommu=off split_lock_detect=off"
+```
+Relancer systemd-boot conformément à la méthode CachyOS :
+```
+sudo sdboot-manage gen
+```
+
 | Thème                     | Arguments / Options                                                                 | Description                                                                                   |
 |----------------------------|------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | **Perf / CPU / Scheduler** | `rcu_nocbs=0-(nproc-1)`, `rcutree.enable_rcu_lazy=1`, `noreplace-smp`, `tsc=reliable` | Optimisations RCU, scheduler et compteur TSC pour réduire latence et améliorer le boot.      |
@@ -497,23 +510,18 @@ Appliquer les arguments suivants :
 | **Wifi / Réseau**          | `disable_ipv6=1`                                                                   | Désactive IPv6.                                                                               |
 | **Virtualisation**         | `amd_iommu=off`                                                                    | Désactive l’IOMMU AMD si pas de virtualisation/VFIO.                                         |
 
-```
-sudo gnome-text-editor /etc/sdboot-manage.conf
-```
-Puis saisir :
-```
-LINUX_OPTIONS="rcu_nocbs=0-(nproc-1) rcutree.enable_rcu_lazy=1 noreplace-smp tsc=reliable cryptomgr.notests random.trust_cpu=on efi=disable_early_pci_dma nomce nowatchdog loglevel=0 no_timer_check noresume fsck.mode=skip zswap.enabled=0 console=tty0 systemd.show_status=false quiet splash 8250.nr_uarts=0 cgroupdisable=rdma nvme_core.default_ps_max_latency_us=5500 disable_ipv6=1 amd_iommu=off split_lock_detect=off"
-```
-Relancer systemd-boot conformément à la méthode CachyOS :
-```
-sudo sdboot-manage gen
-```
 Penser à créer un timer (1/semaine) pour lancer fsck vu qu'il est désactivé au niveau kernel :
 ```
 sudo tune2fs -c 0 -i 7d /dev/nvme0n1p2
 ```
 Vérifier avec  `sudo tune2fs -l /dev/nvme0n1p2 | grep -i 'check'
 
+**b - Sched-ext Rusty :**
+
+Activer le scheduler `Rusty` avec sched-ext Schedext, et penser à supprimer Ananicy pour éviter les conflits :
+```
+sudo pacman -Rdd ananicy-cpp
+```
 
 
 <a id="id-26"></a>
@@ -522,6 +530,7 @@ Vérifier avec  `sudo tune2fs -l /dev/nvme0n1p2 | grep -i 'check'
 sudo nano /etc/conf.d/wireless-regdom
 ```
 et décommenter la ligne *WIRELESS_REGDOM="FR"*
+
 
 
 ----------------------------------------------------------------------------------------------
@@ -544,6 +553,7 @@ paru -S libre-menu-editor gradia nautilus-admin pacseek jdownloader2
 <a id="id-28"></a>
 ## 28 - Installer Dropbox avec Maestral
 créer le répertoire Dropbox dans /home puis lancer le script *maestral_install* 
+
 
 
 ----------------------------------------------------------------------------------------------
@@ -576,7 +586,6 @@ Régler Nautilus & créer un marque-page pour `Dropbox`, pour l'accès `ftp` au 
 avec le logiciel `Seahorse`, puis laisser les champs vides. Penser à reconnecter le compte Google dans Gnome.
 
 
-
 <a id="id-32"></a>
 ## 32 - Installer wallpaper et thème curseurs
 Installer le [wallpaper F34](https://fedoraproject.org/w/uploads/d/de/F34_default_wallpaper_night.jpg) OU celui disponible dans le dossier `Images USER`, et le thème de curseurs [Phinger NO LEFT Light](https://github.com/phisch/phinger-cursors/releases) : créer le répertoire de destination avec `mkdir -p ~/.local/share/icons/apps`, y déplacer le dossier *phingers-cursor-light*  puis utiliser `dconf-editor` pour les passer en taille 32 :
@@ -590,7 +599,6 @@ org/gnome/desktop/interface/cursor-size
 Régler `HiDPI` sur 125, cacher les dossiers Modèles, Bureau, ainsi que le wallpaper et l'image user, augmenter la taille des icones dossiers, mettre un dossier avec icone pour Dropbox.
   
 
-
 <a id="id-34"></a>
 ## 34 - Renommer logiciels dans overview
 Renommer les `logiciels dans l'overview`, cacher ceux qui sont inutiles de façon à n'avoir qu'une seule et unique page, en utilisant le logiciel `Menu Principal`.
@@ -599,7 +607,6 @@ En profiter pour changer avec Menu Principal l'icone de `Ptyxis`, en la remplaç
 
 <a id="id-35"></a>
 ## 35 - Extensions Gnome
-
 
 **Extensions esthétiques :**
 
@@ -771,6 +778,7 @@ ptyxis -- /home/ogu/.local/bin/reboot_bios.sh
 
 <a id="id-48"></a>
 ## 48 - Faire le tri dans ~/.local/share, ~/.config et /etc
+
 
 
 ----------------------------------------------------------------------------------------------
