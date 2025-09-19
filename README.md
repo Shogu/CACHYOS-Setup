@@ -75,7 +75,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [44 - Scripts Nautilus Hide/Unhide](#id-44)
 - [45 - Enlever powersave souris Inphic](#id-45)
 - [46 - Modifier nom toggle profil énergétique](#id-46)
-- [47 - Créer raccourci boot to BIOS](#id-47)
+- [47 - Créer raccourcis boot to BIOS, gradia-screenshot, Ressources & Ptyxis](#id-47)
 - [48 - Faire le tri dans ~/.local/share, ~/.config et /etc](#id-48)
 
 ### 🌐 F - Réglages du navigateur Firefox
@@ -770,11 +770,12 @@ Enfin supprimer les fichiers créés à la racine de Home.
 
 
 <a id="id-47"></a>
-## 47 - Créer raccourci boot to BIOS
+## 47 - Créer raccourcis
 Créer un raccourci "boot to bios" avec confirmation : télécharger le script, le déposer dans /home/ogu/.local/bin, le rendre exécutable, puis créer un raccourci avec l'icone jockey et la commande :
 ```
 ptyxis -- /home/ogu/.local/bin/reboot_bios.sh
 ```
+Dans les Paramètres Gnome, créer un raccourci Ptyxis avec la touche Copilot, Gradia-screenshot avec `gradia --screenshot=INTERACTIVE`, Ressources avec ctrl-alt-supp
 
 
 <a id="id-48"></a>
