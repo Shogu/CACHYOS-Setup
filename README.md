@@ -632,7 +632,7 @@ h - [Battery Time Percentage Compact](https://extensions.gnome.org/extension/292
 
 i - [AutoActivities](https://extensions.gnome.org/extension/5500/auto-activities/)
 
-j - [Auto Screen Brightness](https://extensions.gnome.org/extension/7311/auto-screen-brightness/) & supprimer la luminosité automatique dans Settings de Gnome
+j - [Screen Brightness Governor](https://extensions.gnome.org/extension/8277/screen-brightness-governor/) & supprimer la luminosité automatique dans Settings de Gnome
 
 k - [Hot Edge](https://extensions.gnome.org/extension/4222/hot-edge/)
 
