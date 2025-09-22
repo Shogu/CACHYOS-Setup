@@ -124,7 +124,7 @@ Faire les réglages proposés par `CachyOS-Hello` : désactiver le bluetooth, ac
 <a id="id-7"></a>
 ## 7 - Supprimer logiciels inutiles avec pacman
 ```
-sudo pacman -Rns apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds gnome-usage octopi gedit xfsprogs btrfs-progs cpupower
+sudo pacman -Rns apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds gnome-usage octopi gedit xfsprogs btrfs-progs cpupower gnome-screenshot
 ```
 
 
@@ -801,27 +801,32 @@ Changer le `thème` pour [Gnome Dark ](https://addons.mozilla.org/fr/firefox/add
 ## 51 - Réglages about:config
 En complément des [réglages Firefox CachyOS](https://github.com/CachyOS/CachyOS-PKGBUILDS/blob/master/cachyos-firefox-settings/cachyos.js), dans `about:config` :
 
-Interface / UI
+**Interface / UI**
+
 a - `ui.key.menuAccessKey` = 0 pour désactiver la touche Alt qui ouvre les menus
 
 b - `apz.overscroll.enabled` = false pour supprimer le rebond lors du scroll jusqu'en fin de page
 
 c - pour activer userChrome : `toolkit.legacyUserProfileCustomizations.stylesheets` sur true
 
-Session
+**Session**
+
 d - `browser.sessionstore.interval` à `600000` pour réduire l'intervalle de sauvegarde des sessions
 
-Développement / Accessibilité
+**Développement / Accessibilité**
+
 e - `devtools.f12_enabled` = false
 
 f - `accessibility.force_disabled` = 1 pour supprimer l'accessibilité
 
-Extensions / Contenus
+**Extensions / Contenus**
+
 g - `extensions.screenshots.disabled` = true pour désactiver le screenshot
 
 h - `privacy.userContext.enabled` = false pour désactiver les containers
 
-Réseau / HTTP / Cache
+**Réseau / HTTP / Cache**
+
 i - `image.mem.decode_bytes_at_a_time` = 131072
 
 j - `browser.cache.disk.parent_directory` à créer sous forme de chaîne, et lui passer l'argument /run/user/1000/firefox, afin de déplacer le cache en RAM. 
@@ -833,10 +838,12 @@ l - `browser.frames-lazy-load.enabled` à créer en booléen, valeur false
 
 m - `nglayout.initialpaint.delay` sur 0
 
-Téléchargements / Médias 
+**Téléchargements / Médias**
+
 n - `media.ffmpeg.vaapi.enabled` sur true
 
-Batterie
+**Batterie**
+
 p -`dom.battery.enabled` = false 
 
 
