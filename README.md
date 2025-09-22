@@ -803,7 +803,9 @@ En complément des [réglages Firefox CachyOS](https://github.com/CachyOS/CachyO
 
 Interface / UI
 a - `ui.key.menuAccessKey` = 0 pour désactiver la touche Alt qui ouvre les menus
+
 b - `apz.overscroll.enabled` = false pour supprimer le rebond lors du scroll jusqu'en fin de page
+
 c - pour activer userChrome : `toolkit.legacyUserProfileCustomizations.stylesheets` sur true
 
 Session
@@ -811,18 +813,24 @@ d - `browser.sessionstore.interval` à `600000` pour réduire l'intervalle de sa
 
 Développement / Accessibilité
 e - `devtools.f12_enabled` = false
+
 f - `accessibility.force_disabled` = 1 pour supprimer l'accessibilité
 
 Extensions / Contenus
 g - `extensions.screenshots.disabled` = true pour désactiver le screenshot
+
 h - `privacy.userContext.enabled` = false pour désactiver les containers
 
 Réseau / HTTP / Cache
 i - `image.mem.decode_bytes_at_a_time` = 131072
+
 j - `browser.cache.disk.parent_directory` à créer sous forme de chaîne, et lui passer l'argument /run/user/1000/firefox, afin de déplacer le cache en RAM. 
 Saisir `about:cache` pour contrôle. 
+
 k - `network.http.speculative-parallel-limit` sur 6
+
 l - `browser.frames-lazy-load.enabled` à créer en booléen, valeur false
+
 m - `nglayout.initialpaint.delay` sur 0
 
 Téléchargements / Médias 
