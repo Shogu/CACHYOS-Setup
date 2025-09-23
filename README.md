@@ -73,7 +73,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [42 - Script transfert vidéos](#id-42)
 - [43 - Accélérer animations](#id-43)
 - [44 - Scripts Nautilus Hide/Unhide](#id-44)
-- [45 - Enlever powersave souris Inphic](#id-45)
+- [45 - Changer le theme Plymouth](#id-45)
 - [46 - Modifier nom toggle profil énergétique](#id-46)
 - [47 - Créer raccourcis boot to BIOS, gradia-screenshot, Ressources & Ptyxis](#id-47)
 - [48 - Faire le tri dans ~/.local/share, ~/.config et /etc](#id-48)
@@ -773,19 +773,14 @@ Penser à les rendre exécutables!
 
 
 <a id="id-45"></a>
-## 45 - Enlever powersave souris Inphic
-Créer une règle udev pour que Linux applique power/control=on automatiquement à chaque démarrage :
+## 45 - Changer le theme Plymouth
+Supprimer l'animation avec Pamac et installer le theme CachyOS, puis :
 ```
-sudo nano /etc/udev/rules.d/50-inphic.rules
+sudo plymouth-set-default-theme cachyos
 ```
-et saisir 
+et 
 ```
-ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="1ea7", ATTR{idProduct}=="0064", TEST=="power/control", ATTR{power/control}="on"
-```
-Puis recharger udev avec  
-```
-sudo udevadm control --reload
-sudo udevadm trigger
+sudo mkinitcpio -P
 ```
 
 
@@ -914,7 +909,7 @@ h - [Workspaces](https://addons.mozilla.org/fr/firefox/addon/workspacesplus/?utm
 
 <a id="id-54"></a>
 ## 54 - Télécharger userChrome qui allège le clic droit
-Télécharger le *userChrome* et le coller dans le répertoire par défaut de Firefox dans un dossier chrome. Le profil se trouve dans `about:support`
+Télécharger le *userChrome* et le coller dans le répertoire par défaut de Firefox dans un dossier *chrome*. Le profil se trouve dans `about:support`
 
 
 <a id="id-55"></a>
