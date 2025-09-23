@@ -647,7 +647,7 @@ n - [Quick Close Overview](https://extensions.gnome.org/extension/352/middle-cli
 <a id="id-36"></a>
 ## 36 - Installer Open with Ptyxis
 ```
-yay -S nautilus-open-any-terminal
+yay -S nautilus-open-any-terminal ou yay -S nautilus-open-in-ptyxis
 ```
 et penser à éditer sa clé dconf com.github.stunkymonkey.nautilus-open-any-terminal pour inscrire "ptyxis".
 
