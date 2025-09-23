@@ -660,7 +660,47 @@ Sinon, lui passer l'icone `accessories-calculator-symbolic` et les commandes sui
 systemctl enable --user asus_numberpad_driver@ogu.service && systemctl start --user asus_numberpad_driver@ogu.service &&  notify-send "Numpad activé"
 systemctl stop --user asus_numberpad_driver@ogu.service && systemctl disable --user asus_numberpad_driver@ogu.service &&  notify-send "Numpad désactivé"
 ```
+Note : si le script d'installationé choue, réparer comme suit :
+```
+# 1️⃣ Installer la dépendance manquante pour envsubst
+sudo pacman -S gettext
 
+# 2️⃣ Supprimer les services masqués résiduels
+rm -f ~/.config/systemd/user/asus_numberpad_driver@*.service
+rm -f /etc/systemd/user/asus_numberpad_driver@*.service
+sudo rm -f /usr/lib/systemd/user/asus_numberpad_driver@.service
+
+# Recharger systemd utilisateur
+systemctl --user daemon-reload
+systemctl --user daemon-reexec
+
+# 3️⃣ Corriger les permissions sur uinput (temporaire immédiat)
+sudo chmod 666 /dev/uinput
+
+# 3️⃣b Solution persistante pour uinput
+echo 'KERNEL=="uinput", MODE="0666"' | sudo tee /etc/udev/rules.d/99-uinput.rules
+sudo udevadm control --reload
+sudo udevadm trigger
+
+# 4️⃣ Ajouter l’utilisateur aux groupes nécessaires
+sudo usermod -aG input $USER
+sudo usermod -aG i2c $USER
+
+# Après ça, se déconnecter et se reconnecter pour appliquer les groupes
+
+# 5️⃣ Tester manuellement le driver
+/usr/share/asus-numberpad-driver/.env/bin/python3 /usr/share/asus-numberpad-driver/numberpad.py up5401ea /usr/share/asus-numberpad-driver/
+
+# Si des modules Python manquent, les installer
+cd /usr/share/asus-numberpad-driver/
+./.env/bin/pip install -r requirements.txt
+
+# 6️⃣ Lancer et activer le service systemd utilisateur
+systemctl --user daemon-reload
+systemctl --user start asus_numberpad_driver@ogu.service
+systemctl --user enable asus_numberpad_driver@ogu.service
+systemctl --user status asus_numberpad_driver@ogu.service
+```
 
 <a id="id-38"></a>
 ## 38 - Configurer fish et gnome-text-editor
