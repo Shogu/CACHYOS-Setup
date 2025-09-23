@@ -754,8 +754,8 @@ Le télécharger depuis le dossier `SCRIPTS`, le coller dans /home/ogu/.local/bi
 <a id="id-43"></a>
 ## 43 - Accélérer animations Gnome Shell
 
-Note : deprecated? A remplacer par l'etxnsion GS *Impatience*
-saisir
+Note : deprecated? A remplacer par l'etexnsion GS *Impatience*
+
 ```
 GNOME_SHELL_SLOWDOWN_FACTOR=0.75
 ```
