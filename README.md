@@ -913,7 +913,7 @@ h - [Workspaces](https://addons.mozilla.org/fr/firefox/addon/workspacesplus/?utm
 
 <a id="id-54"></a>
 ## 54 - Télécharger userChrome qui allège le clic droit
-Télécharger le *userChrome et le coller dans le répertoire par défaut de Firefox dans un dossier chrome. Le profil se trouve dans `about:support`
+Télécharger le *userChrome* et le coller dans le répertoire par défaut de Firefox dans un dossier chrome. Le profil se trouve dans `about:support`
 
 
 <a id="id-55"></a>
