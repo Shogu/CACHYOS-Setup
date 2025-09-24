@@ -48,11 +48,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [22 - Activer le mode EPP `power_performance` pour le profil Gnome `Balanced` quand le PC est sur batterie](#id-22) 
 - [23 - Régler le pare-feu](#id-23)
 - [24 - Passer à 0 le nombre de ttys au boot](#id-24)
-- [25 - Optimiser le kernel](#id-25)
-- 
-  a - arguments kernel
-  
-  b - sched-ext Rusty
+- [25 - Optimiser le kernel](#id-25) avec des arguments et le sched-ext Rusty
 - [26 - Régler wifi sur FR](#id-26)
 
 ### 📦 D - Remplacement et installation de logiciels et codecs
