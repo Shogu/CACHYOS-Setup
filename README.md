@@ -825,7 +825,7 @@ Dans les Paramètres Gnome, créer un raccourci Ptyxis avec la touche Copilot, G
 
 <a id="id-49"></a>
 ## 49 - Réglages internes Firefox
-Réglages internes de `Firefox` (penser à activer CTRL-TAB pour faire défiler dans l'ordre d'utilisation & à passer sur `Sombre` plutôt qu'`auto` le paramètre `Apparence des sites web`)
+Réglages internes de `Firefox` (penser à activer CTRL-TAB pour faire défiler dans l'ordre d'utilisation & à passer sur `Sombre` plutôt qu'`auto` le paramètre `Apparence des sites web`), interdire le lanceùent auto des vidéos dans `Lecture automatique -- paramètres`
 
 
 <a id="id-50"></a>
