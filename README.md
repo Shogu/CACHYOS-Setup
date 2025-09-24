@@ -50,6 +50,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [24 - Passer à 0 le nombre de ttys au boot](#id-24)
 - [25 - Optimiser le kernel](#id-25)
   a - arguments kernel
+  
   b - sched-ext Rusty
 - [26 - Régler wifi sur FR](#id-26)
 
