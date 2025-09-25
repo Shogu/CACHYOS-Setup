@@ -82,7 +82,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [50 - Changer thème Firefox](#id-50)
 - [51 - Réglages about:config](#id-51)
 - [52 - Extensions Firefox](#id-52)
-- [53 - Activer openh264 & widevine](#id-53)
+- [53 - Activer "Rechercher avec Perplexity"](#id-53)
 - [54 - Télécharger userChrome](#id-54)
 - [55 - Mettre profil Firefox en RAM avec psd](#id-55)
 
@@ -827,7 +827,7 @@ Dans les Paramètres Gnome, créer un raccourci Ptyxis avec la touche Copilot, G
 
 <a id="id-49"></a>
 ## 49 - Réglages internes Firefox
-Réglages internes de `Firefox` (penser à activer CTRL-TAB pour faire défiler dans l'ordre d'utilisation & à passer sur `Sombre` plutôt qu'`auto` le paramètre `Apparence des sites web`), interdire le lanceùent auto des vidéos dans `Lecture automatique -- paramètres`
+Réglages internes de `Firefox` (penser à activer CTRL-TAB pour faire défiler dans l'ordre d'utilisation & à passer sur `Sombre` plutôt qu'`auto` le paramètre `Apparence des sites web`), interdire le lanceùent auto des vidéos dans `Lecture automatique -- paramètres`, activer le plugin H264.
 
 
 <a id="id-50"></a>
@@ -902,10 +902,11 @@ g - [Scroll To Top](https://addons.mozilla.org/fr/firefox/addon/scroll-to-top-bu
 
 h - [Workspaces](https://addons.mozilla.org/fr/firefox/addon/workspacesplus/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 
+i - [Copy URL](https://addons.mozilla.org/en-US/firefox/addon/copy-frame-or-page-url/)
 
 <a id="id-53"></a>
-## 53 - Activer openh264
- Activer `openh264` dans les plugins firefox.
+## 53 - Activer Rechercher avec Perplexity
+ Activer `perplexity` en se rendant sur leur [site](https://www.perplexity.ai/) : faire une recherche dans la batrre d'adresse, sélectionner "Rechercher avec Perplexity" dans le menu qui apparait, puis autoriser l'installation de la recherche Perplexity. Ajouter un champ de recherche dans la toolbar Firefox.
 
 
 <a id="id-54"></a>
