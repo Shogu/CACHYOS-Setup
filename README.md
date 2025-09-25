@@ -613,36 +613,34 @@ En profiter pour changer avec Menu Principal l'icone de `Ptyxis`, en la remplaç
 
 a - [Panel Corners](https://extensions.gnome.org/extension/4805/panel-corners/)
 
-b - [Hide Activities Button](https://extensions.gnome.org/extension/744/hide-activities-button/)
+b - [Just Perfection]([https://extensions.gnome.org/extension/744/hide-activities-button/](https://extensions.gnome.org/extension/3843/just-perfection/))
 
-c - [Remove World Clock](https://extensions.gnome.org/extension/6973/remove-world-clocks/)
-
-d - [Lilypad Topbar Organizer](https://extensions.gnome.org/extension/7266/lilypad/)
+c - [Lilypad Topbar Organizer](https://extensions.gnome.org/extension/7266/lilypad/)
 
 **Extensions apportant des fonctions de productivité :**
 
-e - [Appindicator](https://extensions.gnome.org/extension/615/appindicator-support/)
+d - [Appindicator](https://extensions.gnome.org/extension/615/appindicator-support/)
 
-f - [Caffeine](https://extensions.gnome.org/extension/517/caffeine/)
+d - [Caffeine](https://extensions.gnome.org/extension/517/caffeine/)
 
-g - [Clipboard History](https://extensions.gnome.org/extension/4839/clipboard-history/)
+f - [Clipboard History](https://extensions.gnome.org/extension/4839/clipboard-history/)
 
 **Extensions apportant des fonctions UI :**
 
-h - [Battery Time Percentage Compact](https://extensions.gnome.org/extension/2929/battery-time-percentage-compact/) ou [Battery Time](https://extensions.gnome.org/extension/5425/battery-time/)  
+g - [Battery Time Percentage Compact](https://extensions.gnome.org/extension/2929/battery-time-percentage-compact/) ou [Battery Time](https://extensions.gnome.org/extension/5425/battery-time/)  
 
-i - [AutoActivities](https://extensions.gnome.org/extension/5500/auto-activities/)
+h - [AutoActivities](https://extensions.gnome.org/extension/5500/auto-activities/)
 
-j - [Screen Brightness Governor](https://extensions.gnome.org/extension/8277/screen-brightness-governor/) & supprimer la luminosité automatique dans Settings de Gnome
+i - [Screen Brightness Governor](https://extensions.gnome.org/extension/8277/screen-brightness-governor/) & supprimer la luminosité automatique dans Settings de Gnome
 
-k - [Hot Edge](https://extensions.gnome.org/extension/4222/hot-edge/)
+j - [Hot Edge](https://extensions.gnome.org/extension/4222/hot-edge/)
 
-l - [Custom Command Toggle](https://extensions.gnome.org/extension/7012/custom-command-toggle/)  
+k - [Custom Command Toggle](https://extensions.gnome.org/extension/7012/custom-command-toggle/)  
 
-m - Pop Shell Tiling : `sudo pacman -S gnome-shell-extension-pop-shell-git`
+l - Pop Shell Tiling : `sudo pacman -S gnome-shell-extension-pop-shell-git`
 puis supprimer le theme icone Pop : `sudo pacman -Rdd  pop-icon-theme-git` & `/usr/share/icons`
 
-n - [Quick Close Overview](https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/)
+m - [Quick Close Overview](https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/)
 
 
 <a id="id-36"></a>
