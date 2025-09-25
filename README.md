@@ -147,6 +147,8 @@ sudo systemctl mask tpm2.target
 sudo systemctl mask lvm2-lvmpolld.service lvm2-monitor.service lvm2-lvmpolld.socket
 sudo systemctl mask  pamac-cleancache.service
 sudo systemctl mask  pamac-cleancache.timer
+sudo systemctl mask bluetooth.service
+
 ```
 ```
 Vérifier si `ananicy-cpp` est lancé par défaut : si oui :
