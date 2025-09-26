@@ -123,7 +123,7 @@ Faire les réglages proposés par `CachyOS-Hello` : désactiver le bluetooth, ac
 <a id="id-7"></a>
 ## 7 - Supprimer logiciels inutiles avec pacman
 ```
-sudo pacman -Rns apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds gnome-usage octopi gedit xfsprogs btrfs-progs cpupower gnome-screenshot openvpn networkmanager-openvpn networkmanager-vpn-plugin-openvpn
+sudo pacman -Rns apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds gnome-usage octopi gedit xfsprogs btrfs-progs cpupower gnome-screenshot openvpn networkmanager-openvpn networkmanager-vpn-plugin-openvpn linux-firmware-cirrus
 ```
 ```
 sudo pacman -Rdd evince
@@ -307,12 +307,13 @@ En désactivant des modules inutiles : attention prévoir un backup du fichier p
 sudo gnome-text-editor /etc/mkinitcpio.conf
 
 ```
-et copier-coller ces options de configuration :
+et copier-coller ces options de configuration dans les rubriques correspondantes :
 ```
-HOOKS=(base udev autodetect kms modconf block filesystems plymouth)
+MODULES=(ext4 vfat)
+HOOKS=(base udev autodetect kms modconf block plymouth)
+COMPRESSION="lz4"
+COMPRESSION_OPTIONS=()
 ```
-Puis choisir entre : lz4 (ou zstd) et passer () à COMPRESSION_OPTION
-
 Recharger l'initrd avec `sudo mkinitcpio -P`
 
 
