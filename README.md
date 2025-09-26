@@ -889,6 +889,9 @@ m - `media.ffmpeg.vaapi.enabled` sur true
 
 n -`dom.battery.enabled` = false 
 
+**Conteneurs**
+o - `privacy.userContext.enabled` = false pour désactiver les conteneurs
+
 
 <a id="id-52"></a>
 ## 52 - Extensions Firefox
@@ -909,6 +912,14 @@ g - [Scroll To Top](https://addons.mozilla.org/fr/firefox/addon/scroll-to-top-bu
 h - [Workspaces](https://addons.mozilla.org/fr/firefox/addon/workspacesplus/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 
 i - [Copy URL](https://addons.mozilla.org/en-US/firefox/addon/copy-frame-or-page-url/)
+
+j - [Youtube Sidebar](https://addons.mozilla.org/en-US/firefox/addon/youtube-sidebar/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
+
+k - [Gmail Sidebar](https://addons.mozilla.org/fr/firefox/addon/gmail-sidebar-search/)
+
+l - [Note Sidebar](https://addons.mozilla.org/en-US/firefox/addon/sidebar-note/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
+
+m - [Translate Sidebar](https://addons.mozilla.org/en-US/firefox/addon/google-translator-in-sidebar/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 
 <a id="id-53"></a>
 ## 53 - Activer Rechercher avec Perplexity
