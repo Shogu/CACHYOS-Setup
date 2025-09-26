@@ -92,22 +92,28 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 
 <a id="id-1"></a>
 ## 1 - Désactiver Secure Boot dans le BIOS
+Même si cachyOS est en mesure de signer les noyaux.
 
 
 <a id="id-2"></a>
 ## 2 - Désactiver caméra et lecteur de carte
+Et penser à fermer le volet coulissant de la webcam
 
 
 <a id="id-3"></a>
-## 3 - Utiliser systemd-boot puis décocher les paquets inutiles (Attention : la plupart s'installeront quand même), et EXT4
+## 3 - Utiliser systemd-boot
+puis décocher les paquets inutiles (Attention : la plupart s'installeront quand même), et EXT4
+A envisager si trop de bugs lors des maj ou des rebbots : BTRFS+Limine+snapshots
 
 
 <a id="id-4"></a>
-## 4 - Désactiver la mise en veille automatique dans les paramètres de Gnome, du fait d'un bug avec le Zenbook et le noyau < 6.16.7
+## 4 - Désactiver la mise en veille automatique dans les paramètres de Gnome
+du fait d'un bug avec le Zenbook et le noyau < 6.16.7
 
 
 <a id="id-5"></a>
 ## 5 - Faire un ghost du système avec Rescuezilla
+Puis en refaire un une fois les étapes du Github terminées
 
 
 
