@@ -135,23 +135,23 @@ Penser à supprimer l'extension `Pamac Updater` dans usr/share/gnome-shell/exten
 ## 8 - Alléger linux-firmware
 Supprimer les drivers inutiles : c'est possible depuis que Arch propose des paquets vendors pour le firmware: 
 
-# 1. Identifier les firmwares nécessaires :
+*Identifier les firmwares nécessaires :*
 ```
 sudo dmesg | grep -i firmware && lspci -nnk
 lsusb
 ```
 
-# 2. Installer uniquement les firmwares nécessaires
+*Installer uniquement les firmwares nécessaires*
 ```
 sudo pacman -S linux-firmware-amdgpu linux-firmware-mediatek linux-firmware-cirrus
 ```
 
-# 3. Supprimer le méta-paquet général et le firmware Intel inutile
+*Supprimer le méta-paquet général et le firmware Intel inutile*
 ```
 sudo pacman -R linux-firmware linux-firmware-intel
 ```
 
-# 4. Vérifier les firmwares chargés au boot
+*Vérifier les firmwares chargés au boot*
 ```
 dmesg | grep -i firmware
 ```
