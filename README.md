@@ -49,7 +49,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [23 - Régler le pare-feu](#id-23)
 - [24 - Passer à 0 le nombre de ttys au boot](#id-24)
 - [25 - Optimiser le kernel](#id-25) avec des arguments et le sched-ext Rusty
-- [26 - Régler wifi sur FR](#id-26)
+- [26 - Régler wifi](#id-26)
 
 ### 📦 D - Remplacement et installation de logiciels et codecs
 - [27 - Installer logiciels avec pacman et yay](#id-27)
@@ -568,11 +568,14 @@ sudo pacman -Rdd ananicy-cpp
 
 
 <a id="id-26"></a>
-## 26 - Régler wifi sur FR
+## 26 - Régler wifi
+Passer le wifi en mode FR :
 ```
 sudo nano /etc/conf.d/wireless-regdom
 ```
 et décommenter la ligne *WIRELESS_REGDOM="FR"*
+
+Puis régler la connexion Wifi 5Ghz en dur : ip 192.168.31.102 // masque 255.255.255.0 // passerelle 192.168.31.1 // dns 1.1.1.1, 1.0.0.1, désactiver ipv6
 
 
 
