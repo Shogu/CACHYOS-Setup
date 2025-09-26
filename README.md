@@ -360,7 +360,7 @@ gsettings set org.gnome.settings-daemon.plugins.power ambient-enabled false
 
 <a id="id-16"></a>
 ## 16 - Activer scheduler ADIOS
-Activer le scheduler ADIOS sur AMD CPU, plutôt qu'un scheduler type bpfland ou rusty :
+Activer le scheduler ADIOS sur AMD CPU :
 ```
 sudo nano /etc/udev/rules.d/60-ioschedulers.rules
 ```
@@ -561,7 +561,7 @@ Vérifier avec  `sudo tune2fs -l /dev/nvme0n1p2 | grep -i 'check'
 
 **b - Sched-ext Rusty :**
 
-Activer le scheduler `Rusty` avec sched-ext Schedext, et penser à supprimer Ananicy pour éviter les conflits :
+Activer le scheduler `Rusty` avec sched-ext, et penser à supprimer Ananicy pour éviter les conflits :
 ```
 sudo pacman -Rdd ananicy-cpp
 ```
