@@ -144,7 +144,8 @@ Supprimer les drivers inutiles : c'est possible depuis que Arch propose des paqu
 *Identifier les firmwares nécessaires :*
 ```
 sudo dmesg | grep -i firmware && lspci -nnk
-lsusb
+lsusb && pacman -Qs linux-firmware
+
 ```
 
 *Installer uniquement les firmwares nécessaires*
@@ -152,9 +153,9 @@ lsusb
 sudo pacman -S linux-firmware-amdgpu linux-firmware-mediatek linux-firmware-cirrus
 ```
 
-*Supprimer le méta-paquet général et le firmware Intel inutile*
+*Supprimer le méta-paquet général et les firmwares inutiles*
 ```
-sudo pacman -R linux-firmware linux-firmware-intel
+sudo pacman -R linux-firmware linux-firmware-intel linux-firmware-nvidia linux-firmware-broadcom linux-firmware-realtek linux-firmware-radeon #ce firmware est pour les anciennes cartes AMD
 ```
 
 *Vérifier les firmwares chargés au boot*
