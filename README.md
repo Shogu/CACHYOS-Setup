@@ -29,7 +29,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 ### ✨ B - Allégement du système
 - [6 - Réglages CachyOS-Hello](#id-6)
 - [7 - Supprimer logiciels inutiles avec pacman](#id-7)
-- [8 - Supprimer logiciels inutiles avec Pamac & Octopi](#id-8)
+- [8 - Alléger linux-firmware](#id-8)
 - [9 - Supprimer et masquer services SYSTEM & USER](#id-9)
 - [10 - Désactiver autostart gnome-wellbeing](#id-10)
 - [11 - Alléger journaux système et mettre en RAM](#id-11)
