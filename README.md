@@ -283,6 +283,14 @@ blacklist industrialio_triggered_buffer
 # ==============================
 blacklist serial8250
 blacklist 8250_pci
+
+# ==============================
+# TPM
+# ==============================
+blacklist tpm
+blacklist tpm_tis
+blacklist tpm_crb
+blacklist tpm_tis_core
 ```
 Puis lancer `sudo mkinitcpio -P`
 Au reboot, vérifier avec la commande `lsmod | grep serial8250`
