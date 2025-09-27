@@ -661,6 +661,7 @@ b - [Just Perfection]([https://extensions.gnome.org/extension/744/hide-activitie
 
 c - [Lilypad Topbar Organizer](https://extensions.gnome.org/extension/7266/lilypad/)
 
+
 **Extensions apportant des fonctions de productivité :**
 
 d - [Appindicator](https://extensions.gnome.org/extension/615/appindicator-support/)
@@ -685,6 +686,10 @@ l - Pop Shell Tiling : `sudo pacman -S gnome-shell-extension-pop-shell-git`
 puis supprimer le theme icone Pop : `sudo pacman -Rdd  pop-icon-theme-git` & `/usr/share/icons`
 
 m - [Quick Close Overview](https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/)
+
+n - [Grand Theft Focus](https://extensions.gnome.org/extension/5410/grand-theft-focus/)
+
+o - [Dim BackgroundWindows](https://extensions.gnome.org/extension/6313/dim-background-windows/)
 
 
 <a id="id-36"></a>
