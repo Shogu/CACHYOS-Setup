@@ -587,7 +587,7 @@ Puis régler la connexion Wifi 5Ghz en dur : ip 192.168.31.102 // masque 255.255
 ## 27 - Installer logiciels avec pacman et yay
 Installer les `logiciels` suivants :
 ```
-sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse pamac celluloid extension-manager fragments papers yay nicotine+ resources onlyoffice
+sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse pamac celluloid extension-manager fragments papers yay nicotine+ resources onlyoffice fuse2
 ```
 et
 
