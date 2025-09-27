@@ -928,6 +928,11 @@ n -`dom.battery.enabled` = false
 **Conteneurs**
 o - `privacy.userContext.enabled` = false pour désactiver les conteneurs
 
+**Chatbot Perplexity**
+p - `browser.ml.chat.provider` et saisir 
+```
+https://www.perplexity.ai/
+```
 
 <a id="id-52"></a>
 ## 52 - Extensions Firefox
