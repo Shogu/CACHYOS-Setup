@@ -919,6 +919,7 @@ k - `browser.frames-lazy-load.enabled` à créer en booléen, valeur false
 l - `nglayout.initialpaint.delay` sur 0
 
 **Téléchargements / Médias**
+
 m - `media.ffmpeg.vaapi.enabled` sur true
 
 **Batterie**
@@ -926,9 +927,11 @@ m - `media.ffmpeg.vaapi.enabled` sur true
 n -`dom.battery.enabled` = false 
 
 **Conteneurs**
+
 o - `privacy.userContext.enabled` = false pour désactiver les conteneurs
 
 **Chatbot Perplexity**
+
 p - `browser.ml.chat.provider` et saisir 
 ```
 https://www.perplexity.ai/
