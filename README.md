@@ -592,7 +592,7 @@ et
 ```
 yay -S libre-menu-editor gradia nautilus-admin pacseek jdownloader2
 ```
-
+Enfin installer [l'appimage de Beeper](https://api.beeper.com/desktop/download/linux/x64/stable/com.automattic.beeper.desktop), la déplacer dans .local/bin, éditer le raccourci avec le chemin de l'éxecutable et  `StartupWMClass=Beeper` pour faire apparaitre l'icone dans le dash.
 
 <a id="id-28"></a>
 ## 28 - Installer Dropbox avec Maestral
