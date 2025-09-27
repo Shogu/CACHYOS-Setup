@@ -153,12 +153,15 @@ sudo pacman -S linux-firmware-amdgpu linux-firmware-mediatek linux-firmware-cirr
 ```
 sudo pacman -R linux-firmware linux-firmware-intel linux-firmware-nvidia linux-firmware-broadcom linux-firmware-realtek linux-firmware-radeon #ce firmware est pour les anciennes cartes AMD
 ```
+*Marquer les paquets comme "explicitement installés" pour que Pacman n'en fasse pas des orphelins:
+```
+sudo pacman -D --asexplicit linux-firmware-amdgpu linux-firmware-cirrus linux-firmware-mediatek
+```
 
 *Vérifier les firmwares chargés au boot*
 ```
 dmesg | grep -i firmware
 ```
-
 
 
 <a id="id-9"></a>
