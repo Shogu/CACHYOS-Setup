@@ -1,5 +1,3 @@
-sudo pacman -S fuse2
-
 # CACHYOS-Setup
 Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 
@@ -674,7 +672,7 @@ g - [Battery Time Percentage Compact](https://extensions.gnome.org/extension/292
 
 h - [AutoActivities](https://extensions.gnome.org/extension/5500/auto-activities/)
 
-i - [Screen Brightness Governor](https://extensions.gnome.org/extension/8277/screen-brightness-governor/) & supprimer la luminosité automatique dans Settings de Gnome
+i - [Screen Brightness Governor](https://extensions.gnome.org/extension/8277/screen-brightness-governor/) & supprimer la luminosité automatique dans Settings de Gnome.
 
 j - [Hot Edge](https://extensions.gnome.org/extension/4222/hot-edge/)
 
@@ -691,7 +689,7 @@ m - [Quick Close Overview](https://extensions.gnome.org/extension/352/middle-cli
 ```
 yay -S nautilus-open-any-terminal ou yay -S nautilus-open-in-ptyxis
 ```
-et penser à éditer sa clé dconf com.github.stunkymonkey.nautilus-open-any-terminal pour inscrire "ptyxis".
+et penser à éditer sa clé dconf com.github.stunkymonkey.nautilus-open-any-terminal pour inscrire "ptyxis" + mettre "new tab" sur true pour que Ptyxis s'ouvre dans la session en cours. En cas d'erreur avec Gnome 49, se référer à [ce fil](https://github.com/Stunkymonkey/nautilus-open-any-terminal/issues/242).
 
 
 <a id="id-37"></a>
