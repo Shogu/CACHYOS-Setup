@@ -28,7 +28,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 ### ✨ B - Allégement du système
 - [6 - Réglages CachyOS-Hello](#id-6)
 - [7 - Supprimer logiciels inutiles avec pacman](#id-7)
-- [8 - ??](#id-8)
+- [8 - JamesDSP](#id-8)
 - [9 - Supprimer et masquer services SYSTEM & USER](#id-9)
 - [10 - Désactiver autostart gnome-wellbeing](#id-10)
 - [11 - Alléger journaux système et mettre en RAM](#id-11)
@@ -134,7 +134,10 @@ Penser à supprimer l'extension `Pamac Updater` dans usr/share/gnome-shell/exten
 
 
 <a id="id-8"></a>
-## 8 - ???
+## 8 - JamesDSP
+
+!! A mettre dans la rubrique Optimisation !!
+Installer Jamesdsp avec yay ou pamac, modifier son nom en Audio et passer StartupWMClass=jamesdsp, le régler conformément à ce [tuto](https://discuss.cachyos.org/t/tutorial-make-linux-sound-better-easier-with-jamesdsp/16098/5), avec le *.conf ClearPenguin disponible dans le Github.
 
 
 <a id="id-9"></a>
