@@ -28,7 +28,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 ### ✨ B - Allégement du système
 - [6 - Réglages CachyOS-Hello](#id-6)
 - [7 - Supprimer logiciels inutiles avec pacman](#id-7)
-- [8 - Alléger linux-firmware](#id-8)
+- [8 - ??](#id-8)
 - [9 - Supprimer et masquer services SYSTEM & USER](#id-9)
 - [10 - Désactiver autostart gnome-wellbeing](#id-10)
 - [11 - Alléger journaux système et mettre en RAM](#id-11)
@@ -134,34 +134,7 @@ Penser à supprimer l'extension `Pamac Updater` dans usr/share/gnome-shell/exten
 
 
 <a id="id-8"></a>
-## 8 - Alléger linux-firmware
-Supprimer les drivers inutiles : c'est possible depuis que Arch propose des paquets vendors pour le firmware: 
-
-*Identifier les firmwares nécessaires :*
-```
-sudo dmesg | grep -i firmware && lspci -nnk
-lsusb && pacman -Qs linux-firmware
-
-```
-
-*Installer uniquement les firmwares nécessaires*
-```
-sudo pacman -S linux-firmware-amdgpu linux-firmware-mediatek linux-firmware-cirrus
-```
-
-*Supprimer le méta-paquet général et les firmwares inutiles*
-```
-sudo pacman -R linux-firmware linux-firmware-intel linux-firmware-nvidia linux-firmware-broadcom linux-firmware-realtek linux-firmware-radeon #ce firmware est pour les anciennes cartes AMD
-```
-*Marquer les paquets comme "explicitement installés" pour que Pacman n'en fasse pas des orphelins:
-```
-sudo pacman -D --asexplicit linux-firmware-amdgpu linux-firmware-cirrus linux-firmware-mediatek
-```
-
-*Vérifier les firmwares chargés au boot*
-```
-dmesg | grep -i firmware
-```
+## 8 - ???
 
 
 <a id="id-9"></a>
