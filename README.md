@@ -82,7 +82,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [51 - Réglages about:config](#id-51)
 - [52 - Extensions Firefox](#id-52)
 - [53 - Activer "Rechercher avec Perplexity"](#id-53)
-- [54 - Télécharger userChrome](#id-54)
+- [54 - Alléger le clic droit avec userChrome](#id-54)
 - [55 - Mettre profil Firefox en RAM avec psd](#id-55)
 
 ---
@@ -961,7 +961,7 @@ m - [Translate Sidebar](https://addons.mozilla.org/en-US/firefox/addon/google-tr
 
 
 <a id="id-54"></a>
-## 54 - Télécharger userChrome qui allège le clic droit
+## 54 - userChrome pour allèger le clic droit
 Télécharger le *userChrome* et le coller dans le répertoire par défaut de Firefox dans un dossier *chrome*. Le profil se trouve dans `about:support`
 
 
