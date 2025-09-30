@@ -320,7 +320,7 @@ COMPRESSION_OPTIONS=()
 ```
 Recharger l'initrd avec `sudo mkinitcpio -P`
 
-Firmware : utiliser seulement les papquets vendor
+Firmware : utiliser seulement les paquets vendor
 ```
 # installer uniquement les firmwares nécessaires
 sudo pacman -S linux-firmware-amdgpu linux-firmware-mediatek linux-firmware-cirrus
