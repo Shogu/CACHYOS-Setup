@@ -34,7 +34,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [11 - Alléger journaux système et mettre en RAM](#id-11)
 - [12 - Supprimer coredump](#id-12)
 - [13 - Blacklister pilotes inutiles](#id-13)
-- [14 - Réduire l'initramfs](#id-14)
+- [14 - Réduire l'initramfs et le firmware](#id-14)
 - [15 - Désactiver capteur de luminosité Gnome](#id-15)
 
 ### 🚀 C - Optimisation du système
@@ -305,7 +305,7 @@ Au reboot, vérifier avec la commande `lsmod | grep serial8250`
 
 
 <a id="id-14"></a>
-## 14 - Réduire l'initramfs
+## 14 - Réduire l'initramfs & le firmware
 En désactivant des modules inutiles : attention prévoir un backup du fichier pour le restaurer en live cd si besoin!
 ```
 sudo gnome-text-editor /etc/mkinitcpio.conf
@@ -320,6 +320,17 @@ COMPRESSION_OPTIONS=()
 ```
 Recharger l'initrd avec `sudo mkinitcpio -P`
 
+Firmware : utiliser seulement les papquets vendor
+```
+# installer uniquement les firmwares nécessaires
+sudo pacman -S linux-firmware-amdgpu linux-firmware-mediatek linux-firmware-cirrus
+
+# Supprimer le méta-paquet général et les firmwares inutiles
+sudo pacman -R linux-firmware linux-firmware-intel linux-firmware-nvidia linux-firmware-broadcom linux-firmware-realtek linux-firmware-radeon
+
+# Marquer les firmwares utiles comme explicitement installés pour éviter qu'ils soient considérés comme orphelins
+sudo pacman -D --asexplicit linux-firmware-amdgpu linux-firmware-cirrus linux-firmware-mediatek
+```
 
 <a id="id-15"></a>
 ## 15 - Désactiver capteur de luminosité Gnome
