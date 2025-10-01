@@ -157,6 +157,8 @@ sudo systemctl mask  pamac-cleancache.service
 sudo systemctl mask  pamac-cleancache.timer
 sudo systemctl mask bluetooth.service
 sudo systemctl mask colord.service
+systemctl mask systemd-vconsole-setup.service
+
 ```
 ```
 Vérifier si `ananicy-cpp` est lancé par défaut : si oui :
