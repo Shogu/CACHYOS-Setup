@@ -326,7 +326,7 @@ Firmware : utiliser seulement les paquets vendor
 sudo pacman -S linux-firmware-amdgpu linux-firmware-mediatek linux-firmware-cirrus
 
 # Supprimer le méta-paquet général et les firmwares inutiles
-sudo pacman -R linux-firmware linux-firmware-intel linux-firmware-nvidia linux-firmware-broadcom linux-firmware-realtek linux-firmware-radeon linux-firmware-other
+sudo pacman -R linux-firmware linux-firmware-intel sudo pacman -R linux-firmware-atheros linux-firmware-nvidia linux-firmware-broadcom linux-firmware-realtek linux-firmware-radeon linux-firmware-other
 
 # Marquer les firmwares utiles comme explicitement installés pour éviter qu'ils soient considérés comme orphelins
 sudo pacman -D --asexplicit linux-firmware-amdgpu linux-firmware-cirrus linux-firmware-mediatek
