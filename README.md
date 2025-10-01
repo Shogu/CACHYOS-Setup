@@ -646,7 +646,7 @@ En profiter pour changer avec Menu Principal l'icone de `Ptyxis`, en la remplaç
 
 a - [Panel Corners](https://extensions.gnome.org/extension/4805/panel-corners/)
 
-b - [Just Perfection](https://extensions.gnome.org/extension/744/hide-activities-button/](https://extensions.gnome.org/extension/3843/just-perfection/) qui permet de réunir en une extension Grand Theft Focus, Hide Worldclocks, Hide Activities Button, Hide Screenshot, Impatience etc...
+b - [Just Perfection](https://extensions.gnome.org/extension/3843/just-perfection/) qui permet de réunir en une extension Grand Theft Focus, Hide Worldclocks, Hide Activities Button, Hide Screenshot, Impatience etc...
 
 c - [Lilypad Topbar Organizer](https://extensions.gnome.org/extension/7266/lilypad/)
 
@@ -676,7 +676,7 @@ puis supprimer le theme icone Pop : `sudo pacman -Rdd  pop-icon-theme-git` & `/u
 
 m - [Quick Close Overview](https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/)
 
-n - [Dim BackgroundWindows](https://extensions.gnome.org/extension/6313/dim-background-windows/)
+n - [Auto Power Profile](https://extensions.gnome.org/extension/6583/auto-power-profile/)
 
 
 <a id="id-36"></a>
