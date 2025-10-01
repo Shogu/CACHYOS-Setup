@@ -156,7 +156,7 @@ sudo systemctl mask lvm2-lvmpolld.service lvm2-monitor.service lvm2-lvmpolld.soc
 sudo systemctl mask  pamac-cleancache.service
 sudo systemctl mask  pamac-cleancache.timer
 sudo systemctl mask bluetooth.service
-
+sudo systemctl mask colord.service
 ```
 ```
 Vérifier si `ananicy-cpp` est lancé par défaut : si oui :
@@ -184,7 +184,7 @@ systemctl --user mask org.gnome.SettingsDaemon.Smartcard.service
 systemctl --user mask org.gnome.SettingsDaemon.Datetime.service
 systemctl --user mask arch-update.service
 systemctl --user mask arch-update.timer
-
+systemctl --user mask org.gnome.SettingsDaemon.Color.service
 ```
 Puis contrôler avec :
 ```
@@ -1007,5 +1007,9 @@ cd firefox
 ls
 du -sh /run/user/1000/psd/nom du profil/
 ```
-
+Enfin désactiver le service --user de backup au boot :
+```
+systemctl --user mask psd-resync.service
+systemctl --user mask psd-resync.timer
+```
 
