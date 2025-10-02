@@ -622,7 +622,7 @@ avec le logiciel `Seahorse`, puis laisser les champs vides. Penser à reconnecte
 
 <a id="id-32"></a>
 ## 32 - Installer wallpaper et thème curseurs
-Installer le [wallpaper F34](https://fedoraproject.org/w/uploads/d/de/F34_default_wallpaper_night.jpg) OU celui disponible dans le dossier `Images USER`, et le thème de curseurs [Phinger NO LEFT Light](https://github.com/phisch/phinger-cursors/releases) : créer le répertoire de destination avec `mkdir -p ~/.local/share/icons/`, y déplacer le dossier *phingers-cursor-light*  puis utiliser `dconf-editor` pour les passer en taille 32 :
+Installer le [wallpaper F34](https://fedoraproject.org/w/uploads/d/de/F34_default_wallpaper_night.jpg) OU cosmos_dark_blue, et le thème de curseurs [Phinger NO LEFT Light](https://github.com/phisch/phinger-cursors/releases) : créer le répertoire de destination avec `mkdir -p ~/.local/share/icons/`, y déplacer le dossier *phingers-cursor-light*  puis utiliser `dconf-editor` pour les passer en taille 32 :
 ```
 org/gnome/desktop/interface/cursor-size
 ```
