@@ -626,7 +626,11 @@ Installer le [wallpaper F34](https://fedoraproject.org/w/uploads/d/de/F34_defaul
 ```
 org/gnome/desktop/interface/cursor-size
 ```
-
+Continuer avec GDM Settings pour mettre le wallpaper dans GDM :
+```
+yay -S gdm-settings
+```
+Puis supprimer le paquet.
 
 <a id="id-33"></a>
 ## 33 - Régler HiDPI et cacher dossiers
