@@ -813,7 +813,9 @@ Supprimer l'animation avec Pamac et installer le theme CachyOS, puis :
 ```
 sudo plymouth-set-default-theme cachyos
 ```
-et 
+
+Remplacer l'image `watermark.png` dans /usr/share/plymouth/themes/cachyos avec le logo CachyOS blanc.
+Puis :
 ```
 sudo mkinitcpio -P
 ```
