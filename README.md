@@ -963,6 +963,8 @@ l - [Note Sidebar](https://addons.mozilla.org/en-US/firefox/addon/sidebar-note/?
 
 m - [Translate Sidebar](https://addons.mozilla.org/en-US/firefox/addon/google-translator-in-sidebar/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 
+n - [History Auto Delete](https://addons.mozilla.org/fr/firefox/addon/history-auto-delete/)
+
 <a id="id-53"></a>
 ## 53 - Activer Rechercher avec Perplexity
  Activer `perplexity` en se rendant sur leur [site](https://www.perplexity.ai/) : faire une recherche dans la batrre d'adresse, sélectionner "Rechercher avec Perplexity" dans le menu qui apparait, puis autoriser l'installation de la recherche Perplexity. Ajouter un champ de recherche dans la toolbar Firefox.
