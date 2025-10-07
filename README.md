@@ -934,6 +934,8 @@ p - `browser.ml.chat.provider` et saisir
 ```
 https://www.perplexity.ai/
 ```
+**Rapports d'erreur**
+q - `browser.tabs.crashReporting.sendReport` sur false
 
 <a id="id-52"></a>
 ## 52 - Extensions Firefox
