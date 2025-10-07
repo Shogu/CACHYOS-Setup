@@ -959,7 +959,7 @@ j - [Youtube Sidebar](https://addons.mozilla.org/en-US/firefox/addon/youtube-sid
 
 k - [Gmail Sidebar](https://addons.mozilla.org/fr/firefox/addon/gmail-sidebar-search/)
 
-l - [Note Sidebar](https://addons.mozilla.org/en-US/firefox/addon/sidebar-note/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
+l - [Notekeeper Sidebar](https://addons.mozilla.org/fr/firefox/addon/notekeeper/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 
 m - [Translate Sidebar](https://addons.mozilla.org/en-US/firefox/addon/google-translator-in-sidebar/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 
