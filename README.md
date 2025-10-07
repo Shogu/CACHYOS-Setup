@@ -520,7 +520,7 @@ sudo gnome-text-editor /etc/sdboot-manage.conf
 ```
 Puis saisir :
 ```
-LINUX_OPTIONS="noreplace-smp tsc=reliable cryptomgr.notests random.trust_cpu=on efi=disable_early_pci_dma nomce nowatchdog loglevel=0 no_timer_check noresume fsck.mode=skip zswap.enabled=0 console=tty0 systemd.show_status=false quiet splash 8250.nr_uarts=0 cgroupdisable=rdma nvme_core.default_ps_max_latency_us=5500 disable_ipv6=1 amd_iommu=off split_lock_detect=off transparent_hugepage=madvise"
+LINUX_OPTIONS="noreplace-smp tsc=reliable cryptomgr.notests random.trust_cpu=on efi=disable_early_pci_dma nomce nowatchdog loglevel=0 no_timer_check noresume fsck.mode=skip zswap.enabled=0 console=tty0 systemd.show_status=false quiet splash 8250.nr_uarts=0 cgroupdisable=rdma nvme_core.default_ps_max_latency_us=5500 disable_ipv6=1 amd_iommu=off split_lock_detect=off transparent_hugepage=madvise rcupdate.rcu_normal_after_boot=1 rcu_nocbs=0-(nproc-1)"
 ```
 Relancer systemd-boot conformément à la méthode CachyOS :
 ```
@@ -529,7 +529,7 @@ sudo sdboot-manage gen
 
 | Thème                     | Arguments / Options                                                                 | Description                                                                                   |
 |----------------------------|------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
-| **Perf / CPU / Scheduler** | `rcu_nocbs=0-(nproc-1)`, `rcutree.enable_rcu_lazy=1`, `noreplace-smp`, `tsc=reliable` | Optimisations RCU, scheduler et compteur TSC pour réduire latence et améliorer le boot.      |
+| **Perf / CPU / Scheduler** | `rcu_nocbs=0-(nproc-1)`, `rcupdate.rcu_normal_after_boot=1, `noreplace-smp`, `tsc=reliable` | Optimisations RCU, scheduler et compteur TSC pour réduire latence et améliorer le boot.      |
 | **Sécurité / Crypto**      | `cryptomgr.notests`, `random.trust_cpu=on`, `tpm.disable=1`                        | Désactive PUCE TPM & tests crypto au boot et fait confiance aux instructions RDRAND/RDSEED.             |
 | **ACPI / Matériel / GPU**  | `efi=disable_early_pci_dma`, `nomce`, `split_lock_detect=off`                                             | Désactive DMA PCI précoce, MCE non critiques pour éviter conflits et arrêts intempestifs, et désactive le split lock   |
 | **Debug / Logs / Timer**   | `nowatchdog`, `loglevel=0`, `no_timer_check`                                       | Désactive watchdog, limite logs et vérifications timer HPET pour accélérer le boot.          |
