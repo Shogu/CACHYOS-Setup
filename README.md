@@ -963,7 +963,7 @@ k - [Gmail Sidebar](https://addons.mozilla.org/fr/firefox/addon/gmail-sidebar-se
 
 l - [Sticky Note Sidebar](https://addons.mozilla.org/fr/firefox/addon/sidebar-sticky-note/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 
-m - [Translate Sidebar](https://addons.mozilla.org/en-US/firefox/addon/google-translator-in-sidebar/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
+m - [Translate Sidebar](https://addons.mozilla.org/fr/firefox/addon/lingva-in-sidebar/)
 
 n - [History Auto Delete](https://addons.mozilla.org/fr/firefox/addon/history-auto-delete/)
 
