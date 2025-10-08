@@ -1,3 +1,4 @@
+systemctl --user enable --now arch-update-tray.service
 # CACHYOS-Setup
 Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 
@@ -187,6 +188,8 @@ systemctl --user mask org.gnome.SettingsDaemon.Datetime.service
 systemctl --user mask arch-update.service
 systemctl --user mask arch-update.timer
 systemctl --user mask org.gnome.SettingsDaemon.Color.service
+systemctl --user disable arch-update-tray.service
+
 ```
 Puis contrôler avec :
 ```
