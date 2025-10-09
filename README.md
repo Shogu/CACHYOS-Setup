@@ -1,4 +1,3 @@
-systemctl --user enable --now arch-update-tray.service
 # CACHYOS-Setup
 Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 
