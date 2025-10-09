@@ -343,7 +343,7 @@ sudo pacman -D --asexplicit linux-firmware-amdgpu linux-firmware-cirrus linux-fi
 ```
 gsettings set org.gnome.settings-daemon.plugins.power ambient-enabled false
 ```
-
+Puis modifier à 600 la durée avant mise en veille.
 
 ----------------------------------------------------------------------------------------------
 
