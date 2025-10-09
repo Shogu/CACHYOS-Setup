@@ -56,7 +56,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [28 - Installer Dropbox avec Maestral](#id-28)
 
 ### 🐾 E - Réglages de l'UI Gnome Shell
-- [29 - Extinction en fermant le capot](#id-29)
+- [29 - Suspension en fermant le capot](#id-29)
 - [30 - Régler Nautilus et marque-pages](#id-30)
 - [31 - Modifier mot de passe au démarrage](#id-31)
 - [32 - Installer wallpaper et thème curseurs](#id-32)
@@ -598,15 +598,15 @@ créer le répertoire Dropbox dans /home puis lancer le script *maestral_install
 # 🐾 E - Réglages de l'UI Gnome Shell
 
 <a id="id-29"></a>
-## 29 - Extinction en fermant le capot
+## 29 - Suspension en fermant le capot
 Editer le service logind :
 ```
 gnome-text-editor admin:///etc/systemd/logind.conf
 ```
 puis remplacer les lignes HandleLid par 
 ```
-HandleLidSwitch=poweroff
-HandleLidSwitchExternalPower=poweroff
+HandleLidSwitch=suspend
+HandleLidSwitchExternalPower=suspend
 ```
 
 
@@ -672,7 +672,7 @@ g - [Battery Time Percentage Compact](https://extensions.gnome.org/extension/292
 
 h - [AutoActivities](https://extensions.gnome.org/extension/5500/auto-activities/)
 
-i - [Screen Brightness Governor](https://extensions.gnome.org/extension/8277/screen-brightness-governor/) & supprimer la luminosité automatique dans Settings de Gnome.
+i - [Screen Brightness Governor](https://extensions.gnome.org/extension/8277/screen-brightness-governor/) & supprimer la luminosité automatique dans Settings de Gnome. !! NE FONCTIONNE PLUS AVEC GNOME 49
 
 j - [Hot Edge](https://extensions.gnome.org/extension/4222/hot-edge/)
 
@@ -685,6 +685,7 @@ m - [Quick Close Overview](https://extensions.gnome.org/extension/352/middle-cli
 
 n - [Auto Power Profile](https://extensions.gnome.org/extension/6583/auto-power-profile/)
 
+o - [Battery Monitor](https://extensions.gnome.org/extension/8348/battery-monitor/)
 
 <a id="id-36"></a>
 ## 36 - Installer Open with Ptyxis
