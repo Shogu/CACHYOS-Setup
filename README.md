@@ -312,6 +312,11 @@ blacklist tpm
 blacklist tpm_tis
 blacklist tpm_crb
 blacklist tpm_tis_core
+
+# ==============================
+# IA NPU AMD
+# ==============================
+blacklist amdxdna
 ```
 Puis lancer `sudo mkinitcpio -P`
 Au reboot, vérifier avec la commande `lsmod | grep serial8250`
