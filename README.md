@@ -866,13 +866,13 @@ Récupérer le po français de gnome-shell :
 ```
 wget https://gitlab.gnome.org/GNOME/gnome-shell/-/raw/main/po/fr.po -O fr.po
 ```
-Éditer fr.po et modifier le nom du bouton "Mode puissance" par "Energie". Puis compiler :
+Éditer fr.po avec `sudo gedit fr.po` et modifier le nom du bouton "Mode puissance" par "Energie" ou "Profil", puis compiler :
 ```
 msgfmt fr.po -o gnome-shell.mo
 ```
 Sauvegarder l’original avec `sudo cp /usr/share/locale/fr/LC_MESSAGES/gnome-shell.mo{,.bak}` puis remplacer par le nouveau fichier : 
 ```
-cp gnome-shell.mo /usr/share/locale/fr/LC_MESSAGES/gnome-shell.mo
+sudo cp gnome-shell.mo /usr/share/locale/fr/LC_MESSAGES/gnome-shell.mo
 ```
 Enfin supprimer les fichiers créés à la racine de Home.
 
