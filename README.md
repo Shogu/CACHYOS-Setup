@@ -71,7 +71,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [42 - Script transfert vidéos](#id-42)
 - [43 - Accélérer animations](#id-43)
 - [44 - Scripts Nautilus Hide/Unhide](#id-44)
-- [45 - Changer le theme Plymouth](#id-45)
+- [45 - Supprimer Plymouth](#id-45)
 - [46 - Modifier nom toggle profil énergétique](#id-46)
 - [47 - Créer raccourcis boot to BIOS, gradia-screenshot, Ressources & Ptyxis](#id-47)
 - [48 - Faire le tri dans ~/.local/share, ~/.config et /etc](#id-48)
@@ -829,8 +829,21 @@ Penser à les rendre exécutables!
 
 
 <a id="id-45"></a>
-## 45 - Changer le theme Plymouth
-Supprimer l'animation avec Pamac et installer le theme CachyOS, puis :
+## 45 - Supprimer Plymouth
+
+Supprimer Plymouth avec `sudo pacman -Rns plymouth` puis éditer mkinitcpio pour retirer le hook Plymouth :
+```
+sudo gnome-text-editor /etc/mkinitcpio.conf
+```
+Recharger avec `sudo mkinitcpio -P`
+
+Enfin modifier les arguments kernel :
+```
+sudo gnome-text-editor /etc/sdboot-manage.conf
+```
+Retirer `splash`, ajouter `consoleblank vt.global_cursor_default=0 rd.udev.log_level=0`, puis régénérer avec `sudo sdboot-manage gen` et `sudo mkinitcpio -P`
+
+En cas de maintien de Plymouth, supprimer l'animation Cachy-boot-animation avec Pamac et installer le theme CachyOS, puis :
 ```
 sudo plymouth-set-default-theme cachyos
 ```
