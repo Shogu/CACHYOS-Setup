@@ -332,7 +332,7 @@ sudo gnome-text-editor /etc/mkinitcpio.conf
 et copier-coller ces options de configuration dans les rubriques correspondantes :
 ```
 MODULES=(ext4 vfat)
-HOOKS=(base systemd autodetect microcode kms modconf block plymouth)
+HOOKS=(base udev autodetect microcode kms modconf block plymouth fsck)
 COMPRESSION="lz4"
 COMPRESSION_OPTIONS=()
 ```
