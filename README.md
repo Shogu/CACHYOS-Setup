@@ -484,6 +484,19 @@ Contrôler le nouveau profil après avoir sélectionné Balanced dans le panel G
 cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
 cat /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference
 ```
+Pour le rendre permanent au boot :
+```
+nano ~/.config/autostart/disable-battery-aware.desktop
+```
+
+Et copier-coller le contenu suivant :
+```
+[Desktop Entry]
+Type=Application
+Name=Disable Battery Aware
+Exec=powerprofilesctl configure-battery-aware --disable
+X-GNOME-Autostart-enabled=true
+```
 
 
 <a id="id-23"></a>
