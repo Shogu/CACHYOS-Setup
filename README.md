@@ -642,6 +642,7 @@ Régler Nautilus & créer un marque-page pour `Dropbox`, pour l'accès `ftp` au 
 ```
 192.168.31.68:2121
 ```
+Remplacer les icones folder pour Dropbox, MP3, Root, Domestique & Lycée dans Dropbox, Extensions Gnome etc à partir des icones Places à télécharger dans `icons & backgrounds"
 
 
 <a id="id-31"></a>
