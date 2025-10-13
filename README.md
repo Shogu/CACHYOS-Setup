@@ -67,7 +67,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [38 - Configurer fish et gnome-text-editor](#id-38)
 - [39 - Changer icône Pamac](#id-39)
 - [40 - Configurer Celluloid](#id-40)
-- [41 - Configurer JDownloader](#id-41)
+- [41 - Configurer JDownloader & Fragments](#id-41)
 - [42 - Script transfert vidéos](#id-42)
 - [43 - Accélérer animations](#id-43)
 - [44 - Scripts Nautilus Hide/Unhide](#id-44)
@@ -847,9 +847,14 @@ inscrire `vo=gpu-next` dans Paramètres --> Divers --> Options supplémentaires,
 
 
 <a id="id-41"></a>
-## 41 - Configurer JDownloader
-Réglages de base, font Adwaitra Sans, et désactiver les éléments suivants : tooltip, help, Update Button Flashing, banner, Premium Alert, Donate, speed meter visible.
+## 41 - Configurer JDownloader & Fragments
+`Jdownloader` : réglages de base, font Adwaita Sans, et désactiver les éléments suivants : tooltip, help, Update Button Flashing, banner, Premium Alert, Donate, speed meter visible.
 Modifier le raccourci d'icone grace à l'éditeur de texte présent dans Menu Libre et passer `StartupWMClass=org-jdownloader-update-launcher-JDLauncher` pour que l'icone apparaisse dans le dock.
+
+`Fragments` : Général, Ouvrir l'interface Web, onglet Peers : copier-coller cette url de règles de blocage : 
+```
+https://raw.githubusercontent.com/Naunter/BT_BlockLists/master/bt_blocklists.gz
+```
 
 
 <a id="id-42"></a>
