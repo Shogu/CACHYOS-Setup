@@ -166,8 +166,14 @@ sudo systemctl mask  pamac-cleancache.service
 sudo systemctl mask  pamac-cleancache.timer
 sudo systemctl mask bluetooth.service
 sudo systemctl mask colord.service
-systemctl mask systemd-vconsole-setup.service
-
+sudo systemctl mask systemd-vconsole-setup.service
+sudo systemctl mask systemd-tpm2-clear.service
+sudo systemctl mask systemd-tpm2-setup-early.service
+sudo systemctl mask systemd-tpm2-setup.service
+sudo systemctl mask systemd-pcrmachine.service
+sudo systemctl mask systemd-pcrphase-initrd.service
+sudo systemctl mask systemd-pcrphase-sysinit.service
+sudo systemctl mask systemd-pcrphase.service
 ```
 ```
 Vérifier si `ananicy-cpp` est lancé par défaut : si oui :
@@ -312,6 +318,7 @@ blacklist tpm
 blacklist tpm_tis
 blacklist tpm_crb
 blacklist tpm_tis_core
+blacklist tpm_vtpm_proxy
 
 # ==============================
 # IA NPU AMD
