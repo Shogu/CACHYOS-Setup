@@ -74,7 +74,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [45 - Supprimer Plymouth](#id-45)
 - [46 - Modifier nom toggle profil énergétique](#id-46)
 - [47 - Créer raccourcis boot to BIOS, gradia-screenshot, Ressources & Ptyxis](#id-47)
-- [48 - Faire le tri dans ~/.local/share, ~/.config et /etc](#id-48)
+- [48 - Faire le tri dans les LOCALES & ~/.local/share, ~/.config et /etc](#id-48)
 
 ### 🌐 F - Réglages du navigateur Firefox
 - [49 - Réglages internes Firefox](#id-49)
@@ -943,9 +943,9 @@ Dans les Paramètres Gnome, créer un raccourci Ptyxis avec la touche Copilot, G
 
 
 <a id="id-48"></a>
-## 48 - Faire le tri dans ~/.local/share, ~/.config et /etc
+## 48 - Faire le tri dans les LOCALES, ~/.local/share, ~/.config et /etc
 
-
+Supprimer les locales sauf EN, en_US, fr, Fr_FR dans `usr/share/locales` : penser à les sauvegarder puis à vérifier au reboot. 
 
 ----------------------------------------------------------------------------------------------
 
