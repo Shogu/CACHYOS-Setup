@@ -148,6 +148,8 @@ Penser à supprimer l'extension `Pamac Updater` dans usr/share/gnome-shell/exten
 !! A mettre dans la rubrique Optimisation !!
 Installer Jamesdsp avec yay ou pamac, modifier son nom en Audio et passer StartupWMClass=jamesdsp, le régler conformément à ce [tuto](https://discuss.cachyos.org/t/tutorial-make-linux-sound-better-easier-with-jamesdsp/16098/5), avec le *.conf ClearPenguin disponible dans le Github.
 
+Suppriemr l'icone du menu et créer un Custom Command Toggle (voir fichier *.ini)
+
 
 <a id="id-9"></a>
 ## 9 - Supprimer et masquer services SYSTEM & USER
