@@ -504,7 +504,7 @@ Name=Disable Battery Aware
 Exec=powerprofilesctl configure-battery-aware --disable
 X-GNOME-Autostart-enabled=true
 ```
-
+Créer un Custom Command Toggle pour activer/désactiver ce booster (le fichier *.ini à télécharger contient toute la configuration)
 
 <a id="id-23"></a>
 ## 23 - Régler le pare-feu ufw
