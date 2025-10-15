@@ -723,6 +723,8 @@ n - [Auto Power Profile](https://extensions.gnome.org/extension/6583/auto-power-
 
 o - [Battery Monitor](https://extensions.gnome.org/extension/8348/battery-monitor/)
 
+p - [https://extensions.gnome.org/extension/4491/privacy-settings-menu/](Privacy Settings) puis la supprimer une fois les réglages faits.
+
 <a id="id-36"></a>
 ## 36 - Installer Open with Ptyxis
 ```
