@@ -665,7 +665,7 @@ Installer le [wallpaper F34](https://fedoraproject.org/w/uploads/d/de/F34_defaul
 ```
 org/gnome/desktop/interface/cursor-size
 ```
-Continuer avec GDM Settings pour mettre le wallpaper dans GDM :
+Continuer avec GDM Settings (pour mettre le wallpaper dans GDM, entre autres) : importer le fichier de configuration `gdm-settings.ini`
 ```
 yay -S gdm-settings
 ```
