@@ -1025,6 +1025,9 @@ https://www.perplexity.ai/
 **Rapports d'erreur**
 q - `browser.tabs.crashReporting.sendReport` sur false
 
+**Google Lens**
+r - `browser.search.visualSearch.featureGate` sur true
+
 <a id="id-52"></a>
 ## 52 - Extensions Firefox
 a - [uBlock Origin](https://addons.mozilla.org/fr/firefox/addon/ublock-origin/) : réglages à faire + import des la liste sauvegardées + interdire les sites IA avec ce [lien](https://subscribe.adblockplus.org/?location=https%3A%2F%2Fraw.githubusercontent.com%2Flaylavish%2FuBlockOrigin-HUGE-AI-Blocklist%2Fmain%2Flist.txt&title=Sites%20using%20AI%20generated%20content) 
