@@ -955,7 +955,11 @@ Supprimer les locales sauf EN, en_US, fr, Fr_FR dans `usr/share/locales` : pense
 
 <a id="id-49"></a>
 ## 49 - Réglages internes Firefox
-Réglages internes de `Firefox` (penser à activer CTRL-TAB pour faire défiler dans l'ordre d'utilisation & à passer sur `Sombre` plutôt qu'`auto` le paramètre `Apparence des sites web`), interdire le lanceùent auto des vidéos dans `Lecture automatique -- paramètres`, activer le plugin H264.
+Réglages internes de `Firefox` (penser à activer CTRL-TAB pour faire défiler dans l'ordre d'utilisation & à passer sur `Sombre` plutôt qu'`auto` le paramètre `Apparence des sites web`), interdire le lancement auto des vidéos dans `Lecture automatique -- paramètres`, activer le plugin H264.
+Enfin éditer le raccourci Firefox pour lancer le browser avec un nouvel onglet vide  :
+```
+/usr/lib/firefox/firefox  %u -new-tab about:blank
+```
 
 
 <a id="id-50"></a>
