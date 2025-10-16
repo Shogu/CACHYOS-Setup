@@ -940,13 +940,13 @@ Enfin supprimer les fichiers créés à la racine de Home.
 
 
 <a id="id-47"></a>
-## 47 - Créer raccourcis
+## 47 - Créer raccourcis et Places
 Créer un raccourci "boot to bios" avec confirmation : télécharger le script, le déposer dans /home/ogu/.local/bin, le rendre exécutable, puis créer un raccourci avec l'icone jockey et la commande :
 ```
 ptyxis -- /home/ogu/.local/bin/reboot_bios.sh
 ```
 Dans les Paramètres Gnome, créer un raccourci Ptyxis avec la touche Copilot, Gradia-screenshot avec `gradia --screenshot=INTERACTIVE`, Ressources avec ctrl-alt-supp
-
+Enfin modifier les folder par défauts Dropbox, Nicotine, Téléchargements, etc, usr, root, Extensions, Icons etc avec les Places personnalisés.
 
 <a id="id-48"></a>
 ## 48 - Faire le tri dans les LOCALES, ~/.local/share, ~/.config et /etc
