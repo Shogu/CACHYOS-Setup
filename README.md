@@ -1012,29 +1012,31 @@ k - `browser.frames-lazy-load.enabled` à créer en booléen, valeur false
 
 l - `nglayout.initialpaint.delay` sur 0
 
+m - Changer le useragent en créant une chaine `general.useragent.override`, et passer `Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36`
+Pour tester : https://www.whatismybrowser.com/
+
 **Téléchargements / Médias**
 
-m - `media.ffmpeg.vaapi.enabled` sur true
+n - `media.ffmpeg.vaapi.enabled` sur true
 
 **Batterie**
 
-n -`dom.battery.enabled` = false 
+o -`dom.battery.enabled` = false 
 
 **Conteneurs**
-
-o - `privacy.userContext.enabled` = false pour désactiver les conteneurs
+p - `privacy.userContext.enabled` = false pour désactiver les conteneurs
 
 **Chatbot Perplexity**
 
-p - `browser.ml.chat.provider` et saisir 
+q - `browser.ml.chat.provider` et saisir 
 ```
 https://www.perplexity.ai/
 ```
 **Rapports d'erreur**
-q - `browser.tabs.crashReporting.sendReport` sur false
+r - `browser.tabs.crashReporting.sendReport` sur false
 
 **Google Lens**
-r - `browser.search.visualSearch.featureGate` sur true
+s - `browser.search.visualSearch.featureGate` sur true
 
 <a id="id-52"></a>
 ## 52 - Extensions Firefox
