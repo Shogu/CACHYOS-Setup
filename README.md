@@ -1012,7 +1012,8 @@ k - `browser.frames-lazy-load.enabled` à créer en booléen, valeur false
 
 l - `nglayout.initialpaint.delay` sur 0
 
-m - Changer le useragent en créant une chaine `general.useragent.override`, et passer `Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36`
+m - Changer le useragent en créant une chaine `general.useragent.override`, et passer `Mozilla/5.0 (Wayland; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36
+`
 Pour tester : https://www.whatismybrowser.com/
 
 **Téléchargements / Médias**
