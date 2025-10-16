@@ -687,6 +687,8 @@ En profiter pour changer avec Menu Principal l'icone de `Ptyxis`, en la remplaç
 <a id="id-35"></a>
 ## 35 - Extensions Gnome
 
+!! En cas de màj de Gnome-Shell, passer `gsettings set org.gnome.shell disable-extension-version-validation "true"` plutôt que d'éditer un à un les metadata.json des extensions non à jour.
+
 **Extensions esthétiques :**
 
 a - [Panel Corners](https://extensions.gnome.org/extension/4805/panel-corners/)
