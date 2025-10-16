@@ -532,6 +532,8 @@ sudo ufw allow out 6881:6999/udp
 sudo ufw allow out 2234:2235/tcp
 sudo ufw allow out 2234:2235/udp
 
+!! Passer `wlan0` dans les paramètres de Nicotine accélère considérablement la connexion.
+
 # Autoriser JDownloader HTTP/HTTPS
 sudo ufw allow out 80/tcp
 sudo ufw allow out 443/tcp
