@@ -886,11 +886,16 @@ sudo gnome-text-editor /etc/environment
 
 
 <a id="id-44"></a>
-## 44 - Scripts Nautilus Hide/Unhide, & Dropbox
+## 44 - Scripts Nautilus Hide/Unhide, Dropbox, Copier le chemin
 Scripts Nautilus `Hide.py` `Unhide.py` pour masquer/rendre visibles les fichiers à la volée, et `Dropbox` pour ouvrir un fichier dans l'interface web Dropbox afin de copier-coller son iurl de partage et ainsi mimer le copmportmeent de Dropbox Nautilus.
 A télécharger depuis le dossier `SCRIPTS` puis à coller dans le dossier `/home/ogu/.local/share/nautilus/scripts/.
 Penser à les rendre exécutables!
 
+Ajouter `nautilus-copy-path`
+```
+yay -S nautilus-copy-path
+```
+Et éditer les ficheirs `/usr/share/nautilus-python/extensions/nautilus-copy-path/nautilus_copy_path.py` & `/usr/share/nautilus-python/extensions/nautilus-copy-path.py` pour passer URI & Content en `false`, puis `pkill nautilus && nautilus`
 
 <a id="id-45"></a>
 ## 45 - Supprimer Plymouth
@@ -1042,6 +1047,8 @@ r - `browser.tabs.crashReporting.sendReport` sur false
 s - `browser.search.visualSearch.featureGate` sur true
 
 <a id="id-52"></a>
+
+
 ## 52 - Extensions Firefox
 a - [uBlock Origin](https://addons.mozilla.org/fr/firefox/addon/ublock-origin/) : réglages à faire + import des la liste sauvegardées + interdire les sites IA avec ce [lien](https://subscribe.adblockplus.org/?location=https%3A%2F%2Fraw.githubusercontent.com%2Flaylavish%2FuBlockOrigin-HUGE-AI-Blocklist%2Fmain%2Flist.txt&title=Sites%20using%20AI%20generated%20content) 
 
