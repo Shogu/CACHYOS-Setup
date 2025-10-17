@@ -891,11 +891,13 @@ Scripts Nautilus `Hide.py` `Unhide.py` pour masquer/rendre visibles les fichiers
 A télécharger depuis le dossier `SCRIPTS` puis à coller dans le dossier `/home/ogu/.local/share/nautilus/scripts/.
 Penser à les rendre exécutables!
 
-Ajouter `nautilus-copy-path`
+Ajouter `nautilus-copy-path` & `nautilus-admin`
 ```
-yay -S nautilus-copy-path
+yay -S nautilus-copy-path nautilus-admin
 ```
-Et éditer les ficheirs `/usr/share/nautilus-python/extensions/nautilus-copy-path/nautilus_copy_path.py` & `/usr/share/nautilus-python/extensions/nautilus-copy-path.py` pour passer URI & Content en `false`, puis `pkill nautilus && nautilus`
+Et éditer les ficheirs `/usr/share/nautilus-python/extensions/nautilus-copy-path/nautilus_copy_path.py` & `/usr/share/nautilus-python/extensions/nautilus-copy-path.py` pour passer URI & Content en `false`, puis `/usr/share/nautilus-python/extensions/nautilus-admin.py` pour traduire "Open as admin" en "Ouvrir en administrateur root".
+
+Enfin `pkill nautilus && nautilus`.
 
 <a id="id-45"></a>
 ## 45 - Supprimer Plymouth
