@@ -70,7 +70,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [41 - Configurer JDownloader & Fragments](#id-41)
 - [42 - Script transfert vidéos](#id-42)
 - [43 - Accélérer animations](#id-43)
-- [44 - Scripts Nautilus Hide/Unhide](#id-44)
+- [44 - Scripts Nautilus](#id-44)
 - [45 - Supprimer Plymouth](#id-45)
 - [46 - Modifier nom toggle profil énergétique](#id-46)
 - [47 - Créer raccourcis boot to BIOS, gradia-screenshot, Ressources & Ptyxis](#id-47)
@@ -886,8 +886,8 @@ sudo gnome-text-editor /etc/environment
 
 
 <a id="id-44"></a>
-## 44 - Scripts Nautilus Hide/Unhide, Dropbox, Copier le chemin
-Scripts Nautilus `Hide.py` `Unhide.py` pour masquer/rendre visibles les fichiers à la volée, et `Dropbox` pour ouvrir un fichier dans l'interface web Dropbox afin de copier-coller son iurl de partage et ainsi mimer le copmportmeent de Dropbox Nautilus.
+## 44 - Scripts Nautilus : Hide/Unhide, Dropbox, Copier le chemin, FTP
+Scripts Nautilus `Hide.py` `Unhide.py` pour masquer/rendre visibles les fichiers à la volée, et `Dropbox` pour ouvrir un fichier dans l'interface web Dropbox afin de copier-coller son url de partage et ainsi mimer le copmportmeent de Dropbox Nautilus.
 A télécharger depuis le dossier `SCRIPTS` puis à coller dans le dossier `/home/ogu/.local/share/nautilus/scripts/.
 Penser à les rendre exécutables!
 
@@ -895,7 +895,7 @@ Ajouter `nautilus-copy-path` & `nautilus-admin`
 ```
 yay -S nautilus-copy-path nautilus-admin
 ```
-Et éditer les ficheirs `/usr/share/nautilus-python/extensions/nautilus-copy-path/nautilus_copy_path.py` & `/usr/share/nautilus-python/extensions/nautilus-copy-path.py` pour passer URI & Content en `false`, puis `/usr/share/nautilus-python/extensions/nautilus-admin.py` pour traduire "Open as admin" en "Ouvrir en administrateur root".
+Et éditer les fichiers `/usr/share/nautilus-python/extensions/nautilus-copy-path/nautilus_copy_path.py` & `/usr/share/nautilus-python/extensions/nautilus-copy-path.py` pour passer URI & Content en `false`, puis `/usr/share/nautilus-python/extensions/nautilus-admin.py` pour traduire "Open as admin" en "Ouvrir en administrateur root".
 
 Enfin `pkill nautilus && nautilus`.
 
