@@ -176,6 +176,8 @@ sudo systemctl mask systemd-pcrmachine.service
 sudo systemctl mask systemd-pcrphase-initrd.service
 sudo systemctl mask systemd-pcrphase-sysinit.service
 sudo systemctl mask systemd-pcrphase.service
+sudo systemctl mask flatpak-system-helper.service
+
 ```
 ```
 Vérifier si `ananicy-cpp` est lancé par défaut : si oui :
