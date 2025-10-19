@@ -102,7 +102,7 @@ Et penser à fermer le volet coulissant de la webcam
 <a id="id-3"></a>
 ## 3 - Utiliser systemd-boot
 puis décocher les paquets inutiles (Attention : la plupart s'installeront quand même), et EXT4
-A envisager si trop de bugs lors des maj ou des rebbots : BTRFS+Limine+snapshots
+Si trop de bugs lors des mises à jour ou lors des reboots : revenir à BTRFS+Limine+snapshots
 
 
 <a id="id-4"></a>
