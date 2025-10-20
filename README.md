@@ -177,7 +177,7 @@ sudo systemctl mask systemd-pcrphase-initrd.service
 sudo systemctl mask systemd-pcrphase-sysinit.service
 sudo systemctl mask systemd-pcrphase.service
 sudo systemctl mask flatpak-system-helper.service
-sudo systemctl mask systemd-userdbd.service systemd-userdb-load-credentials.service #services liés à nspawn et homed
+sudo systemctl mask systemd-userdbd.service systemd-userdb-load-credentials.service #services liés à nspawn, systemd-creds et systemd-homed
 
 ```
 ```
