@@ -177,6 +177,7 @@ sudo systemctl mask systemd-pcrphase-initrd.service
 sudo systemctl mask systemd-pcrphase-sysinit.service
 sudo systemctl mask systemd-pcrphase.service
 sudo systemctl mask flatpak-system-helper.service
+sudo systemctl mask systemd-userdbd.service systemd-userdb-load-credentials.service #services liés à nspawn et homed
 
 ```
 ```
@@ -207,10 +208,11 @@ systemctl --user mask arch-update.service
 systemctl --user mask arch-update.timer
 systemctl --user mask org.gnome.SettingsDaemon.Color.service
 systemctl --user disable arch-update-tray.service
-
+systemctl --user mask xdg-desktop-portal.service #service pour flatpak et conteneurs
 ```
 Puis contrôler avec :
-```
+```systemd-userdbd.service
+
 systemd-analyze --user blame
 ```
 
