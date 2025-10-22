@@ -208,7 +208,7 @@ systemctl --user mask arch-update.service
 systemctl --user mask arch-update.timer
 systemctl --user mask org.gnome.SettingsDaemon.Color.service
 systemctl --user disable arch-update-tray.service
-systemctl --user mask xdg-desktop-portal.service #service pour flatpak et conteneurs
+systemctl --user mask xdg-desktop-portal.service #service pour flatpak et conteneurs !!ATTENTION : cela désactive le dark theme
 ```
 Puis contrôler avec :
 ```systemd-userdbd.service
