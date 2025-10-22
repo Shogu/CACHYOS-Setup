@@ -890,7 +890,7 @@ sudo gnome-text-editor /etc/environment
 
 
 <a id="id-44"></a>
-## 44 - Scripts Nautilus : Hide/Unhide, Dropbox, Copier le chemin, FTP
+## 44 - Scripts Nautilus : Hide/Unhide, Dropbox, Copier le chemin...
 Scripts Nautilus `Hide.py` `Unhide.py` pour masquer/rendre visibles les fichiers à la volée, et `Dropbox` pour ouvrir un fichier dans l'interface web Dropbox afin de copier-coller son url de partage et ainsi mimer le copmportmeent de Dropbox Nautilus.
 A télécharger depuis le dossier `SCRIPTS` puis à coller dans le dossier `/home/ogu/.local/share/nautilus/scripts/.
 Penser à les rendre exécutables!
