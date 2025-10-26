@@ -823,7 +823,7 @@ alias micro='nano'
 alias notepad='gnome-text-editor'
 alias edit='gnome-text-editor'
 
-#utilsier sudo pour les alias
+#utiliser sudo pour les alias
 function sudo
     if test (count $argv) -eq 0
         command sudo
@@ -1033,9 +1033,7 @@ Pour tester : https://www.whatismybrowser.com/
 
 n - `media.ffmpeg.vaapi.enabled` sur true
 
-**Batterie**
 
-o -`dom.battery.enabled` = false 
 
 **Conteneurs**
 p - `privacy.userContext.enabled` = false pour désactiver les conteneurs
@@ -1051,6 +1049,33 @@ r - `browser.tabs.crashReporting.sendReport` sur false
 
 **Google Lens**
 s - `browser.search.visualSearch.featureGate` sur true
+
+gfx.content.skia-font-cache-size=10
+gfx.webrender.all=true
+gfx.webrender.compositor.force-enabled=true
+layers.acceleration.force-enabled
+network.dnsCacheExpiration=3600
+devtools=false
+dom.gamepad.enabled=false, dom.gamepad.extensions.enabled=false, dom.w3c_touch_events.enabled=0
+media.webspeech.synth.enabled=false
+reader.parse-on-load.enabled=false
+network.http.max-persistent-connections-per-server = 8
+safebrowsing=false
+browser.safebrowsing.provider.google.gethashURL= ""
+browser.safebrowsing.provider.google.updateURL= ""
+browser.safebrowsing.provider.google4.dataSharingURL= ""
+browser.safebrowsing.provider.google4.gethashURL= ""
+browser.safebrowsing.provider.google4.updateURL=""
+lockPref("media.gmp.decoder.multithreaded", true)
+lockPref("media.gmp.decoder.preferred", true)
+lockPref("media.gmp.encoder.enabled", true)
+lockPref("media.gmp.encoder.multithreaded", true)
+lockPref("media.gmp.encoder.preferred", true)
+network.buffer.cache.count = 48
+network.http.max-urgent-start-excessive-connections-per-host = 5
+
+
+
 
 <a id="id-52"></a>
 
