@@ -84,6 +84,8 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [53 - Activer "Rechercher avec Perplexity"](#id-53)
 - [54 - Alléger le clic droit avec userChrome](#id-54)
 - [55 - Mettre profil Firefox en RAM avec psd](#id-55)
+- [56 - "Nettoyer" Firefox](#id-56)
+
 
 ---
 
@@ -1077,4 +1079,6 @@ Enfin désactiver le service --user de backup au boot :
 systemctl --user mask psd-resync.service
 systemctl --user mask psd-resync.timer
 ```
-
+<a id="id-56"></a>
+## 56 - "Nettoyer" Firefox
+Terminer en allant dans `about:support` pour vérifier les database, vider le cache de démarrage, puis lancer `profile-cleaner f`
