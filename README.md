@@ -1028,6 +1028,8 @@ n - [History Auto Delete](https://addons.mozilla.org/fr/firefox/addon/history-au
 
 <a id="id-53"></a>
 ## 53 - Activer Rechercher avec Perplexity
+
+Nota : il semble que Firefox embarque dorénavant cette option par défaut (clic sur la loupe)
  Activer `perplexity` en se rendant sur leur [site](https://www.perplexity.ai/) : faire une recherche dans la batrre d'adresse, sélectionner "Rechercher avec Perplexity" dans le menu qui apparait, puis autoriser l'installation de la recherche Perplexity. Ajouter un champ de recherche dans la toolbar Firefox.
 
 
