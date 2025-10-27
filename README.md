@@ -990,6 +990,7 @@ Changer le `thème` pour [Gnome Dark ](https://addons.mozilla.org/fr/firefox/add
 ## 51 - Réglages user.js
 En complément des [réglages Firefox CachyOS](https://github.com/CachyOS/CachyOS-PKGBUILDS/blob/master/cachyos-firefox-settings/cachyos.js), inspirés par les réglages Betterfox, Fastfox, Peskyfox, & Librewolf.cfg. 
 Copier-coller le fichier `user.js` dans le profil Firefox.
+ATTENTIUON : user.js orienté vitesse/réduction de features inutiles, au détriment de la securité et de la fonctionnalité.
 
 
 <a id="id-52"></a>
