@@ -18,7 +18,7 @@ set -u
 # -----------------------------------------------------------------------------
 
 ACCESSED_RECENTLY_DIR="$ROOT_DIR/Accessed recently"
-ACCESSED_RECENTLY_LINKS_TO_KEEP=10
+ACCESSED_RECENTLY_LINKS_TO_KEEP=0
 FIELD_SEPARATOR=$'\r'          # The main field separator.
 GUI_BOX_HEIGHT=550             # Height of the GUI dialog boxes.
 GUI_BOX_WIDTH=900              # Width of the GUI dialog boxes.
