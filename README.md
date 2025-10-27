@@ -79,7 +79,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 ### 🌐 F - Réglages du navigateur Firefox
 - [49 - Réglages internes Firefox](#id-49)
 - [50 - Changer thème Firefox](#id-50)
-- [51 - Réglages about:config](#id-51)
+- [51 - Réglages user.js](#id-51)
 - [52 - Extensions Firefox](#id-52)
 - [53 - Activer "Rechercher avec Perplexity"](#id-53)
 - [54 - Alléger le clic droit avec userChrome](#id-54)
@@ -985,101 +985,12 @@ Changer le `thème` pour [Gnome Dark ](https://addons.mozilla.org/fr/firefox/add
 
 
 <a id="id-51"></a>
-## 51 - Réglages about:config
-En complément des [réglages Firefox CachyOS](https://github.com/CachyOS/CachyOS-PKGBUILDS/blob/master/cachyos-firefox-settings/cachyos.js), dans `about:config` :
-
-Nota : certains intitulés ont changé au gré des mises à jour Firefox.
-
-**Interface / UI**
-
-a - `ui.key.menuAccessKey` = 0 pour désactiver la touche Alt qui ouvre les menus
-
-b - `apz.overscroll.enabled` = false pour supprimer le rebond lors du scroll jusqu'en fin de page
-
-c - pour activer userChrome : `toolkit.legacyUserProfileCustomizations.stylesheets` sur true
-
-**Session**
-
-d - `browser.sessionstore.interval` à `600000` pour réduire l'intervalle de sauvegarde des sessions
-
-**Développement / Accessibilité**
-
-e - `devtools.f12_enabled` = false
-
-f - `accessibility.force_disabled` = 1 pour supprimer l'accessibilité
-
-**Extensions / Contenus**
-
-g - `extensions.screenshots.disabled` = true pour désactiver le screenshot
-
-h - `privacy.userContext.enabled` = false pour désactiver les containers
-
-**Réseau / HTTP / Cache**
-
-i - `image.mem.decode_bytes_at_a_time` = 131072
-
-j - `browser.cache.disk.parent_directory` à créer sous forme de chaîne, et lui passer l'argument /run/user/1000/firefox, afin de déplacer le cache en RAM. 
-Saisir `about:cache` pour contrôle. 
-
-k - `browser.frames-lazy-load.enabled` à créer en booléen, valeur false
-
-l - `nglayout.initialpaint.delay` sur 0
-
-m - !! Attention : complique la connexion à Perplexity - Changer le useragent en créant une chaine `general.useragent.override`, et passer `Mozilla/5.0 (Wayland; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36
-`
-Pour tester : https://www.whatismybrowser.com/
-
-**Téléchargements / Médias**
-
-n - `media.ffmpeg.vaapi.enabled` sur true
-
-
-
-**Conteneurs**
-p - `privacy.userContext.enabled` = false pour désactiver les conteneurs
-
-**Chatbot Perplexity**
-
-q - `browser.ml.chat.provider` et saisir 
-```
-https://www.perplexity.ai/
-```
-**Rapports d'erreur**
-r - `browser.tabs.crashReporting.sendReport` sur false
-
-**Google Lens**
-s - `browser.search.visualSearch.featureGate` sur true
-
-gfx.content.skia-font-cache-size=10
-gfx.webrender.all=true
-gfx.webrender.compositor.force-enabled=true
-layers.acceleration.force-enabled
-network.dnsCacheExpiration=3600
-devtools=false
-dom.gamepad.enabled=false, dom.gamepad.extensions.enabled=false, dom.w3c_touch_events.enabled=0
-media.webspeech.synth.enabled=false
-reader.parse-on-load.enabled=false
-network.http.max-persistent-connections-per-server = 8
-safebrowsing=false
-browser.safebrowsing.provider.google.gethashURL= ""
-browser.safebrowsing.provider.google.updateURL= ""
-browser.safebrowsing.provider.google4.dataSharingURL= ""
-browser.safebrowsing.provider.google4.gethashURL= ""
-browser.safebrowsing.provider.google4.updateURL=""
-lockPref("media.gmp.decoder.multithreaded", true)
-lockPref("media.gmp.decoder.preferred", true)
-lockPref("media.gmp.encoder.enabled", true)
-lockPref("media.gmp.encoder.multithreaded", true)
-lockPref("media.gmp.encoder.preferred", true)
-network.buffer.cache.count = 48
-network.http.max-urgent-start-excessive-connections-per-host = 5
-
-
+## 51 - Réglages user.js
+En complément des [réglages Firefox CachyOS](https://github.com/CachyOS/CachyOS-PKGBUILDS/blob/master/cachyos-firefox-settings/cachyos.js), inspirés par les réglages Betterfox, Fastfox, Peskyfox, & Librewolf.cfg. 
+Copier-coller le fichier `user.js` dans le profil Firefox.
 
 
 <a id="id-52"></a>
-
-
 ## 52 - Extensions Firefox
 a - [uBlock Origin](https://addons.mozilla.org/fr/firefox/addon/ublock-origin/) : réglages à faire + import des la liste sauvegardées + interdire les sites IA avec ce [lien](https://subscribe.adblockplus.org/?location=https%3A%2F%2Fraw.githubusercontent.com%2Flaylavish%2FuBlockOrigin-HUGE-AI-Blocklist%2Fmain%2Flist.txt&title=Sites%20using%20AI%20generated%20content) 
 
