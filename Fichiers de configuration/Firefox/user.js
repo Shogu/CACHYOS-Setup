@@ -194,3 +194,8 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmark
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
 
+/***********************************************************************
+ * Détection automatique portail captif & proxy
+ **********************************************************************/
+user_pref("network.captive-portal-service.enabled", false);
+user_pref("network.notify.checkForProxies", false);
