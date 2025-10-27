@@ -860,7 +860,7 @@ puis éditer le raccourci avec Menu Libre.
 <a id="id-40"></a>
 ## 40 - Configurer Celluloid
 
-inscrire `vo=gpu-next` dans Paramètres --> Divers --> Options supplémentaires, activer l'option `focus` et `toujours afficher les boutons de titre`, enfin télécharger et installer les deux scripts lua suivants pour la musique : Visualizer & Delete File
+inscrire `vo=gpu-next gpu-api=vulkan` dans Paramètres --> Divers --> Options supplémentaires, activer l'option `focus` et `toujours afficher les boutons de titre`, enfin télécharger et installer les deux scripts lua suivants pour la musique : Visualizer & Delete File
 
 
 <a id="id-41"></a>
