@@ -679,6 +679,9 @@ yay -S gdm-settings
 ```
 Puis supprimer le paquet.
 
+Installer également le **theme GTK4** pour les applications utilisant encore GTK3 : `sudo pacman -S adw-gtk-theme` et activer le thème avec Gnome Tweaks.
+
+
 <a id="id-33"></a>
 ## 33 - Régler HiDPI et cacher dossiers
 Régler `HiDPI` sur 125, cacher les dossiers Modèles, Bureau, ainsi que le wallpaper et l'image user, augmenter la taille des icones dossiers, mettre un dossier avec icone pour Dropbox.
