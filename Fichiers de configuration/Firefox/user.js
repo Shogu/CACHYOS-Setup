@@ -1,6 +1,7 @@
 /***********************************************************************
  * Interface / UI / Promotions
  **********************************************************************/
+user_pref("gfx.webrender.compositor", true);
 user_pref("ui.key.menuAccessKey", 0);
 user_pref("apz.overscroll.enabled", false);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
