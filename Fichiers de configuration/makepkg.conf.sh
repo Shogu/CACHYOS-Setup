@@ -57,6 +57,8 @@ NINJAFLAGS="-j$(nproc)"
 DEBUG_CFLAGS="-g"
 DEBUG_CXXFLAGS="$DEBUG_CFLAGS"
 
+#Ajout Rust pour compilation  Brave
+export RUSTFLAGS="-C target-cpu=znver4"
 #########################################################################
 # BUILD ENVIRONMENT
 #########################################################################
