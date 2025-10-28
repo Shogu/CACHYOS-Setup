@@ -40,7 +40,7 @@ def main():
 
         # Vérifier lien existant
         result = subprocess.run(
-            [MAESTRAL_BIN, "sharelink", "list", relative_path],
+            [MAESTRALBIN, "sharelink", "list", relative_path],
             capture_output=True, text=True, cwd=DROPBOX_ROOT
         )
 
