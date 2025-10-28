@@ -6,7 +6,7 @@ import subprocess
 import re
 
 MAESTRAL_BIN = "/home/ogu/.local/bin/maestral"
-DROPBOX_ROOT = os.path.expanduser("~/Dropbox")
+DROPBOXROOT = os.path.expanduser('/home/ogu/Dropbox')
 
 def extract_url(output):
     match = re.search(r"https?://\S+", output)
