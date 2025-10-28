@@ -1,0 +1,72 @@
+#!/usr/bin/env python3
+import sys
+import os
+import subprocess
+import re
+
+DROPBOXROOT = '/home/ogu/Dropbox'  # Chemin vers votre Dropbox
+MAESTRALBIN = '/home/ogu/.venvs/maestral/bin/maestral'  # Chemin vers le binaire maestral
+
+def extract_url(output):
+    match = re.search(r'https?://[^\s]+', output)
+    return match.group(0) if match else None
+
+def open_url(url):
+    print(f"Ouverture du lien : {url}")
+    subprocess.run(['xdg-open', url])
+
+def copy_to_clipboard(url):
+    try:
+        subprocess.run(['wl-copy'], input=url.encode(), check=True)
+        print("Copié dans le presse-papiers avec wl-copy.")
+    except FileNotFoundError:
+        print("Erreur : wl-copy introuvable. Impossible de copier dans le presse-papiers.")
+
+def main():
+    if len(sys.argv) < 2:
+        print("Aucun fichier sélectionné.")
+        sys.exit(1)
+
+    print(f"Dropbox root : {DROPBOXROOT}")
+    for filepath in sys.argv[1:]:
+        filepath = os.path.abspath(filepath)
+        print(f"Chemin absolu fichier reçu : {filepath}")
+
+        if not filepath.startswith(DROPBOXROOT):
+            print(f"Le fichier {filepath} n'est pas dans Dropbox ({DROPBOXROOT}).")
+            continue
+
+        if not os.path.exists(filepath):
+            print(f"Le fichier {filepath} n'existe pas.")
+            continue
+
+        relative_path = os.path.relpath(filepath, DROPBOXROOT)
+        print(f"Chemin relatif Dropbox : {relative_path}")
+
+        if not os.path.exists(MAESTRALBIN):
+            print(f"Erreur : Le binaire maestral est introuvable à {MAESTRALBIN}")
+            continue
+
+        # Vérifie s'il existe déjà un lien partagé
+        result = subprocess.run([MAESTRALBIN, 'sharelink', 'list', relative_path], capture_output=True, text=True, cwd=DROPBOXROOT)
+        dropbox_url = extract_url(result.stdout)
+        
+        if dropbox_url:
+            print(f"Lien existant : {dropbox_url}")
+        else:
+            # Création d'un nouveau lien partagé
+            create_result = subprocess.run([MAESTRALBIN, 'sharelink', 'create', relative_path], capture_output=True, text=True, cwd=DROPBOXROOT)
+            dropbox_url = extract_url(create_result.stdout)
+
+            if not dropbox_url:
+                print(f"Impossible de générer un lien pour {relative_path}. Vérifiez que le fichier est synchronisé.")
+                continue
+            print(f"Nouveau lien créé : {dropbox_url}")
+
+        open_url(dropbox_url)
+        copy_to_clipboard(dropbox_url)
+        print(f"Lien copié et ouvert : {dropbox_url}")
+
+if __name__ == '__main__':
+    main()
+
