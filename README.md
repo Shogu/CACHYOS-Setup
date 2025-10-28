@@ -41,8 +41,8 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [16 - Activer scheduler ADIOS](#id-16)
 - [17 - Passer xwayland en autoclose et activer scale-monitor](#id-17)
 - [18 - Réduire le temps d'affichage du menu systemd-boot](#id-18)
-- [19 - Editer mount des partitions EXT4](#id-19)
-- [20 - Activer fast_commit pour EXT4](#id-20)
+- [19 - Tweaker les partitions EXT4](#id-19)
+- [20 - Régler makepkg pour compiler en zenver4](#id-20)
 - [21 - Désactiver mitigate split lock](#id-21)
 - [22 - Activer le mode EPP `power_performance` pour le profil Gnome `Balanced` quand le PC est sur batterie](#id-22) 
 - [23 - Régler le pare-feu](#id-23)
@@ -430,7 +430,7 @@ timeout 1
 
 
 <a id="id-19"></a>
-## 19 - Editer mount des partitions EXT4
+## 19 - Tweaker les partitions EXT4
 Editer le mount des `partitions EXT4` avec la commande :
 `sudo gnome-text-editor /etc/fstab` et rajouter après 'noatime' : 
 ```
@@ -449,12 +449,7 @@ Pour la partiton `vfat` :
 ```
 defaults,noatime,umask=0077 0 0
 ```
-
-
-<a id="id-20"></a>
-## 20 - Activer fast_commit pour EXT4
-
-Démarrer sur un live-cd Fedora, puis identifier la partition root (en général dev/nvme0n1p2) et s'assurer qu'elle est bien en EXT4 :
+Puis activer le **Fast_Commit** : démarrer sur un live-cd Fedora, puis identifier la partition root (en général dev/nvme0n1p2) et s'assurer qu'elle est bien en EXT4 :
 ```
 lsblk -f
 sudo file -s /dev/nvme0n1p2
@@ -471,6 +466,12 @@ Sortir du live Fedora & contrôler la présence de fast_commit avec :
 ```
 sudo tune2fs -l /dev/nvme0n1p2 | grep 'Filesystem features'
 ```
+
+
+<a id="id-20"></a>
+## 20 - Régler makepkg pour compiler en zenver4
+
+Remplacer le fichier `/etc/makepkg.conf` par celui disponible en téléchargement sur le dépôt.
 
 
 <a id="id-21"></a>
