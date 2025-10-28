@@ -1027,6 +1027,8 @@ m - [Translate Sidebar](https://addons.mozilla.org/fr/firefox/addon/lingva-in-si
 
 n - [History Auto Delete](https://addons.mozilla.org/fr/firefox/addon/history-auto-delete/)
 
+o - [Bypass Paywalls](https://gitflic.ru/project/magnolia1234/bpc_uploads)
+
 <a id="id-53"></a>
 ## 53 - Activer Rechercher avec Perplexity
 
