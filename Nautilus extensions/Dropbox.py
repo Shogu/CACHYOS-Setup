@@ -5,7 +5,7 @@ import os
 import subprocess
 import re
 
-MAESTRAL_BIN = "/home/ogu/.local/bin/maestral"
+MAESTRALBIN = '/home/ogu/.venvs/maestral/bin/maestral'
 DROPBOXROOT = os.path.expanduser('/home/ogu/Dropbox')
 
 def extract_url(output):
