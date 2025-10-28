@@ -40,7 +40,7 @@ CHOST="x86_64-pc-linux-gnu"
 PACKAGECARCH="x86_64"
 
 #-- Compiler and Linker Flags
-#CPPFLAGS="" Anciens réglages avant zenver4 = CFLAGS="-march=native -O3 -pipe -fno-plt -fexceptions \ -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security \ -fstack-clash-protection -fcf-protection" CXXFLAGS="$CFLAGS -Wp,-D_GLIBCXX_ASSERTIONS"
+#CPPFLAGS="" Réglages par défaut avant zenver4 = CFLAGS="-march=native -O3 -pipe -fno-plt -fexceptions \ -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security \ -fstack-clash-protection -fcf-protection" CXXFLAGS="$CFLAGS -Wp,-D_GLIBCXX_ASSERTIONS"
 
 CFLAGS="-march=znver4 -O3 -pipe -fno-plt -fexceptions -flto=auto \
         -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security \
@@ -57,7 +57,7 @@ NINJAFLAGS="-j$(nproc)"
 DEBUG_CFLAGS="-g"
 DEBUG_CXXFLAGS="$DEBUG_CFLAGS"
 
-#Ajout Rust pour compilation  Brave
+#Ajout Rust
 export RUSTFLAGS="-C target-cpu=znver4"
 #########################################################################
 # BUILD ENVIRONMENT
