@@ -986,8 +986,8 @@ Enfin éditer le raccourci Firefox pour lancer le browser avec un nouvel onglet 
 
 
 <a id="id-50"></a>
-## 50 - Thème Firefox Gnome Dark
-Changer le `thème` pour [Gnome Dark ](https://addons.mozilla.org/fr/firefox/addon/adwaita-gnome-dark/?utm_content=addons-manager-reviews-link&utm_medium=firefox-browser&utm_source=firefox-browser)
+## 50 - Thème Firefox Gnome Dark ou 
+Changer le `thème` pour [Gnome Dark](https://addons.mozilla.org/fr/firefox/addon/adwaita-gnome-dark/?utm_content=addons-manager-reviews-link&utm_medium=firefox-browser&utm_source=firefox-browser) ou [Gnome Light Current Tab Blue](https://addons.mozilla.org/fr/firefox/addon/gnome-current-tab-blue/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 
 
 <a id="id-51"></a>
