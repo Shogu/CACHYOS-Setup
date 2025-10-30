@@ -69,7 +69,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [40 - Configurer Celluloid](#id-40)
 - [41 - Configurer JDownloader & Fragments](#id-41)
 - [42 - Script transfert vidéos](#id-42)
-- [43 - Accélérer animations](#id-43)
+- [43 - Accélérer GNome Shell](#id-43)
 - [44 - Scripts Nautilus](#id-44)
 - [45 - Supprimer Plymouth](#id-45)
 - [46 - Modifier nom toggle profil énergétique](#id-46)
@@ -881,16 +881,10 @@ Le télécharger depuis le dossier `SCRIPTS`, le coller dans /home/ogu/.local/bi
 
 
 <a id="id-43"></a>
-## 43 - Accélérer animations Gnome Shell
-
-Note : deprecated? A remplacer par l'etexnsion GS *Impatience*
-
+## 43 - Accélérer Gnome Shell
+Installer les composants mutter-performance et gnome-shell performance 
 ```
-GNOME_SHELL_SLOWDOWN_FACTOR=0.75
-```
-dans le fichier 
-```
-sudo gnome-text-editor /etc/environment
+yay mutter-performance gnome-shell performance
 ```
 
 
