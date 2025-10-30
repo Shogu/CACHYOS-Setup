@@ -44,3 +44,14 @@ menuseparator { display: none !important; }               /* Masque tous les sé
 #context-openlink { display: none !important; }           /* Masque "Ouvrir le lien dans une nouvelle fenêtre" */
 #context-openlinkprivate { display: none !important; }    /* Masque "Ouvrir le lien dans une fenêtre privée" */
 
+#Cacher menu contextuel Raindrop
+/* Exemple de masque par label */
+menuitem[label="Sauvegarder lien"] {
+  display: none !important;
+}
+
+/* Masquer tous les items liés à Raindrop (souvent le préfixe est raindrop ou extension-id) */
+menuitem[id*="raindrop"],
+menuitem[label*="Raindrop"] {
+  display: none !important;
+}
