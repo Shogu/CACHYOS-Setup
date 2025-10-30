@@ -728,8 +728,7 @@ j - [Hot Edge](https://extensions.gnome.org/extension/4222/hot-edge/)
 
 k - [Custom Command Toggle](https://extensions.gnome.org/extension/7012/custom-command-toggle/)  
 
-l - Pop Shell Tiling : `sudo pacman -S gnome-shell-extension-pop-shell-git`
-puis supprimer le theme icone Pop : `sudo pacman -Rdd  pop-icon-theme-git` & `/usr/share/icons`
+l - [Mosaic Tiling](https://extensions.gnome.org/extension/8502/mosaic/)
 
 m - [Quick Close Overview](https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/)
 
