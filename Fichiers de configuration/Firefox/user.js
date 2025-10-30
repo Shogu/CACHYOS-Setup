@@ -79,7 +79,6 @@ user_pref("image.mem.decode_bytes_at_a_time", 131072);
 user_pref("browser.cache.disk.parent_directory", "/run/user/1000/firefox");
 user_pref("browser.frames-lazy-load.enabled", false);
 user_pref("nglayout.initialpaint.delay", 0);
-user_pref("general.useragent.override", "Mozilla/5.0 (Wayland; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36");
 user_pref("network.dnsCacheExpiration", 3600);
 user_pref("network.buffer.cache.count", 48);
 user_pref("network.http.max-persistent-connections-per-server", 8);
