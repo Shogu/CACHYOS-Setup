@@ -44,8 +44,7 @@ menuseparator { display: none !important; }               /* Masque tous les sé
 #context-openlink { display: none !important; }           /* Masque "Ouvrir le lien dans une nouvelle fenêtre" */
 #context-openlinkprivate { display: none !important; }    /* Masque "Ouvrir le lien dans une fenêtre privée" */
 
-#Cacher menu contextuel Raindrop
-/* Exemple de masque par label */
+/* Cacher menu contextuel Raindrop */
 menuitem[label="Sauvegarder lien"] {
   display: none !important;
 }
