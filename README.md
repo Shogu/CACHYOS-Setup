@@ -86,6 +86,17 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [55 - Mettre profil Firefox en RAM avec psd](#id-55)
 - [56 - "Nettoyer" Firefox](#id-56)
 
+### 🌐 F - Réglages du navigateur Vivaldi
+- [49 - Réglages internes Vivaldi](#id-49)
+- [50 - Changer thème Vivaldi](#id-50)
+- [51 - Extensions Vivaldi](#id-51)
+- [52 - Panneau latéral Vivaldi](#id-52)
+
+- [56 - "Nettoyer" Firefox](#id-56)
+
+
+
+
 
 ---
 
