@@ -87,11 +87,11 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [56 - "Nettoyer" Firefox](#id-56)
 
 ### 🌐 G - Réglages du navigateur Vivaldi
-- [57 - Réglages internes Vivaldi](#id-49)
-- [58 - Changer thème Vivaldi](#id-50)
-- [59 - Extensions Vivaldi](#id-51)
-- [60 - Panneau latéral Vivaldi](#id-52)
-- [61 - "Nettoyer" Vivaldi](#id-56)
+- [57 - Réglages internes Vivaldi](#id-57)
+- [58 - Changer thème Vivaldi](#id-58)
+- [59 - Extensions Vivaldi](#id-59)
+- [60 - Panneau latéral Vivaldi](#id-60)
+- [61 - "Nettoyer" Vivaldi](#id-61)
 
 
 
@@ -1082,6 +1082,8 @@ Télécharger le *userChrome* et le coller dans le répertoire par défaut de Fi
 
 <a id="id-55"></a>
 ## 55 - Mettre profil Firefox en RAM avec psd
+
+WARNING semble ne plus fonctionner avec le dernier Firefox  :(
 Mettre le profil de Firefox en RAM avec `profile-sync-daemon` :
 * ATTENTION : suivre ces consignes avec **Firefox fermé** - utiliser un browser secondaire
   
@@ -1155,7 +1157,10 @@ Et en **disable** :
 Touch UI Layout
 ```
 
-- [58 - Changer thème Vivaldi](#id-50)
+## 59 - Changer thème Vivaldi
+
+Appliquer le thème custom à télécharger dans le dépôt.
+
 - [60 - Panneau latéral Vivaldi](#id-52)
 - [61 - "Nettoyer" Vivaldi](#id-56)
 
