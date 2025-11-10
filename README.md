@@ -698,6 +698,38 @@ Puis supprimer le paquet.
 Installer également le **theme GTK4** pour les applications utilisant encore GTK3 : `sudo pacman -S adw-gtk-theme` et activer le thème avec Gnome Tweaks.
 
 
+Sortie de veille : pour relancer le thème de curseurs en sortie de suspend :
+```
+sudo nano /etc/systemd/system/reapply-cursor-theme.service
+```
+et saisir 
+
+:
+```
+[Unit]
+Description=Réapplique thème curseur après sortie de veille
+After=suspend.target
+
+[Service]
+[Unit]
+Description=Réapplique le thème de curseur après sortie de veille
+After=suspend.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/gsettings set org.gnome.desktop.interface cursor-theme phinger-cursors-light
+
+[Install]
+WantedBy=suspend.target
+
+[Install]
+WantedBy=suspend.target
+```
+Puis relancer systemd :
+```
+sudo systemctl daemon-reload && systemctl enable reapply-cursor-theme.service && systemctl start reapply-cursor-theme.service
+```
+
 <a id="id-33"></a>
 ## 33 - Régler HiDPI et cacher dossiers
 Régler `HiDPI` sur 125, cacher les dossiers Modèles, Bureau, ainsi que le wallpaper et l'image user, augmenter la taille des icones dossiers, mettre un dossier avec icone pour Dropbox.
