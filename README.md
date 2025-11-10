@@ -86,13 +86,12 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [55 - Mettre profil Firefox en RAM avec psd](#id-55)
 - [56 - "Nettoyer" Firefox](#id-56)
 
-### 🌐 F - Réglages du navigateur Vivaldi
-- [49 - Réglages internes Vivaldi](#id-49)
-- [50 - Changer thème Vivaldi](#id-50)
-- [51 - Extensions Vivaldi](#id-51)
-- [52 - Panneau latéral Vivaldi](#id-52)
-
-- [56 - "Nettoyer" Firefox](#id-56)
+### 🌐 G - Réglages du navigateur Vivaldi
+- [57 - Réglages internes Vivaldi](#id-49)
+- [58 - Changer thème Vivaldi](#id-50)
+- [59 - Extensions Vivaldi](#id-51)
+- [60 - Panneau latéral Vivaldi](#id-52)
+- [61 - "Nettoyer" Vivaldi](#id-56)
 
 
 
@@ -1131,3 +1130,29 @@ systemctl --user mask psd-resync.timer
 <a id="id-56"></a>
 ## 56 - "Nettoyer" Firefox
 Terminer en allant dans `about:support` pour vérifier les database, vider le cache de démarrage, puis lancer `profile-cleaner f`
+
+### 🌐 G - Réglages du navigateur Vivaldi
+
+<a id="id-57"></a>
+## 57 - Réglages internes Vivaldi
+Editer le raccourci de lancement pour optimiser la gestion des processus RAM et du cache :
+```
+--process-per-site --disk-cache-dir=/run/user/1000/vivaldi-cache
+```
+
+- [58 - Changer thème Vivaldi](#id-50)
+- [60 - Panneau latéral Vivaldi](#id-52)
+- [61 - "Nettoyer" Vivaldi](#id-56)
+
+
+
+
+<a id="id-59"></a>
+## 59 - Extensions Vivaldi
+https://chromewebstore.google.com/detail/better-scroll-to-topbotto/ifdjdmipgndncbeopapghbohjdiieibl?hl=es
+https://chromewebstore.google.com/detail/page-sidebar-open-any-pag/gkkebamcfeaggmcfciekfakbmlgckdnh
+https://chromewebstore.google.com/detail/copy-url/ccnghlbhjgabibnajlaklhpikmcannph
+https://chromewebstore.google.com/detail/localcdn/njdfdhgcmkocbgbhcioffdbicglldapd
+https://chromewebstore.google.com/detail/rehistoria-auto-delete-hi/dheibmdojjjhiahbdmcnmbepnaiilloe
+https://chromewebstore.google.com/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm
+https://chromewebstore.google.com/detail/raindropio/ldgfbffkinooeloadekpmfoklnobpien?pli=1
