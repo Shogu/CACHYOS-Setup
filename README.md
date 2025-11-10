@@ -1140,6 +1140,21 @@ Editer le raccourci de lancement pour optimiser la gestion des processus RAM et 
 --process-per-site --disk-cache-dir=/run/user/1000/vivaldi-cache
 ```
 
+Puis dans `vivaldi://flags`, passer en **enable* :
+```
+Smooth Scrolling
+Experimental QUIC 
+GPU rasterization
+Zero-copy rasterizer
+Parallel downloading
+http-cache-custom-backend
+memory-purge-on-freeze-limit
+```
+Et en **disable** :
+```
+Touch UI Layout
+```
+
 - [58 - Changer thème Vivaldi](#id-50)
 - [60 - Panneau latéral Vivaldi](#id-52)
 - [61 - "Nettoyer" Vivaldi](#id-56)
