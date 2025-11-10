@@ -1151,6 +1151,7 @@ Zero-copy rasterizer
 Parallel downloading
 http-cache-custom-backend
 memory-purge-on-freeze-limit
+Split View
 ```
 Et en **disable** :
 ```
@@ -1170,7 +1171,6 @@ Appliquer le thème custom à télécharger dans le dépôt.
 <a id="id-59"></a>
 ## 59 - Extensions Vivaldi
 https://chromewebstore.google.com/detail/better-scroll-to-topbotto/ifdjdmipgndncbeopapghbohjdiieibl?hl=es
-https://chromewebstore.google.com/detail/page-sidebar-open-any-pag/gkkebamcfeaggmcfciekfakbmlgckdnh
 https://chromewebstore.google.com/detail/copy-url/ccnghlbhjgabibnajlaklhpikmcannph
 https://chromewebstore.google.com/detail/localcdn/njdfdhgcmkocbgbhcioffdbicglldapd
 https://chromewebstore.google.com/detail/rehistoria-auto-delete-hi/dheibmdojjjhiahbdmcnmbepnaiilloe
