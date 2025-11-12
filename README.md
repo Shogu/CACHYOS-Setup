@@ -566,7 +566,7 @@ sudo ufw status numbered
 ```
 sudo gnome-text-editor /etc/systemd/logind.conf
 ```
-puis saisir : `NautoVTS=1`
+puis saisir : `NautoVTS=0`
 
 
 <a id="id-25"></a>
@@ -657,8 +657,11 @@ Editer le service logind :
 ```
 gnome-text-editor admin:///etc/systemd/logind.conf
 ```
-puis remplacer les lignes HandleLid par 
+puis remplacer les lignes HanbdlePowerKey & HandleLidSwitch par 
 ```
+HandlePowerKey=suspend
+HandlePowerKeyLongPress=poweroff
+
 HandleLidSwitch=suspend
 HandleLidSwitchExternalPower=suspend
 ```
