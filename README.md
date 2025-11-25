@@ -1126,11 +1126,7 @@ cd firefox
 ls
 du -sh /run/user/1000/psd/nom du profil/
 ```
-Enfin désactiver le service --user de backup au boot :
-```
-systemctl --user mask psd-resync.service
-systemctl --user mask psd-resync.timer
-```
+
 <a id="id-56"></a>
 ## 56 - "Nettoyer" Firefox
 Terminer en allant dans `about:support` pour vérifier les database, vider le cache de démarrage, puis lancer `profile-cleaner f`
