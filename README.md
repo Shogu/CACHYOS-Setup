@@ -1084,10 +1084,9 @@ Télécharger le *userChrome* et le coller dans le répertoire par défaut de Fi
 
 
 <a id="id-55"></a>
-## 55 - Mettre profil Firefox en RAM avec psd
+## 55 - Mettre profil nabigateurs en RAM avec psd
 
-WARNING semble ne plus fonctionner avec le dernier Firefox  :(
-Mettre le profil de Firefox en RAM avec `profile-sync-daemon` :
+Mettre le profil de Firefox & Vivaldi en RAM avec `profile-sync-daemon` :
 * ATTENTION : suivre ces consignes avec **Firefox fermé** - utiliser un browser secondaire
   
 Installer psd (avec dnf `sudo pacman -S profile-sync-daemon`, ou avec make en cas d'échec - voir le fichier INSTALL sur le Github), puis l'activer avec les commandes suivantes (sans quoi le service échoue à démarrer) :
