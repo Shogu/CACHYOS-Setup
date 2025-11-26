@@ -1150,6 +1150,7 @@ Parallel downloading
 http-cache-custom-backend
 memory-purge-on-freeze-limit
 Split View
+
 ```
 Et en **disable** :
 ```
@@ -1174,3 +1175,10 @@ https://chromewebstore.google.com/detail/localcdn/njdfdhgcmkocbgbhcioffdbicgllda
 https://chromewebstore.google.com/detail/rehistoria-auto-delete-hi/dheibmdojjjhiahbdmcnmbepnaiilloe
 https://chromewebstore.google.com/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm
 https://chromewebstore.google.com/detail/raindropio/ldgfbffkinooeloadekpmfoklnobpien?pli=1
+Stylus pour la couleur de surlignage et insérer:
+```
+::selection {
+    color: white !important;
+    background-color: #3584e4 !important;
+}
+```
