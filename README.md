@@ -1086,6 +1086,8 @@ Télécharger le *userChrome* et le coller dans le répertoire par défaut de Fi
 <a id="id-55"></a>
 ## 55 - Mettre profil nabigateurs en RAM avec psd
 
+NOTA : NE PAS INSTALLER - annule les réglages Vivaldi après reboot...
+
 Mettre le profil de Firefox & Vivaldi en RAM avec `profile-sync-daemon` :
 * ATTENTION : suivre ces consignes avec **Firefox fermé** - utiliser un browser secondaire
   
