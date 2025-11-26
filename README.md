@@ -763,7 +763,7 @@ d - [Appindicator](https://extensions.gnome.org/extension/615/appindicator-suppo
 
 d - [Caffeine](https://extensions.gnome.org/extension/517/caffeine/) ATTENTIon à n'activer que si le suspend est réparé
 
-f - [Clipboard History](https://extensions.gnome.org/extension/4839/clipboard-history/)
+f - [Clipboard History](https://extensions.gnome.org/extension/4839/clipboard-history/) ou plus graphgioque avec [Copyous](https://extensions.gnome.org/extension/8834/copyous/)
 
 **Extensions apportant des fonctions UI :**
 
