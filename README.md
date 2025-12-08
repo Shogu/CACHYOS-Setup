@@ -914,7 +914,7 @@ inscrire `vo=gpu-next gpu-api=vulkan` dans Paramètres --> Divers --> Options su
 
 <a id="id-41"></a>
 ## 41 - Configurer JDownloader & Fragments
-`Jdownloader` : réglages de base, font Adwaita Sans, et désactiver les éléments suivants : tooltip, help, Update Button Flashing, banner, Premium Alert, Donate, speed meter visible.
+`Jdownloader` : réglages de base (font Adwaita Sans, et désactiver les éléments suivants : tooltip, help, Update Button Flashing, banner, Premium Alert, Donate, speed meter visible) en téléchargeant dans le déppot l'archive de configuration jdwonloader.
 Modifier le raccourci d'icone grace à l'éditeur de texte présent dans Menu Libre et passer `StartupWMClass=org-jdownloader-update-launcher-JDLauncher` pour que l'icone apparaisse dans le dock.
 
 `Fragments` : Général, Ouvrir l'interface Web, onglet Peers : copier-coller cette url de règles de blocage : 
