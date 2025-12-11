@@ -632,12 +632,12 @@ Puis régler la connexion Wifi 5Ghz en dur : ip 192.168.31.102 // masque 255.255
 ## 27 - Installer logiciels avec pacman et yay
 Installer les `logiciels` suivants :
 ```
-sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse pamac celluloid extension-manager fragments papers yay nicotine+ resources onlyoffice fuse2 jamesdsp xournal++ jdownloader2
+sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse pamac celluloid extension-manager fragments papers yay nicotine+ resources onlyoffice fuse2 jamesdsp xournal++ jdownloader2 trash
 ```
 et
 
 ```
-yay -S libre-menu-editor gradia monophony 
+yay libre-menu-editor gradia monophony 
 ```
 Enfin installer [l'appimage de Beeper](https://api.beeper.com/desktop/download/linux/x64/stable/com.automattic.beeper.desktop), la déplacer dans .local/bin, éditer le raccourci avec le chemin de l'éxecutable et  `StartupWMClass=Beeper` pour faire apparaitre l'icone dans le dash.
 
