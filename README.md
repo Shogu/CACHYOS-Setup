@@ -1030,7 +1030,7 @@ Enfin éditer le raccourci Firefox pour lancer le browser avec un nouvel onglet 
 
 
 <a id="id-50"></a>x
-## 50 - Changer thème Firefo
+## 50 - Changer thème Firefox
 Changer le `thème` pour [Gnome Dark](https://addons.mozilla.org/fr/firefox/addon/adwaita-gnome-dark/?utm_content=addons-manager-reviews-link&utm_medium=firefox-browser&utm_source=firefox-browser) ou [Gnome Light Current Tab Blue](https://addons.mozilla.org/fr/firefox/addon/gnome-current-tab-blue/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 
 
@@ -1086,7 +1086,7 @@ Télécharger le *userChrome* et le coller dans le répertoire par défaut de Fi
 
 
 <a id="id-55"></a>
-## 55 - Mettre profil nabigateurs en RAM avec psd
+## 55 - Mettre profil navigateurs en RAM avec psd
 
 NOTA : NE PAS INSTALLER - annule les réglages Vivaldi après reboot...
 
@@ -1160,6 +1160,7 @@ Et en **disable** :
 ```
 Touch UI Layout
 ```
+Enfin supprimer l'autplay Youtube avec :  Menu Vivaldi → Settings → Privacy → Website permissions → Autoplay → Block
 
 ## 59 - Changer thème Vivaldi
 
