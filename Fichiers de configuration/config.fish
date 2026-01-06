@@ -6,12 +6,8 @@ source /usr/share/cachyos-fish-config/cachyos-config.fish
 #    # smth smth
 #end
 
-# Désactive le message d'accueil de Fish.
-set -g fish_greeting ""
-
-# ~/.config/fish/config.fish
+# Désactiver le message d'accueil de Fish.
 function fish_greeting
-    # rien à faire ici, empêche le message global
 end
 
 # Désactiver le pager pour paru et autres programmes : à voir si possible sur yay
