@@ -486,7 +486,7 @@ Remplacer le fichier `/etc/makepkg.conf` par celui disponible en téléchargemen
 
 <a id="id-21"></a>
 ## 21 - Désactiver mitigate split lock
-MAJ : utiliser plutot le parametre kernel `split_lock_detect=off`
+MAJ : tester le parametre kernel `split_lock_detect=off`, qui n'est pas opérationnel avec le kernel 6.18
 
 Ou bien éditer `sudo nano /etc/sysctl.d/99-splitlock.conf` et saisir :
   
