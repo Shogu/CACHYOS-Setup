@@ -1,4 +1,4 @@
-# CACHYOS-Setup
+# CACHYOS-Setupd
 Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 
 <table>
@@ -189,8 +189,6 @@ sudo systemctl mask systemd-pcrphase-initrd.service
 sudo systemctl mask systemd-pcrphase-sysinit.service
 sudo systemctl mask systemd-pcrphase.service
 sudo systemctl mask flatpak-system-helper.service
-sudo systemctl mask systemd-userdbd.service systemd-userdb-load-credentials.service #services liés à nspawn, systemd-creds et systemd-homed
-
 ```
 ```
 Vérifier si `ananicy-cpp` est lancé par défaut : si oui :
