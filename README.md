@@ -577,12 +577,13 @@ sudo gnome-text-editor /etc/sdboot-manage.conf
 ```
 Puis saisir : 
 ```
-LINUX_OPTIONS="noreplace-smp tsc=reliable cryptomgr.notests random.trust_cpu=on efi=disable_early_pci_dma nomce nowatchdog loglevel=0 no_timer_check noresume fsck.mode=skip zswap.enabled=0 console=tty0 systemd.show_status=false quiet 8250.nr_uarts=0 cgroupdisable=rdma nvme_core.default_ps_max_latency_us=5500 disable_ipv6=1 amd_iommu=off split_lock_detect=off transparent_hugepage=madvise rcupdate.rcu_normal_after_boot=1 vt.global_cursor_default=0 consoleblank rd.udev.log_level=0 tpm_crb.disable=1 rcutree.enable_rcu_lazy=1 rcu_nocbs=0-(nproc-1) splash"
+LINUX_OPTIONS="noreplace-smp tsc=reliable cryptomgr.notests random.trust_cpu=off efi=disable_early_pci_dma nomce nowatchdog no_timer_check noresume fsck.mode=skip zswap.enabled=0 console=tty0 systemd.show_status=false quiet 8250.nr_uarts=0 cgroup_disable=rdma nvme_core.default_ps_max_latency_us=5500 ipv6.disable=1 amd_iommu=off transparent_hugepage=madvise rcupdate.rcu_normal_after_boot=1 vt.global_cursor_default=0 consoleblank=0 rd.udev.log_level=0 loglevel=0 tpm_crb.disable=1 rcutree.enable_rcu_lazy=1 rcu_nocbs=0-15 rootflags=data=writeback,commit=60,noatime,barrier=0 splash"
 ```
 Relancer systemd-boot conformément à la méthode CachyOS :
 ```
 sudo sdboot-manage gen
 ```
+Vérifier que tous les réglages fonctionnent en lançant sudo dmesg
 
 | Thème                     | Arguments / Options                                                                 | Description                                                                                   |
 |----------------------------|------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
