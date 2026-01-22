@@ -766,6 +766,7 @@ d - [Caffeine](https://extensions.gnome.org/extension/517/caffeine/) ATTENTIon �
 
 f - [Clipboard History](https://extensions.gnome.org/extension/4839/clipboard-history/) ou plus graphique avec [Copyous](https://extensions.gnome.org/extension/8834/copyous/) : penser à installer la dépendance libgda6 `sudo pacman -S libgda6`
 
+
 **Extensions apportant des fonctions UI :**
 
 g - [Battery Time Percentage Compact](https://extensions.gnome.org/extension/2929/battery-time-percentage-compact/) ou [Battery Time](https://extensions.gnome.org/extension/5425/battery-time/)  
@@ -787,6 +788,8 @@ n - [Auto Power Profile](https://extensions.gnome.org/extension/6583/auto-power-
 o - [Battery Monitor](https://extensions.gnome.org/extension/8348/battery-monitor/)
 
 p - [https://extensions.gnome.org/extension/4491/privacy-settings-menu/](Privacy Settings) puis la supprimer une fois les réglages faits.
+
+q - [https://extensions.gnome.org/extension/4928/mpris-label/](MPRIS Media Player)
 
 <a id="id-36"></a>
 ## 36 - Installer Open with Ptyxis
