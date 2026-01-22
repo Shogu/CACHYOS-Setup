@@ -133,7 +133,13 @@ etc
 
 <a id="id-5"></a>
 ## 5 - Faire un ghost du système avec Rescuezilla
-Puis en refaire un une fois les étapes du Github terminées. Après le premeir ghost, mettrez à jour y compris avec fwupd
+Puis en refaire un une fois les étapes du Github terminées. Après le premeir ghost, mettrez à jour y compris avec fwupd :
+```
+sudo fwupdmgr get-devices
+sudo fwupdmgr refresh --force
+sudo fwupdmgr get-updates
+sudo fwupdmgr update
+```
 
 
 
