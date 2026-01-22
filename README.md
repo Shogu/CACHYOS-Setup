@@ -133,7 +133,7 @@ etc
 
 <a id="id-5"></a>
 ## 5 - Faire un ghost du système avec Rescuezilla
-Puis en refaire un une fois les étapes du Github terminées
+Puis en refaire un une fois les étapes du Github terminées. Après le premeir ghost, mettrez à jour y compris avec fwupd
 
 
 
@@ -577,7 +577,7 @@ sudo gnome-text-editor /etc/sdboot-manage.conf
 ```
 Puis saisir : 
 ```
-LINUX_OPTIONS="noreplace-smp tsc=reliable cryptomgr.notests random.trust_cpu=on efi=disable_early_pci_dma nomce nowatchdog no_timer_check noresume fsck.mode=skip zswap.enabled=0 console=tty1 systemd.show_status=false quiet 8250.nr_uarts=0 cgroup_disable=rdma nvme_core.default_ps_max_latency_us=5500 ipv6.disable=1 amd_iommu=off transparent_hugepage=madvise rcupdate.rcu_normal_after_boot=1 vt.global_cursor_default=0 consoleblank=0 rd.udev.log_level=0 loglevel=0 tpm_crb.disable=1 rcutree.enable_rcu_lazy=1 rcu_nocbs=0-15 rootflags=data=writeback,commit=60,noatime,barrier=0 clearcpuid=rdseed"
+LINUX_OPTIONS="noreplace-smp tsc=reliable cryptomgr.notests random.trust_cpu=on efi=disable_early_pci_dma nomce nowatchdog no_timer_check noresume fsck.mode=skip zswap.enabled=0 console=tty1 systemd.show_status=false quiet 8250.nr_uarts=0 cgroup_disable=rdma nvme_core.default_ps_max_latency_us=5500 ipv6.disable=1 amd_iommu=off transparent_hugepage=madvise rcupdate.rcu_normal_after_boot=1 vt.global_cursor_default=0 consoleblank=0 rd.udev.log_level=0 loglevel=0 tpm_crb.disable=1 rcutree.enable_rcu_lazy=1 rcu_nocbs=0-7 rootflags=data=writeback,commit=60,noatime,barrier=0 clearcpuid=rdseed"
 ```
 Relancer systemd-boot conformément à la méthode CachyOS :
 ```
@@ -633,12 +633,12 @@ Puis régler la connexion Wifi 5Ghz en dur : ip 192.168.31.102 // masque 255.255
 ## 27 - Installer logiciels avec pacman et yay
 Installer les `logiciels` suivants :
 ```
-sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse pamac celluloid extension-manager fragments papers yay nicotine+ resources onlyoffice fuse2 jamesdsp xournal++ jdownloader2 trash systemd-manager-tui
+sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse pamac celluloid extension-manager fragments papers yay nicotine+ resources onlyoffice fuse2 jamesdsp xournal++ jdownloader2 geary 
 ```
 et
 
 ```
-yay libre-menu-editor gradia monophony 
+yay libre-menu-editor gradia monophony archclean systemd-manager-tui
 ```
 Enfin installer [l'appimage de Beeper](https://api.beeper.com/desktop/download/linux/x64/stable/com.automattic.beeper.desktop), la déplacer dans .local/bin, éditer le raccourci avec le chemin de l'éxecutable et  `StartupWMClass=Beeper` pour faire apparaitre l'icone dans le dash.
 
