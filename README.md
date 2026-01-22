@@ -937,7 +937,7 @@ Le télécharger depuis le dossier `SCRIPTS`, le coller dans /home/ogu/.local/bi
 
 <a id="id-43"></a>
 ## 43 - Accélérer Gnome Shell
-Installer les composants mutter-performance et gnome-shell performance 
+Installer les composants mutter-performance et gnome-shell performance ??
 ```
 yay mutter-performance gnome-shell performance
 ```
@@ -1020,6 +1020,10 @@ Enfin modifier les folder par défauts Dropbox, Nicotine, Téléchargements, etc
 
 Supprimer les locales sauf EN, en_US, fr, Fr_FR dans `usr/share/locales` : penser à les sauvegarder puis à vérifier au reboot. 
 
+
+<a id="id-49"></a>
+## 48 - Installer le thème OLED pour Gnome-Shell
+https://github.com/varunbpatil/Darkwaita
 ----------------------------------------------------------------------------------------------
 
 # 🌐 F - Réglages du navigateur Firefox
