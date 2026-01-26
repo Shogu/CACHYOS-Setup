@@ -433,7 +433,9 @@ En profiter pour activer `scale-monitor-framebuffer` & `xwayland-native-scaling`
 
 <a id="id-18"></a>
 ## 18 - Réduire le temps d'affichage du menu systemd-boot
-Réduire le `temps d'affichage du menu systemd-boot` à 0 seconde  (appuyer sur MAJ pour le faire apparaitre au boot):
+Réduire le `temps d'affichage du menu systemd-boot` à 0 seconde: appuyer sur MAJ ou SPACE pour le faire apparaitre au boot et réduire le timeout avec `MAJ t.
+
+Ou bien :
 ```
 sudo nano /boot/loader/loader.conf
 ```
