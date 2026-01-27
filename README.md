@@ -75,6 +75,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [46 - Modifier nom toggle profil énergétique](#id-46)
 - [47 - Créer raccourcis boot to BIOS, gradia-screenshot, Ressources & Ptyxis](#id-47)
 - [48 - Faire le tri dans les LOCALES & ~/.local/share, ~/.config et /etc](#id-48)
+- ## 48 - Créer modèles de fichier dans Nautilus
 
 ### 🌐 F - Réglages du navigateur Firefox
 - [49 - Réglages internes Firefox](#id-49)
@@ -1024,8 +1025,8 @@ Supprimer les locales sauf EN, en_US, fr, Fr_FR dans `usr/share/locales` : pense
 
 
 <a id="id-49"></a>
-## 48 - Installer le thème OLED pour Gnome-Shell
-https://github.com/varunbpatil/Darkwaita
+## 49 - Créer modèles de fichier dans Nautilus
+# 1. Renommer l'ancien dossier Modèles en .Modèles (s'il existe) [ -d "$HOME/Modèles" ] && mv "$HOME/Modèles" "$HOME/.Modèles" # 2. S'assurer que le dossier caché existe mkdir -p "$HOME/.Modèles" # 3. Créer les deux fichiers modèles touch "$HOME/.Modèles/notepad.txt" touch "$HOME/.Modèles/word.docx" # 4. Pointer XDG_TEMPLATES_DIR vers ce dossier sed -i '/^XDG_TEMPLATES_DIR=/d' "$HOME/.config/user-dirs.dirs" echo 'XDG_TEMPLATES_DIR="$HOME/.Modèles"' >> "$HOME/.config/user-dirs.dirs" # 5. Recharger la config XDG xdg-user-dirs-update # 6. Redémarrer Nautilus nautilus -q renommer Modèles en .Modèles et créer fichier Notepad.txt et Word.docx, penser à editer ~/.config/user-dirs.dirs puis xdg-user-dirs-update et à relancer gnome xdg-user-dirs-update
 ----------------------------------------------------------------------------------------------
 
 # 🌐 F - Réglages du navigateur Firefox
