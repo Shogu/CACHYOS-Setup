@@ -1,4 +1,4 @@
-# CACHYOS-Setup
+F# CACHYOS-Setup
 Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 
 <table>
@@ -616,7 +616,9 @@ Vérifier avec  `sudo tune2fs -l /dev/nvme0n1p2 | grep -i 'check'
 
 **b - Sched-ext :**
 
-Activer le scheduler `BPFland` en AUTO avec sched-ext ou `Rusty` `Cake` (voir Github), chercher des benchmarks récents. Le denrier sur Reddit montre que le noyau compilé avec le scheduler EEVDF es tle plus efficace
+Activer le scheduler `BPFland` en AUTO avec sched-ext ou `Rusty` `Cake` (voir Github), chercher des benchmarks récents. Le dernier sur Reddit montre que le noyau compilé avec le scheduler EEVDF est le plus efficace:
+https://www.reddit.com/r/cachyos/comments/1q854z9/comment/nyqylbz/?tl=fr&translated=1&force-legacy-sct=1
+
 Vérifier si Ananicy fonctionne maintenant que les deux peuvent cohabiter.
 
 <a id="id-26"></a>
