@@ -47,7 +47,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [22 - Activer le mode EPP `power_performance` pour le profil Gnome `Balanced` quand le PC est sur batterie](#id-22) 
 - [23 - Régler le pare-feu](#id-23)
 - [24 - Passer à 0 le nombre de ttys au boot](#id-24)
-- [25 - Optimiser le kernel](#id-25) avec des arguments et le sched-ext Rusty
+- [25 - Optimiser le kernel](#id-25) avec des arguments et le sched-ext BPFland
 - [26 - Régler wifi](#id-26)
 
 ### 📦 D - Remplacement et installation de logiciels et codecs
@@ -614,13 +614,10 @@ sudo tune2fs -c 0 -i 7d /dev/nvme0n1p2
 ```
 Vérifier avec  `sudo tune2fs -l /dev/nvme0n1p2 | grep -i 'check'
 
-**b - Sched-ext Rusty :**
+**b - Sched-ext BPFland :**
 
-Activer le scheduler `Rusty` avec sched-ext, et penser à supprimer Ananicy pour éviter les conflits :
-```
-sudo pacman -Rdd ananicy-cpp
-```
-
+Activer le scheduler `BPFland` en AUTO avec sched-ext
+Vérifier si Ananicy fonctionne maintenant que les deux peuvent cohabiter.
 
 <a id="id-26"></a>
 ## 26 - Régler wifi
