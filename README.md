@@ -616,7 +616,7 @@ Vérifier avec  `sudo tune2fs -l /dev/nvme0n1p2 | grep -i 'check'
 
 **b - Sched-ext :**
 
-Activer le scheduler `BPFland` en AUTO avec sched-ext ou `Rusty` `Cake` (voir Github), chercher des benchmarks récents. Le dernier sur Reddit montre que le noyau compilé avec le scheduler EEVDF est le plus efficace:
+Activer le scheduler `BPFland` en AUTO avec sched-ext ou `Rusty` `Cake` (voir Github), chercher des benchmarks récents. Le dernier sur Reddit montre que le noyau compilé avec le scheduler EEVDF est le plus efficace, donc disable scx et masker le service:
 https://www.reddit.com/r/cachyos/comments/1q854z9/comment/nyqylbz/?tl=fr&translated=1&force-legacy-sct=1
 
 Vérifier si Ananicy fonctionne maintenant que les deux peuvent cohabiter.
@@ -874,7 +874,7 @@ source /usr/share/cachyos-fish-config/cachyos-config.fish
 function fish_greeting
 end
 
-# Désactiver le pager pour paru et autres programmes : à voir si possible sur yay
+# Désactiver le pager pour paru et yay
 set -Ux PAGER cat
 
 alias paru='yay'
@@ -902,7 +902,12 @@ end
 ```
 Et recharger la configuration de fish avec `source ~/.config/fish/config.fish`
 
+Régler YAY pour supprimer les demandes cleanbuild et diff :
+```
+yay --save  # Sauvegarde la config
 
+```
+Puis éditer le fichier json dans config/yay et ajouter YES et NO dans les deux options
 <a id="id-39"></a>
 ## 39 - Changer icône Pamac
 Changer l'icone Pamac:
