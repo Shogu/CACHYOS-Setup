@@ -485,6 +485,26 @@ Sortir du live Fedora & contrôler la présence de fast_commit avec :
 ```
 sudo tune2fs -l /dev/nvme0n1p2 | grep 'Filesystem features'
 ```
+Enfin monter directement la partition root en RW plutot que montage RO/contrpôle fsck/démontage/remontage RW. FSCK passera par mkinitcpio.
+```
+sudo nano /etc/sdboot-manage.conf
+```
+Ajouter :
+`rw rootflags=data=writeback,commit=60,noatime,barrier=0`
+
+Puis `sudo sdboot-manage gen`
+
+Commenter la ligne root dans FSTAB:
+```
+sudo gedit /etc/fstab
+```
+Relancer mkinitcpio avec `sudo mkinitcpio -P`
+
+Enfin masquer le service systemd fsck :
+```
+sudo systemctl mask systemd-fsck-root.service
+```
+Et reboot.
 
 
 <a id="id-20"></a>
