@@ -807,7 +807,7 @@ j - [Hot Edge](https://extensions.gnome.org/extension/4222/hot-edge/)
 
 k - [Custom Command Toggle](https://extensions.gnome.org/extension/7012/custom-command-toggle/)  
 
-l - [Mosaic Tiling](https://extensions.gnome.org/extension/8502/mosaic/)
+l - [Drag'n'Tile](https://extensions.gnome.org/extension/7863/dragntile/))
 
 m - [Quick Close Overview](https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/)
 
@@ -815,9 +815,9 @@ n - [Auto Power Profile](https://extensions.gnome.org/extension/6583/auto-power-
 
 o - [Battery Monitor](https://extensions.gnome.org/extension/8348/battery-monitor/)
 
-p - [https://extensions.gnome.org/extension/4491/privacy-settings-menu/](Privacy Settings) puis la supprimer une fois les réglages faits.
+p - [Privacy Settings](https://extensions.gnome.org/extension/4491/privacy-settings-menu/) puis la supprimer une fois les réglages faits.
 
-q - [https://extensions.gnome.org/extension/4928/mpris-label/](MPRIS Media Player)
+q - [MPRIS Media Player](https://extensions.gnome.org/extension/4928/mpris-label)
 
 <a id="id-36"></a>
 ## 36 - Installer Open with Ptyxis
