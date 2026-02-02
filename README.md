@@ -1,3 +1,4 @@
+
 F# CACHYOS-Setup
 Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 
@@ -606,7 +607,7 @@ sudo gnome-text-editor /etc/sdboot-manage.conf
 ```
 Puis saisir : 
 ```
-LINUX_OPTIONS="noreplace-smp tsc=reliable cryptomgr.notests random.trust_cpu=on efi=disable_early_pci_dma nomce nowatchdog no_timer_check noresume fsck.mode=skip zswap.enabled=0 console=tty1 systemd.show_status=false quiet 8250.nr_uarts=0 cgroup_disable=rdma nvme_core.default_ps_max_latency_us=5500 ipv6.disable=1 amd_iommu=off transparent_hugepage=madvise rcupdate.rcu_normal_after_boot=1 vt.global_cursor_default=0 consoleblank=0 rd.udev.log_level=0 loglevel=0 tpm_crb.disable=1 rcutree.enable_rcu_lazy=1 rcu_nocbs=0-7 rootflags=data=writeback,commit=60,noatime,barrier=0 clearcpuid=rdseed"
+LINUX_OPTIONS="noreplace-smp tsc=reliable cryptomgr.notests random.trust_cpu=on efi=disable_early_pci_dma nomce nowatchdog no_timer_check noresume fsck.mode=skip zswap.enabled=0 console=tty1 systemd.show_status=false quiet 8250.nr_uarts=0 cgroup_disable=rdma nvme_core.default_ps_max_latency_us=5500 ipv6.disable=1 amd_iommu=off transparent_hugepage=madvise rcupdate.rcu_normal_after_boot=1 vt.global_cursor_default=0 consoleblank=0 rd.udev.log_level=0 loglevel=0 tpm_crb.disable=1 rcutree.enable_rcu_lazy=1 rcu_nocbs=0-7 rw rootflags=data=writeback,commit=60,noatime,barrier=0 clearcpuid=rdseed"
 ```
 Relancer systemd-boot conformément à la méthode CachyOS :
 ```
