@@ -1051,7 +1051,19 @@ Supprimer les locales sauf EN, en_US, fr, Fr_FR dans `usr/share/locales` : pense
 
 <a id="id-49"></a>
 ## 49 - Créer modèles de fichier dans Nautilus
-# 1. Renommer l'ancien dossier Modèles en .Modèles (s'il existe) [ -d "$HOME/Modèles" ] && mv "$HOME/Modèles" "$HOME/.Modèles" # 2. S'assurer que le dossier caché existe mkdir -p "$HOME/.Modèles" # 3. Créer les deux fichiers modèles touch "$HOME/.Modèles/notepad.txt" touch "$HOME/.Modèles/word.docx" # 4. Pointer XDG_TEMPLATES_DIR vers ce dossier sed -i '/^XDG_TEMPLATES_DIR=/d' "$HOME/.config/user-dirs.dirs" echo 'XDG_TEMPLATES_DIR="$HOME/.Modèles"' >> "$HOME/.config/user-dirs.dirs" # 5. Recharger la config XDG xdg-user-dirs-update # 6. Redémarrer Nautilus nautilus -q renommer Modèles en .Modèles et créer fichier Notepad.txt et Word.docx, penser à editer ~/.config/user-dirs.dirs puis xdg-user-dirs-update et à relancer gnome xdg-user-dirs-update
+1. Renommer l'ancien dossier Modèles en .Modèles (s'il existe) [ -d "$HOME/Modèles" ] && mv "$HOME/Modèles" "$HOME/.Modèles" # 2. S'assurer que le dossier caché existe mkdir -p "$HOME/.Modèles" # 3. Créer les deux fichiers modèles touch "$HOME/.Modèles/notepad.txt" touch "$HOME/.Modèles/word.docx" # 4. Pointer XDG_TEMPLATES_DIR vers ce dossier sed -i '/^XDG_TEMPLATES_DIR=/d' "$HOME/.config/user-dirs.dirs" echo 'XDG_TEMPLATES_DIR="$HOME/.Modèles"' >> "$HOME/.config/user-dirs.dirs" # 5. Recharger la config XDG xdg-user-dirs-update # 6. Redémarrer Nautilus nautilus -q renommer Modèles en .Modèles et créer fichier Notepad.txt et Word.docx, penser à editer ~/.config/user-dirs.dirs puis xdg-user-dirs-update et à relancer gnome xdg-user-dirs-update
+
+<a id="id-49"></a>
+## 49 - Modifier Cachy-upmdate (icons et settings
+Générez le fichier de config utilisateur
+```
+arch-update --gen-config
+```
+Éditez le fichier pour choisir le thème :
+```
+arch-update --edit-config
+```
+Décommentez et modifiez la ligne :TrayIconStyle=light + yay pour paru + 1 sauvegarde et non 3 etc...
 ----------------------------------------------------------------------------------------------
 
 # 🌐 F - Réglages du navigateur Firefox
