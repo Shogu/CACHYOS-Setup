@@ -818,7 +818,7 @@ o - [Battery Monitor](https://extensions.gnome.org/extension/8348/battery-monito
 
 p - [Privacy Settings](https://extensions.gnome.org/extension/4491/privacy-settings-menu/) puis la supprimer une fois les réglages faits.
 
-q - [MPRIS Media Player](https://extensions.gnome.org/extension/4928/mpris-label)
+q - [Media Controls](https://extensions.gnome.org/extension/4470/media-controls/)
 
 <a id="id-36"></a>
 ## 36 - Installer Open with Ptyxis
