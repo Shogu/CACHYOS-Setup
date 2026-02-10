@@ -654,7 +654,24 @@ et décommenter la ligne *WIRELESS_REGDOM="FR"*
 Puis régler la connexion Wifi 5Ghz en dur : ip 192.168.31.102 // masque 255.255.255.0 // passerelle 192.168.31.1 // dns 1.1.1.1, 1.0.0.1, désactiver ipv6
 
 
+Ananicy-cpp : si le service systemd ne se lance pas, l'éditer avec  sudo systemctl edit ananicy-cpp.service ety ajouter ce code dans l'override : 
+```
+## Fix ananicy-cpp not starting corectly                                                                                                                                                                           
+## specifically complaining about Cgroups not being available or disabled                                                                                                                                                                                                                                                                                                                                                   
+[Service]                                                                                                                                                                                                          
+Delegate=yes                                                                                                                                                                                                                                    
+## ​Delegate=yes tells systemd to delegate management of the cgroup subtree to the service.                                                                                                                         
+## This allows ananicy-cpp to create, modify, and manage its own cgroups for the processes it handles,                                                                                                             
+## without conflicting with systemd’s overall cgroup management.                                                                                                                                                                                                                                        
+```
+Puis 
+```
+sudo systemctl enable --now ananicy-cpp
+sudo systemctl status ananicy-cpp
+```
+Vérifier avec 
 
+ 
 ----------------------------------------------------------------------------------------------
 
 # 📦 D - Remplacement et installation de logiciels et codecs
