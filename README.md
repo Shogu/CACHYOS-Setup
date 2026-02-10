@@ -187,6 +187,7 @@ sudo systemctl mask tpm2.target
 sudo systemctl mask lvm2-lvmpolld.service lvm2-monitor.service lvm2-lvmpolld.socket
 sudo systemctl mask  pamac-cleancache.service
 sudo systemctl mask  pamac-cleancache.timer
+sudo systemctl mask  pamac-daemon.service
 sudo systemctl mask bluetooth.service
 sudo systemctl mask colord.service
 sudo systemctl mask systemd-vconsole-setup.service
