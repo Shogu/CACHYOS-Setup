@@ -930,6 +930,22 @@ source /usr/share/cachyos-fish-config/cachyos-config.fish
 # Désactive le message d'accueil de Fish.
 function fish_greeting
 end
+
+# Contrôleur live de scx_scheduler - commande scx
+
+function scx
+    watch -n 5 '
+        echo "--- CPU SCHEDULER ---"; 
+        scxctl get; 
+        echo ""; 
+        echo "--- DISK SCHEDULER ---"; 
+        cat /sys/block/nvme0n1/queue/scheduler;
+        echo "";
+        echo "--- PROTONS ---";
+        printenv | grep -i proton
+    '
+end
+
 alias vim='nano'
 alias vi='nano'
 alias gedit='gnome-text-editor'
