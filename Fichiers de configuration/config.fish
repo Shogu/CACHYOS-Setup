@@ -10,6 +10,20 @@ source /usr/share/cachyos-fish-config/cachyos-config.fish
 function fish_greeting
 end
 
+# Contrôleur live de scx_scheduler - commande scx
+function scx
+    watch -n 5 '
+        echo "--- CPU SCHEDULER ---"; 
+        scxctl get; 
+        echo ""; 
+        echo "--- DISK SCHEDULER ---"; 
+        cat /sys/block/nvme0n1/queue/scheduler;
+        echo "";
+        echo "--- PROTONS ---";
+        printenv | grep -i proton
+    '
+end
+
 alias vim='nano'
 alias vi='nano'
 alias gedit='gnome-text-editor'
@@ -17,7 +31,7 @@ alias micro='nano'
 alias notepad='gnome-text-editor'
 alias edit='gnome-text-editor'
 
-# utiliser sudo pour les alias
+#utiliser sudo pour les alias
 function sudo
     if test (count $argv) -eq 0
         command sudo
@@ -31,4 +45,3 @@ function sudo
         end
     end
 end
-
