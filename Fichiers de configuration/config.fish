@@ -17,12 +17,11 @@ function scx
         scxctl get; 
         echo ""; 
         echo "--- DISK SCHEDULER ---"; 
-        cat /sys/block/nvme0n1/queue/scheduler;
-        echo "";
-        echo "--- PROTONS ---";
-        printenv | grep -i proton
+        cat /sys/block/nvme0n1/queue/scheduler
+        echo ""
     '
 end
+
 
 alias vim='nano'
 alias vi='nano'
