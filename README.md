@@ -53,7 +53,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [26 - Régler wifi](#id-26)
 
 ### 📦 D - Remplacement et installation de logiciels et codecs
-- [27 - Installer logiciels avec pacman et yay](#id-27)
+- [27 - Installer logiciels avec pacman et paru](#id-27)
 - [28 - Installer Dropbox avec Maestral](#id-28)
 
 ### 🐾 E - Réglages de l'UI Gnome Shell
@@ -167,7 +167,7 @@ Penser à supprimer l'extension `Pamac Updater` dans usr/share/gnome-shell/exten
 ## 8 - JamesDSP
 
 !! A mettre dans la rubrique Optimisation !!
-Installer Jamesdsp avec yay ou pamac, modifier son nom en Audio et passer StartupWMClass=jamesdsp, le régler conformément à ce [tuto](https://discuss.cachyos.org/t/tutorial-make-linux-sound-better-easier-with-jamesdsp/16098/5), avec le *.conf ClearPenguin disponible dans le Github.
+Installer Jamesdsp avec paru ou pamac, modifier son nom en Audio et passer StartupWMClass=jamesdsp, le régler conformément à ce [tuto](https://discuss.cachyos.org/t/tutorial-make-linux-sound-better-easier-with-jamesdsp/16098/5), avec le *.conf ClearPenguin disponible dans le Github.
 
 Suppriemr l'icone du menu et créer un Custom Command Toggle (voir fichier *.ini)
 
@@ -670,15 +670,37 @@ Si ok alors sudo pacman -Rdd wpa_supplicant
 # 📦 D - Remplacement et installation de logiciels et codecs
 
 <a id="id-27"></a>
-## 27 - Installer logiciels avec pacman et yay
+## 27 - Installer logiciels avec pacman et paru
 Installer les `logiciels` suivants :
 ```
-sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse pamac extension-manager fragments papers yay nicotine+ resources onlyoffice fuse2 jamesdsp xournal++ jdownloader2 geary 
+sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse pamac extension-manager fragments papers nicotine+ resources onlyoffice fuse2 jamesdsp xournal++ jdownloader2 geary 
 ```
-et
+et le reste avec paru après avoir édité le conf de Paru pour supprimer les dépendances de création de paquets etc
+```
+mkdir -p ~/.config/paru
+cp /etc/paru.conf ~/.config/paru/paru.conf 
+gnome-text-editor ~/.config/paru/paru.conf
 
 ```
-yay libre-menu-editor gradia monophony archclean systemd-manager-tui gapless
+Et activer 
+```
+[options]
+PgpFetch
+Devel
+Provides
+DevelSuffixes = -git -cvs -svn -bzr -darcs -always -hg -fossil
+BottomUp
+RemoveMake
+SudoLoop
+CombinedUpgrade
+CleanAfter
+UpgradeMenu
+NewsOnUpgrade
+SkipReview #à ajouter à la main
+
+```
+```
+paru libre-menu-editor gradia monophony archclean systemd-manager-tui gapless
 ```
 Enfin installer [l'appimage de Beeper](https://api.beeper.com/desktop/download/linux/x64/stable/com.automattic.beeper.desktop), la déplacer dans .local/bin, éditer le raccourci avec le chemin de l'éxecutable et  `StartupWMClass=Beeper` pour faire apparaitre l'icone dans le dash.
 
@@ -734,7 +756,7 @@ sudo -u gdm dbus-launch gsettings set org.gnome.desktop.interface cursor-theme p
 ```
 Continuer avec GDM Settings (pour mettre le wallpaper dans GDM, entre autres) : importer le fichier de configuration `gdm-settings.ini`
 ```
-yay -S gdm-settings
+paru -S gdm-settings
 ```
 Puis supprimer le paquet.
 
@@ -836,7 +858,7 @@ r - [Wondows Rounded Corners](https://extensions.gnome.org/extension/7048/rounde
 <a id="id-36"></a>
 ## 36 - Installer Open with Ptyxis
 ```
-yay -S nautilus-open-any-terminal ou yay -S nautilus-open-in-ptyxis
+paru -S nautilus-open-any-terminal
 ```
 et penser à éditer sa clé dconf com.github.stunkymonkey.nautilus-open-any-terminal pour inscrire "ptyxis" + mettre "new tab" sur true pour que Ptyxis s'ouvre dans la session en cours. En cas d'erreur avec Gnome 49, se référer à [ce fil](https://github.com/Stunkymonkey/nautilus-open-any-terminal/issues/242).
 
@@ -907,11 +929,6 @@ source /usr/share/cachyos-fish-config/cachyos-config.fish
 # Désactive le message d'accueil de Fish.
 function fish_greeting
 end
-
-# Désactiver le pager pour paru et yay
-set -Ux PAGER cat
-
-alias paru='yay'
 alias vim='nano'
 alias vi='nano'
 alias gedit='gnome-text-editor'
@@ -936,13 +953,7 @@ end
 ```
 Et recharger la configuration de fish avec `source ~/.config/fish/config.fish`
 
-Régler YAY pour supprimer les demandes cleanbuild et diff :
-```
-yay --save  # Sauvegarde la config
 
-```
-Puis éditer le fichier json dans config/yay et ajouter YES et NO dans les deux options
-<a id="id-39"></a>
 ## 39 - Changer icône Pamac
 Changer l'icone Pamac:
 ```
@@ -980,7 +991,7 @@ Le télécharger depuis le dossier `SCRIPTS`, le coller dans /home/ogu/.local/bi
 ## 43 - Accélérer Gnome Shell
 Installer les composants mutter-performance et gnome-shell performance ??
 ```
-yay mutter-performance gnome-shell performance
+paru mutter-performance gnome-shell performance
 ```
 
 
@@ -992,7 +1003,7 @@ Penser à les rendre exécutables!
 
 Ajouter `nautilus-copy-path` & `nautilus-admin`
 ```
-yay -S nautilus-copy-path nautilus-admin
+paru -S nautilus-copy-path nautilus-admin
 ```
 Et éditer les fichiers `/usr/share/nautilus-python/extensions/nautilus-copy-path/nautilus_copy_path.py` & `/usr/share/nautilus-python/extensions/nautilus-copy-path.py` pour passer URI & Content en `false`, puis `/usr/share/nautilus-python/extensions/nautilus-admin.py` pour traduire "Open as admin" (voir traduction dans les fichiers de config du déoôt Github)
 
@@ -1076,7 +1087,7 @@ arch-update --gen-config
 ```
 arch-update --edit-config
 ```
-Décommentez et modifiez la ligne :TrayIconStyle=light + yay pour paru + 1 sauvegarde et non 3 etc...
+Décommentez et modifiez la ligne :TrayIconStyle=light + 1 sauvegarde et non 3 etc...
 ----------------------------------------------------------------------------------------------
 
 # 🌐 F - Réglages du navigateur Firefox
