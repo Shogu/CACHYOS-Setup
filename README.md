@@ -160,7 +160,7 @@ Faire les réglages proposés par `CachyOS-Hello` : désactiver le bluetooth, ac
 ```
 sudo pacman -Rns apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds gnome-usage octopi gedit xfsprogs btrfs-progs cpupower gnome-screenshot openvpn networkmanager-openvpn networkmanager-vpn-plugin-openvpn fwupd bpftune-git
 ```
-Penser à supprimer l'extension `Pamac Updater` dans usr/share/gnome-shell/extensions et à supprimer les logiciels inutiles de Gnome avec Pamac.
+Penser à supprimer l'extension `Pamac Updater` dans usr/share/gnome-shell/extensions et à supprimer les logiciels inutiles de Gnome avec Pamac. Ou carrément ne pas installer pamac ou le desisntaller une fois le ménage fait!
 
 
 <a id="id-8"></a>
@@ -700,14 +700,15 @@ SkipReview #à ajouter à la main
 
 ```
 ```
-paru libre-menu-editor gradia monophony archclean systemd-manager-tui gapless
+paru libre-menu-editor gradia monophony archclean systemd-manager-tui gapless cine
 ```
 Enfin installer [l'appimage de Beeper](https://api.beeper.com/desktop/download/linux/x64/stable/com.automattic.beeper.desktop), la déplacer dans .local/bin, éditer le raccourci avec le chemin de l'éxecutable et  `StartupWMClass=Beeper` pour faire apparaitre l'icone dans le dash.
 
 <a id="id-28"></a>
 ## 28 - Installer Dropbox avec Maestral
 créer le répertoire Dropbox dans /home puis lancer le script *maestral_install* 
-
+NE MARCHE PLUS APRES LA DERNIERE UPDATE - Revenir à l'appli Dropbox générale
+Penser à installer sudo pacman -S libappindicator-gtk3
 
 
 ----------------------------------------------------------------------------------------------
@@ -965,7 +966,16 @@ puis éditer le raccourci avec Menu Libre.
 
 
 <a id="id-40"></a>
-## 40 - Configurer Celluloid
+## 40 - Configurer Celluloid oui Ciné
+Cine : modifier la navigation dans la vidéo en créant le fichier `input.conf` dans `~/.config/cine/input.conf`:
+```
+#Modifier la navigation dans la vidéo : 60s fleches horizontales et 5 minutes fleches verticales
+RIGHT seek 60
+LEFT seek -60
+UP seek 300
+DOWN seek -300
+```
+
 
 inscrire `vo=gpu-next gpu-api=vulkan` dans Paramètres --> Divers --> Options supplémentaires, activer l'option `focus` et `toujours afficher les boutons de titre`, enfin télécharger et installer les deux scripts lua suivants pour la musique : Visualizer & Delete File
 
