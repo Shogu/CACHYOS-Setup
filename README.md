@@ -943,7 +943,12 @@ function scx
     '
 end
 
+# 20 dernières erreurs journalctl - commande journal
+function journal
+    journalctl -p err -n 20 --no-pager | bat -l log  
+end
 
+# Alias
 alias vim='nano'
 alias vi='nano'
 alias gedit='gnome-text-editor'
