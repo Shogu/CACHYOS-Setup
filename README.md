@@ -609,7 +609,7 @@ sudo gnome-text-editor /etc/sdboot-manage.conf
 ```
 Puis saisir : 
 ```
-LINUX_OPTIONS="noreplace-smp tsc=reliable cryptomgr.notests random.trust_cpu=on efi=disable_early_pci_dma nomce nowatchdog no_timer_check noresume fsck.mode=skip zswap.enabled=0 console=tty1 systemd.show_status=false quiet 8250.nr_uarts=0 cgroup_disable=rdma nvme_core.default_ps_max_latency_us=5500 ipv6.disable=1 amd_iommu=off transparent_hugepage=madvise rcupdate.rcu_normal_after_boot=1 vt.global_cursor_default=0 consoleblank=0 udev.log_level=0 loglevel=0 systemd.watchdog_sec=0 tpm_crb.disable=1 rcutree.enable_rcu_lazy=1 rcu_nocbs=0-7 rw rootflags=data=writeback,commit=60,noatime,barrier=0 clearcpuid=rdseed systemd.watchdog_sec=0"
+LINUX_OPTIONS="tsc=reliable cryptomgr.notests random.trust_cpu=on efi=disable_early_pci_dma nomce noreplace-smp nowatchdog no_timer_check noresume fsck.mode=skip zswap.enabled=0 console=tty1 systemd.show_status=false quiet 8250.nr_uarts=0 cgroup_disable=rdma nvme_core.default_ps_max_latency_us=5500 ipv6.disable=1 amd_iommu=off transparent_hugepage=madvise rcupdate.rcu_normal_after_boot=1 vt.global_cursor_default=0 consoleblank=0 udev.log_level=0 loglevel=0 systemd.watchdog_sec=0 tpm_crb.disable=1 rcutree.enable_rcu_lazy=1 rcu_nocbs=0-7 rw rootflags=data=writeback,commit=60,noatime,barrier=0 clearcpuid=rdseed"
 ```
 Relancer systemd-boot conformément à la méthode CachyOS :
 ```
@@ -617,21 +617,38 @@ sudo sdboot-manage gen
 ```
 Vérifier que tous les réglages fonctionnent en lançant sudo dmesg
 
-| Thème                     | Arguments / Options                                                                 | Description                                                                                   |
-|----------------------------|------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
-| **Perf / CPU / Scheduler** | `rcu_nocbs=0-(nproc-1)`, `rcupdate.rcu_normal_after_boot=1, `noreplace-smp`, `tsc=reliable` | Optimisations RCU, scheduler et compteur TSC pour réduire latence et améliorer le boot.      |
-| **Sécurité / Crypto**      | `cryptomgr.notests`, `random.trust_cpu=on`, `tpm.disable=1`                        | Désactive PUCE TPM & tests crypto au boot et fait confiance aux instructions RDRAND/RDSEED.             |
-| **ACPI / Matériel / GPU**  | `efi=disable_early_pci_dma`, `nomce`, `split_lock_detect=off`                                             | Désactive DMA PCI précoce, MCE non critiques pour éviter conflits et arrêts intempestifs, et désactive le split lock   |
-| **Debug / Logs / Timer**   | `nowatchdog`, `loglevel=0`, `no_timer_check`                                       | Désactive watchdog, limite logs et vérifications timer HPET pour accélérer le boot.          |
-| **Swap / FS**              | `noresume`, `fsck.mode=skip`, `zswap.enabled=0`                                    | Désactive reprise hibernation, fsck et zswap pour réduire overhead CPU et boot time.         |
-| **Console / Boot**         | `console=tty0`, `systemd.show_status=false`, `quiet splash`                        | Définit la console principale et masque la majorité des messages kernel/systemd.             |
-| **Divers / UART**          | `8250.nr_uarts=0`                                                                  | Désactive tous les ports série 8250 si non utilisés.                                          |
-| **Cgroup / RDMA**          | `cgroupdisable=rdma`                                                               | Désactive les cgroups RDMA si non utilisés.                                                  |
-| **NVMe**                   | `nvme_core.default_ps_max_latency_us=5500`                                         | Limite latence NVMe pour un mode power-saving équilibré.                                      |
-| **Wifi / Réseau**          | `disable_ipv6=1`                                                                   | Désactive IPv6.                                                                               |
-| **Virtualisation**         | `amd_iommu=off`                                                                    | Désactive l’IOMMU AMD si pas de virtualisation/VFIO.                                         |
+*INFO KERNEL ARGUMENTS :
+Silent boot:
+```
+console=tty1 systemd.show_status=false quiet udev.log_level=0 loglevel=0 consoleblank=0 systemd.watchdog_sec=0 vt.global_cursor_default=0
+```
 
-Penser à créer un timer (1/semaine) pour lancer fsck vu qu'il est désactivé au niveau kernel :
+Hardware et Vérifications:
+```
+nowatchdog no_timer_check 8250.nr_uarts=0 tpm_crb.disable=1 clearcpuid=rdseed noreplace=smp
+```​​
+
+Sécurité et Crypto
+```
+tsc=reliable cryptomgr.notests random.trust_cpu=on efi=disable_early_pci_dma nomce
+```
+
+Stockage et FS
+```
+noresume fsck.mode=skip zswap.enabled=0 nvme_core.default_ps_max_latency_us=5500 rw rootflags=data=writeback,commit=60,noatime,barrier=0
+```
+
+RCU et Scheduling
+```
+rcupdate.rcu_normal_after_boot=1 rcutree.enable_rcu_lazy=1 rcu_nocbs=0-7
+```​
+
+Réseau et Autres
+```
+ipv6.disable=1 amd_iommu=off transparent_hugepage=madvise cgroup_disable=rdma 
+```
+
+Penser à créer un timer (1/semaine) pour lancer fsck vu qu'il est désactivé au niveau kernel ? 
 ```
 sudo tune2fs -c 0 -i 7d /dev/nvme0n1p2
 ```
