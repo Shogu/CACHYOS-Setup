@@ -932,19 +932,17 @@ function fish_greeting
 end
 
 # Contrôleur live de scx_scheduler - commande scx
-
 function scx
     watch -n 5 '
         echo "--- CPU SCHEDULER ---"; 
         scxctl get; 
         echo ""; 
         echo "--- DISK SCHEDULER ---"; 
-        cat /sys/block/nvme0n1/queue/scheduler;
-        echo "";
-        echo "--- PROTONS ---";
-        printenv | grep -i proton
+        cat /sys/block/nvme0n1/queue/scheduler
+        echo ""
     '
 end
+
 
 alias vim='nano'
 alias vi='nano'
