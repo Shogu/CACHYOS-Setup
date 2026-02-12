@@ -12,7 +12,7 @@ end
 
 # Contrôleur live de scx_scheduler - commande scx
 function scx
-    watch -n 5 '
+    watch -n 3 '
         echo "--- CPU SCHEDULER ---"; 
         scxctl get; 
         echo ""; 
