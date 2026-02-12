@@ -617,7 +617,7 @@ sudo sdboot-manage gen
 ```
 Vérifier que tous les réglages fonctionnent en lançant sudo dmesg
 
-*INFO KERNEL ARGUMENTS :
+*INFO KERNEL ARGUMENTS* :
 Silent boot:
 ```
 console=tty1 systemd.show_status=false quiet udev.log_level=0 loglevel=0 consoleblank=0 systemd.watchdog_sec=0 vt.global_cursor_default=0
