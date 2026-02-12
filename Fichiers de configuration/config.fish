@@ -22,13 +22,12 @@ function scx
     '
 end
 
-
 # 20 dernières erreurs journalctl - commande journal
 function journal
     journalctl -p err -n 20 --no-pager | bat -l log  
 end
 
-# Arguments kernel - command flags
+# Arguments kernel - commande flags
 function flags
     clear
     echo "KERNEL FLAGS (/proc/cmdline)"
