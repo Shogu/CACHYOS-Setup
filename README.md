@@ -456,7 +456,7 @@ timeout 1
 Editer le mount des `partitions EXT4` avec la commande :
 `sudo gnome-text-editor /etc/fstab` et rajouter après 'noatime' : 
 ```
-data=writeback,commit=60,barrier=0 0 0
+data=writeback,commit=60,barrier=0 0 1
 ```
 | Option                   | Rôle                                                                 | Avantage                                       | Inconvénient / Risque                                      |
 |---------------------------|----------------------------------------------------------------------|------------------------------------------------|--------------------------------------------------------                |
@@ -464,7 +464,7 @@ data=writeback,commit=60,barrier=0 0 0
 | `data=writeback`         | Journalise seulement les **métadonnées**, pas le contenu des fichiers. | Écritures plus rapides, moins de charge disque. 
 | `commit=60`              | Force l’écriture du journal toutes les 60 secondes.                  | Moins d’écritures → plus de perf + moins d’usure SSD.          |
 | `barrier=0`              | Désactive les barrières d’écriture (cache flush).                    | Réduit la latence et accélère les commits.   
-| `0 0`                    | Désactive `dump` et `fsck` automatiques au boot.                                     | Pas de vérification 
+| `0 1`                    | Désactive `dump`, `fsck` automatique au boot.                                     | 
 
 
 Pour la partiton `vfat` : 
@@ -488,7 +488,7 @@ Sortir du live Fedora & contrôler la présence de fast_commit avec :
 ```
 sudo tune2fs -l /dev/nvme0n1p2 | grep 'Filesystem features'
 ```
-Enfin monter directement la partition root en RW plutot que montage RO/contrpôle fsck/démontage/remontage RW. FSCK passera par mkinitcpio.
+Enfin monter directement la partition root en RW plutot que montage RO/contrôle fsck/démontage/remontage RW. FSCK passera par mkinitcpio.
 ```
 sudo nano /etc/sdboot-manage.conf
 ```
@@ -615,36 +615,42 @@ Relancer systemd-boot conformément à la méthode CachyOS :
 ```
 sudo sdboot-manage gen
 ```
-Vérifier que tous les réglages fonctionnent en lançant `sudo dmesg`
+Vérifier que tous les réglages fonctionnent en lançant `sudo dmesg`.
 
 *INFO KERNEL ARGUMENTS*
 
-Silent boot:
+*Silent boot*:
+
 ```
 console=tty1 systemd.show_status=false quiet udev.log_level=0 loglevel=0 consoleblank=0 systemd.watchdog_sec=0 vt.global_cursor_default=0
 ```
 
-Hardware et Vérifications:
+*Hardware et Vérifications*:
+
 ```
 nowatchdog no_timer_check 8250.nr_uarts=0 tpm_crb.disable=1 clearcpuid=rdseed noreplace-smp
-```​​
+```
 
-Sécurité et Crypto
+*Sécurité et Crypto*:
+
 ```
 tsc=reliable cryptomgr.notests random.trust_cpu=on efi=disable_early_pci_dma nomce
 ```
 
-Stockage et FS
+*Stockage et FS*:
+
 ```
 noresume fsck.mode=skip zswap.enabled=0 nvme_core.default_ps_max_latency_us=5500 rw rootflags=data=writeback,commit=60,noatime,barrier=0
 ```
 
-RCU et Scheduling
+*RCU et Scheduling*:
+
 ```
 rcupdate.rcu_normal_after_boot=1 rcutree.enable_rcu_lazy=1 rcu_nocbs=0-7
-```​
+```
 
-Réseau et Autres
+*Réseau et Autres*:
+
 ```
 ipv6.disable=1 amd_iommu=off transparent_hugepage=madvise cgroup_disable=rdma 
 ```
