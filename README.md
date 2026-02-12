@@ -615,9 +615,10 @@ Relancer systemd-boot conformément à la méthode CachyOS :
 ```
 sudo sdboot-manage gen
 ```
-Vérifier que tous les réglages fonctionnent en lançant sudo dmesg
+Vérifier que tous les réglages fonctionnent en lançant `sudo dmesg`
 
-*INFO KERNEL ARGUMENTS* :
+*INFO KERNEL ARGUMENTS*
+
 Silent boot:
 ```
 console=tty1 systemd.show_status=false quiet udev.log_level=0 loglevel=0 consoleblank=0 systemd.watchdog_sec=0 vt.global_cursor_default=0
@@ -625,7 +626,7 @@ console=tty1 systemd.show_status=false quiet udev.log_level=0 loglevel=0 console
 
 Hardware et Vérifications:
 ```
-nowatchdog no_timer_check 8250.nr_uarts=0 tpm_crb.disable=1 clearcpuid=rdseed noreplace=smp
+nowatchdog no_timer_check 8250.nr_uarts=0 tpm_crb.disable=1 clearcpuid=rdseed noreplace-smp
 ```​​
 
 Sécurité et Crypto
