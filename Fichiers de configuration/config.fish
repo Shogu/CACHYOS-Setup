@@ -66,7 +66,7 @@ alias notepad='gnome-text-editor'
 alias edit='gnome-text-editor'
 alias systemd-manager='systemd-manager-tui'
 
-# utiliser sudo pour les alias
+# utiliser sudo pour l'alias gedit
 function sudo
     if test (count $argv) -eq 0
         command sudo
