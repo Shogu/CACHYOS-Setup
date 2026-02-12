@@ -940,62 +940,11 @@ systemctl --user status asus_numberpad_driver@ogu.service
 
 <a id="id-38"></a>
 ## 38 - Configurer fish et gnome-text-editor
-Régler `Gnome-text-editor`et `Ptyxis`, configurer `fish` avec `gnome-text-editor ~/.config/fish/config.fish` et coller :
-  
-```
-source /usr/share/cachyos-fish-config/cachyos-config.fish
+Régler `Gnome-text-editor`et `Ptyxis`; configurer `fish` avec le fichier config.fish à télécharger dans ce repo : il inclut des alias supplémentaires, la fonction greeting désactivée, et des fonctions maison (scx, journal, flags, sudo gedit)
 
-# overwrite greeting
-# potentially disabling fastfetch
-#function fish_greeting
-#    # smth smth
-#end
+Recharger la configuration de fish avec `source ~/.config/fish/config.fish`
 
-# Désactive le message d'accueil de Fish.
-function fish_greeting
-end
-
-# Contrôleur live de scx_scheduler - commande scx
-function scx
-    watch -n 5 '
-        echo "--- CPU SCHEDULER ---"; 
-        scxctl get; 
-        echo ""; 
-        echo "--- DISK SCHEDULER ---"; 
-        cat /sys/block/nvme0n1/queue/scheduler
-        echo ""
-    '
-end
-
-# 20 dernières erreurs journalctl - commande journal
-function journal
-    journalctl -p err -n 20 --no-pager | bat -l log  
-end
-
-# Alias
-alias vim='nano'
-alias vi='nano'
-alias gedit='gnome-text-editor'
-alias micro='nano'
-alias notepad='gnome-text-editor'
-alias edit='gnome-text-editor'
-
-#utiliser sudo pour les alias
-function sudo
-    if test (count $argv) -eq 0
-        command sudo
-    else
-        # Transforme le premier argument en alias/commande à exécuter avec sudo
-        switch $argv[1]
-            case gedit
-                command sudo gnome-text-editor $argv[2..-1]
-            case '*'
-                command sudo $argv
-        end
-    end
-end
-```
-Et recharger la configuration de fish avec `source ~/.config/fish/config.fish`
+Gnome-text-editor : se contenter de modifie rles réglages internes
 
 
 ## 39 - Changer icône Pamac
@@ -1009,7 +958,7 @@ puis éditer le raccourci avec Menu Libre.
 
 
 <a id="id-40"></a>
-## 40 - Configurer Celluloid oui Ciné
+## 40 - Configurer Celluloid ou Ciné (préférer Cine)
 Cine : modifier la navigation dans la vidéo en créant le fichier `input.conf` dans `~/.config/cine/input.conf`:
 ```
 #Modifier la navigation dans la vidéo : 60s fleches horizontales et 5 minutes fleches verticales
