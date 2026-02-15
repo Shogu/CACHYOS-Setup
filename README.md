@@ -724,7 +724,7 @@ SkipReview #à ajouter à la main
 
 ```
 ```
-paru libre-menu-editor gradia monophony archclean systemd-manager-tui gapless cine
+paru libre-menu-editor gradia monophony archclean systemd-manager-tui gapless cine pacseek
 ```
 Enfin installer [l'appimage de Beeper](https://api.beeper.com/desktop/download/linux/x64/stable/com.automattic.beeper.desktop), la déplacer dans .local/bin, éditer le raccourci avec le chemin de l'éxecutable et  `StartupWMClass=Beeper` pour faire apparaitre l'icone dans le dash.
 
