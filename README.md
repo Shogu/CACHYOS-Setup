@@ -679,7 +679,7 @@ et décommenter la ligne *WIRELESS_REGDOM="FR"*
 Puis régler la connexion Wifi 5Ghz en dur : ip 192.168.31.102 // masque 255.255.255.0 // passerelle 192.168.31.1 // dns 1.1.1.1, 1.0.0.1, désactiver ipv6
 
 
-2 - IWD plutot que wpa_supplicant dans NetworkManager
+2 - IWD plutot que wpa_supplicant dans NetworkManager : attention : le wifi est très lent pour se reconnecter en sortie de veille avec iwd
 
 Installer iwd, lancer le service, disable le service wpa_supplicant, editer un fichier NetworkManager.conf dans etc/NetworkMananger/conf et inscrire 
 [device]
