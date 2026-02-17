@@ -75,7 +75,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [44 - Scripts Nautilus](#id-44)
 - [45 - Supprimer Plymouth](#id-45)
 - [46 - Modifier nom toggle profil énergétique](#id-46)
-- [47 - Créer raccourcis boot to BIOS, gradia-screenshot, Ressources & Ptyxis](#id-47)
+- [47 - Créer raccourcis boot to BIOS, Ressources & Ptyxis](#id-47)
 - [48 - Faire le tri dans les LOCALES & ~/.local/share, ~/.config et /etc](#id-48)
 - ## 48 - Créer modèles de fichier dans Nautilus
 
@@ -724,7 +724,7 @@ SkipReview #à ajouter à la main
 
 ```
 ```
-paru libre-menu-editor gradia monophony archclean systemd-manager-tui gapless cine pacseek
+paru libre-menu-editor monophony archclean systemd-manager-tui gapless cine pacseek
 ```
 Enfin installer [l'appimage de Beeper](https://api.beeper.com/desktop/download/linux/x64/stable/com.automattic.beeper.desktop), la déplacer dans .local/bin, éditer le raccourci avec le chemin de l'éxecutable et  `StartupWMClass=Beeper` pour faire apparaitre l'icone dans le dash. Idem pour Puls : https://github.com/word-sys/puls
 
@@ -1066,7 +1066,7 @@ Créer un raccourci "boot to bios" avec confirmation : télécharger le script, 
 ```
 ptyxis -- /home/ogu/.local/bin/reboot_bios.sh
 ```
-Dans les Paramètres Gnome, créer un raccourci Ptyxis avec la touche Copilot, Gradia-screenshot avec `gradia --screenshot=INTERACTIVE`, Ressources avec ctrl-alt-supp
+Dans les Paramètres Gnome, créer un raccourci Ptyxis avec la touche Copilot, Ressources avec ctrl-alt-supp
 Enfin modifier les folder par défauts Dropbox, Nicotine, Téléchargements, etc, usr, root, Extensions, Icons etc avec les Places personnalisés.
 
 <a id="id-48"></a>
