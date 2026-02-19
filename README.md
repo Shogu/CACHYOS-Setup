@@ -706,6 +706,13 @@ sudo systemctl restart ananicy-cpp #pas de problème avec le lancement?
 #check du service
 sudo systemctl status ananicy-cpp
 journalctl -u ananicy-cpp -f #mention des 1800 règles? pas de problème avec cgroup?
+
+
+#fix symlink cgroups v2 si [warning] Cgroups are not available on this platform (or are not enabled)
+sudo ln -sf /proc/self/mounts /etc/mtab
+sudo systemctl restart ananicy-cpp
+
+#check de focntionnement avec Vivaldi
 ```
 
 <a id="id-26"></a>
