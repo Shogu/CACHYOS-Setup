@@ -30,7 +30,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 ### ✨ B - Allégement du système
 - [6 - Réglages CachyOS-Hello](#id-6)
 - [7 - Supprimer logiciels inutiles avec pacman](#id-7)
-- [8 - JamesDSP](#id-8)
+- [8 - !!!!!!!!!](#id-8)
 - [9 - Supprimer et masquer services SYSTEM & USER](#id-9)
 - [10 - Désactiver autostart gnome-wellbeing](#id-10)
 - [11 - Alléger journaux système et mettre en RAM](#id-11)
@@ -67,7 +67,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [36 - Installer Open with Ptyxis](#id-36)
 - [37 - Activer numpad Asus](#id-37)
 - [38 - Configurer fish et gnome-text-editor](#id-38)
-- [39 - Changer icône Pamac](#id-39)
+- [39 - JamesDSP](#id-39)
 - [40 - Configurer Celluloid](#id-40)
 - [41 - Configurer JDownloader & Fragments](#id-41)
 - [42 - Script transfert vidéos](#id-42)
@@ -164,12 +164,7 @@ Penser à supprimer l'extension `Pamac Updater` dans usr/share/gnome-shell/exten
 
 
 <a id="id-8"></a>
-## 8 - JamesDSP
-
-!! A mettre dans la rubrique Optimisation !!
-Installer Jamesdsp avec paru ou pamac, modifier son nom en Audio et passer StartupWMClass=jamesdsp, le régler conformément à ce [tuto](https://discuss.cachyos.org/t/tutorial-make-linux-sound-better-easier-with-jamesdsp/16098/5), avec le *.conf ClearPenguin disponible dans le Github.
-
-Suppriemr l'icone du menu et créer un Custom Command Toggle (voir fichier *.ini)
+## 8 - 
 
 
 <a id="id-9"></a>
@@ -789,7 +784,7 @@ Enfin installer [l'appimage de Beeper](https://api.beeper.com/desktop/download/l
 <a id="id-28"></a>
 ## 28 - Installer Dropbox avec Maestral
 créer le répertoire Dropbox dans /home puis lancer le script *maestral_install* 
-NE MARCHE PLUS APRES LA DERNIERE UPDATE - Revenir à l'appli Dropbox générale
+NE MARCHE PLUS APRES LA DERNIERE UPDATE - Revenir à l'appli Dropbox générale.
 Penser à installer sudo pacman -S libappindicator-gtk3
 
 
@@ -924,7 +919,7 @@ j - [Hot Edge](https://extensions.gnome.org/extension/4222/hot-edge/)
 
 k - [Custom Command Toggle](https://extensions.gnome.org/extension/7012/custom-command-toggle/)  
 
-l - [Drag'n'Tile](https://extensions.gnome.org/extension/7863/dragntile/))
+l - [Drag'n'Tile](https://extensions.gnome.org/extension/7863/dragntile/)
 
 m - [Quick Close Overview](https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/)
 
@@ -1005,14 +1000,11 @@ Recharger la configuration de fish avec `source ~/.config/fish/config.fish`
 Gnome-text-editor : se contenter de modifie rles réglages internes
 
 
-## 39 - Changer icône Pamac
-Changer l'icone Pamac:
-```
-mkdir -p ~/.local/share/icons && \
-wget -O ~/.local/share/icons/pamac.svg https://raw.githubusercontent.com/somepaulo/MoreWaita/b439fe8e2df83abc6cf02a0544a101426611e8ea/scalable/apps/pamac.svg 
+## 39 - JamesDSPJamesDSP
 
-```
-puis éditer le raccourci avec Menu Libre.
+Installer Jamesdsp avec paru ou pamac, modifier son nom en Audio et passer StartupWMClass=jamesdsp, le régler conformément à ce [tuto](https://discuss.cachyos.org/t/tutorial-make-linux-sound-better-easier-with-jamesdsp/16098/5), avec le *.conf ClearPenguin disponible dans le Github.
+
+Suppriemr l'icone du menu et créer un Custom Command Toggle (voir fichier *.ini), ou bien l'activer tout court.
 
 
 <a id="id-40"></a>
@@ -1135,10 +1127,15 @@ Supprimer les locales sauf EN, en_US, fr, Fr_FR dans `usr/share/locales` : pense
 
 <a id="id-49"></a>
 ## 49 - Créer modèles de fichier dans Nautilus
-1. Renommer l'ancien dossier Modèles en .Modèles (s'il existe) [ -d "$HOME/Modèles" ] && mv "$HOME/Modèles" "$HOME/.Modèles" # 2. S'assurer que le dossier caché existe mkdir -p "$HOME/.Modèles" # 3. Créer les deux fichiers modèles touch "$HOME/.Modèles/notepad.txt" touch "$HOME/.Modèles/word.docx" # 4. Pointer XDG_TEMPLATES_DIR vers ce dossier sed -i '/^XDG_TEMPLATES_DIR=/d' "$HOME/.config/user-dirs.dirs" echo 'XDG_TEMPLATES_DIR="$HOME/.Modèles"' >> "$HOME/.config/user-dirs.dirs" # 5. Recharger la config XDG xdg-user-dirs-update # 6. Redémarrer Nautilus nautilus -q renommer Modèles en .Modèles et créer fichier Notepad.txt et Word.docx, penser à editer ~/.config/user-dirs.dirs puis xdg-user-dirs-update et à relancer gnome xdg-user-dirs-update
+1. Renommer l'ancien dossier Modèles en .Modèles (s'il existe) [ -d "$HOME/Modèles" ] && mv "$HOME/Modèles" "$HOME/.Modèles" #
+2. S'assurer que le dossier caché existe mkdir -p "$HOME/.Modèles"
+3. Créer les deux fichiers modèles touch "$HOME/.Modèles/notepad.txt" touch "$HOME/.Modèles/word.docx"
+4. Pointer XDG_TEMPLATES_DIR vers ce dossier : sed -i '/^XDG_TEMPLATES_DIR=/d' "$HOME/.config/user-dirs.dirs" echo 'XDG_TEMPLATES_DIR="$HOME/.Modèles"' >> "$HOME/.config/user-dirs.dirs"
+5. Recharger la config XDG xdg-user-dirs-update
+6. Redémarrer Nautilus nautilus -q renommer Modèles en .Modèles et créer fichier Notepad.txt et Word.docx, penser à editer ~/.config/user-dirs.dirs puis xdg-user-dirs-update et à relancer gnome xdg-user-dirs-update
 
 <a id="id-49"></a>
-## 49 - Modifier Cachy-upmdate (icons et settings
+## 49 - Modifier Cachy-update (icons et settings)
 Générez le fichier de config utilisateur
 ```
 arch-update --gen-config
@@ -1147,7 +1144,8 @@ arch-update --gen-config
 ```
 arch-update --edit-config
 ```
-Décommentez et modifiez la ligne :TrayIconStyle=light + 1 sauvegarde et non 3 etc...
+Décommentez et modifiez la ligne : `TrayIconStyle=light` + 1 sauvegarde et non 3 etc...
+
 ----------------------------------------------------------------------------------------------
 
 # 🌐 F - Réglages du navigateur Firefox
