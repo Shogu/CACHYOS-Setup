@@ -59,7 +59,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 ### 🐾 E - Réglages de l'UI Gnome Shell
 - [29 - Suspension en fermant le capot](#id-29)
 - [30 - Régler Nautilus et marque-pages](#id-30)
-- [31 - Modifier mot de passe au démarrage](#id-31)
+- [31 - Modifier mot de pasnse au démarrage](#id-31)
 - [32 - Installer wallpaper et thème curseurs](#id-32)
 - [33 - Régler HiDPI et cacher dossiers](#id-33)
 - [34 - Renommer logiciels dans overview](#id-34)
@@ -713,6 +713,9 @@ sudo ln -sf /proc/self/mounts /etc/mtab
 sudo systemctl restart ananicy-cpp
 
 #check de focntionnement avec Vivaldi
+ps -eo pid,ni,policy,cls,pri,comm | grep vivaldi
+# Ou full :
+ps -eo pid,ni,cgroup:50,comm | grep vivaldi
 ```
 
 <a id="id-26"></a>
