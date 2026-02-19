@@ -832,11 +832,14 @@ Passer le theme de curseur dans GDM avec :
 ```
 sudo -u gdm dbus-launch gsettings set org.gnome.desktop.interface cursor-theme phinger-cursors-light
 ```
-Continuer avec GDM Settings (pour mettre le wallpaper dans GDM, entre autres) : importer le fichier de configuration `gdm-settings.ini`
+Continuer avec `GDM Settings` (pour mettre le wallpaper dans GDM, entre autres) : 
+
 ```
-paru -S gdm-settings
+paru gdm-settings
 ```
-Puis supprimer le paquet.
+penser à copier le logo cachyOS `Watermark` (à dl dans le repo) dans /home/ogu/.local/share/icons, puis importer le fichier de configuration `gdm-settings.ini`.
+
+Enfin, supprimer le paquet.
 
 Installer également le **theme GTK4** pour les applications utilisant encore GTK3 : `sudo pacman -S adw-gtk-theme` et activer le thème avec Gnome Tweaks.
 
