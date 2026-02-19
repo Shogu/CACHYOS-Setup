@@ -152,7 +152,7 @@ sudo fwupdmgr update
 
 <a id="id-6"></a>
 ## 6 - Réglages CachyOS-Hello
-Faire les réglages proposés par `CachyOS-Hello` : désactiver le bluetooth, activer cachy-update tray, classer les miroirs, NE PAS installer psd (il faut l'installer en --user) ni ananicy-cpp (le boot du service échoue - lui préférer ADIOS pour AMD).
+Faire les réglages proposés par `CachyOS-Hello` : désactiver le bluetooth, activer cachy-update tray, classer les miroirs, NE PAS installer psd (il faut l'installer en --user) ni ananicy-cpp (le boot du service échoue - lui préférer ADIOS pour AMD + méthode copilation depuis les sources).
 
 
 <a id="id-7"></a>
@@ -200,10 +200,7 @@ sudo systemctl mask systemd-pcrphase-sysinit.service
 sudo systemctl mask systemd-pcrphase.service
 sudo systemctl mask flatpak-system-helper.service
 ```
-```
-Vérifier si `ananicy-cpp` est lancé par défaut : si oui :
-sudo systemctl mask ananicy-cpp
-```
+
 Enfin, reboot puis controle de l'état des services avec :
 ```
 systemd-analyze blame | grep -v '\.device$'
@@ -609,7 +606,7 @@ sudo gnome-text-editor /etc/sdboot-manage.conf
 ```
 Puis saisir : 
 ```
-LINUX_OPTIONS="tsc=reliable cryptomgr.notests random.trust_cpu=on efi=disable_early_pci_dma nomce nowatchdog no_timer_check noresume fsck.mode=skip zswap.enabled=0 console=tty1 systemd.show_status=false quiet 8250.nr_uarts=0 cgroup_disable=rdma nvme_core.default_ps_max_latency_us=5500 ipv6.disable=1 amd_iommu=off transparent_hugepage=madvise rcupdate.rcu_normal_after_boot=1 vt.global_cursor_default=0 consoleblank=0 udev.log_level=0 loglevel=0 systemd.watchdog_sec=0 tpm_crb.disable=1 rcutree.enable_rcu_lazy=1 rcu_nocbs=0-7 rw rootflags=data=writeback,commit=60,noatime,barrier=0 clearcpuid=rdseed"
+LINUX_OPTIONS="tsc=reliable cryptomgr.notests random.trust_cpu=on efi=disable_early_pci_dma nomce nowatchdog no_timer_check noresume fsck.mode=skip zswap.enabled=0 console=tty1 systemd.show_status=false quiet 8250.nr_uarts=0 nvme_core.default_ps_max_latency_us=5500 ipv6.disable=1 amd_iommu=off transparent_hugepage=madvise rcupdate.rcu_normal_after_boot=1 vt.global_cursor_default=0 consoleblank=0 udev.log_level=0 loglevel=0 systemd.watchdog_sec=0 tpm_crb.disable=1 rcutree.enable_rcu_lazy=1 rcu_nocbs=0-7 rw rootflags=data=writeback,commit=60,noatime,barrier=0 clearcpuid=rdseed"
 ```
 Relancer systemd-boot conformément à la méthode CachyOS :
 ```
@@ -652,7 +649,7 @@ rcupdate.rcu_normal_after_boot=1 rcutree.enable_rcu_lazy=1 rcu_nocbs=0-7
 *Réseau et Autres*:
 
 ```
-ipv6.disable=1 amd_iommu=off transparent_hugepage=madvise cgroup_disable=rdma 
+ipv6.disable=1 amd_iommu=off transparent_hugepage=madvise
 ```
 
 Penser à créer un timer (1/semaine) pour lancer fsck vu qu'il est désactivé au niveau kernel ? 
@@ -666,7 +663,44 @@ Vérifier avec  `sudo tune2fs -l /dev/nvme0n1p2 | grep -i 'check'
 Activer le scheduler `BPFland` en AUTO avec sched-ext ou `Rusty` `Cake` (voir Github), chercher des benchmarks récents. Le dernier sur Reddit montre que le noyau compilé avec le scheduler EEVDF est le plus efficace, donc disable scx et masker le service:
 https://www.reddit.com/r/cachyos/comments/1q854z9/comment/nyqylbz/?tl=fr&translated=1&force-legacy-sct=1
 
-Vérifier si Ananicy fonctionne maintenant que les deux peuvent cohabiter.
+Vérifier si Ananicy fonctionne maintenant que les deux peuvent cohabiter : l'installer depuis els sources sans quoi erreur de démarrage :
+```
+sudo pacman -Syu --noconfirm base-devel cmake nlohmann-json spdlog fmt gcc make git
+
+sudo systemctl stop ananicy-cpp || true
+sudo rm -f /usr/local/bin/ananicy-cpp /usr/local/lib/systemd/system/ananicy-cpp.service
+sudo rm -rf /usr/local/share/ananicy-cpp /etc/ananicy-cpp.conf /etc/ananicy.d /var/lib/ananicy-cpp
+sudo systemctl daemon-reload
+rm -rf ~/ananicy-cpp
+
+git clone https://gitlab.com/ananicy-cpp/ananicy-cpp.git
+cd ananicy-cpp
+mkdir -p build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local -DUSE_EXTERNAL_SPDLOG=ON -DUSE_EXTERNAL_JSON=ON -DUSE_EXTERNAL_FMTLIB=ON
+make -j$(nproc)
+sudo make install
+
+
+sudo systemctl daemon-reload
+sudo systemctl enable --now ananicy-cpp
+
+REBOOT !
+
+sudo pacman -S --noconfirm ananicy-cpp-rules
+sudo systemctl restart ananicy-cpp
+sudo systemctl daemon-reload
+
+sudo pacman -Rns cmake cppdap rhash --noconfirm
+
+REBOOT !
+
+sudo systemctl daemon-reload
+sudo systemctl restart ananicy-cpp #pas de problème avec le lancement?
+
+sudo systemctl status ananicy-cpp
+
+journalctl -u ananicy-cpp -f #mention des 1800 règles? pas de problème avec cgroup?
+```
 
 <a id="id-26"></a>
 ## 26 - Régler wifi
