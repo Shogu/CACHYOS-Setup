@@ -663,16 +663,19 @@ Vérifier avec  `sudo tune2fs -l /dev/nvme0n1p2 | grep -i 'check'
 Activer le scheduler `BPFland` en AUTO avec sched-ext ou `Rusty` `Cake` (voir Github), chercher des benchmarks récents. Le dernier sur Reddit montre que le noyau compilé avec le scheduler EEVDF est le plus efficace, donc disable scx et masker le service:
 https://www.reddit.com/r/cachyos/comments/1q854z9/comment/nyqylbz/?tl=fr&translated=1&force-legacy-sct=1
 
-Vérifier si Ananicy fonctionne maintenant que les deux peuvent cohabiter : l'installer depuis els sources sans quoi erreur de démarrage :
+Vérifier si Ananicy fonctionne maintenant que les deux peuvent cohabiter : l'installer depuis les sources sans quoi erreur de démarrage :
 ```
+#paquets de build
 sudo pacman -Syu --noconfirm base-devel cmake nlohmann-json spdlog fmt gcc make git
 
+#nettoyage install' ếcédente au cas où
 sudo systemctl stop ananicy-cpp || true
 sudo rm -f /usr/local/bin/ananicy-cpp /usr/local/lib/systemd/system/ananicy-cpp.service
 sudo rm -rf /usr/local/share/ananicy-cpp /etc/ananicy-cpp.conf /etc/ananicy.d /var/lib/ananicy-cpp
 sudo systemctl daemon-reload
 rm -rf ~/ananicy-cpp
 
+#install depuis les sources
 git clone https://gitlab.com/ananicy-cpp/ananicy-cpp.git
 cd ananicy-cpp
 mkdir -p build && cd build
@@ -680,25 +683,28 @@ cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local -DUSE_EXTE
 make -j$(nproc)
 sudo make install
 
-
+#lancement du service
 sudo systemctl daemon-reload
 sudo systemctl enable --now ananicy-cpp
 
 REBOOT !
 
+#install des règles
 sudo pacman -S --noconfirm ananicy-cpp-rules
 sudo systemctl restart ananicy-cpp
 sudo systemctl daemon-reload
 
+#suppression de spaquets de build inutiles et maintien des paquets nécessaires pour les maj d'ananicy
 sudo pacman -Rns cmake cppdap rhash --noconfirm
 
 REBOOT !
 
+#relance du service une fois les règles installées
 sudo systemctl daemon-reload
 sudo systemctl restart ananicy-cpp #pas de problème avec le lancement?
 
+#check du service
 sudo systemctl status ananicy-cpp
-
 journalctl -u ananicy-cpp -f #mention des 1800 règles? pas de problème avec cgroup?
 ```
 
