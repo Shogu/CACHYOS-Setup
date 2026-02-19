@@ -591,11 +591,11 @@ sudo ufw status numbered
 
 
 <a id="id-24"></a>
-## 24 - Passer à 0 le nombre de ttys au boot
+## 24 - Passer à 1 le nombre de ttys au boot
 ```
 sudo gnome-text-editor /etc/systemd/logind.conf
 ```
-puis saisir : `NautoVTS=0`
+puis saisir : `NautoVTS=1`
 
 
 <a id="id-25"></a>
@@ -744,10 +744,10 @@ Si ok alors sudo pacman -Rdd wpa_supplicant
 # 📦 D - Remplacement et installation de logiciels et codecs
 
 <a id="id-27"></a>
-## 27 - Installer logiciels avec pacman et paru
+## 27 - Installer logiciels avec pacman, paru puis pacseek
 Installer les `logiciels` suivants :
 ```
-sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse pamac extension-manager fragments papers nicotine+ resources onlyoffice fuse2 jamesdsp xournal++ jdownloader2 geary 
+sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse extension-manager fragments papers nicotine+ resources onlyoffice fuse2 jamesdsp xournal++ jdownloader2 geary 
 ```
 et le reste avec paru après avoir édité le conf de Paru pour supprimer les dépendances de création de paquets etc
 ```
@@ -776,6 +776,14 @@ SkipReview #à ajouter à la main
 ```
 paru libre-menu-editor monophony archclean systemd-manager-tui gapless cine pacseek
 ```
+
+Régler `pacseek` pour inclure paru à la place de yay si besoin, et EnableAutoSuggest=true :soit avec ctrl-s dans Pacseek, soit en éditant le json:
+
+```
+gedit ~/.config/pacseek/config.json
+```
+
+
 Enfin installer [l'appimage de Beeper](https://api.beeper.com/desktop/download/linux/x64/stable/com.automattic.beeper.desktop), la déplacer dans .local/bin, éditer le raccourci avec le chemin de l'éxecutable et  `StartupWMClass=Beeper` pour faire apparaitre l'icone dans le dash. Idem pour Puls : https://github.com/word-sys/puls, puis renommer en `monitor`
 
 <a id="id-28"></a>
