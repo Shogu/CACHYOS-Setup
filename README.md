@@ -690,7 +690,7 @@ sudo pacman -S --noconfirm cachyos-ananicy-rules
 sudo systemctl restart ananicy-cpp
 sudo systemctl daemon-reload
 
-#suppression de spaquets de build inutiles et maintien des paquets nécessaires pour les maj d'ananicy
+#suppression de s paquets de build inutiles et maintien des paquets nécessaires pour les maj d'ananicy
 sudo pacman -Rns cmake cppdap rhash --noconfirm
 
 REBOOT !
@@ -712,6 +712,8 @@ sudo systemctl restart ananicy-cpp
 ps -eo pid,ni,policy,cls,pri,comm | grep vivaldi
 # Ou full :
 ps -eo pid,ni,cgroup:50,comm | grep vivaldi
+
+#Si échecs, alors réinstaller regles, stopper service, le relancer etc...C'est capricieux!
 ```
 
 <a id="id-26"></a>
