@@ -673,7 +673,8 @@ rm -rf ~/ananicy-cpp
 #install depuis les sources
 git clone https://gitlab.com/ananicy-cpp/ananicy-cpp.git
 cd ananicy-cpp
-mkdir -p build && cd build
+mkdir -p build
+cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local -DUSE_EXTERNAL_SPDLOG=ON -DUSE_EXTERNAL_JSON=ON -DUSE_EXTERNAL_FMTLIB=ON
 make -j$(nproc)
 sudo make install
@@ -685,7 +686,7 @@ sudo systemctl enable --now ananicy-cpp
 REBOOT !
 
 #install des règles
-sudo pacman -S --noconfirm ananicy-cpp-rules
+sudo pacman -S --noconfirm cachyos-ananicy-rules
 sudo systemctl restart ananicy-cpp
 sudo systemctl daemon-reload
 
