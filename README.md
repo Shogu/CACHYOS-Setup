@@ -1058,7 +1058,7 @@ Penser à les rendre exécutables!
 
 Ajouter `nautilus-copy-path` & `nautilus-admin`
 ```
-paru -S nautilus-copy-path nautilus-admin
+paru -S nautilus-copy-path nautilus-admin && sudo pacamn -Syu nautilus-python
 ```
 Et éditer les fichiers `/usr/share/nautilus-python/extensions/nautilus-copy-path/nautilus_copy_path.py` & `/usr/share/nautilus-python/extensions/nautilus-copy-path.py` pour passer URI & Content en `false`, puis `/usr/share/nautilus-python/extensions/nautilus-admin.py` pour traduire "Open as admin" (voir traduction dans les fichiers de config du déoôt Github)
 
