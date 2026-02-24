@@ -177,7 +177,9 @@ sudo systemctl mask sys-kernel-debug.mount
 sudo systemctl mask sys-kernel-tracing.mount
 sudo systemctl mask avahi-daemon.socket
 sudo systemctl mask NetworkManager-wait-online.service
+sudo systemctl mask geoclue
 sudo systemctl mask dev-tpmrm0.device
+sudo systemctl mask dev-tpm0.device
 sudo systemctl mask tpm2.target
 sudo systemctl mask lvm2-lvmpolld.service lvm2-monitor.service lvm2-lvmpolld.socket
 sudo systemctl mask  pamac-cleancache.service
