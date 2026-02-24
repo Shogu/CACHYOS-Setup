@@ -749,7 +749,7 @@ Si ok alors sudo pacman -Rdd wpa_supplicant
 ## 27 - Installer logiciels avec pacman, paru puis pacseek
 Installer les `logiciels` suivants :
 ```
-sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse extension-manager fragments papers nicotine+ resources onlyoffice fuse2 jamesdsp xournal++ jdownloader2 geary 
+sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse extension-manager fragments papers nicotine+ resources onlyoffice fuse2 jamesdsp xournal++ jdownloader2 gnome-calendar
 ```
 et le reste avec paru après avoir édité le conf de Paru pour supprimer les dépendances de création de paquets etc
 ```
