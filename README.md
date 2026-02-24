@@ -774,7 +774,8 @@ SkipReview #à ajouter à la main
 
 ```
 ```
-paru -Syu libre-menu-editor monophony archclean systemd-manager-tui gapless cine pacseek
+paru -Syu libre-menu-editor monophony archclean systemd-manager-tui gapless cine pacseek mixtapes-git
+
 ```
 
 Régler `pacseek` pour inclure paru à la place de yay si besoin, et EnableAutoSuggest=true + ColorScheme=Endeavour OS : soit avec ctrl-s dans Pacseek, soit en éditant le json:
