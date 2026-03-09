@@ -432,7 +432,7 @@ En profiter pour activer `scale-monitor-framebuffer` & `xwayland-native-scaling`
 
 
 <a id="id-18"></a>
-## 18 - Réduire le temps d'affichage du menu systemd-boot
+## 18 - Réduire le temps d'affichage du menu systemd-boot et Limine (à faire)
 Réduire le `temps d'affichage du menu systemd-boot` à 0 seconde: appuyer sur MAJ ou SPACE pour le faire apparaitre au boot et réduire le timeout avec `MAJ t.
 
 Ou bien :
@@ -524,7 +524,7 @@ kernel.split_lock_mitigate=0
 Puis recharger avec `sudo sysctl --system`
 
 <a id="id-22"></a>
-## 22 - Activer le mode EPP `power_performance` pour le profil Gnome `Balanced` quand le PC est sur batterie
+## 22 - Activer le mode EPP `power_performance` pour le profil Gnome `Balanced` quand le PC est sur batterie et remplacer ppd apr tuned-ppd (à faire) 
 Vérifier le profil EPP correspondant au profil Balanced/Batterie 
 ```
 powerprofilesctl query-battery-aware 
