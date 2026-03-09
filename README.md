@@ -605,9 +605,9 @@ sudo gnome-text-editor /etc/sdboot-manage.conf
 ```
 Puis saisir : 
 ```
-LINUX_OPTIONS="tsc=reliable cryptomgr.notests random.trust_cpu=on efi=disable_early_pci_dma nomce nowatchdog no_timer_check noresume fsck.mode=skip zswap.enabled=0 console=tty1 systemd.show_status=false quiet 8250.nr_uarts=0 nvme_core.default_ps_max_latency_us=5500 ipv6.disable=1 amd_iommu=off transparent_hugepage=madvise rcupdate.rcu_normal_after_boot=1 vt.global_cursor_default=0 consoleblank=0 udev.log_level=0 loglevel=0 systemd.watchdog_sec=0 tpm_crb.disable=1 rcutree.enable_rcu_lazy=1 rcu_nocbs=0-7 rw rootflags=data=writeback,commit=60,noatime,barrier=0 "
+LINUX_OPTIONS="tsc=reliable cryptomgr.notests random.trust_cpu=on efi=disable_early_pci_dma nomce nowatchdog no_timer_check noresume fsck.mode=skip zswap.enabled=0 console=tty1 systemd.show_status=false quiet 8250.nr_uarts=0 ipv6.disable=1 amd_iommu=off transparent_hugepage=madvise rcupdate.rcu_normal_after_boot=1 vt.global_cursor_default=0 consoleblank=0 udev.log_level=0 loglevel=0 systemd.watchdog_sec=0 tpm_crb.disable=1 rcu_nocbs=0-7"
 
-Si bug RSEED32 tahouter clearcpuid=rdseed
+Si bug RSEED32 rajouter clearcpuid=rdseed?
 ```
 Relancer systemd-boot conformément à la méthode CachyOS :
 ```
@@ -653,11 +653,7 @@ rcupdate.rcu_normal_after_boot=1 rcutree.enable_rcu_lazy=1 rcu_nocbs=0-7
 ipv6.disable=1 amd_iommu=off transparent_hugepage=madvise
 ```
 
-Penser à créer un timer (1/semaine) pour lancer fsck vu qu'il est désactivé au niveau kernel ? 
-```
-sudo tune2fs -c 0 -i 7d /dev/nvme0n1p2
-```
-Vérifier avec  `sudo tune2fs -l /dev/nvme0n1p2 | grep -i 'check'
+AUtres flags inutiles sur Zenboo (powersaving & ext4): nvme_core.default_ps_max_latency_us=5500 rcutree.enable_rcu_lazy=1 rw rootflags=data=writeback,commit=60,noatime,barrier=0
 
 **b - Sched-ext :**
 
