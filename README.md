@@ -747,7 +747,7 @@ Si ok alors sudo pacman -Rdd wpa_supplicant
 # 📦 D - Remplacement et installation de logiciels et codecs
 
 <a id="id-27"></a>
-## 27 - Installer logiciels avec pacman, paru puis pacseek
+## 27 - Installer logiciels avec pacman, paru puis PacHub
 Installer les `logiciels` suivants :
 ```
 sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse extension-manager fragments papers nicotine+ resources onlyoffice fuse2 jamesdsp xournal++ jdownloader2 gnome-calendar libgda6 foot *console secondaire car limine ne reconnait pas ptyxis par défaut
@@ -777,10 +777,11 @@ SkipReview #à ajouter à la main
 
 ```
 ```
-paru -Syu libre-menu-editor monophony archclean systemd-manager-tui gapless cine pacseek mixtapes-git
+paru -Syu libre-menu-editor monophony archclean systemd-manager-tui gapless cine  mixtapes-git
 
 ```
 
+Installer [PacHub](https://github.com/mrks1469/PacHub) OU
 Régler `pacseek` pour inclure paru à la place de yay si besoin, et EnableAutoSuggest=true + ColorScheme=Endeavour OS : soit avec ctrl-s dans Pacseek, soit en éditant le json:
 
 ```
