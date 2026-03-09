@@ -158,7 +158,7 @@ Faire les réglages proposés par `CachyOS-Hello` : désactiver le bluetooth, ac
 <a id="id-7"></a>
 ## 7 - Supprimer logiciels inutiles avec pacman
 ```
-sudo pacman -Rns plocate apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds gnome-usage octopi gedit xfsprogs btrfs-progs cpupower gnome-screenshot openvpn networkmanager-openvpn networkmanager-vpn-plugin-openvpn fwupd bpftune-git kguiaddons kcolorscheme kwallet
+sudo pacman -Rns plocate apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds gnome-usage octopi gedit xfsprogs btrfs-progs cpupower gnome-screenshot openvpn networkmanager-openvpn networkmanager-vpn-plugin-openvpn bpftune-git kguiaddons kcolorscheme kwallet
 
 ```
 Penser à supprimer l'extension `Pamac Updater` dans usr/share/gnome-shell/extensions et à supprimer les logiciels inutiles de Gnome avec Pamac. Ou carrément ne pas installer pamac ou le desisntaller une fois le ménage fait!
@@ -173,6 +173,7 @@ Penser à supprimer l'extension `Pamac Updater` dans usr/share/gnome-shell/exten
 **SYSTEM**
 ```
 sudo systemctl mask plymouth-quit-wait.service
+sudo systemctl mask fwupd
 sudo systemctl mask avahi-daemon.service
 sudo systemctl mask sys-kernel-debug.mount
 sudo systemctl mask sys-kernel-tracing.mount
