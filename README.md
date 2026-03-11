@@ -524,8 +524,8 @@ kernel.split_lock_mitigate=0
 Puis recharger avec `sudo sysctl --system`
 
 <a id="id-22"></a>
-## 22 - Activer le mode EPP `power_performance` pour le profil Gnome `Balanced` quand le PC est sur batterie et remplacer ppd apr tuned-ppd (à faire) 
-Vérifier le profil EPP correspondant au profil Balanced/Batterie 
+## 22 - a - Activer le mode EPP `power_performance` pour le profil Gnome `Balanced` OU b - remplacer ppd par tuned-ppd
+a - Vérifier le profil EPP correspondant au profil Balanced/Batterie 
 ```
 powerprofilesctl query-battery-aware 
 ```
@@ -552,6 +552,108 @@ Exec=powerprofilesctl configure-battery-aware --disable
 X-GNOME-Autostart-enabled=true
 ```
 Créer un Custom Command Toggle pour activer/désactiver ce booster (le fichier *.ini à télécharger contient toute la configuration)
+
+b - Remplacer ppd par tuned-ppd (+ performant) et permettr ele switch de SCX en fonction de l'EPP:
+```
+sudo pacman -Syu tuned tuned-ppd
+```
+Et reboot.
+
+Permettre au scheduler scx BPFland de suivre l'EPP comme il le fait nativement avec power-profile-daemon :
+
+1. Créer le script scx-tuned.sh
+
+```
+sudo nano /usr/local/bin/scx-tuned.sh
+```
+```
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+get_tuned_profile() {
+    tuned-adm active | sed -r 's/.*: (.+)$/\1/'
+}
+
+update_bpfland_mode() {
+    local profile="$1"
+    case "$profile" in
+        powersave)
+            sudo scxctl switch -m powersave
+            ;;
+        balanced)
+            sudo scxctl switch -m auto
+            ;;
+        balanced-battery)
+            sudo scxctl switch -m auto
+            ;;
+        throughput-performance|performance-power|performance)
+            sudo scxctl switch -m gaming
+            ;;
+        *)
+            sudo scxctl switch -m auto
+            ;;
+    esac
+}
+
+current_profile="$(get_tuned_profile)"
+echo "Initial tuned profile: $current_profile"
+update_bpfland_mode "$current_profile"
+
+while true; do
+    sleep 3
+    new_profile="$(get_tuned_profile)"
+    if [ "$new_profile" != "$current_profile" ]; then
+        echo "tuned profile changed: $current_profile -> $new_profile"
+        current_profile="$new_profile"
+        update_bpfland_mode "$new_profile"
+    fi
+done
+```
+```
+sudo chmod +x /usr/local/bin/scx-tuned.sh
+```
+2. Créer le service systemd scx-tuned.service
+
+```
+sudo nano /etc/systemd/system/scx-tuned.service
+
+```
+```
+[Unit]
+Description=Sync scx_bpfland mode with tuned power profile
+After=tuned.service tuned-ppd.service
+Requires=tuned.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/scx-tuned.sh
+Restart=on-failure
+RestartSec=3
+User=root
+
+[Install]
+WantedBy=multi-user.target
+```
+
+3. Activer le service
+```
+sudo systemctl daemon-reexec
+sudo systemctl enable --now scx-tuned.service
+```
+4. Vérifier :
+```
+systemctl status scx-tuned.service
+```
+Tester les profils avec le toggle puis :
+```
+scxctl get
+```
+ou la =fonction Fis h:
+```
+scx
+```
+
 
 <a id="id-23"></a>
 ## 23 - Régler le pare-feu ufw
