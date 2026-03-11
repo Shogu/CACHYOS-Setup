@@ -724,8 +724,12 @@ ps -eo pid,ni,cgroup:50,comm | grep vivaldi
 ```
 sudo nano /etc/conf.d/wireless-regdom
 ```
-et décommenter la ligne *WIRELESS_REGDOM="FR"*
+Décommenter la ligne *WIRELESS_REGDOM="FR"* puis supprimer les deux services auto : 
+```
+sudo systemctl mask cachyos-iw-set-regdomain.service cachyos-iw-set-regdomain.path
+```
 
+A envisager : 
 Puis régler la connexion Wifi 5Ghz en dur : ip 192.168.31.102 // masque 255.255.255.0 // passerelle 192.168.31.1 // dns 1.1.1.1, 1.0.0.1, désactiver ipv6
 
 
@@ -735,7 +739,7 @@ Installer iwd, lancer le service, disable le service wpa_supplicant, editer un f
 [device]
 wifi.backend=iwd
 
-Puis restrat NetworkManager
+Puis restart NetworkManager
 
 Si ok alors sudo pacman -Rdd wpa_supplicant
  
