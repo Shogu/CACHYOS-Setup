@@ -59,12 +59,12 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 ### 🐾 E - Réglages de l'UI Gnome Shell
 - [29 - Suspension en fermant le capot](#id-29)
 - [30 - Régler Nautilus et marque-pages](#id-30)
-- [31 - Modifier mot de pasnse au démarrage](#id-31)
+- [31 - Modifier mot de passe au démarrage](#id-31)
 - [32 - Installer wallpaper et thème curseurs](#id-32)
 - [33 - Régler HiDPI et cacher dossiers](#id-33)
 - [34 - Renommer logiciels dans overview](#id-34)
 - [35 - Installer extensions Gnome](#id-35)
-- [36 - Installer Open with Ptyxis](#id-36)
+- [36 - Bonus Ptyxis](#id-36)
 - [37 - Activer numpad Asus](#id-37)
 - [38 - Configurer fish et gnome-text-editor](#id-38)
 - [39 - JamesDSP](#id-39)
@@ -1050,11 +1050,15 @@ q - [Media Controls](https://extensions.gnome.org/extension/4470/media-controls/
 r - [Wondows Rounded Corners](https://extensions.gnome.org/extension/7048/rounded-window-corners-reborn/)
 
 <a id="id-36"></a>
-## 36 - Installer Open with Ptyxis
+## 36 - Bonus Ptyxis
 ```
 paru -S nautilus-open-any-terminal
 ```
 et penser à éditer sa clé dconf com.github.stunkymonkey.nautilus-open-any-terminal pour inscrire "ptyxis" + mettre "new tab" sur true pour que Ptyxis s'ouvre dans la session en cours. En cas d'erreur avec Gnome 49, se référer à [ce fil](https://github.com/Stunkymonkey/nautilus-open-any-terminal/issues/242).
+
+
+Ajouter Ptyxis aux terminaux par défaut pour les outils CachyOS :
+https://www.reddit.com/r/cachyos/comments/1rry7qh/guide_add_your_terminal_to_cachyos_tools_like/
 
 
 <a id="id-37"></a>
