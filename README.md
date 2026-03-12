@@ -144,6 +144,7 @@ sudo fwupdmgr get-updates
 sudo fwupdmgr update
 ```
 
+Installer TOUT DE SUITE le fichier config.fish de FISH pour faciliter le sopérations (sudoedit etc...). Sourcer fish avec `source ~/.config/fish/config.fish`
 
 
 ----------------------------------------------------------------------------------------------
@@ -238,7 +239,7 @@ systemd-analyze --user blame
 <a id="id-10"></a>
 ## 10 - Désactiver autostart gnome-wellbeing
 ```
-cp /usr/share/applications/gnome-wellbeing-panel.desktop ~/.config/autostart/ && sudo gnome-text-editor ~/.config/autostart/gnome-wellbeing-panel.desktop 
+cp /usr/share/applications/gnome-wellbeing-panel.desktop ~/.config/autostart/ && sudoedit ~/.config/autostart/gnome-wellbeing-panel.desktop 
 
 ```
 Saisir `Hidden=true` puis contrôler avec `grep Hidden ~/.config/autostart/gnome-wellbeing-panel.desktop`
@@ -247,7 +248,7 @@ Saisir `Hidden=true` puis contrôler avec `grep Hidden ~/.config/autostart/gnome
 <a id="id-11"></a>
 ## 11 - Alléger journaux système et les mettre en RAM
 ```
-sudo gnome-text-editor /etc/systemd/journald.conf
+sudoedit /etc/systemd/journald.conf
 ```
 puis remplacer le contenu du fichier par celui du fichier `journald.conf.txt` & relancer le service :
 ```
@@ -270,7 +271,7 @@ echo '* hard core 0' | sudo tee -a /etc/security/limits.conf
 
 <a id="id-13"></a>
 ## 13 - Blacklister pilotes inutiles
-créer un fichier `blacklist` ```sudo gnome-text-editor /etc/modprobe.d/blacklist.conf``` et l'éditer :
+créer un fichier `blacklist` ```sudoedit /etc/modprobe.d/blacklist.conf``` et l'éditer :
 ```
 # ==============================
 # Intel et watchdog
@@ -357,7 +358,7 @@ Au reboot, vérifier avec la commande `lsmod | grep serial8250`
 ## 14 - Réduire l'initramfs & le firmware
 En désactivant des modules inutiles : attention prévoir un backup du fichier pour le restaurer en live cd si besoin!
 ```
-sudo gnome-text-editor /etc/mkinitcpio.conf
+sudoedit /etc/mkinitcpio.conf
 
 ```
 et copier-coller ces options de configuration dans les rubriques correspondantes :
@@ -450,7 +451,7 @@ timeout 1
 <a id="id-19"></a>
 ## 19 - Tweaker les partitions EXT4
 Editer le mount des `partitions EXT4` avec la commande :
-`sudo gnome-text-editor /etc/fstab` et rajouter après 'noatime' : 
+`sudoedit /etc/fstab` et rajouter après 'noatime' : 
 ```
 data=writeback,commit=60,barrier=0 0 1
 ```
@@ -495,7 +496,7 @@ Puis `sudo sdboot-manage gen`
 
 Commenter la ligne root dans FSTAB:
 ```
-sudo gedit /etc/fstab
+sudoedit /etc/fstab
 ```
 Relancer mkinitcpio avec `sudo mkinitcpio -P`
 
@@ -694,7 +695,7 @@ sudo ufw status numbered
 <a id="id-24"></a>
 ## 24 - Passer à 1 le nombre de ttys au boot
 ```
-sudo gnome-text-editor /etc/systemd/logind.conf
+sudoedit /etc/systemd/logind.conf
 ```
 puis saisir : `NautoVTS=1`
 
@@ -703,7 +704,7 @@ puis saisir : `NautoVTS=1`
 ## 25 - Optimiser le `kernel` :
 **a - Appliquer les arguments suivants :**
 ```
-sudo gnome-text-editor /etc/sdboot-manage.conf
+sudoedit /etc/sdboot-manage.conf
 ```
 Puis saisir : 
 ```
@@ -1113,7 +1114,7 @@ systemctl --user status asus_numberpad_driver@ogu.service
 
 <a id="id-38"></a>
 ## 38 - Configurer fish et gnome-text-editor
-Régler `Gnome-text-editor`et `Ptyxis`; configurer `fish` avec le fichier config.fish à télécharger dans ce repo : il inclut des alias supplémentaires, la fonction greeting désactivée, et des fonctions maison (scx, journal, flags, sudo gedit, vault...)
+Régler `Gnome-text-editor`et `Ptyxis`; configurer `fish` avec le fichier config.fish à télécharger dans ce repo : il inclut des alias supplémentaires, la fonction greeting désactivée, et des fonctions maison (scx, journal, flags, sudoedit, vault...)
 
 Recharger la configuration de fish avec `source ~/.config/fish/config.fish`
 
@@ -1177,7 +1178,7 @@ Ajouter `nautilus-copy-path` & `nautilus-admin`
 ```
 paru -S nautilus-copy-path nautilus-admin && sudo pacamn -Syu nautilus-python
 ```
-Et éditer les fichiers `/usr/share/nautilus-python/extensions/nautilus-copy-path/nautilus_copy_path.py` & `sudo gedit /usr/share/nautilus-python/extensions/nautilus-copy-path/config.json
+Et éditer les fichiers `/usr/share/nautilus-python/extensions/nautilus-copy-path/nautilus_copy_path.py` & `sudoedit /usr/share/nautilus-python/extensions/nautilus-copy-path/config.json
 ` pour passer URI & Content en `false`, puis `/usr/share/nautilus-python/extensions/nautilus-admin.py` pour traduire "Open as admin" (voir traduction dans les fichiers de config du déoôt Github)
 
 Enfin `pkill nautilus && nautilus`.
@@ -1187,13 +1188,13 @@ Enfin `pkill nautilus && nautilus`.
 
 Supprimer Plymouth avec `sudo pacman -Rns plymouth` puis éditer mkinitcpio pour retirer le hook Plymouth :
 ```
-sudo gnome-text-editor /etc/mkinitcpio.conf
+sudoedit /etc/mkinitcpio.conf
 ```
 Recharger avec `sudo mkinitcpio -P`
 
 Enfin modifier les arguments kernel :
 ```
-sudo gnome-text-editor /etc/sdboot-manage.conf
+sudoedit /etc/sdboot-manage.conf
 ```
 Retirer `splash`, ajouter `consoleblank vt.global_cursor_default=0 rd.udev.log_level=0`, puis régénérer avec `sudo sdboot-manage gen` et `sudo mkinitcpio -P`
 
@@ -1220,7 +1221,7 @@ Récupérer le po français de gnome-shell :
 ```
 wget https://gitlab.gnome.org/GNOME/gnome-shell/-/raw/main/po/fr.po -O fr.po
 ```
-Éditer fr.po avec `sudo gedit fr.po` et modifier le nom du bouton "Mode puissance" par "Energie" ou "Profil", puis compiler :
+Éditer fr.po avec `sudoedit fr.po` et modifier le nom du bouton "Mode puissance" par "Energie" ou "Profil", puis compiler :
 ```
 msgfmt fr.po -o gnome-shell.mo
 ```
@@ -1364,7 +1365,7 @@ firefox --ProfileManager #renommer le profil par défaut et eventuellement suppr
 Enfin régler & contrôler le bon fonctionnement de psd : passer à 2 le nombre de backups au lieu de 5 avec `BACKUP_LIMIT=2`, & circonscrire psd au seul Firefox avec `BROWSERS=(firefox)`:
 ```
 psd -p
-sudo gnome-text-editor /home/ogu/.config/psd/psd.conf # The default is to save the most recent 5 crash recovery snapshots BACKUP_LIMIT=2 & BROWSERS=(firefox)
+sudoedit /home/ogu/.config/psd/psd.conf # The default is to save the most recent 5 crash recovery snapshots BACKUP_LIMIT=2 & BROWSERS=(firefox)
 ```
 Lancer Firefox et s'assurer que le profil originel ne pèse que quelques Ko :
 ```
