@@ -15,6 +15,11 @@ alias notepad='gnome-text-editor'
 alias systemd-manager='systemd-manager-tui'
 alias rm='rm -I'
 
+# gnome-text-editor comme éditeur par defaut sudoedit
+export SUDO_EDITOR="gnome-text-editor"
+export EDITOR="gnome-text-editor"
+export VISUAL="gnome-text-editor"
+
 
 # Désactive le message d'accueil de Fish.
 function fish_greeting
