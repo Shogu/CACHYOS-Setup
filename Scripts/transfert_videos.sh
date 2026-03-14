@@ -3,6 +3,7 @@
 set SOURCE_DIR ~/Téléchargements
 set DEST_DIR ~/Vidéos
 set VIDEO_EXTENSIONS .mp4 .mkv .avi .mov .flv .wmv .mpeg .mpg .webm
+set VDH_PATH "$SOURCE_DIR/VDH"  # Dossier à préserver
 
 function move_and_cleanup
     set file $argv[1]
@@ -13,12 +14,17 @@ function move_and_cleanup
     mv "$file" "$dest"
 
     set dir (dirname "$file")
-    # Supprime uniquement le dossier s'il est vide
+    
+    # Vérifie si c'est le dossier VDH à préserver
+    if test "$dir" = "$VDH_PATH"
+        echo "⚠️  Dossier VDH préservé : $dir"
+        return 0
+    end
+    
+    # Supprime le dossier entier (récursivement) s'il existe encore
     if test -d "$dir"
-        if test (count (ls -A "$dir")) -eq 0
-            rmdir "$dir"
-            echo "Dossier supprimé : $dir"
-        end
+        rm -rf "$dir"
+        echo "🗑️  Dossier supprimé : $dir"
     end
 end
 
