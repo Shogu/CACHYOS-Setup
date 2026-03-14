@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 set SOURCE_DIR ~/Téléchargements
-set DEST_DIR ~/Vidéos
+set DEST_DIR /home/ogu/Vidéos/.DEV
 set VIDEO_EXTENSIONS .mp4 .mkv .avi .mov .flv .wmv .mpeg .mpg .webm
 set VDH_PATH "$SOURCE_DIR/VDH"  # Dossier à préserver
 
