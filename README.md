@@ -854,7 +854,7 @@ Si ok alors sudo pacman -Rdd wpa_supplicant
 ## 27 - Installer logiciels avec pacman, paru puis PacHub
 Installer les `logiciels` suivants :
 ```
-sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse extension-manager fragments papers nicotine+ resources onlyoffice fuse2 jamesdsp xournal++ jdownloader2 gnome-calendar libgda6 foot *console secondaire car limine ne reconnait pas ptyxis par défaut
+sudo pacman -Syu dconf-editor evince powertop ffmpegthumbnailer profile-cleaner seahorse extension-manager fragments papers nicotine+ resources onlyoffice fuse2 xournal++ jdownloader2 gnome-calendar jamesdsp libgda6 gnome-terminal *console secondaire car limine ne reconnait pas ptyxis par défaut
 ```
 et le reste avec paru après avoir édité le conf de Paru pour supprimer les dépendances de création de paquets etc
 ```
@@ -881,7 +881,7 @@ SkipReview #à ajouter à la main
 
 ```
 ```
-paru -Syu libre-menu-editor monophony archclean gapless cine  mixtapes-git
+paru -Syu libre-menu-editor monophony archclean gapless cine
 
 ```
 
@@ -1121,12 +1121,27 @@ Recharger la configuration de fish avec `source ~/.config/fish/config.fish`
 Gnome-text-editor : se contenter de modifie rles réglages internes
 
 
-## 39 - JamesDSPJamesDSP
+## 39 - JamesDSP
 
-Installer Jamesdsp avec paru ou pamac, modifier son nom en Audio et passer StartupWMClass=jamesdsp, le régler conformément à ce [tuto](https://discuss.cachyos.org/t/tutorial-make-linux-sound-better-easier-with-jamesdsp/16098/5), avec le *.conf ClearPenguin disponible dans le Github.
+Modifier son nom en Audio et passer StartupWMClass=jamesdsp, le régler conformément à ce [tuto](https://discuss.cachyos.org/t/tutorial-make-linux-sound-better-easier-with-jamesdsp/16098/5), avec le *.conf ClearPenguin disponible dans le Github.
 
 Suppriemr l'icone du menu et créer un Custom Command Toggle (voir fichier *.ini), ou bien l'activer tout court.
 
+Mieux : le régler, désinstaller sa version GUI, la remplacer par `paru jamesdsp-headless-git`, et créer un fichier desktop pour le lancement auto : à rélaiser en bash sur fish :
+```
+cat > ~/.config/autostart/jamesdsp.desktop << 'EOF'
+[Desktop Entry]
+Name=JamesDSP
+Exec=jamesdsp
+Icon=jamesdsp
+Type=Application
+X-GNOME-Autostart-Delay=5
+X-GNOME-Autostart-enabled=true
+EOF
+chmod +x ~/.config/autostart/jamesdsp.desktop
+```
+
+Reboot et vérifier si jamesdsp apparait dans les processus.
 
 <a id="id-40"></a>
 ## 40 - Configurer Celluloid ou Ciné (préférer Cine)
