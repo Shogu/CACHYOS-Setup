@@ -12,7 +12,6 @@ alias vi='nano'
 alias gedit='gnome-text-editor'
 alias micro='nano'
 alias notepad='gnome-text-editor'
-alias systemd-manager='systemd-manager-tui'
 alias rm='rm -I'
 
 # gnome-text-editor comme éditeur par defaut sudoedit
