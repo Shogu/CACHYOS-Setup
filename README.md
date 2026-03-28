@@ -881,7 +881,7 @@ SkipReview #à ajouter à la main
 
 ```
 ```
-paru -Syu libre-menu-editor monophony archclean systemd-manager-tui gapless cine  mixtapes-git
+paru -Syu libre-menu-editor monophony archclean gapless cine  mixtapes-git
 
 ```
 
