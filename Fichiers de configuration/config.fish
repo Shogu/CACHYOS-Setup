@@ -26,20 +26,11 @@ end
 
 
 # Contrôleur live de scx_scheduler - commande scx
-function scx --description 'Live monitor scx + switches propres'
+function scx --description 'Live monitor scx + disk scheduler'
     while true
         clear
         printf "\e[93m=== SCXCTL ===\e[0m\n"; scxctl get; echo
         printf "\e[92m=== DISK ===\e[0m\n"; cat /sys/block/nvme0n1/queue/scheduler; echo
-        
-        set pid (pgrep scx_bpfland 2>/dev/null)
-        if test $pid
-            set switches (sudo perf stat -e sched:sched_switch -p $pid -- sleep 1 2>&1 | grep -oP '^\s*\K\d+(?= {3,}sched:sched_switch)' || echo "ERR")
-            printf "\e[94mSWITCHES/1s: %s | PID: %s\e[0m\n" $switches $pid
-        else
-            printf "\e[91mSCX pas trouvé\e[0m\n"
-        end
-        
         sleep 3
     end
 end
