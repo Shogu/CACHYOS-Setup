@@ -159,7 +159,7 @@ Faire les réglages proposés par `CachyOS-Hello` : désactiver le bluetooth, ac
 <a id="id-7"></a>
 ## 7 - Supprimer logiciels inutiles avec pacman
 ```
-sudo pacman -Rns plocate apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds gnome-usage octopi gedit xfsprogs btrfs-progs cpupower gnome-screenshot openvpn networkmanager-openvpn networkmanager-vpn-plugin-openvpn bpftune-git kguiaddons kcolorscheme kwallet
+sudo pacman -Rns plocate nano apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds gnome-usage octopi gedit xfsprogs btrfs-progs cpupower gnome-screenshot openvpn networkmanager-openvpn networkmanager-vpn-plugin-openvpn bpftune-git kguiaddons kcolorscheme kwallet
 
 ```
 Penser à supprimer l'extension `Pamac Updater` dans usr/share/gnome-shell/extensions et à supprimer les logiciels inutiles de Gnome avec Pamac. Ou carrément ne pas installer pamac ou le desisntaller une fois le ménage fait!
@@ -401,7 +401,7 @@ Puis modifier à 600 la durée avant mise en veille.
 ## 16 - Activer scheduler ADIOS
 Activer le scheduler ADIOS sur AMD CPU :
 ```
-sudo nano /etc/udev/rules.d/60-ioschedulers.rules
+sudo micro /etc/udev/rules.d/60-ioschedulers.rules
 ```
 Puis saisir :
 ```
@@ -441,7 +441,7 @@ Réduire le `temps d'affichage du menu systemd-boot` à 0 seconde: appuyer sur M
 
 Ou bien :
 ```
-sudo nano /boot/loader/loader.conf
+sudo micro /boot/loader/loader.conf
 ```
 Reboot, puis vérifier que le fichier loader.conf soit à 0 :
 ```
@@ -490,7 +490,7 @@ sudo tune2fs -l /dev/nvme0n1p2 | grep 'Filesystem features'
 ```
 Enfin monter directement la partition root en RW plutot que montage RO/contrôle fsck/démontage/remontage RW. FSCK passera par mkinitcpio.
 ```
-sudo nano /etc/sdboot-manage.conf
+sudo micro /etc/sdboot-manage.conf
 ```
 Ajouter :
 `rw rootflags=data=writeback,commit=60,noatime,barrier=0`
@@ -520,7 +520,7 @@ Remplacer le fichier `/etc/makepkg.conf` par celui disponible en téléchargemen
 ## 21 - Désactiver mitigate split lock
 MAJ : tester le parametre kernel `split_lock_detect=off`, qui n'est pas opérationnel avec le kernel 6.18
 
-Ou bien éditer `sudo nano /etc/sysctl.d/99-splitlock.conf` et saisir :
+Ou bien éditer `sudo micro /etc/sysctl.d/99-splitlock.conf` et saisir :
   
 ```
 kernel.split_lock_mitigate=0
@@ -544,7 +544,7 @@ cat /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference
 ```
 Pour le rendre permanent au boot :
 ```
-nano ~/.config/autostart/disable-battery-aware.desktop
+micro ~/.config/autostart/disable-battery-aware.desktop
 ```
 
 Et copier-coller le contenu suivant :
@@ -568,7 +568,7 @@ Permettre au scheduler scx BPFland de suivre l'EPP comme il le fait nativement a
 1. Créer le script scx-tuned.sh
 
 ```
-sudo nano /usr/local/bin/scx-tuned.sh
+sudo micro /usr/local/bin/scx-tuned.sh
 ```
 ```
 #!/usr/bin/env bash
@@ -620,7 +620,7 @@ sudo chmod +x /usr/local/bin/scx-tuned.sh
 2. Créer le service systemd scx-tuned.service
 
 ```
-sudo nano /etc/systemd/system/scx-tuned.service
+sudo micro /etc/systemd/system/scx-tuned.service
 
 ```
 ```
@@ -774,7 +774,7 @@ Vérifier si Ananicy fonctionne maintenant que les deux peuvent cohabiter : l'in
 #paquets de build
 sudo pacman -Syu --noconfirm base-devel cmake nlohmann-json spdlog fmt gcc make git
 
-#nettoyage install' ếcédente au cas où
+#nettoyage install' précédente au cas où
 sudo systemctl stop ananicy-cpp || true
 sudo rm -f /usr/local/bin/ananicy-cpp /usr/local/lib/systemd/system/ananicy-cpp.service
 sudo rm -rf /usr/local/share/ananicy-cpp /etc/ananicy-cpp.conf /etc/ananicy.d /var/lib/ananicy-cpp
@@ -833,7 +833,7 @@ ps -eo pid,ni,cgroup:50,comm | grep vivaldi
 
 inutile depuis la mise en place du service `cachyos-iw-set-regdomain.service`?
 ```
-sudo nano /etc/conf.d/wireless-regdom
+sudo micro /etc/conf.d/wireless-regdom
 ```
 Décommenter la ligne *WIRELESS_REGDOM="FR"* puis supprimer les deux services auto : 
 
@@ -966,7 +966,7 @@ Installer également le **theme GTK4** pour les applications utilisant encore GT
 
 Sortie de veille : pour relancer le thème de curseurs en sortie de suspend :
 ```
-sudo nano /etc/systemd/system/reapply-cursor-theme.service
+sudo micro /etc/systemd/system/reapply-cursor-theme.service
 ```
 et saisir 
 
