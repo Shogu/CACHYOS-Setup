@@ -199,6 +199,9 @@ sudo systemctl mask systemd-pcrphase-initrd.service
 sudo systemctl mask systemd-pcrphase-sysinit.service
 sudo systemctl mask systemd-pcrphase.service
 sudo systemctl mask flatpak-system-helper.service
+sudo systemctl maskcachyos-rate-mirrors.service
+sudo systemctl mask cachyos-rate-mirrors.timer
+
 ```
 
 Enfin, reboot puis controle de l'état des services avec :
@@ -481,7 +484,7 @@ Puis vérifier/réparer le Fs : ATTENTION ETAPE INDISPENSABLE!
 ```
 sudo e2fsck -f /dev/nvme0n1p2
 ```
-Sortir du live Fedora & contrôler la présence de fast_commit avec :
+Sortir du live Fedomcra & contrôler la présence de fast_commit avec :
 ```
 sudo tune2fs -l /dev/nvme0n1p2 | grep 'Filesystem features'
 ```
@@ -650,11 +653,14 @@ Tester les profils avec le toggle puis :
 ```
 scxctl get
 ```
-ou la =fonction Fis h:
+ou la fonction Fish:
 ```
 scx
 ```
 
+
+
+ALTERNATIVE : supprimer scx et se contenter du kernel EEVDF : disable scx et `sudo systemctl mask scx_loader`
 
 <a id="id-23"></a>
 ## 23 - Régler le pare-feu ufw
@@ -824,13 +830,13 @@ ps -eo pid,ni,cgroup:50,comm | grep vivaldi
 <a id="id-26"></a>
 ## 26 - Régler wifi
 1 - Passer le wifi en mode FR :
+
+inutile depuis la mise en place du service `cachyos-iw-set-regdomain.service`?
 ```
 sudo nano /etc/conf.d/wireless-regdom
 ```
 Décommenter la ligne *WIRELESS_REGDOM="FR"* puis supprimer les deux services auto : 
-```
-sudo systemctl mask cachyos-iw-set-regdomain.service cachyos-iw-set-regdomain.path
-```
+
 
 A envisager : 
 Puis régler la connexion Wifi 5Ghz en dur : ip 192.168.31.102 // masque 255.255.255.0 // passerelle 192.168.31.1 // dns 1.1.1.1, 1.0.0.1, désactiver ipv6
