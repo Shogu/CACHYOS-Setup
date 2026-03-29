@@ -1119,12 +1119,13 @@ systemctl --user status asus_numberpad_driver@ogu.service
 ```
 
 <a id="id-38"></a>
-## 38 - Configurer fish et gnome-text-editor
+## 38 - Configurer fish, gnome-text-editor
 Régler `Gnome-text-editor`et `Ptyxis`; configurer `fish` avec le fichier config.fish à télécharger dans ce repo : il inclut des alias supplémentaires, la fonction greeting désactivée, et des fonctions maison (scx, journal, flags, sudoedit, vault...)
 
 Recharger la configuration de fish avec `source ~/.config/fish/config.fish`
 
-Gnome-text-editor : se contenter de modifie rles réglages internes
+Gnome-text-editor : se contenter de modifier les réglages internes
+
 
 
 ## 39 - JamesDSP
