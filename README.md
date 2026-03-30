@@ -831,7 +831,8 @@ ps -eo pid,ni,cgroup:50,comm | grep vivaldi
 ## 26 - Régler wifi
 1 - Passer le wifi en mode FR :
 
-inutile depuis la mise en place du service `cachyos-iw-set-regdomain.service`?
+inutile depuis la mise en place du service `cachyos-iw-set-regdomain.service`? Ou bien supprimer le service qui se contente de chercher le pays via timezone, autant le faire à la main :
+`sudo systemctl mask cachyos-iw-set-regdomain.service`
 ```
 sudo micro /etc/conf.d/wireless-regdom
 ```
