@@ -174,6 +174,7 @@ Penser à supprimer l'extension `Pamac Updater` dans usr/share/gnome-shell/exten
 **SYSTEM**
 ```
 sudo systemctl mask plymouth-quit-wait.service
+sudo systemctl mask systemd-hibernate-resume.service
 sudo systemctl mask fwupd
 sudo systemctl mask avahi-daemon.service
 sudo systemctl mask sys-kernel-debug.mount
