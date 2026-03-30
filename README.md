@@ -729,15 +729,26 @@ puis saisir : `NautoVTS=1`
 ```
 sudoedit /etc/sdboot-manage.conf
 ```
+
+Ou Limine :
+```
+sudo micro /etc/default/limine
+```
+
 Puis saisir : 
 ```
-LINUX_OPTIONS="tsc=reliable cryptomgr.notests random.trust_cpu=on efi=disable_early_pci_dma nomce nowatchdog no_timer_check noresume fsck.mode=skip zswap.enabled=0 console=tty1 systemd.show_status=false quiet 8250.nr_uarts=0 ipv6.disable=1 amd_iommu=off transparent_hugepage=madvise rcupdate.rcu_normal_after_boot=1 vt.global_cursor_default=0 consoleblank=0 udev.log_level=0 loglevel=0 systemd.watchdog_sec=0 tpm_crb.disable=1"
+LINUX_OPTIONS="tsc=reliable cryptomgr.notests random.trust_cpu=on efi=disable_early_pci_dma nomce nowatchdog no_timer_check noresume fsck.mode=skip zswap.enabled=0 console=tty1 systemd.show_status=false quiet 8250.nr_uarts=0 ipv6.disable=1 amd_iommu=off transparent_hugepage=madvise rcupdate.rcu_normal_after_boot=1 vt.global_cursor_default=0 consoleblank=0 udev.log_level=0 loglevel=0 systemd.watchdog_sec=0 tpm_crb.disable=1 tpm=off random.trust_tpm=0"
 
 Si bug RSEED32 rajouter clearcpuid=rdseed?
 ```
 Relancer systemd-boot conformément à la méthode CachyOS :
 ```
 sudo sdboot-manage gen
+```
+
+Ou pour Limine :
+```
+sudo limine-mkinitcpio
 ```
 Vérifier que tous les réglages fonctionnent en lançant `sudo dmesg`.
 
