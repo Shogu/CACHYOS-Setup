@@ -1,3 +1,4 @@
+
 source /usr/share/cachyos-fish-config/cachyos-config.fish
 
 # overwrite greeting
@@ -6,25 +7,39 @@ source /usr/share/cachyos-fish-config/cachyos-config.fish
 #    # smth smth
 #end
 
-# Alias
-alias vim='nano'
-alias vi='nano'
+
+############################################################################################################################
+# Alias logiciels
+alias vim='micro'
+alias vi='micro'
 alias gedit='gnome-text-editor'
-alias micro='nano'
+alias nano='micro'
 alias notepad='gnome-text-editor'
 alias rm='rm -I'
 
+
+############################################################################################################################
+#stockage pour dh -f
+function stockage
+    echo (set_color yellow)"=== STOCKAGE ==="(set_color normal)
+    df -h
+end
+
+
+############################################################################################################################
 # gnome-text-editor comme éditeur par defaut sudoedit
 export SUDO_EDITOR="gnome-text-editor"
 export EDITOR="gnome-text-editor"
 export VISUAL="gnome-text-editor"
 
 
+############################################################################################################################
 # Désactive le message d'accueil de Fish.
 function fish_greeting
 end
 
 
+############################################################################################################################
 # Contrôleur live de scx_scheduler - commande scx
 function scx --description 'Live monitor scx + disk scheduler'
     while true
@@ -36,13 +51,14 @@ function scx --description 'Live monitor scx + disk scheduler'
 end
 
 
-
+############################################################################################################################
 # 20 dernières erreurs journalctl - commande journal
 function journal
     journalctl -p err -n 20 --no-pager | bat -l log  
 end
 
 
+############################################################################################################################
 # Arguments kernel - commande flags
 function flags
     clear
@@ -74,6 +90,7 @@ function flags
 end
 
 
+############################################################################################################################
 # FSTAB - commande fstab
 function fstab
     clear
@@ -84,6 +101,7 @@ function fstab
 end
 
 
+############################################################################################################################
 # MKINITCPIO - commande mkinitcpio
 function mkinitcpio
     clear
@@ -94,6 +112,7 @@ function mkinitcpio
 end
 
 
+############################################################################################################################
 # cleanup orphelins, cache paru, cache Vivaldi, caches Arch
 function clean
     set orphans (pacman -Qtdq)
@@ -110,6 +129,7 @@ function clean
 end
 
 
+############################################################################################################################
 # afficher l'état power de tuned-ppd
 function power
     set -l epp (cat /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preference | sort | uniq -c | sort -nr)
@@ -117,6 +137,7 @@ function power
 end
 
 
+############################################################################################################################
 # Fonction fwupdmgr full : unmask → start → refresh → updates → stop + mask
 function fwupdate --description "Mettre à jour firmware (fwupdmgr full)"
     echo
@@ -172,7 +193,7 @@ function fwupdate --description "Mettre à jour firmware (fwupdmgr full)"
     set_color normal
 end
 
-
+############################################################################################################################
 # Fonction vault - commandes utiles et functions
 function vault --description "Vault de commandes utiles"
     set -l vault_labels \
@@ -186,7 +207,9 @@ function vault --description "Vault de commandes utiles"
         "fstab" \
         "mkinitcpio.conf" \
         "Afficher EPP / power" \
-        "fwupd"
+        "fwupd" \
+        "Afficher stockage (stockage)" \
+
 
     set -l vault_cmds \
         "sudo limine-mkinitcpio" \
@@ -199,7 +222,9 @@ function vault --description "Vault de commandes utiles"
         "fstab" \
         "mkinitcpio" \
         "power" \
-        "fwupdate"
+        "fwupdate" \
+        "stockage" \
+
 
     set -l count (count $vault_labels)
 
@@ -250,4 +275,3 @@ function vault --description "Vault de commandes utiles"
         set_color normal
     end
 end
-
