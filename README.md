@@ -174,7 +174,7 @@ Penser à supprimer l'extension `Pamac Updater` dans usr/share/gnome-shell/exten
 **SYSTEM**
 ```
 sudo systemctl mask dev-tpmrm0.device dev-tpm0.device
-sudo systemctl mask systemd-tpm2-setup-early.service systemd-tpm2-setup.service
+sudo systemctl mask systemd-tpm2-setup-early.service systemd-tpm2-setup.servicesudo systemctl mask bolt.service 
 sudo systemctl mask plymouth-quit-wait.service
 sudo systemctl mask systemd-hibernate-resume.service
 sudo systemctl mask fwupd
