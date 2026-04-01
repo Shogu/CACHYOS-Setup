@@ -205,8 +205,6 @@ sudo systemctl mask flatpak-system-helper.service
 sudo systemctl maskcachyos-rate-mirrors.service
 sudo systemctl mask cachyos-rate-mirrors.timer
 
-systemctl --user mask evolution-alarm-notify.service
-
 ```
 
 Enfin, reboot puis controle de l'état des services avec :
