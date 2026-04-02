@@ -1467,7 +1467,7 @@ Et en **disable** :
 ```
 Touch UI Layout
 ```
-Régler les settings cachés : vivaldi:settings/system
+Régler les settings cachés : vivaldi:settings/system, en aprticulier le préfetch, et décocher les option prefetch disable dans ublock et localcdn. 
 Enfin supprimer l'autoplay Youtube avec :  Menu Vivaldi → Settings → Privacy → Website permissions → Autoplay → Block
 
 ## 59 - Changer thème Vivaldi
