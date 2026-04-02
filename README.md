@@ -1472,6 +1472,8 @@ Enfin supprimer l'autplay Youtube avec :  Menu Vivaldi → Settings → Privacy 
 ## 59 - Changer thème Vivaldi
 
 Appliquer le thème custom à télécharger dans le dépôt.
+Ativez d'abord les modifications CSS expérimentales: allez sur vivaldi://experiments/, cochez « Allow for using CSS modifications » (Autoriser les modifications CSS), puis redémarrez Vivaldi. 
+Dans Paramètres > Apparence > Modifications UI personnalisées, sélectionnez un dossier pour vos fichiers CSS (créez-en un si nécessaire). 
 
 - [60 - Panneau latéral Vivaldi](#id-52)
 - [61 - "Nettoyer" Vivaldi](#id-56)
