@@ -1483,7 +1483,7 @@ Dans Paramètres > Apparence > Modifications UI personnalisées, sélectionnez u
 
 - [60 - Panneau latéral Vivaldi](#id-52)
 
-Ajouter Perplexity et [WhatsApp(https://www.reddit.com/r/vivaldibrowser/comments/1m93s3b/does_anyone_know_how_to_open_whatsapp_as_webpanel/).
+Ajouter Perplexity et [WhatsApp(https://www.reddit.com/r/vivaldibrowser/comments/1m93s3b/does_anyone_know_how_to_open_whatsapp_as_webpanel/) : https://web.whatsapp.com/
 
 - [61 - "Nettoyer" Vivaldi](#id-56)
 
