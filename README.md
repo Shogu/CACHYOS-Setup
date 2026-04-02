@@ -1487,6 +1487,7 @@ Ajouter Perplexity et [WhatsApp(https://www.reddit.com/r/vivaldibrowser/comments
 <a id="id-59"></a>
 ## 59 - Extensions Vivaldi
 https://chromewebstore.google.com/detail/better-scroll-to-topbotto/ifdjdmipgndncbeopapghbohjdiieibl?hl=es
+https://chromewebstore.google.com/detail/video-downloadhelper/lmjnegcaeklhafolokijcfjliaokphfk et reglages mkv + dossier telechargements VDH pour correspondre au script `transfert`
 https://chromewebstore.google.com/detail/copy-url/ccnghlbhjgabibnajlaklhpikmcannph
 https://chromewebstore.google.com/detail/localcdn/njdfdhgcmkocbgbhcioffdbicglldapd
 https://chromewebstore.google.com/detail/rehistoria-auto-delete-hi/dheibmdojjjhiahbdmcnmbepnaiilloe
