@@ -1169,9 +1169,9 @@ Gnome-text-editor : se contenter de modifier les réglages internes
 
 Modifier son nom en Audio et passer StartupWMClass=jamesdsp, le régler conformément à ce [tuto](https://discuss.cachyos.org/t/tutorial-make-linux-sound-better-easier-with-jamesdsp/16098/5), avec le *.conf ClearPenguin disponible dans le Github.
 
-Suppriemr l'icone du menu et créer un Custom Command Toggle (voir fichier *.ini), ou bien l'activer tout court.
+Supprimer l'icone du menu et créer un Custom Command Toggle (voir fichier *.ini), ou bien l'activer tout court.
 
-Mieux : le régler, désinstaller sa version GUI, la remplacer par `paru jamesdsp-headless-git`, et créer un fichier desktop pour le lancement auto : à rélaiser en bash sur fish :
+Mieux : le régler, désinstaller sa version GUI, la remplacer par `paru jamesdsp-headless-git`, et créer un fichier desktop pour le lancement auto : à réaliser en bash sur fish :
 ```
 cat > ~/.config/autostart/jamesdsp.desktop << 'EOF'
 [Desktop Entry]
@@ -1186,6 +1186,7 @@ chmod +x ~/.config/autostart/jamesdsp.desktop
 ```
 
 Reboot et vérifier si jamesdsp apparait dans les processus.
+
 
 <a id="id-40"></a>
 ## 40 - Configurer Celluloid ou Ciné (préférer Cine)
