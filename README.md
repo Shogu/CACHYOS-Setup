@@ -1085,7 +1085,9 @@ p - [Privacy Settings](https://extensions.gnome.org/extension/4491/privacy-setti
 
 q - [Media Controls](https://extensions.gnome.org/extension/4470/media-controls/)
 
-r - [Wondows Rounded Corners](https://extensions.gnome.org/extension/7048/rounded-window-corners-reborn/)
+r - [Windows Rounded Corners](https://extensions.gnome.org/extension/7048/rounded-window-corners-reborn/)
+
+s - [Quoick Settings Audio Device](https://extensions.gnome.org/extension/5964/quick-settings-audio-devices-hider/) pour masquer l'entrée JamesDSP dans le top menu Gnome.
 
 <a id="id-36"></a>
 ## 36 - Bonus Ptyxis
