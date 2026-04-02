@@ -3,33 +3,47 @@
 set SOURCE_DIR ~/Téléchargements
 set DEST_DIR /home/ogu/Vidéos/.DEV
 set VIDEO_EXTENSIONS .mp4 .mkv .avi .mov .flv .wmv .mpeg .mpg .webm
-set VDH_PATH "$SOURCE_DIR/VDH"  # Dossier à préserver
+set VDH_PATH "$SOURCE_DIR/VDH"
 
-function move_and_cleanup
-    set file $argv[1]
-    set dest $argv[2]
+function cleanup_empty_dirs --argument-names start_dir
+    set current "$start_dir"
 
-    echo "Déplacement : $file → $dest"
-    mkdir -p "$dest"
-    mv "$file" "$dest"
+    while test "$current" != "$SOURCE_DIR"
+        if test "$current" = "$VDH_PATH"
+            echo "⚠️  Dossier VDH conservé : $current"
+            break
+        end
 
-    set dir (dirname "$file")
-    
-    # Vérifie si c'est le dossier VDH à préserver
-    if test "$dir" = "$VDH_PATH"
-        echo "⚠️  Dossier VDH préservé : $dir"
-        return 0
-    end
-    
-    # Supprime le dossier entier (récursivement) s'il existe encore
-    if test -d "$dir"
-        rm -rf "$dir"
-        echo "🗑️  Dossier supprimé : $dir"
+        if test -d "$current"
+            rmdir "$current" 2>/dev/null
+            if test $status -eq 0
+                echo "🗑️  Dossier vide supprimé : $current"
+                set current (dirname "$current")
+            else
+                break
+            end
+        else
+            break
+        end
     end
 end
 
+function move_and_cleanup --argument-names file dest
+    echo "Déplacement : $file → $dest"
+    mkdir -p "$dest"
+
+    mv "$file" "$dest"
+    if test $status -ne 0
+        echo "❌ Échec du déplacement : $file"
+        return 1
+    end
+
+    set dir (dirname "$file")
+    cleanup_empty_dirs "$dir"
+end
+
 for ext in $VIDEO_EXTENSIONS
-    for file in (find $SOURCE_DIR -type f -name "*$ext")
+    for file in (find "$SOURCE_DIR" -type f -name "*$ext")
         move_and_cleanup "$file" "$DEST_DIR"
     end
 end
