@@ -1067,7 +1067,7 @@ g - [Battery Time Percentage Compact](https://extensions.gnome.org/extension/292
 
 h - [AutoActivities](https://extensions.gnome.org/extension/5500/auto-activities/)
 
-i - Power Switching Manager](https://github.com/josbarros/power-switching-manager)) & supprimer la luminosité automatique dans Settings de Gnome. !! NE FONCTIONNE PLUS AVEC GNOME 49
+i - Power Switching Manager](https://extensions.gnome.org/extension/9178/power-switching-manager/) & supprimer la luminosité automatique dans Settings de Gnome. !! NE FONCTIONNE PLUS AVEC GNOME 49
 
 j - [Hot Edge](https://extensions.gnome.org/extension/4222/hot-edge/)
 
