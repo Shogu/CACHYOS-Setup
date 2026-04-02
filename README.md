@@ -1467,7 +1467,8 @@ Et en **disable** :
 ```
 Touch UI Layout
 ```
-Enfin supprimer l'autplay Youtube avec :  Menu Vivaldi → Settings → Privacy → Website permissions → Autoplay → Block
+Régler les settings cachés : vivaldi:settings/system
+Enfin supprimer l'autoplay Youtube avec :  Menu Vivaldi → Settings → Privacy → Website permissions → Autoplay → Block
 
 ## 59 - Changer thème Vivaldi
 
