@@ -452,7 +452,7 @@ sudo cat /boot/loader/loader.conf
 timeout 1
 #console-mode keep
 ```
-
+Limine : `sudoedit /boot/limine.conf` et ajouter `quiet: yes` et passer timeout à 1. Utiliser les flêches pour faire apparaitre le menu au boot.
 
 <a id="id-19"></a>
 ## 19 - Tweaker les partitions EXT4
