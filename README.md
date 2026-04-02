@@ -528,6 +528,10 @@ Pour FS BTRFS :
 16 tmpfs                                     /tmp           tmpfs   defaults,noatime,mode=1777 0 0                                                      
 ```                                                                                                                                    
 
+Et activer NoCOW avec :
+```
+sudo chattr -R +C /home/ogu/Musique /home/ogu/Vidéos /home/ogu/Téléchargements ~/.cache /var/cache/pacman/pkg /var/cache/man /var/tmp /var/log/journal /var/abs ~/.local/share/Trash
+```
 
 <a id="id-20"></a>
 ## 20 - Régler makepkg pour compiler en zenver4
