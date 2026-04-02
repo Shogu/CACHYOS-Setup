@@ -1476,6 +1476,9 @@ Ativez d'abord les modifications CSS expérimentales: allez sur vivaldi://experi
 Dans Paramètres > Apparence > Modifications UI personnalisées, sélectionnez un dossier pour vos fichiers CSS (créez-en un si nécessaire). 
 
 - [60 - Panneau latéral Vivaldi](#id-52)
+
+Ajouter Perplexity et [WhatsApp(https://www.reddit.com/r/vivaldibrowser/comments/1m93s3b/does_anyone_know_how_to_open_whatsapp_as_webpanel/).
+
 - [61 - "Nettoyer" Vivaldi](#id-56)
 
 
