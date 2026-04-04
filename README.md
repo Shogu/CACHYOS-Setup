@@ -580,13 +580,15 @@ X-GNOME-Autostart-enabled=true
 ```
 Créer un Custom Command Toggle pour activer/désactiver ce booster (le fichier *.ini à télécharger contient toute la configuration)
 
-b - Remplacer ppd par tuned-ppd (+ performant) et permettr ele switch de SCX en fonction de l'EPP:
+b - Remplacer ppd par tuned-ppd (+ performant) et permettre le switch de SCX en fonction de l'EPP:
 ```
 sudo pacman -Syu tuned tuned-ppd
 ```
 Et reboot.
 
-Permettre au scheduler scx BPFland de suivre l'EPP comme il le fait nativement avec power-profile-daemon :
+Passer `lavd` en AUTO et ajoyter le flag autopower pour que le scx suive l'EPP/
+
+Avec BPFLAND : permettre au scheduler scx BPFland de suivre l'EPP
 
 1. Créer le script scx-tuned.sh
 
