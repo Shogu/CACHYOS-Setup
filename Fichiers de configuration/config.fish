@@ -202,6 +202,7 @@ function vault --description "Vault de commandes utiles"
         "mkinitcpio.conf" \
         "Afficher EPP / power" \
         "fwupd" \
+        "control" \
 
 
     set -l vault_cmds \
@@ -216,7 +217,7 @@ function vault --description "Vault de commandes utiles"
         "mkinitcpio" \
         "power" \
         "fwupdate" \
-
+        "control" \
 
     set -l count (count $vault_labels)
 
