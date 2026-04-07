@@ -179,7 +179,6 @@ sudo systemctl mask plymouth-quit-wait.service
 sudo systemctl mask systemd-hibernate-resume.service
 sudo systemctl mask fwupd
 sudo systemctl mask avahi-daemon.service
-sudo systemctl mask sys-kernel-debug.mount
 sudo systemctl mask sys-kernel-tracing.mount
 sudo systemctl mask avahi-daemon.socket
 sudo systemctl mask NetworkManager-wait-online.service
