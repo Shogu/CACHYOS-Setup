@@ -586,7 +586,8 @@ sudo pacman -Syu tuned tuned-ppd
 ```
 Et reboot.
 
-Passer `lavd` en AUTO et vérifier avec la commande scxctl get. Si besoin, passer le flag --autopower
+Passer `lavd` en AUTO et passer l'atgument `--autopower` pour suivre l'EPP. Vérifier avec la commande scxctl get et sudo scx_lavd --monitor 1. 
+
 Avec BPFLAND : permettre au scheduler scx BPFland de suivre l'EPP
 
 1. Créer le script scx-tuned.sh
