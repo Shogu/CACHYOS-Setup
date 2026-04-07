@@ -586,7 +586,7 @@ sudo pacman -Syu tuned tuned-ppd
 ```
 Et reboot.
 
-Passer `lavd` en AUTO et passer l'atgument `--autopower` pour suivre l'EPP. Vérifier avec la commande scxctl get et sudo scx_lavd --monitor Penser à ajouter `none /sys/kernel/debug debugfs defaults 0 0` à GFSTAB pour avoir le monitoring!
+Passer `lavd` en AUTO et passer l'atgument `--autopower` pour suivre l'EPP. Vérifier avec la commande scxctl get et sudo scx_lavd --monitor ou la fucntion fish `scx` qui lance les deux.  Penser à ajouter `none /sys/kernel/debug debugfs defaults 0 0` à FSTAB pour avoir le monitoring!
 
 Avec BPFLAND : permettre au scheduler scx BPFland de suivre l'EPP
 
