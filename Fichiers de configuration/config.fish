@@ -35,11 +35,24 @@ end
 
 ############################################################################################################################
 # Contrôleur live de scx_scheduler - commande scx
-function scx --description 'Lance scxctl get puis sudo scx_lavd --monitor 3'
-    scxctl get
-    sudo scx_lavd --monitor 3
-end
+function scx --description 'scxctl get + monitor sans WARN'
+    set -l output (scxctl get 2>/dev/null)
+    echo $output
+    echo
 
+    set -l sched_name (string match -r 'running\s+([[:alnum:]_-]+)' -- $output)[2]
+    
+    if test -z "$sched_name"
+        echo "Aucun scheduler actif."
+        return 1
+    end
+
+    set sched_name (string lower -- $sched_name)
+    set -l bin "scx_$sched_name"
+
+    echo "Monitor : sudo $bin --monitor 3"
+    sudo bash -c "$bin --monitor 3 2>/dev/null"
+end
 
 ############################################################################################################################
 # 20 dernières erreurs journalctl - commande journal
