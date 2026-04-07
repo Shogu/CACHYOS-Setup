@@ -35,9 +35,9 @@ end
 
 ############################################################################################################################
 # Contrôleur live de scx_scheduler - commande scx
-function scx --description 'Lance scxctl get puis sudo scx_lavd --monitor 1'
+function scx --description 'Lance scxctl get puis sudo scx_lavd --monitor 3'
     scxctl get
-    sudo scx_lavd --monitor 1
+    sudo scx_lavd --monitor 3
 end
 
 
