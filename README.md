@@ -526,7 +526,7 @@ Pour FS BTRFS :
 15 UUID=e181248c-3cce-4428-bdc4-b6efd715c470 /var/log       btrfs   subvol=/@log,defaults,noatime,discard=async,commit=120,compress=zstd:1 0 0   
 16 tmpfs                                     /tmp           tmpfs   defaults,noatime,mode=1777 0 0                                                      
 ```                                                                                      Relancer FSTAB avec `sudo systemctl daemon-reload` puis vérifier l'intégrité des lignes FSTAB avec `sudo findmnt --verify`
-`                                              
+                                            
 
 Et activer NoCOW avec :
 ```
