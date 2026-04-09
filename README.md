@@ -516,16 +516,17 @@ Pour FS BTRFS :
 ```
  1 # /etc/fstab: static file system information.                                                                                                                                                                                                                                           
  7 # <file system>             <mount point>  <type>  <options>  <dump>  <pass>                                                                         
- 8 UUID=BC0B-F121                            /boot          vfat    defaults,noatime,umask=0077,nofail 0 2                                              
- 9 UUID=e181248c-3cce-4428-bdc4-b6efd715c470 /              btrfs   subvol=/@,defaults,noatime,discard=async,commit=120,compress=zstd:1,nofail 0 0      
-10 UUID=e181248c-3cce-4428-bdc4-b6efd715c470 /home          btrfs   subvol=/@home,defaults,noatime,discard=async,commit=120,compress=zstd:1,nofail 0 0  
-11 UUID=e181248c-3cce-4428-bdc4-b6efd715c470 /root          btrfs   subvol=/@root,defaults,noatime,discard=async,commit=120,compress=zstd:1,nofail 0 0  
-12 UUID=e181248c-3cce-4428-bdc4-b6efd715c470 /srv           btrfs   subvol=/@srv,defaults,noatime,discard=async,commit=120,compress=zstd:1,nofail 0 0   
-13 UUID=e181248c-3cce-4428-bdc4-b6efd715c470 /var/cache     btrfs   subvol=/@cache,defaults,noatime,discard=async,commit=120,compress=zstd:1,nofail 0 0 
-14 UUID=e181248c-3cce-4428-bdc4-b6efd715c470 /var/tmp       btrfs   subvol=/@tmp,defaults,noatime,discard=async,commit=120,compress=zstd:1,nofail 0 0   
-15 UUID=e181248c-3cce-4428-bdc4-b6efd715c470 /var/log       btrfs   subvol=/@log,defaults,noatime,discard=async,commit=120,compress=zstd:1,nofail 0 0   
+ 8 UUID=BC0B-F121                            /boot          vfat    defaults,noatime,umask=0077 0 2                                              
+ 9 UUID=e181248c-3cce-4428-bdc4-b6efd715c470 /              btrfs   subvol=/@,defaults,noatime,discard=async,commit=120,compress=zstd:1 0 0      
+10 UUID=e181248c-3cce-4428-bdc4-b6efd715c470 /home          btrfs   subvol=/@home,defaults,noatime,discard=async,commit=120,compress=zstd:1 0 0  
+11 UUID=e181248c-3cce-4428-bdc4-b6efd715c470 /root          btrfs   subvol=/@root,defaults,noatime,discard=async,commit=120,compress=zstd:1 0 0  
+12 UUID=e181248c-3cce-4428-bdc4-b6efd715c470 /srv           btrfs   subvol=/@srv,defaults,noatime,discard=async,commit=120,compress=zstd:1 0 0   
+13 UUID=e181248c-3cce-4428-bdc4-b6efd715c470 /var/cache     btrfs   subvol=/@cache,defaults,noatime,discard=async,commit=120,compress=zstd:1 0 0 
+14 UUID=e181248c-3cce-4428-bdc4-b6efd715c470 /var/tmp       btrfs   subvol=/@tmp,defaults,noatime,discard=async,commit=120,compress=zstd:1 0 0   
+15 UUID=e181248c-3cce-4428-bdc4-b6efd715c470 /var/log       btrfs   subvol=/@log,defaults,noatime,discard=async,commit=120,compress=zstd:1 0 0   
 16 tmpfs                                     /tmp           tmpfs   defaults,noatime,mode=1777 0 0                                                      
-```                                                                                                                                    
+```                                                                                      Relancer FSTAB avec `sudo systemctl daemon-reload` puis vérifier l'intégrité des lignes FSTAB avec `sudo findmnt --verify`
+`                                              
 
 Et activer NoCOW avec :
 ```
