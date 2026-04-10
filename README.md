@@ -166,9 +166,11 @@ Penser à supprimer l'extension `Pamac Updater` dans usr/share/gnome-shell/exten
 
 
 <a id="id-8"></a>
-## 8 - Améliroer Fonts (à mettre dans section Gnome!)
+## 8 - Améliorer Fonts (à mettre dans section Gnome!)
 Editer `sudo gnome-text-editor /etc/environment` et ajouter puis déconnexion :
 FREETYPE_PROPERTIES="cff:no-stem-darkening=0 autofitter:no-stem-darkening=0"
+
+ou moins "gras" : FREETYPE_PROPERTIES="cff:no-stem-darkening=0 autofitter:no-stem-darkening=0"
 
 
 <a id="id-9"></a>
