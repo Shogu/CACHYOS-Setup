@@ -30,7 +30,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 ### ✨ B - Allégement du système
 - [6 - Réglages CachyOS-Hello](#id-6)
 - [7 - Supprimer logiciels inutiles avec pacman](#id-7)
-- [8 - !!!!!!!!!](#id-8)
+- [8 - Améliorer Fonts](#id-8)
 - [9 - Supprimer et masquer services SYSTEM & USER](#id-9)
 - [10 - Désactiver autostart gnome-wellbeing](#id-10)
 - [11 - Alléger journaux système et mettre en RAM](#id-11)
@@ -166,7 +166,9 @@ Penser à supprimer l'extension `Pamac Updater` dans usr/share/gnome-shell/exten
 
 
 <a id="id-8"></a>
-## 8 - 
+## 8 - Améliroer Fonts (à mettre dans section Gnome!)
+Editer `sudo gnome-text-editor /etc/environment` et ajouter puis déconnexion :
+FREETYPE_PROPERTIES="cff:no-stem-darkening=0 autofitter:no-stem-darkening=0"
 
 
 <a id="id-9"></a>
