@@ -591,7 +591,7 @@ Créer un Custom Command Toggle pour activer/désactiver ce booster (le fichier 
 
 b - Remplacer ppd par tuned-ppd (+ performant) et permettre le switch de SCX en fonction de l'EPP:
 ```
-sudo pacman -Syu tuned tuned-ppd
+sudo pacman -Syu tuned-cachy tuned-cachy-ppd
 ```
 Et reboot.
 
