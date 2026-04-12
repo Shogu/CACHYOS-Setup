@@ -1109,7 +1109,16 @@ s - [Quoick Settings Audio Device](https://extensions.gnome.org/extension/5964/q
 ```
 paru -S nautilus-open-any-terminal
 ```
-et penser à éditer sa clé dconf com.github.stunkymonkey.nautilus-open-any-terminal pour inscrire "ptyxis" + mettre "new tab" sur true pour que Ptyxis s'ouvre dans la session en cours. En cas d'erreur avec Gnome 49, se référer à [ce fil](https://github.com/Stunkymonkey/nautilus-open-any-terminal/issues/242).
+et penser à éditer sa clé dconf `com.github.stunkymonkey.nautilus-open-any-terminal` pour inscrire "ptyxis":
+```
+gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal ptyxis
+```
+
++ mettre "new tab" sur true pour que Ptyxis s'ouvre dans la session en cours:
+```
+gsettings set com.github.stunkymonkey.nautilus-open-any-terminal new-tab true
+```
+   En cas d'erreur avec Gnome 49, se référer à [ce fil](https://github.com/Stunkymonkey/nautilus-open-any-terminal/issues/242).
 
 
 Ajouter Ptyxis aux terminaux par défaut pour les outils CachyOS :
