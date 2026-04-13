@@ -17,7 +17,7 @@ alias nano='micro'
 alias notepad='gnome-text-editor'
 alias rm='rm -I'
 alias df='duf'
-alias source='source ~/.config/fish/config.fish'
+alias sourcefish='source ~/.config/fish/config.fish'
 
 
 
