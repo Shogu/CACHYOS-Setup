@@ -977,6 +977,10 @@ HandleLidSwitch=suspend
 HandleLidSwitchExternalPower=suspend
 ```
 
+Et `gsettings set org.gnome.shell always-show-log-out true`
+
+
+
 
 <a id="id-30"></a>
 ## 30 - Régler Nautilus et marque-pages
