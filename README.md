@@ -186,7 +186,6 @@ sudo systemctl mask avahi-daemon.service
 sudo systemctl mask sys-kernel-tracing.mount
 sudo systemctl mask avahi-daemon.socket
 sudo systemctl mask NetworkManager-wait-online.service
-sudo systemctl mask geoclue
 sudo systemctl mask dev-tpmrm0.device
 sudo systemctl mask dev-tpm0.device
 sudo systemctl mask tpm2.target
@@ -195,7 +194,6 @@ sudo systemctl mask  pamac-cleancache.service
 sudo systemctl mask  pamac-cleancache.timer
 sudo systemctl mask  pamac-daemon.service
 sudo systemctl mask bluetooth.service
-sudo systemctl mask colord.service
 sudo systemctl mask systemd-vconsole-setup.service
 sudo systemctl mask systemd-tpm2-clear.service
 sudo systemctl mask systemd-tpm2-setup-early.service
@@ -209,6 +207,12 @@ sudo systemctl maskcachyos-rate-mirrors.service
 sudo systemctl mask cachyos-rate-mirrors.timer
 
 ```
+
+Eventuellement, si pas besoin du Mode Nuit  :
+sudo systemctl mask colord.service
+sudo systemctl mask geoclue
+
+
 
 Enfin, reboot puis controle de l'état des services avec :
 ```
