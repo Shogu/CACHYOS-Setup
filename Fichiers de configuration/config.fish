@@ -33,8 +33,8 @@ end
 
 
 ############################################################################################################################
-# Contrôleur live de scx_scheduler - commande scx
-function scx --description 'scxctl get + monitor sans WARN + check I/O scheduler'
+# Contrôleur live de _scheduler - commande scx
+function scx --description 'scxctl get + check scheduler + monitor sans WARN'
     set -l output (scxctl get 2>/dev/null)
 
     if test -z "$output"
@@ -59,51 +59,17 @@ function scx --description 'scxctl get + monitor sans WARN + check I/O scheduler
     set sched_name (string lower -- $sched_name)
     set -l bin "scx_$sched_name"
 
-    set -l disk ""
-
-    for candidate in /sys/block/nvme*
-        if test -e $candidate
-            set disk (basename $candidate)
-            break
-        end
-    end
-
-    if test -z "$disk"
-        for candidate in /sys/block/sd*
-            if test -e $candidate
-                set disk (basename $candidate)
-                break
-            end
-        end
-    end
-
-    if test -n "$disk"; and test -r /sys/block/$disk/queue/scheduler
-        set -l scheduler_line (cat /sys/block/$disk/queue/scheduler)
-        set -l io_sched (string match -rg '\[([^\]]+)\]' -- $scheduler_line)
+    set -l disk nvme0n1
+    if test -r /sys/block/$disk/queue/scheduler
+        set -l current_io (awk -F'[][]' '{print $2}' /sys/block/$disk/queue/scheduler)
 
         set_color cyan
         echo "Disk       : $disk"
         set_color --reset
-
-        echo "Schedulers : $scheduler_line"
-
-        if test -n "$io_sched"
-            if test "$io_sched" = "adios"
-                set_color green
-                echo "OK  I/O scheduler actif : $io_sched"
-            else
-                set_color yellow
-                echo "WARN I/O scheduler actif : $io_sched (pas adios)"
-            end
-            set_color --reset
-        else
-            set_color red
-            echo "KO  Impossible de détecter le scheduler actif."
-            set_color --reset
-        end
+        echo "Scheduler  : $current_io"
     else
         set_color yellow
-        echo "WARN Aucun disque compatible trouvé pour vérifier le scheduler I/O."
+        echo "WARN Impossible de lire /sys/block/$disk/queue/scheduler"
         set_color --reset
     end
 
@@ -112,9 +78,8 @@ function scx --description 'scxctl get + monitor sans WARN + check I/O scheduler
     echo "Monitor : sudo $bin --monitor 3"
     set_color --reset
 
-    sudo bash -c "$bin --monitor 3 2>/dev/null"
+    command sudo $bin --monitor 3 2>/dev/null
 end
-
 
 ############################################################################################################################
 # 20 dernières erreurs journalctl - commande journal
@@ -259,19 +224,6 @@ function fwupdate --description "Mettre à jour firmware (fwupdmgr full)"
 end
 
 ############################################################################################################################
-# Fonction alias nano--micro avec sudo
-function sudo --wraps=sudo --description "sudo wrapper: nano → micro"
-    set cmd (string split " " (string join " " $argv))
-    
-    if test (count $cmd) -gt 0; and test $cmd[1] = "nano"
-        set cmd[1] "micro"
-        echo "nano → micro : " (string join " " $cmd)
-    end
-
-    command sudo $cmd
-end
-
-############################################################################################################################
 # Fonction vault - commandes utiles et functions
 function vault --description "Vault de commandes utiles"
     set -l vault_labels \
@@ -302,7 +254,6 @@ function vault --description "Vault de commandes utiles"
         "power" \
         "fwupdate" \
         "control" \
-
 
     set -l count (count $vault_labels)
 
@@ -352,4 +303,18 @@ function vault --description "Vault de commandes utiles"
         echo "Entrée invalide. Numéro entre 1 et $count, ou q pour quitter."
         set_color normal
     end
+end
+
+
+############################################################################################################################
+# Fonction alias nano--micro avec sudo
+function sudo --wraps=sudo --description "sudo wrapper: nano → micro"
+    set cmd (string split " " (string join " " $argv))
+    
+    if test (count $cmd) -gt 0; and test $cmd[1] = "nano"
+        set cmd[1] "micro"
+        echo "nano → micro : " (string join " " $cmd)
+    end
+
+    command sudo $cmd
 end
