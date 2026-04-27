@@ -306,15 +306,3 @@ function vault --description "Vault de commandes utiles"
 end
 
 
-############################################################################################################################
-# Fonction alias nano--micro avec sudo
-function sudo --wraps=sudo --description "sudo wrapper: nano → micro"
-    set cmd (string split " " (string join " " $argv))
-    
-    if test (count $cmd) -gt 0; and test $cmd[1] = "nano"
-        set cmd[1] "micro"
-        echo "nano → micro : " (string join " " $cmd)
-    end
-
-    command sudo $cmd
-end
