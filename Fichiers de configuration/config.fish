@@ -18,6 +18,7 @@ alias notepad='gnome-text-editor'
 alias rm='rm -I'
 alias df='duf'
 alias sourcefish='source ~/.config/fish/config.fish'
+alias fishedit='gnome-text-editor /home/ogu/.config/fish/config.fish'
 
 ############################################################################################################################
 # gnome-text-editor comme éditeur par defaut sudoedit
@@ -304,5 +305,16 @@ function vault --description "Vault de commandes utiles"
         set_color normal
     end
 end
+
+
+
+
+
+
+
+
+
+
+
 
 
