@@ -1213,7 +1213,8 @@ EOF
 chmod +x ~/.config/autostart/jamesdsp.desktop
 ```
 
-Reboot et vérifier si jamesdsp apparait dans les processus.
+Reboot et vérifier si jamesdsp apparait dans les processus. Puis penser à le passer en explicitely installed sans quoi pacman le voit comme orphelin : sudo pacman -D --asexplicit jamesdsp-headless-git
+
 
 
 <a id="id-40"></a>
