@@ -937,7 +937,7 @@ SkipReview #à ajouter à la main
 
 ```
 ```
-paru -Syu libre-menu-editor monophony archclean gapless cine
+paru -Syu libre-menu-editor monophony archclean gapless cine cachyos-downgrade
 
 ```
 
@@ -1090,7 +1090,7 @@ g - [Battery Time Percentage Compact](https://extensions.gnome.org/extension/292
 
 h - [AutoActivities](https://extensions.gnome.org/extension/5500/auto-activities/)
 
-i - Power Switching Manager](https://extensions.gnome.org/extension/9178/power-switching-manager/) & supprimer la luminosité automatique dans Settings de Gnome. !! NE FONCTIONNE PLUS AVEC GNOME 49
+i - [Power Switching Manager](https://extensions.gnome.org/extension/9178/power-switching-manager/) & supprimer la luminosité automatique dans Settings de Gnome !!
 
 j - [Hot Edge](https://extensions.gnome.org/extension/4222/hot-edge/)
 
@@ -1110,7 +1110,7 @@ q - [Media Controls](https://extensions.gnome.org/extension/4470/media-controls/
 
 r - [Windows Rounded Corners](https://extensions.gnome.org/extension/7048/rounded-window-corners-reborn/)
 
-s - [Quoick Settings Audio Device](https://extensions.gnome.org/extension/5964/quick-settings-audio-devices-hider/) pour masquer l'entrée JamesDSP dans le top menu Gnome.
+s - [Quick Settings Audio Device](https://extensions.gnome.org/extension/5964/quick-settings-audio-devices-hider/) pour masquer l'entrée JamesDSP dans le top menu Gnome.
 
 <a id="id-36"></a>
 ## 36 - Bonus Ptyxis
