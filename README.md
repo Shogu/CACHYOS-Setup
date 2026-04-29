@@ -937,7 +937,7 @@ SkipReview #à ajouter à la main
 
 ```
 ```
-paru -Syu libre-menu-editor monophony archclean gapless cine cachyos-downgrade
+paru -Syu libre-menu-editor monophony archclean gapless cine cachyos-downgrade isd
 
 ```
 
