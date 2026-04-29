@@ -1504,34 +1504,37 @@ Touch UI Layout
 Régler les settings cachés : vivaldi:settings/system, en aprticulier le préfetch, et décocher les option prefetch disable dans ublock et localcdn. 
 Enfin supprimer l'autoplay Youtube avec :  Menu Vivaldi → Settings → Privacy → Website permissions → Autoplay → Block
 
-## 59 - Changer thème Vivaldi
+## 58 - Changer thème Vivaldi
 
 Appliquer le thème custom à télécharger dans le dépôt.
 Ativez d'abord les modifications CSS expérimentales: allez sur vivaldi://experiments/, cochez « Allow for using CSS modifications » (Autoriser les modifications CSS), puis redémarrez Vivaldi. 
 Dans Paramètres > Apparence > Modifications UI personnalisées, sélectionnez un dossier pour vos fichiers CSS (créez-en un si nécessaire). 
 
-- [60 - Panneau latéral Vivaldi](#id-52)
+## 59 - Panneau latéral Vivaldi](#id-52)
 
 Ajouter Perplexity et [WhatsApp(https://www.reddit.com/r/vivaldibrowser/comments/1m93s3b/does_anyone_know_how_to_open_whatsapp_as_webpanel/) : https://web.whatsapp.com/
 
-- [61 - "Nettoyer" Vivaldi](#id-56)
++ Raindrop, Discord, Gmail + traduction, commande rapide extension, sessions
+
 
 
 
 
 <a id="id-59"></a>
-## 59 - Extensions Vivaldi
-https://chromewebstore.google.com/detail/better-scroll-to-topbotto/ifdjdmipgndncbeopapghbohjdiieibl?hl=es
-https://chromewebstore.google.com/detail/video-downloadhelper/lmjnegcaeklhafolokijcfjliaokphfk et reglages mkv + dossier telechargements VDH pour correspondre au script `transfert`
-https://chromewebstore.google.com/detail/copy-url/ccnghlbhjgabibnajlaklhpikmcannph
-https://chromewebstore.google.com/detail/localcdn/njdfdhgcmkocbgbhcioffdbicglldapd
-https://chromewebstore.google.com/detail/rehistoria-auto-delete-hi/dheibmdojjjhiahbdmcnmbepnaiilloe
-https://chromewebstore.google.com/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm
-https://chromewebstore.google.com/detail/raindropio/ldgfbffkinooeloadekpmfoklnobpien?pli=1
-Stylus pour la couleur de surlignage et insérer:
+## 60 - Extensions Vivaldi
+[Better Scroll To Bottom](https://chromewebstore.google.com/detail/better-scroll-to-topbotto/ifdjdmipgndncbeopapghbohjdiieibl?hl=es)
+[Video Download Helper](https://chromewebstore.google.com/detail/video-downloadhelper/lmjnegcaeklhafolokijcfjliaokphfk) et reglages mkv + dossier telechargements VDH pour correspondre au script `transfert`
+[Copy URL](https://chromewebstore.google.com/detail/copy-url/ccnghlbhjgabibnajlaklhpikmcannph)
+[LocalCDN](https://chromewebstore.google.com/detail/localcdn/njdfdhgcmkocbgbhcioffdbicglldapd)
+[Rehistroria Auto Delete](https://chromewebstore.google.com/detail/rehistoria-auto-delete-hi/dheibmdojjjhiahbdmcnmbepnaiilloe)
+[ublock Origin](https://chromewebstore.google.com/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm)
+[Raindrop](https://chromewebstore.google.com/detail/raindropio/ldgfbffkinooeloadekpmfoklnobpien?pli=1)
+[Stylus](https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne?hl=fr) pour la couleur de surlignage et insérer:
 ```
 ::selection {
     color: white !important;
     background-color: #3584e4 !important;
 }
 ```
+
+
