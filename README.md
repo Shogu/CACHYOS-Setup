@@ -1079,7 +1079,7 @@ c - [Lilypad Topbar Organizer](https://extensions.gnome.org/extension/7266/lilyp
 
 d - [Appindicator](https://extensions.gnome.org/extension/615/appindicator-support/)
 
-d - [Caffeine](https://extensions.gnome.org/extension/517/caffeine/) ATTENTIon à n'activer que si le suspend est réparé
+e - [Caffeine](https://extensions.gnome.org/extension/517/caffeine/) ATTENTIon à n'activer que si le suspend est réparé
 
 f - [Clipboard History](https://extensions.gnome.org/extension/4839/clipboard-history/) ou plus graphique avec [Copyous](https://extensions.gnome.org/extension/8834/copyous/) : penser à installer la dépendance libgda6 `sudo pacman -S libgda6`
 
@@ -1111,6 +1111,8 @@ q - [Media Controls](https://extensions.gnome.org/extension/4470/media-controls/
 r - [Windows Rounded Corners](https://extensions.gnome.org/extension/7048/rounded-window-corners-reborn/)
 
 s - [Quick Settings Audio Device](https://extensions.gnome.org/extension/5964/quick-settings-audio-devices-hider/) pour masquer l'entrée JamesDSP dans le top menu Gnome.
+
+t - [Night Light Slider](https://extensions.gnome.org/extension/6781/night-light-slider-updated/)
 
 <a id="id-36"></a>
 ## 36 - Bonus Ptyxis
