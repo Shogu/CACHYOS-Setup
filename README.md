@@ -758,7 +758,7 @@ sudo micro /etc/default/limine
 
 Puis saisir : 
 ```
-LINUX_OPTIONS="splash systemd.tpm2_wait=false tsc=reliable cryptomgr.notests random.trust_cpu=on efi=disable_early_pci_dma nomce nowatchdog no_timer_check noresume fsck.mode=skip zswap.enabled=0 systemd.show_status=false quiet 8250.nr_uarts=0 ipv6.disable=1 amd_iommu=off transparent_hugepage=madvise rcupdate.rcu_normal_after_boot=1 vt.global_cursor_default=0 consoleblank=0 udev.log_level=0 loglevel=0 systemd.watchdog_sec=0 tpm_crb.disable=1 tpm_tis.disable=1 tpm_tis.interrupts=0 random.trust_tpm=0"
+LINUX_OPTIONS="splash systemd.tpm2_wait=false tsc=reliable cryptomgr.notests random.trust_cpu=on efi=disable_early_pci_dma nomce nowatchdog no_timer_check noresume fsck.mode=skip zswap.enabled=0 systemd.show_status=false quiet 8250.nr_uarts=0 ipv6.disable=1 amd_iommu=off rcupdate.rcu_normal_after_boot=1 vt.global_cursor_default=0 consoleblank=0 udev.log_level=0 loglevel=0 systemd.watchdog_sec=0 tpm_crb.disable=1 tpm_tis.disable=1 tpm_tis.interrupts=0 random.trust_tpm=0"
 
 Si bug RSEED32 rajouter clearcpuid=rdseed?
 ```
