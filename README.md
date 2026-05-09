@@ -979,6 +979,11 @@ HandleLidSwitchExternalPower=suspend
 
 Et `gsettings set org.gnome.shell always-show-log-out true` pour activer la fermeture de session sur GNOME50 + `gsettings set org.gnome.login-screen disable-restart-buttons false` pour activer le reboot/sutdown depuis GDM.
 
+Supprimer aussi la notification de don GNOME :
+```
+gsettings set org.gnome.settings-daemon.plugins.housekeeping donation-reminder-enabled false
+```
+
 
 
 
