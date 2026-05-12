@@ -153,8 +153,7 @@ Installer TOUT DE SUITE le fichier config.fish de FISH pour faciliter le sopéra
 
 <a id="id-6"></a>
 ## 6 - Réglages CachyOS-Hello
-Faire les réglages proposés par `CachyOS-Hello` : désactiver le bluetooth, activer cachy-update tray, classer les miroirs, NE PAS installer psd (il faut l'installer en --user) ni ananicy-cpp (le boot du service échoue - lui préférer ADIOS pour AMD + méthode copilation depuis les sources).
-
+Faire les réglages proposés par `CachyOS-Hello` : désactiver le bluetooth, activer cachy-update tray, classer les miroirs, NE PAS installer psd (il faut l'installer en --user)
 
 <a id="id-7"></a>
 ## 7 - Supprimer logiciels inutiles avec pacman
