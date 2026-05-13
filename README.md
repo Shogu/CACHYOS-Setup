@@ -416,12 +416,12 @@ Créer le service systemd adios-iosched.service avec `sudo micro /etc/systemd/sy
 ```
 [Unit]
 Description=Force adios I/O scheduler on nvme0n1
-After=systemd-udevd.service local-fs.target
-Wants=systemd-udevd.service
+After=multi-user.target
+Wants=multi-user.target
 
 [Service]
 Type=oneshot
-ExecStart=/bin/sh -c 'echo adios > /sys/block/nvme0n1/queue/scheduler'
+ExecStart=/bin/sh -c 'sleep 15; echo adios > /sys/block/nvme0n1/queue/scheduler'
 RemainAfterExit=yes
 
 [Install]
