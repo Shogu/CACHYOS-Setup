@@ -411,18 +411,16 @@ Puis modifier à 600 la durée avant mise en veille.
 
 En lieu et place de Kyber. Attention la méthode WIKi ne fonctionne plus, apsser par systemd plutot que udev:
 
-Créer le service systemd adios-iosched.service avec `sudo micro /etc/systemd/system/adios-iosched.rules`
+Créer le service systemd adios-udev-reapply avec `sudo micro /etc/systemd/system/adios-udev-reapply.service`
 
 ```
 [Unit]
-Description=Force adios I/O scheduler on nvme0n1
+Description=Reapply udev rule for NVMe scheduler
 After=multi-user.target
-Wants=multi-user.target
 
 [Service]
 Type=oneshot
-ExecStart=/bin/sh -c 'sleep 5; echo adios > /sys/block/nvme0n1/queue/scheduler'
-RemainAfterExit=yes
+ExecStart=/bin/sh -c 'sleep 1; udevadm control --reload-rules; udevadm trigger --action=change /sys/block/nvme0n1'
 
 [Install]
 WantedBy=multi-user.target
@@ -431,7 +429,7 @@ WantedBy=multi-user.target
 Relancer systemd : 
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable --now adios-iosched.service
+sudo systemctl enable --now adios-udev-reapply.service
 ```
 Vérifier avec `cat /sys/block/nvme0n1/queue/scheduler`
 
