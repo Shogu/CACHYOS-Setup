@@ -408,28 +408,30 @@ Puis modifier à 600 la durée avant mise en veille.
 
 <a id="id-16"></a>
 ## 16 - Activer scheduler ADIOS
-Activer le scheduler ADIOS sur AMD CPU :
-```
-sudo micro /etc/udev/rules.d/60-ioschedulers.rules
-```
-Puis saisir :
-```
-# HDD
-ACTION=="add|change", KERNEL=="sd[a-z]*", ATTR{queue/rotational}=="1", \
-    ATTR{queue/scheduler}="bfq"
 
-# SSD
-ACTION=="add|change", KERNEL=="sd[a-z]*|mmcblk[0-9]*", ATTR{queue/rotational}=="0", \
-    ATTR{queue/scheduler}="adios"
+En lieu et place de Kyber. Attention la méthode WIKi ne fonctionne plus, apsser par systemd plutot que udev:
 
-# NVMe SSD
-ACTION=="add|change", KERNEL=="nvme[0-9]*", ATTR{queue/rotational}=="0", \
-    ATTR{queue/scheduler}="adios"
+Créer le service systemd adios-iosched.service avec `sudo micro /etc/systemd/system/adios-iosched.rules`
+
 ```
-Relancer udev : 
+[Unit]
+Description=Force adios I/O scheduler on nvme0n1
+After=systemd-udevd.service local-fs.target
+Wants=systemd-udevd.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'echo adios > /sys/block/nvme0n1/queue/scheduler'
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
 ```
-sudo udevadm control --reload-rules
-sudo udevadm trigger
+
+Relancer systemd : 
+```
+sudo systemctl daemon-reload
+sudo systemctl enable --now adios-iosched.service
 ```
 Vérifier avec `cat /sys/block/nvme0n1/queue/scheduler`
 
