@@ -421,7 +421,7 @@ Wants=multi-user.target
 
 [Service]
 Type=oneshot
-ExecStart=/bin/sh -c 'sleep 15; echo adios > /sys/block/nvme0n1/queue/scheduler'
+ExecStart=/bin/sh -c 'sleep 5; echo adios > /sys/block/nvme0n1/queue/scheduler'
 RemainAfterExit=yes
 
 [Install]
