@@ -20,6 +20,7 @@ alias df='duf'
 alias sourcefish='source ~/.config/fish/config.fish'
 alias fishedit='xdg-open /home/ogu/.config/fish/config.fish'
 alias systemd='isd'
+alias lastpackages='rip'
 
 ############################################################################################################################
 # gnome-text-editor comme éditeur par defaut sudoedit
