@@ -1544,5 +1544,6 @@ Ajouter Perplexity et [WhatsApp(https://www.reddit.com/r/vivaldibrowser/comments
     background-color: #3584e4 !important;
 }
 ```
+Passer `gio mime x-scheme-handler/magnet de.haeckerfelix.Fragments.desktop` pour que le clic sur un magnet ouvre l'interface Fragments.
 
 
