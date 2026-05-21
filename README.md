@@ -230,7 +230,7 @@ sudo pacman -Rns openvpn networkmanager-openvpn networkmanager-vpn-plugin-openvp
 sudo pacman -Rns f2fs-tools xfsprogs sane colord-sane hwinfo
 ```
 
-## Polices
+# Polices
 
 - `noto-fonts-cjk` : polices chinois, japonais, coréen.
 - `noto-fonts-extra` : variantes supplémentaires Noto.
@@ -240,7 +240,10 @@ sudo pacman -Rns f2fs-tools xfsprogs sane colord-sane hwinfo
 ```
 sudo pacman -Rns noto-fonts-cjk noto-fonts-extra ttf-meslo-nerd
 ```
-+ ```
+
++
+
+```
 sudo pacman -rdd fastfetch
 ```
 
