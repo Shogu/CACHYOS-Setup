@@ -158,13 +158,13 @@ Faire les réglages proposés par `CachyOS-Hello` : désactiver le bluetooth, ac
 <a id="id-7"></a>
 ## 7 - Supprimer logiciels inutiles avec pacman
 ```
-sudo pacman -Rns plocate nano apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds gnome-usage octopi gedit xfsprogs btrfs-progs cpupower gnome-screenshot openvpn networkmanager-openvpn networkmanager-vpn-plugin-openvpn bpftune-git kguiaddons kcolorscheme kwallet noto-fonts-cjk noto-fonts-extra ttf-meslo-nerd  cantarell-fonts f2fs-tools xfsprogs ninja tesseract tesseract-data-fra tesseract-data-osd autoconf base-devel flatpak malcontent sushi rust mesa-utils gvfs-afc netctl linux-cachyos-headers linux-cachyos-lts-headers hwinfo lld llvm pahole opencl-mesa lib32-opencl-mesa
+sudo pacman -Rns plocate nano apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds gnome-usage octopi gedit xfsprogs btrfs-progs cpupower gnome-screenshot openvpn networkmanager-openvpn networkmanager-vpn-plugin-openvpn bpftune-git kguiaddons kcolorscheme kwallet noto-fonts-cjk noto-fonts-extra ttf-meslo-nerd  cantarell-fonts f2fs-tools xfsprogs ninja tesseract tesseract-data-fra tesseract-data-osd autoconf base-devel flatpak malcontent sushi rust mesa-utils gvfs-afc netctl linux-cachyos-headers linux-cachyos-lts-headers hwinfo lld llvm pahole opencl-mesa lib32-opencl-mesa gvfs-gphoto2 gvfs-nfs nfs-utils gvfs-smb lib32-vulkan-radeon lib32-mesa
 
 ```
 ```
 sudo pacman -rdd fastfetch
 ```
-Bilan : environ 960 packages.
+
 
 <a id="id-8"></a>
 ## 8 - Améliorer Fonts (à mettre dans section Gnome!)
@@ -941,8 +941,11 @@ SkipReview #à ajouter à la main
 paru -Syu libre-menu-editor archclean gapless cine cachyos-downgrade isd
 
 ```
+Bilan : environ 900 packages et 6.5 Go d'applis et paquets
+`sudo pacman -Q | wc -l && expac -H M '%m' | awk '{sum += $1} END {printf "%.2f GiB\\n", sum/1024}'`
 
-Installer [PacHub](https://github.com/mrks1469/PacHub) OU
+OPTIONNEL :
+installer [PacHub](https://github.com/mrks1469/PacHub) OU
 Régler `pacseek` pour inclure paru à la place de yay si besoin, et EnableAutoSuggest=true + ColorScheme=Endeavour OS : soit avec ctrl-s dans Pacseek, soit en éditant le json:
 
 ```
