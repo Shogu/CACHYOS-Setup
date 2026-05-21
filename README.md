@@ -158,7 +158,7 @@ Faire les réglages proposés par `CachyOS-Hello` : désactiver le bluetooth, ac
 <a id="id-7"></a>
 ## 7 - Supprimer logiciels inutiles avec pacman
 
-# Accessibilité et aide
+Accessibilité et aide
 
 - `speech-dispatcher` : synthèse vocale.
 - `brltty` : support des afficheurs braille.
@@ -170,7 +170,7 @@ Faire les réglages proposés par `CachyOS-Hello` : désactiver le bluetooth, ac
 sudo pacman -Rns speech-dispatcher brltty orca yelp gnome-user-docs
 ```
 
-# GNOME optionnel
+GNOME optionnel
 
 - `gnome-remote-desktop` : partage et contrôle du bureau à distance.
 - `gnome-backgrounds` : fonds d’écran GNOME.
@@ -186,7 +186,7 @@ sudo pacman -Rns speech-dispatcher brltty orca yelp gnome-user-docs
 sudo pacman -Rns gnome-remote-desktop gnome-backgrounds gnome-weather totem baobab gnome-usage gedit gnome-screenshot sushi
 ```
 
-# Partage réseau, découverte, montage périphériques
+Partage réseau, découverte, montage périphériques
 
 - `apache` : serveur web HTTP.
 - `mod_dnssd` : annonce Apache via DNS-SD/Zeroconf.
@@ -207,7 +207,7 @@ sudo pacman -Rns gnome-remote-desktop gnome-backgrounds gnome-weather totem baob
 sudo pacman -Rns apache mod_dnssd gnome-user-share rygel gvfs-dnssd gvfs-smb nss-mdns gvfs-afc gvfs-gphoto2 netctl nfs-utils gvfs-nfs gvfs-smb
 ```
 
-## VPN
+VPN
 
 - `openvpn` : client/protocole VPN OpenVPN.
 - `networkmanager-openvpn` : intégration OpenVPN dans NetworkManager.
@@ -217,7 +217,7 @@ sudo pacman -Rns apache mod_dnssd gnome-user-share rygel gvfs-dnssd gvfs-smb nss
 sudo pacman -Rns openvpn networkmanager-openvpn networkmanager-vpn-plugin-openvpn
 ```
 
-# Systèmes de fichiers et scanners
+Systèmes de fichiers et scanners
 
 - `f2fs-tools` : outils pour partitions F2FS.
 - `xfsprogs` : outils pour partitions XFS.
@@ -230,7 +230,7 @@ sudo pacman -Rns openvpn networkmanager-openvpn networkmanager-vpn-plugin-openvp
 sudo pacman -Rns f2fs-tools xfsprogs sane colord-sane hwinfo
 ```
 
-# Polices
+Polices
 
 - `noto-fonts-cjk` : polices chinois, japonais, coréen.
 - `noto-fonts-extra` : variantes supplémentaires Noto.
@@ -248,7 +248,7 @@ sudo pacman -rdd fastfetch
 ```
 
 
-# Développement et compilation
+Développement et compilation
 
 - `ninja` : outil de build.
 - `tesseract` : OCR.
@@ -268,7 +268,7 @@ sudo pacman -rdd fastfetch
 sudo pacman -Rns ninja tesseract tesseract-data-fra tesseract-data-osd autoconf base-devel rust lld llvm pahole linux-cachyos-headers linux-cachyos-lts-headers mesa-utils
 ```
 
-# Flatpak et contrôle parental
+Flatpak et contrôle parental
 
 - `flatpak` : gestion d’applications Flatpak.
 - `malcontent` : contrôle parental et restrictions d’usage.
@@ -277,7 +277,7 @@ sudo pacman -Rns ninja tesseract tesseract-data-fra tesseract-data-osd autoconf 
 sudo pacman -Rns flatpak malcontent
 ```
 
-# Performances, tuning et divers
+Performances, tuning et divers
 
 - `cpupower` : réglages d’énergie et fréquence CPU.
 - `bpftune-git` : tuning via eBPF.
@@ -292,7 +292,7 @@ sudo pacman -Rns flatpak malcontent
 sudo pacman -Rns cpupower bpftune-git kguiaddons kcolorscheme kwallet octopi nano plocate
 ```
 
-# OpenCL et bibliothèques 32 bits
+OpenCL et bibliothèques 32 bits
 
 - `opencl-mesa` : pile OpenCL Mesa, utile pour le calcul GPU/OpenCL, pas pour un usage desktop classique.
 - `lib32-opencl-mesa` : version 32 bits d’OpenCL Mesa.
@@ -303,15 +303,11 @@ sudo pacman -Rns cpupower bpftune-git kguiaddons kcolorscheme kwallet octopi nan
 sudo pacman -Rns opencl-mesa lib32-opencl-mesa lib32-vulkan-radeon lib32-mesa
 ```
 
+Orphelins : recherche puis suppression
 
-# Orphelins : recherche puis suppression
-
-### Recherche
 ```
 pacman -Qdtq
 ```
-
-### Suppression
 ```
 sudo pacman -Rns $(pacman -Qdtq)
 ```
