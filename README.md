@@ -20,14 +20,10 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 
 # Table des matières
 
-### 💾 A - Installation
-- [1 - Désactiver Secure Boot dans le BIOS](#id-1)
-- [2 - Désactiver caméra et lecteur de carte](#id-2)
-- [3 - Utiliser systemd-boot et EXT4](#id-3)
-- [4 - Supprimer entrées NVRAM inutiles](#id-4)
-- [5 - Faire un ghost du système](#id-5)
 
-### ✨ B - Allégement du système
+
+### ✨ A - Allégement du système
+- [4 - Supprimer entrées NVRAM inutiles](#id-4)
 - [6 - Réglages CachyOS-Hello](#id-6)
 - [7 - Supprimer logiciels inutiles avec pacman](#id-7)
 - [8 - Améliorer Fonts](#id-8)
@@ -39,7 +35,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [14 - Réduire l'initramfs et le firmware](#id-14)
 - [15 - Désactiver capteur de luminosité Gnome](#id-15)
 
-### 🚀 C - Optimisation du système
+### 🚀 B - Optimisation du système
 - [16 - Activer scheduler ADIOS](#id-16)
 - [17 - Passer xwayland en autoclose et activer scale-monitor](#id-17)
 - [18 - Réduire le temps d'affichage du menu systemd-boot](#id-18)
@@ -52,11 +48,11 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [25 - Optimiser le kernel](#id-25) avec des arguments et le sched-ext
 - [26 - Régler wifi](#id-26)
 
-### 📦 D - Remplacement et installation de logiciels et codecs
+### 📦 C - Remplacement et installation de logiciels et codecs
 - [27 - Installer logiciels avec pacman et paru](#id-27)
 - [28 - Installer Dropbox avec Maestral](#id-28)
 
-### 🐾 E - Réglages de l'UI Gnome Shell
+### 🐾 D - Réglages de l'UI Gnome Shell
 - [29 - Suspension en fermant le capot](#id-29)
 - [30 - Régler Nautilus et marque-pages](#id-30)
 - [31 - Modifier mot de passe au démarrage](#id-31)
@@ -79,17 +75,7 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 - [48 - Faire le tri dans les LOCALES & ~/.local/share, ~/.config et /etc](#id-48)
 - ## 48 - Créer modèles de fichier dans Nautilus
 
-### 🌐 F - Réglages du navigateur Firefox
-- [49 - Réglages internes Firefox](#id-49)
-- [50 - Changer thème Firefox](#id-50)
-- [51 - Réglages user.js](#id-51)
-- [52 - Extensions Firefox](#id-52)
-- [53 - Activer "Rechercher avec Perplexity"](#id-53)
-- [54 - Alléger le clic droit avec userChrome](#id-54)
-- [55 - Mettre profil Firefox en RAM avec psd](#id-55)
-- [56 - "Nettoyer" Firefox](#id-56)
-
-### 🌐 G - Réglages du navigateur Vivaldi
+### 🌐 E - Réglages du navigateur Vivaldi
 - [57 - Réglages internes Vivaldi](#id-57)
 - [58 - Changer thème Vivaldi](#id-58)
 - [59 - Extensions Vivaldi](#id-59)
@@ -100,25 +86,16 @@ Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
 
 
 
----
-
-# 💾 A - Installation
-
-<a id="id-1"></a>
-## 1 - Désactiver Secure Boot dans le BIOS
-Même si cachyOS est en mesure de signer les noyaux.
 
 
-<a id="id-2"></a>
-## 2 - Désactiver caméra et lecteur de carte
-Et penser à fermer le volet coulissant de la webcam
 
 
-<a id="id-3"></a>
-## 3 - Utiliser systemd-boot
-puis décocher les paquets inutiles (Attention : la plupart s'installeront quand même), et EXT4
-Si trop de bugs lors des mises à jour ou lors des reboots : revenir à BTRFS+Limine+snapshots
 
+----------------------------------------------------------------------------------------------
+
+# ✨ A - Allégement du système
+
+!! Installer TOUT DE SUITE le fichier config.fish de FISH pour faciliter les opérations (sudoedit etc...). Sourcer fish avec `source ~/.config/fish/config.fish`
 
 <a id="id-4"></a>
 ## 4 - Supprimer entrées NVRAM inutiles
@@ -126,30 +103,13 @@ Si trop de bugs lors des mises à jour ou lors des reboots : revenir à BTRFS+Li
 sudo efibootmgr -v
 
 ```
-Puis lister les entrées inutiles et redondnates et les supprimer avec :
+Puis lister les entrées inutiles et redondantes et les supprimer avec :
 ```
 sudo efibootmgr -b 0000 -B
 sudo efibootmgr -b 0001 -B
 sudo efibootmgr -b 0002 -B
 etc
 ```
-
-<a id="id-5"></a>
-## 5 - Faire un ghost du système avec Rescuezilla
-Puis en refaire un une fois les étapes du Github terminées. Après le premeir ghost, mettrez à jour y compris avec fwupd :
-```
-sudo fwupdmgr get-devices
-sudo fwupdmgr refresh --force
-sudo fwupdmgr get-updates
-sudo fwupdmgr update
-```
-
-Installer TOUT DE SUITE le fichier config.fish de FISH pour faciliter le sopérations (sudoedit etc...). Sourcer fish avec `source ~/.config/fish/config.fish`
-
-
-----------------------------------------------------------------------------------------------
-
-# ✨ B - Allégement du système
 
 <a id="id-6"></a>
 ## 6 - Réglages CachyOS-Hello
@@ -553,7 +513,7 @@ Puis modifier à 600 la durée avant mise en veille.
 
 ----------------------------------------------------------------------------------------------
 
-# 🚀 C - Optimisation du système
+# 🚀 B - Optimisation du système
 
 <a id="id-16"></a>
 ## 16 - Activer scheduler ADIOS
@@ -1052,7 +1012,7 @@ Si ok alors sudo pacman -Rdd wpa_supplicant
  
 ----------------------------------------------------------------------------------------------
 
-# 📦 D - Remplacement et installation de logiciels et codecs
+# 📦 C - Remplacement et installation de logiciels et codecs
 
 <a id="id-27"></a>
 ## 27 - Installer logiciels avec pacman, paru puis PacHub
@@ -1111,7 +1071,7 @@ Penser à installer sudo pacman -S libappindicator-gtk3
 
 ----------------------------------------------------------------------------------------------
 
-# 🐾 E - Réglages de l'UI Gnome Shell
+# 🐾 D - Réglages de l'UI Gnome Shell
 
 <a id="id-29"></a>
 ## 29 - Suspension en fermant le capot
@@ -1291,55 +1251,6 @@ Ajouter Ptyxis aux terminaux par défaut pour les outils CachyOS :
 https://www.reddit.com/r/cachyos/comments/1rry7qh/guide_add_your_terminal_to_cachyos_tools_like/
 
 
-<a id="id-37"></a>
-## 37 - Activer numpad Asus
-Activer le [numpad Asus](https://github.com/asus-linux-drivers/asus-numberpad-driver), disable le service --user, puis créer un toggle button et importer le fichier de configuration hosté dans le répertoire github Fichiers de configuration.
-Sinon, lui passer l'icone `accessories-calculator-symbolic` et les commandes suivantes :
-```
-systemctl enable --user asus_numberpad_driver@ogu.service && systemctl start --user asus_numberpad_driver@ogu.service &&  notify-send "Numpad activé"
-systemctl stop --user asus_numberpad_driver@ogu.service && systemctl disable --user asus_numberpad_driver@ogu.service &&  notify-send "Numpad désactivé"
-```
-Note : si le script d'installationé choue, réparer comme suit :
-```
-# 1️⃣ Installer la dépendance manquante pour envsubst
-sudo pacman -S gettext
-
-# 2️⃣ Supprimer les services masqués résiduels
-rm -f ~/.config/systemd/user/asus_numberpad_driver@*.service
-rm -f /etc/systemd/user/asus_numberpad_driver@*.service
-sudo rm -f /usr/lib/systemd/user/asus_numberpad_driver@.service
-
-# Recharger systemd utilisateur
-systemctl --user daemon-reload
-systemctl --user daemon-reexec
-
-# 3️⃣ Corriger les permissions sur uinput (temporaire immédiat)
-sudo chmod 666 /dev/uinput
-
-# 3️⃣b Solution persistante pour uinput
-echo 'KERNEL=="uinput", MODE="0666"' | sudo tee /etc/udev/rules.d/99-uinput.rules
-sudo udevadm control --reload
-sudo udevadm trigger
-
-# 4️⃣ Ajouter l’utilisateur aux groupes nécessaires
-sudo usermod -aG input $USER
-sudo usermod -aG i2c $USER
-
-# Après ça, se déconnecter et se reconnecter pour appliquer les groupes
-
-# 5️⃣ Tester manuellement le driver
-/usr/share/asus-numberpad-driver/.env/bin/python3 /usr/share/asus-numberpad-driver/numberpad.py up5401ea /usr/share/asus-numberpad-driver/
-
-# Si des modules Python manquent, les installer
-cd /usr/share/asus-numberpad-driver/
-./.env/bin/pip install -r requirements.txt
-
-# 6️⃣ Lancer et activer le service systemd utilisateur
-systemctl --user daemon-reload
-systemctl --user start asus_numberpad_driver@ogu.service
-systemctl --user enable asus_numberpad_driver@ogu.service
-systemctl --user status asus_numberpad_driver@ogu.service
-```
 
 <a id="id-38"></a>
 ## 38 - Configurer fish, gnome-text-editor
@@ -1517,6 +1428,141 @@ Décommentez et modifiez la ligne : `TrayIconStyle=light` + 1 sauvegarde et non 
 
 ----------------------------------------------------------------------------------------------
 
+### 🌐 E - Réglages du navigateur Vivaldi
+
+<a id="id-57"></a>
+## 57 - Réglages internes Vivaldi
+Editer le raccourci de lancement pour optimiser la gestion des processus RAM et du cache :
+```
+--process-per-site --disk-cache-dir=/run/user/1000/vivaldi-cache
+```
+
+Puis dans `vivaldi://flags`, passer en **enable* :
+```
+Smooth Scrolling
+Experimental QUIC 
+GPU rasterization
+Zero-copy rasterizer
+Parallel downloading
+http-cache-custom-backend
+memory-purge-on-freeze-limit
+Split View
+
+```
+Et en **disable** :
+```
+Touch UI Layout
+```
+Régler les settings cachés : vivaldi:settings/system, en aprticulier le préfetch, et décocher les option prefetch disable dans ublock et localcdn. 
+Enfin supprimer l'autoplay Youtube avec :  Menu Vivaldi → Settings → Privacy → Website permissions → Autoplay → Block
+
+## 58 - Changer thème Vivaldi
+
+Appliquer le thème custom à télécharger dans le dépôt.
+Ativez d'abord les modifications CSS expérimentales: allez sur vivaldi://experiments/, cochez « Allow for using CSS modifications » (Autoriser les modifications CSS), puis redémarrez Vivaldi. 
+Dans Paramètres > Apparence > Modifications UI personnalisées, sélectionnez un dossier pour vos fichiers CSS (créez-en un si nécessaire). 
+
+## 59 - Panneau latéral Vivaldi](#id-52)
+
+Ajouter Perplexity et [WhatsApp(https://www.reddit.com/r/vivaldibrowser/comments/1m93s3b/does_anyone_know_how_to_open_whatsapp_as_webpanel/) : https://web.whatsapp.com/
+
++ Raindrop, Discord, Gmail + traduction, commande rapide extension, sessions
+
+
+
+
+
+<a id="id-59"></a>
+## 60 - Extensions Vivaldi
+[Better Scroll To Bottom](https://chromewebstore.google.com/detail/better-scroll-to-topbotto/ifdjdmipgndncbeopapghbohjdiieibl?hl=es)
+[Video Download Helper](https://chromewebstore.google.com/detail/video-downloadhelper/lmjnegcaeklhafolokijcfjliaokphfk) et reglages mkv + dossier telechargements VDH pour correspondre au script `transfert`
+[Copy URL](https://chromewebstore.google.com/detail/copy-url/ccnghlbhjgabibnajlaklhpikmcannph)
+[LocalCDN](https://chromewebstore.google.com/detail/localcdn/njdfdhgcmkocbgbhcioffdbicglldapd)
+[Rehistroria Auto Delete](https://chromewebstore.google.com/detail/rehistoria-auto-delete-hi/dheibmdojjjhiahbdmcnmbepnaiilloe)
+[ublock Origin](https://chromewebstore.google.com/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm)
+[Raindrop](https://chromewebstore.google.com/detail/raindropio/ldgfbffkinooeloadekpmfoklnobpien?pli=1)
+[Stylus](https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne?hl=fr) pour la couleur de surlignage et insérer:
+```
+::selection {
+    color: white !important;
+    background-color: #3584e4 !important;
+}
+```
+Passer `gio mime x-scheme-handler/magnet de.haeckerfelix.Fragments.desktop` pour que le clic sur un magnet ouvre l'interface Fragments.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Ancienne configuration - 
+
+
+<a id="id-37"></a>
+## 37 - Activer numpad Asus
+Activer le [numpad Asus](https://github.com/asus-linux-drivers/asus-numberpad-driver), disable le service --user, puis créer un toggle button et importer le fichier de configuration hosté dans le répertoire github Fichiers de configuration.
+Sinon, lui passer l'icone `accessories-calculator-symbolic` et les commandes suivantes :
+```
+systemctl enable --user asus_numberpad_driver@ogu.service && systemctl start --user asus_numberpad_driver@ogu.service &&  notify-send "Numpad activé"
+systemctl stop --user asus_numberpad_driver@ogu.service && systemctl disable --user asus_numberpad_driver@ogu.service &&  notify-send "Numpad désactivé"
+```
+Note : si le script d'installationé choue, réparer comme suit :
+```
+# 1️⃣ Installer la dépendance manquante pour envsubst
+sudo pacman -S gettext
+
+# 2️⃣ Supprimer les services masqués résiduels
+rm -f ~/.config/systemd/user/asus_numberpad_driver@*.service
+rm -f /etc/systemd/user/asus_numberpad_driver@*.service
+sudo rm -f /usr/lib/systemd/user/asus_numberpad_driver@.service
+
+# Recharger systemd utilisateur
+systemctl --user daemon-reload
+systemctl --user daemon-reexec
+
+# 3️⃣ Corriger les permissions sur uinput (temporaire immédiat)
+sudo chmod 666 /dev/uinput
+
+# 3️⃣b Solution persistante pour uinput
+echo 'KERNEL=="uinput", MODE="0666"' | sudo tee /etc/udev/rules.d/99-uinput.rules
+sudo udevadm control --reload
+sudo udevadm trigger
+
+# 4️⃣ Ajouter l’utilisateur aux groupes nécessaires
+sudo usermod -aG input $USER
+sudo usermod -aG i2c $USER
+
+# Après ça, se déconnecter et se reconnecter pour appliquer les groupes
+
+# 5️⃣ Tester manuellement le driver
+/usr/share/asus-numberpad-driver/.env/bin/python3 /usr/share/asus-numberpad-driver/numberpad.py up5401ea /usr/share/asus-numberpad-driver/
+
+# Si des modules Python manquent, les installer
+cd /usr/share/asus-numberpad-driver/
+./.env/bin/pip install -r requirements.txt
+
+# 6️⃣ Lancer et activer le service systemd utilisateur
+systemctl --user daemon-reload
+systemctl --user start asus_numberpad_driver@ogu.service
+systemctl --user enable asus_numberpad_driver@ogu.service
+systemctl --user status asus_numberpad_driver@ogu.service
+```
+
+
+
+
+
+
 # 🌐 F - Réglages du navigateur Firefox
 
 <a id="id-49"></a>
@@ -1633,67 +1679,3 @@ du -sh /run/user/1000/psd/nom du profil/
 <a id="id-56"></a>
 ## 56 - "Nettoyer" Firefox
 Terminer en allant dans `about:support` pour vérifier les database, vider le cache de démarrage, puis lancer `profile-cleaner f`
-
-### 🌐 G - Réglages du navigateur Vivaldi
-
-<a id="id-57"></a>
-## 57 - Réglages internes Vivaldi
-Editer le raccourci de lancement pour optimiser la gestion des processus RAM et du cache :
-```
---process-per-site --disk-cache-dir=/run/user/1000/vivaldi-cache
-```
-
-Puis dans `vivaldi://flags`, passer en **enable* :
-```
-Smooth Scrolling
-Experimental QUIC 
-GPU rasterization
-Zero-copy rasterizer
-Parallel downloading
-http-cache-custom-backend
-memory-purge-on-freeze-limit
-Split View
-
-```
-Et en **disable** :
-```
-Touch UI Layout
-```
-Régler les settings cachés : vivaldi:settings/system, en aprticulier le préfetch, et décocher les option prefetch disable dans ublock et localcdn. 
-Enfin supprimer l'autoplay Youtube avec :  Menu Vivaldi → Settings → Privacy → Website permissions → Autoplay → Block
-
-## 58 - Changer thème Vivaldi
-
-Appliquer le thème custom à télécharger dans le dépôt.
-Ativez d'abord les modifications CSS expérimentales: allez sur vivaldi://experiments/, cochez « Allow for using CSS modifications » (Autoriser les modifications CSS), puis redémarrez Vivaldi. 
-Dans Paramètres > Apparence > Modifications UI personnalisées, sélectionnez un dossier pour vos fichiers CSS (créez-en un si nécessaire). 
-
-## 59 - Panneau latéral Vivaldi](#id-52)
-
-Ajouter Perplexity et [WhatsApp(https://www.reddit.com/r/vivaldibrowser/comments/1m93s3b/does_anyone_know_how_to_open_whatsapp_as_webpanel/) : https://web.whatsapp.com/
-
-+ Raindrop, Discord, Gmail + traduction, commande rapide extension, sessions
-
-
-
-
-
-<a id="id-59"></a>
-## 60 - Extensions Vivaldi
-[Better Scroll To Bottom](https://chromewebstore.google.com/detail/better-scroll-to-topbotto/ifdjdmipgndncbeopapghbohjdiieibl?hl=es)
-[Video Download Helper](https://chromewebstore.google.com/detail/video-downloadhelper/lmjnegcaeklhafolokijcfjliaokphfk) et reglages mkv + dossier telechargements VDH pour correspondre au script `transfert`
-[Copy URL](https://chromewebstore.google.com/detail/copy-url/ccnghlbhjgabibnajlaklhpikmcannph)
-[LocalCDN](https://chromewebstore.google.com/detail/localcdn/njdfdhgcmkocbgbhcioffdbicglldapd)
-[Rehistroria Auto Delete](https://chromewebstore.google.com/detail/rehistoria-auto-delete-hi/dheibmdojjjhiahbdmcnmbepnaiilloe)
-[ublock Origin](https://chromewebstore.google.com/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm)
-[Raindrop](https://chromewebstore.google.com/detail/raindropio/ldgfbffkinooeloadekpmfoklnobpien?pli=1)
-[Stylus](https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne?hl=fr) pour la couleur de surlignage et insérer:
-```
-::selection {
-    color: white !important;
-    background-color: #3584e4 !important;
-}
-```
-Passer `gio mime x-scheme-handler/magnet de.haeckerfelix.Fragments.desktop` pour que le clic sur un magnet ouvre l'interface Fragments.
-
-
