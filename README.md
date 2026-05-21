@@ -157,12 +157,160 @@ Faire les réglages proposés par `CachyOS-Hello` : désactiver le bluetooth, ac
 
 <a id="id-7"></a>
 ## 7 - Supprimer logiciels inutiles avec pacman
-```
-sudo pacman -Rns plocate nano apache  speech-dispatcher gnome-remote-desktop gnome-backgrounds gnome-user-share yelp brltty  gnome-weather rygel totem  gnome-user-docs  baobab  f2fs-tools mod_dnssd gnome-user-share orca gnome-user-docs yelp sane colord-sane gvfs-dnssd gvfs-smb mod_dnssd  gnome-user-share rygel nss-mdns gnome-backgrounds gnome-usage octopi gedit xfsprogs cpupower gnome-screenshot openvpn networkmanager-openvpn networkmanager-vpn-plugin-openvpn bpftune-git kguiaddons kcolorscheme kwallet noto-fonts-cjk noto-fonts-extra ttf-meslo-nerd  cantarell-fonts f2fs-tools xfsprogs ninja tesseract tesseract-data-fra tesseract-data-osd autoconf base-devel flatpak malcontent sushi rust mesa-utils gvfs-afc netctl linux-cachyos-headers linux-cachyos-lts-headers hwinfo lld llvm pahole opencl-mesa lib32-opencl-mesa gvfs-gphoto2 gvfs-nfs nfs-utils gvfs-smb lib32-vulkan-radeon lib32-mesa
+
+# Accessibilité et aide
+
+- `speech-dispatcher` : synthèse vocale.
+- `brltty` : support des afficheurs braille.
+- `orca` : lecteur d’écran GNOME.
+- `yelp` : visionneuse d’aide GNOME.
+- `gnome-user-docs` : documentation utilisateur GNOME.
 
 ```
+sudo pacman -Rns speech-dispatcher brltty orca yelp gnome-user-docs
 ```
+
+# GNOME optionnel
+
+- `gnome-remote-desktop` : partage et contrôle du bureau à distance.
+- `gnome-backgrounds` : fonds d’écran GNOME.
+- `gnome-weather` : application météo.
+- `totem` : lecteur vidéo GNOME.
+- `baobab` : analyseur d’espace disque.
+- `gnome-usage` : vue d’usage CPU, RAM et disque.
+- `gedit` : éditeur de texte GNOME.
+- `gnome-screenshot` : captures d’écran.
+- `sushi` : prévisualisation rapide dans Nautilus.
+
+```
+sudo pacman -Rns gnome-remote-desktop gnome-backgrounds gnome-weather totem baobab gnome-usage gedit gnome-screenshot sushi
+```
+
+# Partage réseau, découverte, montage périphériques
+
+- `apache` : serveur web HTTP.
+- `mod_dnssd` : annonce Apache via DNS-SD/Zeroconf.
+- `gnome-user-share` : partage de fichiers et médias dans GNOME.
+- `rygel` : serveur DLNA/UPnP.
+- `gvfs-dnssd` : découverte réseau GNOME.
+- `gvfs-smb` : accès aux partages Windows/NAS dans Nautilus.
+- `nss-mdns` : résolution des noms `.local`.
+- `gvfs-afc` : accès iPhone/iPad dans Nautilus.
+- `gvfs-gphoto2` : accès aux appareils photo/PTP.
+- `netctl` : alternative à NetworkManager.
+- `nfs-utils` : outils et services NFS, pour monter un dossier distant comme un dossier local sur un réseau Linux/Unix.
+- `gvfs-nfs` : accès NFS via Nautilus et GNOME.
+- `gvfs-smb` : accès aux partages SMB dans Nautilus.
+- `cifs-utils` : outils de montage SMB/CIFS côté système.
+
+```
+sudo pacman -Rns apache mod_dnssd gnome-user-share rygel gvfs-dnssd gvfs-smb nss-mdns gvfs-afc gvfs-gphoto2 netctl nfs-utils gvfs-nfs gvfs-smb
+```
+
+## VPN
+
+- `openvpn` : client/protocole VPN OpenVPN.
+- `networkmanager-openvpn` : intégration OpenVPN dans NetworkManager.
+- `networkmanager-vpn-plugin-openvpn` : plugin OpenVPN pour NetworkManager.
+
+```
+sudo pacman -Rns openvpn networkmanager-openvpn networkmanager-vpn-plugin-openvpn
+```
+
+# Systèmes de fichiers et scanners
+
+- `f2fs-tools` : outils pour partitions F2FS.
+- `xfsprogs` : outils pour partitions XFS.
+- `btrfs-progs` : outils pour Btrfs.
+- `sane` : support des scanners.
+- `colord-sane` : lien entre scanners et gestion couleur.
+- `hwinfo` : inventaire matériel.
+
+```
+sudo pacman -Rns f2fs-tools xfsprogs sane colord-sane hwinfo
+```
+
+## Polices
+
+- `noto-fonts-cjk` : polices chinois, japonais, coréen.
+- `noto-fonts-extra` : variantes supplémentaires Noto.
+- `ttf-meslo-nerd` : police Nerd Font.
+- `cantarell-fonts` : police d’interface GNOME.
+
+```
+sudo pacman -Rns noto-fonts-cjk noto-fonts-extra ttf-meslo-nerd
+```
++ ```
 sudo pacman -rdd fastfetch
+```
+
+
+# Développement et compilation
+
+- `ninja` : outil de build.
+- `tesseract` : OCR.
+- `tesseract-data-fra` : données OCR français.
+- `tesseract-data-osd` : détection orientation/script.
+- `autoconf` : génération de scripts de configuration.
+- `base-devel` : groupe d’outils de compilation Arch.
+- `rust` : toolchain Rust.
+- `lld` : linker LLVM.
+- `llvm` : infrastructure de compilation LLVM.
+- `pahole` : outil lié au debug/types noyau.
+- `linux-cachyos-headers` : headers noyau pour modules externes.
+- `linux-cachyos-lts-headers` : headers noyau LTS pour modules externes.
+- `mesa-utils` : outils de test OpenGL/EGL.
+
+```
+sudo pacman -Rns ninja tesseract tesseract-data-fra tesseract-data-osd autoconf base-devel rust lld llvm pahole linux-cachyos-headers linux-cachyos-lts-headers mesa-utils
+```
+
+# Flatpak et contrôle parental
+
+- `flatpak` : gestion d’applications Flatpak.
+- `malcontent` : contrôle parental et restrictions d’usage.
+
+```
+sudo pacman -Rns flatpak malcontent
+```
+
+# Performances, tuning et divers
+
+- `cpupower` : réglages d’énergie et fréquence CPU.
+- `bpftune-git` : tuning via eBPF.
+- `kguiaddons` : composants KDE/Qt.
+- `kcolorscheme` : gestion des schémas de couleurs KDE/Qt.
+- `kwallet` : gestionnaire de secrets KDE.
+- `octopi` : frontend graphique pacman.
+- `nano` : éditeur terminal simple.
+- `plocate` : moteur de `locate`.
+
+```
+sudo pacman -Rns cpupower bpftune-git kguiaddons kcolorscheme kwallet octopi nano plocate
+```
+
+# OpenCL et bibliothèques 32 bits
+
+- `opencl-mesa` : pile OpenCL Mesa, utile pour le calcul GPU/OpenCL, pas pour un usage desktop classique.
+- `lib32-opencl-mesa` : version 32 bits d’OpenCL Mesa.
+- `lib32-vulkan-radeon` : pile Vulkan Radeon 32 bits, utile surtout pour applis et jeux 32 bits.
+- `lib32-mesa` : pile graphique Mesa 32 bits, utile surtout pour applis et jeux 32 bits.
+
+```
+sudo pacman -Rns opencl-mesa lib32-opencl-mesa lib32-vulkan-radeon lib32-mesa
+```
+
+
+# Orphelins : recherche puis suppression
+
+### Recherche
+```
+pacman -Qdtq
+```
+
+### Suppression
+```
+sudo pacman -Rns $(pacman -Qdtq)
 ```
 
 
