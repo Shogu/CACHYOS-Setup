@@ -1,0 +1,39 @@
+/* Supprime bouton Maximize inconsistant */
+button.window-maximize {
+  display: none !important;
+}
+
+
+/* Adwaita font */
+#browser.linux {
+  font-family: sans-serif, system-ui;
+}
+
+
+/* Niveau parents - padding pour seconde barre */
+#tabs-container {
+  padding-bottom: 34px !important;  /* +4px espace subcontainer */
+}
+
+#tabs-subcontainer {
+  height: 32px !important;
+  margin-top: -2px !important;  /* Positionne dans padding */
+  transform: translateY(0px) !important;
+  position: relative !important;
+}
+
+/* Niveau 2 enfants : 32px (recouvre ligne) */
+.tab-position.is-substack .tab,
+#tabs-subcontainer .tab-position .tab,
+.stacks-on .tab-position:nth-child(2) .tab {
+  height: 32px !important;
+}
+
+
+/* Suppression bouton marque-page de la barre URL */
+.BookmarkButton,
+.url-bar-button.bookmark-button,
+.button.bookmark-button {
+  display: none !important;
+}
+
