@@ -579,7 +579,14 @@ If you have a snapshot in the Limine boot menu and want to restore it, it is rec
 
 Or if you accidentally restore a snapshot using Btrfs-assistant, you might end up in an emergency shell due to a kernel mismatch. However, you can still boot another working snapshot from the Limine menu and then restore the correct one using limine-snapper-restore
 
-Ajouter le paquet de dépendance optionnelle `paru journalctl-desktop-notification` et l'activer avec systemctl --user enable --now journalctl-desktop-notification.service
+Ajouter le paquet de dépendance optionnelle `paru btrfs-desktop-notification` (installation en autostart XDG en system dans /etc/xdg/autostart). Régler son .conf avec `sudoedit /etc/btrfs-desktop-notification.conf` et modifier :
+```
+TERMINAL="ptyxis"
+TERMINAL_ARG="--standalone"
+LOG_LEVEL=3
+```
+
+!!En cas de non-notification au rebbot sur un snapshot, lancer l'utilitaire avec `limine-snapper-restore --notify`
 
 
 <a id="id-19"></a>
