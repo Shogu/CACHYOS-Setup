@@ -569,7 +569,15 @@ timeout 1
 ```
 Limine : `sudoedit /boot/limine.conf` et ajouter `quiet: yes` et passer timeout à 1. Utiliser les flêches pour faire apparaitre le menu au boot.
 
-And change the parameter MAX_SNAPSHOT_ENTRIES= to 20 in the file /etc/limine-snapper-sync.conf. Afterwards, I ran limine-snapper-sync to apply the changes. Same on BTRFS-ASSISTANT, set up systemd services and timeline, then remove.
+And change the parameter MAX_SNAPSHOT_ENTRIES= to 20 in the file /etc/limine-snapper-sync.conf. Afterwards, I ran limine-snapper-sync to apply the changes. Same on BTRFS-ASSISTANT, set up systemd services and timeline, then remove because restoring snapshots via btrfs assist is not recommended for limine only for grub.
+
+In general, yes
+Limine and systemd-boot expect kernel versions to be stored on the fat32 boot partition outside Btrfs.
+Btrfs-assistant does not restore the kernel there.
+
+If you have a snapshot in the Limine boot menu and want to restore it, it is recommended to use limine-snapper-restore.
+
+Or if you accidentally restore a snapshot using Btrfs-assistant, you might end up in an emergency shell due to a kernel mismatch. However, you can still boot another working snapshot from the Limine menu and then restore the correct one using limine-snapper-restore
 
 <a id="id-19"></a>
 ## 19 - Tweaker les partitions EXT4
