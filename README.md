@@ -584,6 +584,7 @@ Ajouter le paquet de dépendance optionnelle `paru btrfs-desktop-notification` (
 TERMINAL="ptyxis"
 TERMINAL_ARG="--standalone"
 LOG_LEVEL=3
+TITLE="Alertes Btrfs : surveiller journal & dmesg"
 ```
 
 !!En cas de non-notification au rebbot sur un snapshot, lancer l'utilitaire avec `limine-snapper-restore --notify`
