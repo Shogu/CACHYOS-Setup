@@ -569,6 +569,8 @@ timeout 1
 ```
 Limine : `sudoedit /boot/limine.conf` et ajouter `quiet: yes` et passer timeout à 1. Utiliser les flêches pour faire apparaitre le menu au boot.
 
+And change the parameter MAX_SNAPSHOT_ENTRIES= to 20 in the file /etc/limine-snapper-sync.conf. Afterwards, I ran limine-snapper-sync to apply the changes. Same on BTRFS-ASSISTANT, set up systemd services and timeline, then remove.
+
 <a id="id-19"></a>
 ## 19 - Tweaker les partitions EXT4
 Editer le mount des `partitions EXT4` avec la commande :
