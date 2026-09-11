@@ -1,6 +1,5 @@
-# NEW UP-TO-DATE REPO (mirror from Gitlab one) :
+# NEW [UP-TO-DATE REPO](https://github.com/Shogu/Cachyos-Setup-Mirror.git) (mirror from Gitlab one) :
 
-[MIRROR](https://github.com/Shogu/Cachyos-Setup-Mirror.git)
 
 
 
