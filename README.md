@@ -1,4 +1,31 @@
+# NEW UP-TO-DATE REPO (mirror from Gitlab one) :
 
+[MIRROR](https://github.com/Shogu/Cachyos-Setup-Mirror.git)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img width="2880" height="1730" alt="image" src="https://github.com/user-attachments/assets/c60d7078-d43a-4c93-b485-dfc7ffb77384" />NEW REPO 
 # CACHYOS-Setup
 
 Setup, tips & tweaks pour CachyOS sur ZENBOOK 14 OLED KA
